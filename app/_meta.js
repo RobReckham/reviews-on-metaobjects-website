@@ -12,6 +12,7 @@ export default {
       sidebar: false,
       breadcrumb: false,
       pagination: false,
+      timestamp: false,
     },
   },
   "privacy-policy": {
@@ -21,6 +22,7 @@ export default {
       sidebar: false,
       breadcrumb: false,
       pagination: false,
+      timestamp: false,
     },
   },
 };
