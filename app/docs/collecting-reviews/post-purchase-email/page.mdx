@@ -1,0 +1,46 @@
+---
+title: Post purchase email
+description: Automatically request reviews by email after an order.
+---
+
+# Post purchase email
+
+Use post-purchase emails to invite customers to leave a review after they receive their order.
+
+## Typical flow
+
+1. Customer places an order.
+2. The app schedules a review request email based on your delay settings.
+3. Customer opens the review link in the email.
+4. Customer submits the review on your hosted review form page.
+5. Review is stored with request context and can be treated as verified-style feedback.
+
+## Why use it
+
+- Higher review collection rate than relying on product-page forms only
+- Better timing control (for example days after purchase)
+- Stronger trust signals through request-based context
+
+## What to configure
+
+- Enable review collection by email in app settings
+- Set the send delay after purchase
+- Customize subject and body templates
+- Keep review link placeholders intact in email templates
+
+## Best practices
+
+- Send after delivery window, not immediately after purchase.
+- Keep the email short with one clear call to action.
+- Test the full flow with a real order before launching broadly.
+- Pair with storefront widgets so new reviews are visible quickly.
+
+## Quick links
+
+<a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}/settings`} target="_blank" rel="noopener">Open app settings</a>  
+
+## Troubleshooting
+
+- If emails are not sent, verify email collection is enabled and delay settings are valid.
+- If customers land on invalid request pages, confirm template links keep required placeholders.
+- If reviews are unverified, test with a fresh order and link generated from a new request.

@@ -1,0 +1,38 @@
+---
+title: Troubleshooting
+description: Common issues and fixes.
+---
+
+# Troubleshooting
+
+## Changes not visible after setup
+
+- Save changes in both app settings and Theme Editor.
+- Refresh preview and storefront with a hard reload.
+- Wait for background sync/import jobs to complete before retesting.
+
+## Environment mismatch issues
+
+- Confirm you are editing and previewing the same theme.
+- Confirm the same shop/store is used across all setup steps.
+- Re-check app proxy/domain context if links route unexpectedly.
+
+## Data consistency issues
+
+- Keep one identifier strategy per source.
+- Avoid mixed date, locale, and formatting conventions in imported data.
+- Use small test batches before large migrations.
+
+## Access and permission issues
+
+- Verify app installation is healthy and permissions are up to date.
+- Reinstall/reconnect integration sources when authentication expires.
+- Check admin-level restrictions that can block settings or theme writes.
+
+## Fast triage checklist
+
+1. Confirm route and environment are correct.
+2. Confirm latest changes were saved.
+3. Run one fresh sync/import from <a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}`} target="_blank" rel="noopener">the app dashboard</a>.
+4. Test with a minimal known-good sample.
+5. Then use the page-specific troubleshooting section for that widget/integration.

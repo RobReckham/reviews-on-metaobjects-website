@@ -1,0 +1,63 @@
+---
+title: Customising widgets
+description: How structure and custom CSS settings control widget output.
+---
+
+# Customising widgets
+
+Most widgets are designed to be highly flexible without requiring theme-code edits.  
+You can control output using:
+
+- `structure` (HTML template with placeholders)
+- `custom_css` (widget-scoped CSS)
+- in form widgets, `form_item_structure` for each review item row
+
+## How structure works
+
+Each widget builds small HTML fragments in Liquid (for example rating stars, title, body, author), then injects those fragments into your structure template by replacing placeholder tokens.
+
+Typical placeholders include:
+
+- Rating widgets: `{stars}`, `{star}`, `{rating}`, `{max}`, `{count}`, `{count_text}`
+- Review list widgets: `{heading}`, `{reviews}`, plus review-item placeholders such as `{title}`, `{body}`, `{author}`, `{date}`, `{status}`, `{reply}`
+- Form widgets: `{heading}`, `{items}`, `{author_field}`, `{message}`, `{submit}`
+- Form item template: `{item_name}`, `{item_image}`, `{rating_field}`, `{title_field}`, `{body_field}`
+
+This gives you control over markup order and layout while the app still handles data loading, submission, and platform logic.
+
+## How custom_css works
+
+Each widget renders its own wrapper with a unique ID (based on block ID), then injects `custom_css` inside that wrapper's style block.
+
+In practice, this means:
+
+- styles are scoped to that widget instance
+- you can style internal classes without affecting the whole theme
+- multiple instances can use different styling safely
+
+## Why this approach is useful
+
+- **Flexibility:** You can match almost any theme style.
+- **Comfort:** Store owners still configure everything from Theme Editor settings.
+- **Safety:** App logic (sync, rating math, submit flow, verification context) stays intact.
+- **Maintainability:** You can adjust presentation without touching backend or sync logic.
+
+## Recommended workflow
+
+1. Start from default structure.
+2. Change one placeholder block at a time.
+3. Add minimal CSS and test on real storefront pages.
+4. Keep semantic markup (headings, labels, readable order).
+5. Save a working baseline before major design changes.
+
+## Practical tips
+
+- Keep required placeholders in forms (`{items}`, `{submit}`, message region) so submission UX stays complete.
+- For rating widgets, keep value/count placeholders visible unless your UX intentionally hides them.
+- If a widget stops rendering, revert to default structure first, then re-apply customizations incrementally.
+
+## Troubleshooting
+
+- If content is missing, check for typos in placeholder names.
+- If style is not applied, verify CSS selectors target classes actually rendered by the chosen structure.
+- If layout breaks after edits, paste back the default structure and rebuild in smaller steps.

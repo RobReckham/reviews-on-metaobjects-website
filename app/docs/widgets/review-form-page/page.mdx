@@ -1,0 +1,69 @@
+---
+title: Review Form Page
+description: Configure the hosted review request page at the app proxy route.
+---
+
+# Review Form Page
+
+Controls the dedicated hosted page used for post-purchase review requests.
+
+## When to use
+
+Use this when you want to automatically email customers after an order and collect trusted, context-aware reviews.
+
+## Main use case: automated post-purchase requests
+
+Typical flow:
+
+1. An order is created.
+2. The app schedules/sends a review request email based on your email settings.
+3. The email contains a unique review link to your hosted review form page.
+4. The customer opens the link, submits a review, and the app stores it with request context.
+5. The review can be marked as verified-buyer style when request identity is valid.
+
+## Email link behavior
+
+Review request emails include a dedicated link to:
+
+- `/apps/reviews-on-metaobjects/review`
+- with a unique `identifier` query parameter
+
+That identifier ties the submission back to the original request/order context.
+
+## Why this matters for verification
+
+When a submission comes from a valid request link:
+
+- the app can resolve order/customer context
+- trust signals are stronger than anonymous submissions
+- review quality and anti-spam confidence are improved
+
+Without valid request context, the app can still accept storefront reviews, but they are treated as regular direct submissions.
+
+## Automation settings to configure in app
+
+In app settings, configure:
+
+- whether email-based review collection is enabled
+- send delay after purchase
+- email subject/body templates
+- placeholder usage in templates (for example first name and review link variables)
+- where needed, update values directly in <a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}/settings`} target="_blank" rel="noopener">app settings</a>.
+
+## Key implementation notes
+
+- Keep the app embed enabled for this page so the form renders on the review URL.
+- Do not remove or rewrite the `identifier` parameter in email links.
+- If customers report invalid review links, regenerate/sync request flow and test a fresh order cycle.
+
+## What you can customize on this page
+
+- Form labels and messaging
+- Page layout and structure
+- Visual styling to match your theme
+
+## Troubleshooting
+
+- If the page is blank, confirm the embed is enabled and the app proxy route is reachable.
+- If requests are not treated as verified-style submissions, check that email links keep a valid `identifier`.
+- If customers report broken links, trigger a fresh request cycle and retest with a new order.

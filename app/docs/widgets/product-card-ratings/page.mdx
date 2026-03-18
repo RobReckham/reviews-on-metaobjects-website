@@ -1,0 +1,64 @@
+---
+title: Product Card Ratings
+description: Display star ratings on collection and grid product cards.
+---
+
+# Product Card Ratings
+
+Shows compact rating summaries on product cards (for example in collection grids).
+
+## When to use
+
+Use this widget to improve product discovery and help shoppers compare items faster.
+
+## Required setup
+
+This widget requires **both**:
+
+1. The Product Card Ratings app embed enabled in Theme Editor.
+2. A small snippet in your product card template so the embed knows where to inject rating markup.
+
+Without the snippet, nothing will render on cards.
+
+## Snippet to add in product cards
+
+Add this inside your product-card loop where `card_product` is available:
+
+```liquid
+<script class="romo-product-card-rating-{{ card_product.id }}">document.dispatchEvent(new CustomEvent("romo:product-card-rating-mounted", { detail: { product_id: {{ card_product.id | json }}, rating_value: {{ card_product.metafields.reviews.rating.value.rating | json }}, rating_count: {{ card_product.metafields.reviews.rating_count.value | json }}}}));</script>
+```
+
+## Where to place the snippet
+
+- Place it near the product title/price area in card markup.
+- Keep it inside the loop for each product card.
+- If your theme has multiple card variants, add it to each relevant template/snippet.
+- Use `card_product` (or equivalent product object used by that card).
+
+## Verify your integration
+
+1. Enable the app embed and save theme changes.
+2. Open a collection page with products that have reviews.
+3. Confirm rating appears on cards.
+4. If not visible:
+   - check snippet exists in the rendered card HTML,
+   - verify class contains the real product ID,
+   - confirm review metafields exist for those products.
+
+## What you can customize
+
+- Star and text styling
+- Compact display format
+- Behavior when there are no reviews
+
+## Quick links
+
+<a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}/widgets`} target="_blank" rel="noopener">Open widgets page in app</a>  
+<a href="https://www.shopify.com/admin/themes/current/editor?context=apps" target="_blank" rel="noopener">Open theme editor app embeds</a>
+
+## Troubleshooting
+
+- Snippet added outside the product loop.
+- Wrong product variable (for example `product` instead of the card variable).
+- Theme cache/preview mismatch after saving.
+- Expecting output on products without rating data while hide-empty behavior is enabled.

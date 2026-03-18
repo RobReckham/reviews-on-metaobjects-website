@@ -1,0 +1,29 @@
+---
+title: Storefront review form
+description: Native storefront review submission flow.
+---
+
+# Storefront review form
+
+Storefront reviews are submitted directly by your own review forms and widgets.
+
+## Behavior
+
+- New submissions appear in your app review data.
+- Submission quality and moderation follow your app settings.
+- Reviews can be published immediately or reviewed first, depending on your preferences.
+
+## Verification and context
+
+- Request-based flows can carry extra context to improve trust signals.
+- Direct storefront submissions still work without external source sync.
+
+## Publish status
+
+Use <a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}/settings`} target="_blank" rel="noopener">app settings</a> to decide whether submissions are auto-published or moderated before display.
+
+## Troubleshooting
+
+- If submissions are accepted but not visible, check moderation/publish settings first.
+- If forms submit inconsistently, ensure the widget is mounted once per page.
+- If trust context is missing, verify request-based flows are using valid request links.

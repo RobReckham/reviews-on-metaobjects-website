@@ -1,0 +1,94 @@
+---
+title: File Import
+description: Import reviews from CSV.
+---
+
+# File Import
+
+Use file import to migrate review data in bulk from a spreadsheet or export file.
+
+## Before you import
+
+- Save your file as **UTF-8 CSV**.
+- Use the same delimiter/quote settings in the app as in your file.
+- Start with a small test batch first (5-20 rows).
+
+## Required columns
+
+These columns must exist:
+
+- `rating`
+- `submitted_at`
+
+## Common optional columns
+
+You can include these for richer review records:
+
+- `title`
+- `body`
+- `author_display_name`
+- `product`
+- `product_variant`
+- `order`
+- `author`
+- `language`
+- `edited_at`
+- `published_at`
+- `merchant_reply`
+- `merchant_replied_at`
+- `media_urls`
+- `status` (`active` or `draft`)
+- `unique_id`
+- `rating_scale_max` (if your source is not already 1-5)
+
+## Identifier mapping (important)
+
+In the import modal, choose how your IDs are represented.  
+Your CSV values must match the selected type:
+
+- Product identifier: `sku`, `barcode`, `gid`, or numeric ID
+- Order identifier: order number, `gid`, or numeric ID
+- Author identifier: email, `gid`, or numeric ID
+
+If IDs do not match the selected format, rows can fail or remain unlinked.
+
+## Date and format rules
+
+- Use ISO-style timestamps when possible (example: `2024-02-01T10:15:00Z`).
+- `submitted_at` should be a valid date.
+- `media_urls` should contain public `http(s)` URLs, comma-separated.
+- If `status` is blank, normal default publish behavior applies.
+
+## Deduplication behavior
+
+- If `unique_id` is provided, it is used as stable identity.
+- If `unique_id` is missing, the app derives identity from review content fields.
+- For duplicate identities in one import run, last matching row wins.
+
+## Recommended import flow
+
+1. Open **File Import** from <a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}`} target="_blank" rel="noopener">the app dashboard</a> and upload the CSV.
+2. Set delimiter, quote, and identifier mapping options.
+3. Run import.
+4. Review results and row-level errors.
+5. Fix failed rows and re-import.
+
+## Example CSV
+
+```csv
+rating,submitted_at,title,body,author_display_name,product,product_variant,order,author,status,media_urls,unique_id
+5,2024-11-02T09:15:00Z,Great quality,Really happy with this product,Alex,SKU-123,VAR-123,1001,alex@example.com,active,https://cdn.example.com/review1.jpg,rev-1001
+4,2024-11-05T13:40:00Z,Good overall,Fast shipping and as described,Sam,SKU-456,VAR-456,1002,sam@example.com,draft,,rev-1002
+```
+
+## Notes
+
+- Keep one canonical identifier strategy per import source.
+- Avoid mixed date/ID formats in a single file.
+- If import results look wrong, re-check identifier mapping first.
+
+## Troubleshooting
+
+- If many rows fail, test with a tiny CSV and validate format step-by-step.
+- If imports succeed but reviews are unlinked, revisit identifier mapping options.
+- If duplicate or unexpected merges happen, provide stable `unique_id` values.

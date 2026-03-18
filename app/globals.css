@@ -14,3 +14,8 @@
     order: 2;
   }
 }
+
+/* Underline links in docs content area */
+article a {
+  text-decoration: underline;
+}

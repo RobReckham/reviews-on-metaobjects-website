@@ -1,0 +1,30 @@
+---
+title: Reviews.io
+description: Manual Reviews.io import and sync.
+---
+
+# Reviews.io
+
+Reviews.io uses a manual import flow.
+
+## Setup
+
+1. Add Reviews.io as a source in the app.
+2. Provide the required connection details.
+3. Start an initial sync/import from <a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}`} target="_blank" rel="noopener">the app dashboard</a>.
+
+## Sync
+
+- Run sync whenever you want to refresh data.
+- Check status in the app dashboard after each run.
+
+## Notes
+
+- Keep source data and product mapping consistent.
+- If results are unexpected, validate source credentials and import configuration.
+
+## Troubleshooting
+
+- If sync fails, re-check source credentials and connection details.
+- If reviews import without product links, verify identifier mapping strategy.
+- If counts seem low, run another full sync after confirming source-side data scope.
