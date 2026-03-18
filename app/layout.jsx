@@ -22,7 +22,8 @@ export default async function RootLayout({ children }) {
         <Layout
           navbar={Navbar}
           pageMap={await getPageMap("/docs")}
-          docsRepositoryBase="https://github.com/your-org/your-repo"
+          editLink={null}
+          feedback={{ content: null }}
           footer={Footer}
         >
           {children}
