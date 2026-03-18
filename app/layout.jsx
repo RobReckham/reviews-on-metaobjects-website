@@ -1,6 +1,7 @@
 import { Footer as NextraFooter, Layout, Navbar as NextraNavbar } from "nextra-theme-docs";
 import { Head } from "nextra/components";
 import { getPageMap } from "nextra/page-map";
+import Link from "next/link";
 import NavbarLinks from "../components/navbar-links";
 import "./globals.css";
 
@@ -10,7 +11,20 @@ export const metadata = {
 };
 
 const Logo = <b>Reviews on Metaobjects</b>;
-const Footer = <NextraFooter>Reviews on Metaobjects {new Date().getFullYear()} © All rights reserved.</NextraFooter>;
+const Footer = function() {
+  const linkClasses = "text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors";
+  return (
+    <NextraFooter>
+      <div className="w-full flex flex-wrap justify-between items-center gap-x-4 gap-y-2">
+        <div className="text-sm text-gray-600 dark:text-gray-400">Reviews on Metaobjects {new Date().getFullYear()} © All rights reserved.</div>
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+          <Link href="/legal-information" className={linkClasses}>Legal information</Link>
+          <Link href="/privacy-policy" className={linkClasses}>Privacy policy</Link>
+        </div>
+      </div>
+    </NextraFooter>
+  );
+};
 
 const Navbar = <NextraNavbar logo={Logo} logoLink="/" align="right"><NavbarLinks /></NextraNavbar>;
 
@@ -21,10 +35,10 @@ export default async function RootLayout({ children }) {
       <body>
         <Layout
           navbar={Navbar}
-          pageMap={await getPageMap("/docs")}
+          pageMap={await getPageMap()}
           editLink={null}
           feedback={{ content: null }}
-          footer={Footer}
+          footer={<Footer />}
         >
           {children}
         </Layout>
