@@ -2,3 +2,15 @@
 @import "nextra-theme-docs/style.css";
 
 @variant dark (&:where(.dark *));
+
+/* Keep logo first, docs second, search third on desktop navbar */
+@media (min-width: 768px) {
+  .nextra-navbar nav > .site-nav-items {
+    order: 1;
+  }
+
+  .nextra-navbar nav > .nextra-search,
+  .nextra-navbar nav > div:has(.nextra-search) {
+    order: 2;
+  }
+}
