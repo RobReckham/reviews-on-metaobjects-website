@@ -18,8 +18,8 @@ const Footer = function() {
       <div className="w-full flex flex-wrap justify-between items-center gap-x-4 gap-y-2">
         <div className="text-sm text-gray-600 dark:text-gray-400">Reviews on Metaobjects {new Date().getFullYear()} © All rights reserved.</div>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-          <Link href="/legal-information" className={linkClasses}>Legal information</Link>
           <Link href="/privacy-policy" className={linkClasses}>Privacy policy</Link>
+          <Link href="/legal-information" className={linkClasses}>Legal information</Link>
         </div>
       </div>
     </NextraFooter>
