@@ -1,37 +1,37 @@
 ---
-title: Customising widgets
-description: How structure and custom CSS settings control widget output.
+title: Customising app blocks
+description: How structure and custom CSS settings control app block output.
 ---
 
-# Customising widgets
+# Customising app blocks
 
-Most widgets are designed to be highly flexible without requiring theme-code edits.  
+Most app blocks are designed to be highly flexible without requiring theme-code edits.  
 You can control output using:
 
 - `structure` (HTML template with placeholders)
-- `custom_css` (widget-scoped CSS)
-- in form widgets, `form_item_structure` for each review item row
+- `custom_css` (app-block-scoped CSS)
+- in form app blocks, `form_item_structure` for each review item row
 
 ## How structure works
 
-Each widget builds small HTML fragments in Liquid (for example rating stars, title, body, author), then injects those fragments into your structure template by replacing placeholder tokens.
+Each app block builds small HTML fragments in Liquid (for example rating stars, title, body, author), then injects those fragments into your structure template by replacing placeholder tokens.
 
 Typical placeholders include:
 
-- Rating widgets: `{stars}`, `{star}`, `{rating}`, `{max}`, `{count}`, `{count_text}`
-- Review list widgets: `{heading}`, `{reviews}`, plus review-item placeholders such as `{title}`, `{body}`, `{author}`, `{date}`, `{status}`, `{reply}`
-- Form widgets: `{heading}`, `{items}`, `{author_field}`, `{message}`, `{submit}`
+- Rating app blocks: `{stars}`, `{star}`, `{rating}`, `{max}`, `{count}`, `{count_text}`
+- Review list app blocks: `{heading}`, `{reviews}`, plus review-item placeholders such as `{title}`, `{body}`, `{author}`, `{date}`, `{status}`, `{reply}`
+- Form app blocks: `{heading}`, `{items}`, `{author_field}`, `{message}`, `{submit}`
 - Form item template: `{item_name}`, `{item_image}`, `{rating_field}`, `{title_field}`, `{body_field}`
 
 This gives you control over markup order and layout while the app still handles data loading, submission, and platform logic.
 
 ## How custom_css works
 
-Each widget renders its own wrapper with a unique ID (based on block ID), then injects `custom_css` inside that wrapper's style block.
+Each app block renders its own wrapper with a unique ID (based on block ID), then injects `custom_css` inside that wrapper's style block.
 
 In practice, this means:
 
-- styles are scoped to that widget instance
+- styles are scoped to that app block instance
 - you can style internal classes without affecting the whole theme
 - multiple instances can use different styling safely
 
@@ -53,8 +53,8 @@ In practice, this means:
 ## Practical tips
 
 - Keep required placeholders in forms (`{items}`, `{submit}`, message region) so submission UX stays complete.
-- For rating widgets, keep value/count placeholders visible unless your UX intentionally hides them.
-- If a widget stops rendering, revert to default structure first, then re-apply customizations incrementally.
+- For rating app blocks, keep value/count placeholders visible unless your UX intentionally hides them.
+- If an app block stops rendering, revert to default structure first, then re-apply customizations incrementally.
 
 ## Troubleshooting
 

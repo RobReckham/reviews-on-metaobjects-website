@@ -5,7 +5,7 @@ description: Native storefront review submission flow.
 
 # Storefront review form
 
-Storefront reviews are submitted directly by your own review forms and widgets.
+Storefront reviews are submitted directly by your own review forms and app blocks.
 
 ## Behavior
 
@@ -25,5 +25,5 @@ Use <a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}/settings`} target="_blank
 ## Troubleshooting
 
 - If submissions are accepted but not visible, check moderation/publish settings first.
-- If forms submit inconsistently, ensure the widget is mounted once per page.
+- If forms submit inconsistently, ensure the app block is mounted once per page.
 - If trust context is missing, verify request-based flows are using valid request links.

@@ -5,8 +5,8 @@ export default {
   "collecting-reviews": {
     title: "Collecting reviews",
   },
-  widgets: {
-    title: "Widgets",
+  "app-blocks": {
+    title: "App blocks",
   },
   troubleshooting: {
     title: "Troubleshooting",
