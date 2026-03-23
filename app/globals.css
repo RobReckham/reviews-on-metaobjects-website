@@ -19,3 +19,35 @@
 article a {
   text-decoration: underline;
 }
+
+.h1 {
+  @apply text-3xl sm:text-7xl font-black tracking-tight;
+}
+
+.h2 {
+  @apply text-2xl sm:text-5xl font-black tracking-tight;
+}
+
+.h3 {
+  @apply text-xl sm:text-3xl font-black tracking-tight;
+}
+
+.h4 {
+  @apply text-base sm:text-xl font-bold tracking-tight;
+}
+
+.p {
+  @apply text-base sm:text-xl;
+}
+
+.btn {
+  @apply opacity-85 hover:opacity-100 transition-opacity duration-300 text-base sm:text-2xl px-6 sm:px-8 py-4 rounded-full inline-block font-bold cursor-pointer whitespace-nowrap text-center;
+}
+
+.btn-primary {
+  @apply bg-black text-white border-black;
+}
+
+.btn-primary.btn-inverted {
+  @apply bg-white text-gray-900 border-white;
+}
