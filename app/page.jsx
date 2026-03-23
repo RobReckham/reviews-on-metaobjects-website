@@ -25,7 +25,7 @@ const benefits = [
 
 export default function HomePage() {
   return <>
-    <main className="bg-white min-h-screen text-gray-900" style={{ marginTop: "calc(var(--nextra-navbar-height) * -1)" }}>
+    <main className="bg-white min-h-screen text-gray-900">
       <section className="bg-[#FFFD63] pt-24 pb-48">
         <div className="px-4 sm:px-8 py-4 text-center">
           <h2 className="h4">The only app you need to manage Shopify's standard review Metaobjects</h2>
@@ -128,6 +128,7 @@ export default function HomePage() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-32 sm:-mb-16 w-full text-sm">
           <p className="text-gray-400">Reviews on Metaobjects 2026 © All rights reserved.</p>
           <ul className="flex items-center gap-4 text-gray-300 list-none">
+            <li><a href="/" className="text-gray-400 hover:text-gray-300">Home</a></li>
             <li><a href="/docs" className="text-gray-400 hover:text-gray-300">Docs</a></li>
             <li><a href="/privacy-policy" className="text-gray-400 hover:text-gray-300">Privacy policy</a></li>
             <li><a href="/legal-information" className="text-gray-400 hover:text-gray-300">Legal information</a></li>
