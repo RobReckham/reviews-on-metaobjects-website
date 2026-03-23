@@ -126,7 +126,7 @@ export default function HomePage() {
         </ul>
         <a href={process.env.NEXT_PUBLIC_LISTING_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-inverted w-full sm:w-auto">Visit the Shopify App Store now</a>
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-32 sm:-mb-16 w-full text-sm">
-          <p className="text-gray-400">Reviews on Metaobjects 2026 © All rights reserved.</p>
+          <p className="text-gray-400">FiveOh Reviews on Metaobjects 2026 © All rights reserved.</p>
           <ul className="flex items-center gap-4 text-gray-300 list-none">
             <li><a href="/" className="text-gray-400 hover:text-gray-300">Home</a></li>
             <li><a href="/docs" className="text-gray-400 hover:text-gray-300">Docs</a></li>
