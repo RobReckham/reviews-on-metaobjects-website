@@ -25,7 +25,7 @@ Without the snippet, nothing will render on cards.
 Add this inside your product-card loop where `card_product` is available:
 
 ```liquid
-<script class="romo-product-card-rating-{{ card_product.id }}">document.dispatchEvent(new CustomEvent("romo:product-card-rating-mounted", { detail: { product_id: {{ card_product.id | json }}, rating_value: {{ card_product.metafields.reviews.rating.value.rating | json }}, rating_count: {{ card_product.metafields.reviews.rating_count.value | json }}}}));</script>
+<script class="fiveoh-product-card-rating-{{ card_product.id }}">document.dispatchEvent(new CustomEvent("fiveoh:product-card-rating-mounted", { detail: { product_id: {{ card_product.id | json }}, rating_value: {{ card_product.metafields.reviews.rating.value.rating | json }}, rating_count: {{ card_product.metafields.reviews.rating_count.value | json }}}}));</script>
 ```
 
 ## Where to place the snippet

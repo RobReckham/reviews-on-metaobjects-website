@@ -6,11 +6,15 @@ import NavbarLinks from "../components/navbar-links";
 import "./globals.css";
 
 export const metadata = {
-  title: "Shopify reviews powering metaobjects | Reviews on Metaobjects",
+  title: "Shopify reviews powering metaobjects | FiveOh Reviews on Metaobjects",
   description: "The Shopify app that provides all tools to manage all your store's customer reviews in a native and convenient way.",
 };
 
-const Logo = <b>Reviews on Metaobjects</b>;
+const Logo = <div className="flex items-center gap-2 font-bold leading-tight">
+  <img src="https://assets.reviews-on-metaobjects.coders.fail/logo-300.jpg" alt="FiveOh Reviews on Metaobjects" className="h-10 w-10 rounded-md" />
+  <div>FiveOh Reviews<br />on Metaobjects</div>
+</div>
+
 const Footer = function() {
   const linkClasses = "text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors";
   return (
