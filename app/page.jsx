@@ -29,8 +29,8 @@ export default function HomePage() {
     <main className="bg-white min-h-screen text-gray-900">
       <section className="bg-[#FFFD63] pt-24 pb-48">
         <div className="px-4 sm:px-8 py-4 text-center">
-          <h2 className="h4">The only app you need to manage Shopify's standard review Metaobjects</h2>
-          <h1 className="h1 mt-4 mb-8 max-w-6xl mx-auto">Reviews built on<br />Shopify Metaobjects</h1>
+          <h1 className="h4">The only app you need to manage Shopify's standard review Metaobjects</h1>
+          <h2 className="h1 mt-4 mb-8 max-w-6xl mx-auto">Reviews built on<br />Shopify Metaobjects</h2>
           <div className="max-w-3xl mx-auto p">
             <p className="mb-4 leading-relaxed">
               <span className="bg-[#C7D0FF] px-3 rounded py-1">Renders Server Side Right In Liquid</span>
@@ -58,7 +58,7 @@ export default function HomePage() {
       </section>
       <section className="bg-white py-16 sm:py-32">
         <div className="container max-w-6xl mx-auto px-4 sm:px-8 text-center">
-          <div className="h2">First 100 reviews are free. <ListingCta href={process.env.NEXT_PUBLIC_LISTING_URL} className="underline">Just try it out</ListingCta>.</div>
+          <h2 className="h2">First 100 reviews are free. <ListingCta href={process.env.NEXT_PUBLIC_LISTING_URL} className="underline">Just try it out</ListingCta>.</h2>
         </div>
       </section>
       <section className="bg-white py-16 sm:py-32 px-4">
@@ -72,7 +72,7 @@ export default function HomePage() {
       </section>
       <section className="bg-white py-16 sm:py-32">
         <div className="container max-w-6xl mx-auto px-4 sm:px-8 text-center">
-          <p className="h2">Your reviews, your shop, your data. You are not locked in with us. Use a different service for the same data at any time.</p>
+          <h2 className="h2">Your reviews, your shop, your data. You are not locked in with us. Use a different service for the same data at any time.</h2>
         </div>
       </section>
       <section className="bg-white py-16 sm:py-32 px-4">
@@ -88,7 +88,7 @@ export default function HomePage() {
       </section>
       <section className="bg-white py-16 sm:py-32">
         <div className="container max-w-6xl mx-auto px-4 sm:px-8 text-center">
-          <p className="h2">Transparent and fair pricing. No hidden fees. Features are mostly the same, mainly the max number of reviews is different. {process.env.NEXT_PUBLIC_LISTING_URL && <a href={process.env.NEXT_PUBLIC_LISTING_URL} target="_blank" rel="noopener noreferrer" className="underline">See plans</a>}</p>
+          <h2 className="h2">Transparent and fair pricing. No hidden fees. Features are mostly the same, mainly the max number of reviews is different. {process.env.NEXT_PUBLIC_LISTING_URL && <a href={process.env.NEXT_PUBLIC_LISTING_URL} target="_blank" rel="noopener noreferrer" className="underline">See plans</a>}</h2>
         </div>
       </section>
       <section className="bg-white py-16 sm:py-32 px-4">
@@ -115,7 +115,7 @@ export default function HomePage() {
     </main>
     <footer className="bg-gray-900 py-16 sm:py-32 relative">
       <div className="container max-w-6xl mx-auto px-4 sm:px-8 flex flex-col text-left sm:text-center">
-        <div className="h1 text-gray-200 mb-8">Ready for faster, native reviews?</div>
+        <h2 className="h1 text-gray-200 mb-8">Ready for faster, native reviews?</h2>
         <ul className="mb-8 flex flex-col sm:flex-row sm:items-center justify-center gap-4 text-gray-300 list-none text-lg whitespace-nowrap flex-wrap">
           <li>Free for up to 100 reviews</li>
           <li className="hidden sm:block">|</li>
