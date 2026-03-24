@@ -23,7 +23,13 @@ export default function ListingCta({ href, className, children }) {
         <p>If this seems like a good deal, feel free to contact us.</p>
         <div className="flex justify-between gap-4 mt-4">
           <div className="flex items-center gap-2">
-            <img src="https://s3.coders.fail/profile/marius-blank-512.jpg" alt="Marius" className="w-16 h-16 rounded-full" />
+            <img
+              src="https://s3.coders.fail/profile/marius-blank-512.jpg"
+              alt="Marius"
+              className="h-16 w-16 rounded-full"
+              width={64}
+              height={64}
+            />
             <div>
               <p className="font-bold">Marius Korbmacher</p>
               <p className="text-sm text-gray-500">Developer at FiveOh</p>

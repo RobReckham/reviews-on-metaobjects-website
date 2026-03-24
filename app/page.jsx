@@ -71,7 +71,7 @@ export default function HomePage() {
           <div className="inline-flex justify-center items-center gap-4 relative">
             <ListingCta href={process.env.NEXT_PUBLIC_LISTING_URL} className="btn btn-primary">Visit Shopify App Store</ListingCta>
             <div className="text-right absolute -right-6 -top-2 z-10">
-              <img src="/shopify_glyph.svg" alt="Shopify" className="h-14" />
+              <img src="/shopify_glyph.svg" alt="Shopify" className="h-14" width="49" height="56" />
             </div>
           </div>
         </div>
@@ -80,7 +80,14 @@ export default function HomePage() {
         <div className="bg-white rounded-xl overflow-hidden text-white mx-auto max-w-5xl">
           <picture>
             <source type="image/webp" srcSet="https://assets.reviews-on-metaobjects.coders.fail/landing-01.webp" />
-            <img src="https://assets.reviews-on-metaobjects.coders.fail/landing-01.jpg" alt="Reviews built on Shopify Metaobjects" fetchPriority="high" />
+            <img
+              src="https://assets.reviews-on-metaobjects.coders.fail/landing-01.jpg"
+              alt="Reviews built on Shopify Metaobjects"
+              className="h-auto w-full"
+              fetchPriority="high"
+              width="1600"
+              height="700"
+            />
           </picture>
         </div>
       </section>
