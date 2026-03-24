@@ -163,6 +163,9 @@ export default function Faqs() {
           type="button"
           className="flex justify-between items-center w-full text-left p-8 cursor-pointer"
           onClick={() => setActiveFaq(index === activeFaq ? null : index)}
+          aria-expanded={activeFaq === index}
+          aria-controls={`faq-panel-${index}`}
+          id={`faq-trigger-${index}`}
         >
           <h3 className="h3 cursor-pointer">{faq.question}</h3>
           <svg
@@ -179,6 +182,9 @@ export default function Faqs() {
         <div
           className="grid transition-all duration-300 ease-in-out"
           style={{ gridTemplateRows: activeFaq === index ? "1fr" : "0fr" }}
+          id={`faq-panel-${index}`}
+          role="region"
+          aria-labelledby={`faq-trigger-${index}`}
         >
           <div className="overflow-hidden">
             <div className="text-xl p-8 pt-0 flex flex-col gap-4">{faq.answer}</div>
