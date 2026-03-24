@@ -7,6 +7,11 @@ const title = `Shopify reviews powering metaobjects | ${process.env.NEXT_PUBLIC_
 const description = "The Shopify app that provides all tools to manage Shopify's standard product review Metaobjects.";
 const ogImage = "https://assets.reviews-on-metaobjects.coders.fail/landing-01.jpg";
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL),
   title,
