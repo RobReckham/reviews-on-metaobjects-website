@@ -67,7 +67,7 @@ const faqs = [
     question: 'How many reviews can I store and display?',
     answer: <>
       <p>Shopify itself supports up to 1,000,000 product review metaobjects per store.</p>
-      <p>Our app supports unlimited reviews depending on <a href={process.env.NEXT_PUBLIC_LISTING_URL} target="_blank" rel="noopener noreferrer" className="underline">the plan you choose</a>.</p>
+      <p>Our app supports unlimited reviews depending on {process.env.NEXT_PUBLIC_LISTING_URL ? <a href={process.env.NEXT_PUBLIC_LISTING_URL} target="_blank" rel="noopener noreferrer" className="underline">the plan you choose</a> : <span className="underline">the plan you choose</span>}.</p>
     </>,
   },
   {
