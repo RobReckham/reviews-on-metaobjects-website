@@ -41,7 +41,7 @@ article a {
 }
 
 .btn {
-  @apply opacity-85 hover:opacity-100 transition-opacity duration-300 text-base sm:text-2xl px-6 sm:px-8 py-4 rounded-full inline-block font-bold cursor-pointer whitespace-nowrap text-center;
+  @apply opacity-85 border-2 hover:opacity-100 transition-opacity duration-300 text-base sm:text-2xl px-6 sm:px-8 py-4 rounded-full inline-block font-bold cursor-pointer whitespace-nowrap text-center;
 }
 
 .btn-primary {
@@ -49,5 +49,9 @@ article a {
 }
 
 .btn-primary.btn-inverted {
-  @apply bg-white text-gray-900 border-white;
+  @apply bg-white text-gray-900 border-gray-900;
+}
+
+.btn-sm {
+  @apply text-base px-3 sm:px-4 py-1;
 }

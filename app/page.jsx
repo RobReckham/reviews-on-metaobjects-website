@@ -1,4 +1,5 @@
 import Faqs from "../components/faqs"
+import ListingCta from "../components/listing-cta"
 
 const benefits = [
   {
@@ -40,7 +41,7 @@ export default function HomePage() {
             <p className="mb-4">Stop slowing down your store with heavy review widgets. Use Shopify’s standard product review Metaobjects instead. Import existing reviews from any provider and collect new ones through post-purchase emails and on-store forms. All reviews are stored in Metaobjects for server-side display — delivering faster page loads, improved Core Web Vitals, and strong on-page SEO through native structured data. Plus, you will own your data. No lock-in with a specific app.</p>
           </div>
           <div className="inline-flex justify-center items-center gap-4 relative">
-            <a href={process.env.NEXT_PUBLIC_LISTING_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Visit Shopify App Store</a>
+            <ListingCta href={process.env.NEXT_PUBLIC_LISTING_URL} className="btn btn-primary">Visit Shopify App Store</ListingCta>
             <div className="text-right absolute -right-6 -top-2 z-10">
               <img src="/shopify_glyph.svg" alt="Shopify" className="h-14" />
             </div>
@@ -57,7 +58,7 @@ export default function HomePage() {
       </section>
       <section className="bg-white py-16 sm:py-32">
         <div className="container max-w-6xl mx-auto px-4 sm:px-8 text-center">
-          <p className="h2">First 100 reviews are free. <a href={process.env.NEXT_PUBLIC_LISTING_URL} target="_blank" rel="noopener noreferrer" className="underline">Just try it out</a>.</p>
+          <div className="h2">First 100 reviews are free. <ListingCta href={process.env.NEXT_PUBLIC_LISTING_URL} className="underline">Just try it out</ListingCta>.</div>
         </div>
       </section>
       <section className="bg-white py-16 sm:py-32 px-4">
@@ -87,7 +88,7 @@ export default function HomePage() {
       </section>
       <section className="bg-white py-16 sm:py-32">
         <div className="container max-w-6xl mx-auto px-4 sm:px-8 text-center">
-          <p className="h2">Transparent and fair pricing. No hidden fees. Features are mostly the same, mainly the max number of reviews is different. <a href={process.env.NEXT_PUBLIC_LISTING_URL} target="_blank" rel="noopener noreferrer" className="underline">See plans</a>.</p>
+          <p className="h2">Transparent and fair pricing. No hidden fees. Features are mostly the same, mainly the max number of reviews is different. {process.env.NEXT_PUBLIC_LISTING_URL && <a href={process.env.NEXT_PUBLIC_LISTING_URL} target="_blank" rel="noopener noreferrer" className="underline">See plans</a>}</p>
         </div>
       </section>
       <section className="bg-white py-16 sm:py-32 px-4">
@@ -124,7 +125,10 @@ export default function HomePage() {
           <li className="hidden sm:block">|</li>
           <li>Uninstall anytime without losing your reviews</li>
         </ul>
-        <a href={process.env.NEXT_PUBLIC_LISTING_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-inverted w-full sm:w-auto">Visit the Shopify App Store now</a>
+        <ListingCta
+          href={process.env.NEXT_PUBLIC_LISTING_URL}
+          className="btn btn-primary btn-inverted w-full sm:w-auto"
+        >Visit the Shopify App Store now</ListingCta>
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-32 sm:-mb-16 w-full text-sm">
           <p className="text-gray-400">FiveOh Reviews on Metaobjects 2026 © All rights reserved.</p>
           <ul className="flex items-center gap-4 text-gray-300 list-none">
