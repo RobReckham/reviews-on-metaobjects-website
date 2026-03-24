@@ -2,6 +2,12 @@ import Faqs from "../components/faqs"
 import ListingCta from "../components/listing-cta"
 import plans from "../utils/plans"
 
+export const metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
+
 const benefits = [
   {
     title: "Lightning-fast pages",
