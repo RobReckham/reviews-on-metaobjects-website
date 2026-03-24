@@ -4,7 +4,7 @@ import NavbarLinks from "./navbar-links";
 
 const Logo = (
   <div className="flex items-center gap-2 font-bold leading-tight">
-    <img src="https://assets.reviews-on-metaobjects.coders.fail/logo-300.jpg" alt="FiveOh Reviews on Metaobjects" className="h-10 w-10 rounded-md" />
+    <img src="https://assets.reviews-on-metaobjects.coders.fail/logo-300.jpg" alt={process.env.NEXT_PUBLIC_APP_NAME} className="h-10 w-10 rounded-md" />
     <div>FiveOh Reviews<br />on Metaobjects</div>
   </div>
 );
@@ -14,7 +14,7 @@ const Footer = function() {
   return (
     <NextraFooter>
       <div className="w-full flex flex-wrap justify-between items-center gap-x-4 gap-y-2">
-        <div className="text-sm text-gray-600 dark:text-gray-400">FiveOh Reviews on Metaobjects {new Date().getFullYear()} © All rights reserved.</div>
+        <div className="text-sm text-gray-600 dark:text-gray-400">{process.env.NEXT_PUBLIC_APP_NAME} {new Date().getFullYear()} © All rights reserved.</div>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
           <Link href="/" className={linkClasses}>Home</Link>
           <Link href="/docs" className={linkClasses}>Docs</Link>

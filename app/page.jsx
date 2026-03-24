@@ -1,5 +1,6 @@
 import Faqs from "../components/faqs"
 import ListingCta from "../components/listing-cta"
+import plans from "../utils/plans"
 
 const benefits = [
   {
@@ -26,6 +27,27 @@ const benefits = [
 
 export default function HomePage() {
   return <>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        name: process.env.NEXT_PUBLIC_APP_NAME,
+        description: "The Shopify app that provides all tools to manage Shopify's standard product review Metaobjects.",
+        image: "https://assets.reviews-on-metaobjects.coders.fail/logo-300.jpg",
+        applicationCategory: "BusinessApplication",
+        operatingSystem: "Web",
+        offers: plans.map((plan) => ({
+          "@type": "Offer",
+          name: plan.name,
+          price: plan.price,
+          priceCurrency: plan.priceCurrency,
+          description: plan.description,
+          availability: "https://schema.org/InStock",
+          url: process.env.NEXT_PUBLIC_LISTING_URL || undefined,
+        })),
+      }) }}
+    />
     <main className="bg-white min-h-screen text-gray-900">
       <section className="bg-[#FFFD63] pt-24 pb-48">
         <div className="px-4 sm:px-8 py-4 text-center">
@@ -130,7 +152,7 @@ export default function HomePage() {
           className="btn btn-primary btn-inverted w-full sm:w-auto"
         >Visit the Shopify App Store now</ListingCta>
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-32 sm:-mb-16 w-full text-sm">
-          <p className="text-gray-400">FiveOh Reviews on Metaobjects 2026 © All rights reserved.</p>
+          <p className="text-gray-400">{process.env.NEXT_PUBLIC_APP_NAME} {new Date().getFullYear()} © All rights reserved.</p>
           <ul className="flex items-center gap-4 text-gray-300 list-none">
             <li><a href="/" className="text-gray-400 hover:text-gray-300">Home</a></li>
             <li><a href="/docs" className="text-gray-400 hover:text-gray-300">Docs</a></li>

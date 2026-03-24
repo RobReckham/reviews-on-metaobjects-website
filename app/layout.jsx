@@ -4,7 +4,7 @@ import Layout from "../components/layout";
 import { getPageMap } from "nextra/page-map";
 
 export const metadata = {
-  title: "Shopify reviews powering metaobjects | FiveOh Reviews on Metaobjects",
+  title: `Shopify reviews powering metaobjects | ${process.env.NEXT_PUBLIC_APP_NAME}`,
   description: "The Shopify app that provides all tools to manage all your store's customer reviews in a native and convenient way.",
 };
 
