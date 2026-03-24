@@ -42,6 +42,9 @@ export default async function RootLayout({ children }) {
     <html lang="en" dir="ltr" suppressHydrationWarning>
       <Head />
       <body>
+        <a href="#main-content" className="skip-to-main">
+          Skip to main content
+        </a>
         <Layout pageMap={await getPageMap("/")} showHeader={false} showFooter={false}>
           {children}
         </Layout>

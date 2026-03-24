@@ -47,7 +47,9 @@ export default function Layout({ children, pageMap, showHeader = true, showFoote
       feedback={{ content: null }}
       footer={showFooter ? <Footer /> : null}
     >
-      {children}
+      <div id="main-content" tabIndex={-1}>
+        {children}
+      </div>
     </NextraLayout>
   );
 }

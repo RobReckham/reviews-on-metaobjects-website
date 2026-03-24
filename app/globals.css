@@ -3,6 +3,33 @@
 
 @variant dark (&:where(.dark *));
 
+/* Nextra skip link uses Headless UI Button as <a>, which sets invalid type="button" and fails Lighthouse focusability — use native skip link in app/layout.jsx instead */
+a.nextra-skip-nav {
+  display: none !important;
+}
+
+/* Visible on keyboard focus (WCAG 2.4.1) */
+.skip-to-main {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  z-index: 9999;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  background: #fff;
+  color: #111;
+  border: 2px solid currentColor;
+  border-radius: 0.375rem;
+}
+
+.skip-to-main:focus {
+  left: 1rem;
+  top: 1rem;
+  position: fixed;
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
 /* Keep logo first, docs second, search third on desktop navbar */
 @media (min-width: 768px) {
   .nextra-navbar nav > .site-nav-items {
@@ -54,4 +81,22 @@ article a {
 
 .btn-sm {
   @apply text-base px-3 sm:px-4 py-1;
+}
+
+/* Mobile Lighthouse: minimum ~44×44px tap targets for inline links (WCAG 2.5.5 / audit guidance) */
+.touch-target-inline {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.125rem 0.25rem;
+  box-sizing: border-box;
+}
+
+.footer-site-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.25rem 0.5rem;
+  box-sizing: border-box;
 }

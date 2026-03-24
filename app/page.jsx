@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Faqs from "../components/faqs"
 import ListingCta from "../components/listing-cta"
 import plans from "../utils/plans"
@@ -78,22 +79,20 @@ export default function HomePage() {
       </section>
       <section className="px-4 -mt-32">
         <div className="bg-white rounded-xl overflow-hidden text-white mx-auto max-w-5xl">
-          <picture>
-            <source type="image/webp" srcSet="https://assets.reviews-on-metaobjects.coders.fail/landing-01.webp" />
-            <img
-              src="https://assets.reviews-on-metaobjects.coders.fail/landing-01.jpg"
-              alt="Reviews built on Shopify Metaobjects"
-              className="h-auto w-full"
-              fetchPriority="high"
-              width="1600"
-              height="700"
-            />
-          </picture>
+          <Image
+            src="https://assets.reviews-on-metaobjects.coders.fail/landing-01.jpg"
+            alt="Reviews built on Shopify Metaobjects"
+            className="h-auto w-full"
+            width={1600}
+            height={700}
+            priority
+            sizes="(max-width: 1024px) 100vw, 1024px"
+          />
         </div>
       </section>
       <section className="bg-white py-16 sm:py-32">
         <div className="container max-w-6xl mx-auto px-4 sm:px-8 text-center">
-          <h2 className="h2">First 100 reviews are free. <ListingCta href={process.env.NEXT_PUBLIC_LISTING_URL} className="underline">Just try it out</ListingCta>.</h2>
+          <h2 className="h2">First 100 reviews are free. <ListingCta href={process.env.NEXT_PUBLIC_LISTING_URL} className="underline touch-target-inline">Just try it out</ListingCta>.</h2>
         </div>
       </section>
       <section className="bg-white py-16 sm:py-32 px-4">
@@ -123,7 +122,7 @@ export default function HomePage() {
       </section>
       <section className="bg-white py-16 sm:py-32">
         <div className="container max-w-6xl mx-auto px-4 sm:px-8 text-center">
-          <h2 className="h2">Transparent and fair pricing. No hidden fees. Features are mostly the same, mainly the max number of reviews is different. {process.env.NEXT_PUBLIC_LISTING_URL && <a href={process.env.NEXT_PUBLIC_LISTING_URL} target="_blank" rel="noopener noreferrer" className="underline">See plans</a>}</h2>
+          <h2 className="h2">Transparent and fair pricing. No hidden fees. Features are mostly the same, mainly the max number of reviews is different. {process.env.NEXT_PUBLIC_LISTING_URL && <a href={process.env.NEXT_PUBLIC_LISTING_URL} target="_blank" rel="noopener noreferrer" className="underline touch-target-inline">See plans</a>}</h2>
         </div>
       </section>
       <section className="bg-white py-16 sm:py-32 px-4">
@@ -166,7 +165,7 @@ export default function HomePage() {
         >Visit the Shopify App Store now</ListingCta>
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-32 sm:-mb-16 w-full text-sm">
           <p className="text-gray-400">{process.env.NEXT_PUBLIC_APP_NAME} {new Date().getFullYear()} © All rights reserved.</p>
-          <ul className="flex items-center gap-4 text-gray-300 list-none">
+          <ul className="footer-site-nav flex flex-wrap items-center gap-x-2 gap-y-1 text-gray-300 list-none">
             <li><a href="/" className="text-gray-400 hover:text-gray-300">Home</a></li>
             <li><a href="/docs" className="text-gray-400 hover:text-gray-300">Docs</a></li>
             <li><a href="/privacy-policy" className="text-gray-400 hover:text-gray-300">Privacy policy</a></li>
