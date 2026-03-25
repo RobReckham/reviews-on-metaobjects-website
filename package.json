@@ -11,6 +11,7 @@
     "next": "latest",
     "nextra": "latest",
     "nextra-theme-docs": "latest",
+    "posthog-js": "^1.363.5",
     "react": "latest",
     "react-dom": "latest"
   },
