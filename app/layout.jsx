@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Head } from "nextra/components";
 import "./globals.css";
 import Layout from "../components/layout";
@@ -48,6 +49,7 @@ export default async function RootLayout({ children }) {
         <Layout pageMap={await getPageMap("/")} showHeader={false} showFooter={false}>
           {children}
         </Layout>
+        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />}
       </body>
     </html>
   );
