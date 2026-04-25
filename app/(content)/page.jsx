@@ -425,7 +425,7 @@ export default function HomePage() {
         "@type": "SoftwareApplication",
         name: process.env.NEXT_PUBLIC_APP_NAME,
         description: "The Shopify app that provides all tools to manage Shopify's standard product review Metaobjects.",
-        image: "https://assets.reviews-on-metaobjects.coders.fail/logo-300.jpg",
+        image: "https://assets.reviewsonmetaobjects.com/logo-300.jpg",
         applicationCategory: "BusinessApplication",
         operatingSystem: "Web",
         offers: plans.map((plan) => ({

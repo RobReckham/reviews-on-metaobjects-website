@@ -5,7 +5,7 @@ import NavbarLinks from "./navbar-links";
 const Logo = (
   <div className="flex items-center gap-2 font-bold leading-tight">
     <img
-      src="https://assets.reviews-on-metaobjects.coders.fail/logo-300.jpg"
+      src="https://assets.reviewsonmetaobjects.com/logo-300.jpg"
       alt={process.env.NEXT_PUBLIC_APP_NAME}
       className="h-10 w-10 rounded-md"
       width={40}

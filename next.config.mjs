@@ -8,7 +8,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "assets.reviews-on-metaobjects.coders.fail",
+        hostname: "assets.reviewsonmetaobjects.com",
         pathname: "/**",
       },
       {
@@ -37,7 +37,7 @@ const nextConfig = {
         headers: [
           {
             key: "Link",
-            value: "<https://assets.reviews-on-metaobjects.coders.fail>; rel=preconnect; crossorigin",
+            value: "<https://assets.reviewsonmetaobjects.com>; rel=preconnect; crossorigin",
           },
           { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
           { key: "X-Frame-Options", value: "DENY" },

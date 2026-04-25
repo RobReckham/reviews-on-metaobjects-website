@@ -15,7 +15,7 @@ function Stars({ className = 'w-6 h-6', value = 5 }) {
 
 export default function SkelletonReview({ index = 0 }) {
   const imageIndex = Math.floor(Math.random() * 11 * 2) + 1
-  const imageSrc = imageIndex > 11 ? null : `https://assets.reviews-on-metaobjects.coders.fail/skelletons/product-${imageIndex}.jpg`
+  const imageSrc = imageIndex > 11 ? null : `https://assets.reviewsonmetaobjects.com/skelletons/product-${imageIndex}.jpg`
 
   const lineCount = Math.floor(Math.random() * 2) + 1
   const starsValue = Math.floor(Math.random() * 2) + 4
