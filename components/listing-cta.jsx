@@ -33,7 +33,7 @@ export default function ListingCta({ href, className, children }) {
             />
             <div>
               <p className="font-bold">Marius Korbmacher</p>
-              <p className="text-sm text-gray-500">Developer at FiveOh</p>
+              <p className="text-sm text-gray-500">Lead Developer</p>
             </div>
           </div>
           <div className="flex justify-end items-center gap-2">
