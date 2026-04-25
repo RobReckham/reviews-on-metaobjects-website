@@ -3,6 +3,7 @@ import ListingCta from "../../components/listing-cta"
 import plans from "../../utils/plans"
 import AnimatedBackground from "../../components/animated-background"
 import SkelletonReview from "../../components/skelleton-review"
+import Image from "next/image"
 
 export const metadata = {
   alternates: {
@@ -475,7 +476,7 @@ export default function HomePage() {
           <h2 className="h2">{oneLiners[0]}</h2>
         </div>
       </section>
-      <section className="bg-white py-16 sm:py-32 px-4">
+      <section className="bg-white pt-16 sm:pt-32 px-4">
         <div className="relative max-w-7xl mx-auto">
           <h2 className={`h2 mb-4 text-gray-900 text-center`}>{benefits.title}</h2>
           <div className="relative p-6 sm:p-16 rounded-4xl overflow-hidden">
@@ -490,6 +491,19 @@ export default function HomePage() {
               </div>)}
             </div>
           </div>
+        </div>
+      </section>
+      <section className="px-10 mt-4 sm:-mt-8 z-10 relative">
+        <div className="bg-white rounded-xl overflow-hidden text-white mx-auto max-w-3xl">
+          <Image
+            src="https://assets.reviewsonmetaobjects.com/landing-01.jpg"
+            alt="Reviews built on Shopify Metaobjects"
+            className="h-auto w-full"
+            width={1600}
+            height={700}
+            priority
+            sizes="(max-width: 1024px) 100vw, 1024px"
+          />
         </div>
       </section>
       <section className="bg-white py-16 sm:py-32">
