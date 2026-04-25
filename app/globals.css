@@ -318,3 +318,7 @@ article a {
   0% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
   100% { transform: translate3d(-10%, -6%, 0) scale(1.24) rotate(7deg); }
 }
+
+body.modal-open header {
+  z-index: 0 !important;
+}

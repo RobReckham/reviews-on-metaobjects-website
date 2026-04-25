@@ -1,6 +1,12 @@
 'use client'
 
+import { useEffect } from 'react'
+
 export default function Modal({ isOpen, onClose, children, className = '' }) {
+  useEffect(() => {
+    isOpen && document.body.classList.add('modal-open')
+    !isOpen && document.body.classList.remove('modal-open')
+  }, [isOpen])
   return <>
     <div className={`fixed z-20 inset-0 bg-black opacity-80 ${isOpen ? 'block' : 'hidden'}`} onClick={onClose}></div>
     <div className={`fixed z-20 inset-0 flex justify-center items-center p-4 pointer-events-none ${isOpen ? 'block' : 'hidden'}`}>
