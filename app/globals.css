@@ -3,6 +3,10 @@
 
 @variant dark (&:where(.dark *));
 
+@theme {
+  --inset-shadow-md: inset 0 2px 3px rgba(0, 0, 0, 0.25); 
+}
+
 /* Nextra skip link uses Headless UI Button as <a>, which sets invalid type="button" and fails Lighthouse focusability — use native skip link in app/layout.jsx instead */
 a.nextra-skip-nav {
   display: none !important;
@@ -68,11 +72,11 @@ article a {
 }
 
 .btn {
-  @apply opacity-85 border-2 hover:opacity-100 transition-opacity duration-300 text-base sm:text-2xl px-6 sm:px-8 py-4 rounded-full inline-block font-bold cursor-pointer whitespace-nowrap text-center;
+  @apply opacity-85 border-2 transition-all duration-300 text-base sm:text-2xl px-6 sm:px-8 py-4 rounded-full inline-block font-bold cursor-pointer whitespace-nowrap text-center;
 }
 
 .btn-primary {
-  @apply bg-black text-white border-black;
+  @apply bg-gray-950 text-white border-black hover:bg-black;
 }
 
 .btn-primary.btn-inverted {
@@ -99,4 +103,218 @@ article a {
   min-height: 2.75rem;
   padding: 0.25rem 0.5rem;
   box-sizing: border-box;
+}
+
+@keyframes skelletonReviewsScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animated-blob {
+  position: absolute;
+  border-radius: 9999px;
+  transform-origin: center;
+  will-change: transform, opacity;
+  opacity: 0.7;
+}
+
+/* hex values are fallbacks; JS sets --ab-* to computed oklch via inline style on the wrapper */
+.animated-background {
+  --ab-0: #fffecb;
+  --ab-1: #fff9a6;
+  --ab-2: #fff06a;
+  --ab-3: #fffd63;
+  --ab-4: #ffe03a;
+  --ab-5: #ffd11e;
+  --ab-6: #ff9100;
+  --ab-7: #000000;
+}
+
+.animated-blob-1 {
+  filter: blur(40px);
+  width: 76vw;
+  height: 76vw;
+  left: -22%;
+  top: -30%;
+  background: radial-gradient(circle at 35% 35%, var(--ab-0) 0%, var(--ab-3) 45%, var(--ab-5) 100%);
+  animation: floatOne 24s ease-in-out infinite alternate;
+}
+
+.animated-blob-2 {
+  filter: blur(10px);
+  width: 64vw;
+  height: 64vw;
+  right: -18%;
+  top: -24%;
+  background: radial-gradient(circle at 40% 35%, var(--ab-1) 0%, var(--ab-3) 48%, var(--ab-4) 100%);
+  animation: floatTwo 18s ease-in-out infinite alternate;
+  opacity: 0.75;
+}
+
+/* low blur so the conic gradient color ring is actually visible */
+.animated-blob-3 {
+  filter: blur(1px);
+  width: 120vw;
+  height: 120vw;
+  left: 8%;
+  bottom: -62%;
+  background:
+    radial-gradient(circle at 50% 35%, var(--ab-1) 0%, var(--ab-3) 48%, var(--ab-6) 100%),
+    conic-gradient(from 165deg at 50% 50%, var(--ab-6) 0deg, var(--ab-0) 85deg, var(--ab-4) 170deg, var(--ab-5) 260deg, var(--ab-1) 360deg),
+    linear-gradient(180deg, var(--ab-0) 0%, var(--ab-6) 100%);
+  background-blend-mode: normal, soft-light, overlay;
+  animation: floatThree 22s ease-in-out infinite alternate;
+  opacity: 0.3;
+}
+
+.animated-blob-4 {
+  filter: blur(20px);
+  width: 56vw;
+  height: 56vw;
+  right: 10%;
+  bottom: -44%;
+  background: radial-gradient(circle at 48% 30%, var(--ab-1) 0%, var(--ab-2) 45%, var(--ab-4) 100%);
+  animation: floatFour 20s ease-in-out infinite alternate;
+  opacity: 0.68;
+}
+
+/* low blur so it punches through as a visible shape */
+.animated-blob-5 {
+  filter: blur(20px);
+  width: 44vw;
+  height: 44vw;
+  left: 32%;
+  top: 14%;
+  background: radial-gradient(circle at 52% 45%, var(--ab-0) 0%, var(--ab-2) 42%, var(--ab-4) 100%);
+  animation: floatFive 16s ease-in-out infinite alternate;
+  opacity: 0.45;
+}
+.animated-blob-6 {
+  filter: blur(1px);
+  width: 220vw;
+  height: 220vw;
+  left: -80%;
+  bottom: 10%;
+  background:
+    radial-gradient(circle at 50% 35%, var(--ab-1) 0%, var(--ab-3) 48%, var(--ab-7) 100%),
+    conic-gradient(from 165deg at 50% 50%, var(--ab-7) 0deg, var(--ab-0) 85deg, var(--ab-4) 170deg, var(--ab-5) 260deg, var(--ab-1) 360deg),
+    linear-gradient(180deg, var(--ab-0) 0%, var(--ab-7) 100%);
+  background-blend-mode: normal, soft-light, overlay;
+  animation: floatFive 22s ease-in-out infinite alternate;
+  opacity: 0.3;
+}
+
+.animated-rectangle {
+  filter: blur(20px);
+  position: absolute;
+  border-radius: 40% 60% 55% 45%;
+  transform-origin: center;
+  will-change: transform, opacity;
+  opacity: 0.3;
+}
+
+.animated-rectangle-1 {
+  filter: blur(20px);
+  width: 36vw;
+  height: 22vw;
+  min-width: 320px;
+  min-height: 220px;
+  left: -6%;
+  bottom: 4%;
+  background: linear-gradient(145deg, var(--ab-1) 0%, var(--ab-3) 48%, var(--ab-5) 100%);
+  opacity: 0.25;
+  animation: floatRectOne 20s ease-in-out infinite alternate;
+}
+
+.animated-rectangle-2 {
+  filter: blur(20px);
+  width: 28vw;
+  height: 18vw;
+  min-width: 260px;
+  min-height: 180px;
+  right: 3%;
+  top: 14%;
+  background:
+    linear-gradient(35deg, var(--ab-1) 0%, var(--ab-3) 45%, var(--ab-5) 100%),
+    conic-gradient(from 120deg at 50% 50%, var(--ab-2) 0deg, var(--ab-5) 180deg, var(--ab-1) 360deg);
+  background-blend-mode: overlay;
+  opacity: 0.18;
+  animation: floatRectTwo 17s ease-in-out infinite alternate;
+}
+
+.animated-triangle {
+  filter: blur(20px);
+  position: absolute;
+  width: 0;
+  height: 0;
+  transform-origin: center;
+  will-change: transform, opacity;
+  opacity: 0.2;
+}
+
+.animated-triangle-1 {
+  filter: blur(60px);
+  border-left: 20vw solid transparent;
+  border-right: 20vw solid transparent;
+  border-bottom: 30vw solid var(--ab-4);
+  left: 22%;
+  top: -14%;
+  animation: floatTriangleOne 19s ease-in-out infinite alternate;
+  opacity: .3;
+}
+
+.animated-triangle-2 {
+  filter: blur(80px);
+  border-left: 14vw solid transparent;
+  border-right: 14vw solid transparent;
+  border-top: 24vw solid var(--ab-5);
+  right: 20%;
+  bottom: -22%;
+  opacity: 0.42;
+  animation: floatTriangleTwo 23s ease-in-out infinite alternate;
+}
+
+@keyframes floatOne {
+  0% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
+  100% { transform: translate3d(8%, 12%, 0) scale(1.18) rotate(9deg); }
+}
+
+@keyframes floatTwo {
+  0% { transform: translate3d(0, 0, 0) scale(1.02) rotate(0deg); }
+  100% { transform: translate3d(-10%, 8%, 0) scale(1.22) rotate(-8deg); }
+}
+
+@keyframes floatThree {
+  0% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
+  100% { transform: translate3d(-6%, -12%, 0) scale(1.2) rotate(7deg); }
+}
+
+@keyframes floatFour {
+  0% { transform: translate3d(0, 0, 0) scale(1.02) rotate(0deg); }
+  100% { transform: translate3d(10%, -10%, 0) scale(1.16) rotate(-6deg); }
+}
+
+@keyframes floatFive {
+  0% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
+  100% { transform: translate3d(-5%, 6%, 0) scale(1.28) rotate(6deg); }
+}
+
+@keyframes floatRectOne {
+  0% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
+  100% { transform: translate3d(8%, -8%, 0) scale(1.2) rotate(10deg); }
+}
+
+@keyframes floatRectTwo {
+  0% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
+  100% { transform: translate3d(-7%, 10%, 0) scale(1.18) rotate(-9deg); }
+}
+
+@keyframes floatTriangleOne {
+  0% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
+  100% { transform: translate3d(9%, 7%, 0) scale(1.15) rotate(-8deg); }
+}
+
+@keyframes floatTriangleTwo {
+  0% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
+  100% { transform: translate3d(-10%, -6%, 0) scale(1.24) rotate(7deg); }
 }

@@ -18,7 +18,8 @@ export default function ListingCta({ href, className, children }) {
       <div className="flex flex-col gap-2">
         <h2 className="font-bold">We have a limited offer for early birds</h2>
         <p>1. Our developer will set everything up for you free of charge.</p>
-        <p>2. On top of that, you can use the app for free for 2 months and then decide if you want to continue using it.</p>
+        <p>2. You can give us any design you want. We will build it for you.</p>
+        <p>3. Everything we do, can be undone at any time. No strings attached.</p>
         <p>In exchange, we just want to learn how to use the app with many different stores and improve it in the process. Feedback would also be greatly appreciated to add features based on your needs.</p>
         <p>If this seems like a good deal, feel free to contact us.</p>
         <div className="flex justify-between gap-4 mt-4">

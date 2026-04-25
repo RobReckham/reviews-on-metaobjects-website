@@ -30,13 +30,19 @@ const faqs = [
   {
     question: 'Can I import reviews from other providers?',
     answer: <>
-      <p>Yes. The app supports importing existing reviews from providers such as Judge.me, Trusted Shops, and other sources (CSV file import) into the standard product review metaobjects.</p>
+      <p>Yes. The app supports importing existing reviews from providers such as Judge.me, reviews.io, and other sources (CSV file import) into the standard product review metaobjects.</p>
     </>,
   },
   {
     question: 'What providers are supported for import?',
     answer: <>
-      <p>The app supports importing and syncing reviews from Judge.me, Trusted Shops. You can also import reviews from other sources by uploading a CSV file. More providers are added regularly to the sync feature based on demand.</p>
+      <p>The app supports importing and syncing reviews from Judge.me, reviews.io and more. You can also import reviews from other sources by uploading a CSV file. More providers are added regularly to the sync feature based on demand.</p>
+    </>,
+  },
+  {
+    question: 'Can I keep trust badges from other services?',
+    answer: <>
+      <p>Yes. Many of our merchants continue using other services for their trust badges while switching the actual product review display to our native metaobject solution. You can often downgrade your existing review app to their cheapest plan (or even free tier in some cases) and still keep the badge rights. This frequently results in significant cost savings while dramatically improving your store’s speed and SEO.</p>
     </>,
   },
   {
@@ -161,23 +167,25 @@ export default function Faqs() {
       {faqs.map((faq, index) => <li key={index} className="bg-white rounded-2xl">
         <button
           type="button"
-          className="flex justify-between items-center w-full text-left p-8 cursor-pointer"
+          className="flex justify-between items-center w-full text-left p-8 cursor-pointer gap-4"
           onClick={() => setActiveFaq(index === activeFaq ? null : index)}
           aria-expanded={activeFaq === index}
           aria-controls={`faq-panel-${index}`}
           id={`faq-trigger-${index}`}
         >
           <h3 className="h3 cursor-pointer">{faq.question}</h3>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className={`size-8 text-black transition-transform duration-300 ${activeFaq === index ? "rotate-180" : ""}`}
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={6} d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-          </svg>
+          <div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className={`w-4 sm:w-6 text-black transition-transform duration-300 ${activeFaq === index ? "rotate-180" : ""}`}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={6} d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
+          </div>
         </button>
         <div
           className="grid transition-all duration-300 ease-in-out"
@@ -187,7 +195,7 @@ export default function Faqs() {
           aria-labelledby={`faq-trigger-${index}`}
         >
           <div className="overflow-hidden">
-            <div className="text-xl p-8 pt-0 flex flex-col gap-4">{faq.answer}</div>
+            <div className="p-8 pt-0 flex flex-col gap-4">{faq.answer}</div>
           </div>
         </div>
       </li>)}
