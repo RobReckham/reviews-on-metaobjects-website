@@ -39,16 +39,16 @@ const hero = [
   },
   {
     // best
-    title: "Metaobject Reviews for Shopify",
-    subtitle: "Collect, manage, and display reviews natively in Shopify",
-    paragraph: "Store your reviews directly in Shopify’s standard product review metaobjects. Collect new reviews, import or sync existing ones and display them natively server-side with Liquid — resulting in faster page loads, better Core Web Vitals, stronger search engine visibility, better conversion rates, more visitors and ultimately more revenue. And you might even save some money depending on your current setup.",
+    title: "Product reviews stored and rendered natively in Shopify",
+    subtitle: "Built on Shopify’s standard product review metaobjects",
+    paragraph: "Your reviews render directly in your theme via Liquid — no JavaScript widget, no external server request. Collect new reviews via post-purchase emails and on-store forms, import from Judge.me, Loox, or a CSV, and watch your Lighthouse score climb.",
     bullets: ["Faster store", "Better SEO", "No lock-in", "Fair pricing"],
     ctaText: "Claim early access!",
   },
 ][3]
 
 const oneLiners = [
-  <>Metaobjects aren’t just for content - they’re for reviews. Your shop, your data, your reviews.</>,
+  <>Every other review app stores your data on their servers. We store it directly in yours.</>,
   <>First 100 reviews are free. <ListingCta href={process.env.NEXT_PUBLIC_LISTING_URL} className="underline touch-target-inline">Just try it out</ListingCta>.</>,
   <>Reviews that load instantly — because they belong in Shopify.</>,
   <>Your shop, your data, your reviews. You are not locked in with us. Use a different service for the same data at any time.</>,
@@ -163,7 +163,7 @@ const benefits = [
           <path fillRule="evenodd" d="M8.25 6.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM15.75 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM2.25 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM6.31 15.117A6.745 6.745 0 0 1 12 12a6.745 6.745 0 0 1 6.709 7.498.75.75 0 0 1-.372.568A12.696 12.696 0 0 1 12 21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 0 1-.372-.568 6.787 6.787 0 0 1 1.019-4.38Z" clipRule="evenodd" />
           <path d="M5.082 14.254a8.287 8.287 0 0 0-1.308 5.135 9.687 9.687 0 0 1-1.764-.44l-.115-.04a.563.563 0 0 1-.373-.487l-.01-.121a3.75 3.75 0 0 1 3.57-4.047ZM20.226 19.389a8.287 8.287 0 0 0-1.308-5.135 3.75 3.75 0 0 1 3.57 4.047l-.01.121a.563.563 0 0 1-.373.486l-.115.04c-.567.2-1.156.349-1.764.441Z" />
         </svg>},
-        description: "The standard review metaobject is used by Shopify itself and many themes provide sections working right out of the box. They are also used in Shopify's Shop app.",
+        description: "Reviews stored as standard Shopify metaobjects sync automatically to the Shop app, Google Shopping, and Meta Shops. Many themes include review sections that work out of the box — no custom code needed.",
       },
       {
         title: "Complete control",
@@ -401,9 +401,9 @@ const howItWorks = [
     baseColor: "oklch(88.2% 0.059 254.128)",
     steps: [
       "1. Install the app from the Shopify App Store.",
-      "Optional: Import or sync reviews from existing services.",
-      "2. Add ready-made sections to your storefront to collect and display your reviews.",
-      "3. See faster pages, better SEO, and improved conversions immediately.",
+      "Optional: Import or sync existing reviews from existing services like Judge.me, Loox, reviews.io, or a CSV.",
+      "2. Add ready-made sections to your storefront to collect and display reviews.",
+      "3. Watch your pages load faster, rankings improve, and conversions climb.",
     ]
   },
 ][3]
@@ -415,7 +415,7 @@ const finalCta = [
   {
     title: "Ready for faster, native reviews?",
     baseColor: "oklch(27.8% 0.033 256.848)",
-    description: "No more slow, third-party review apps. Take control of your reviews, today.",
+    description: "No more slow, third-party review apps. Take control of your reviews today.",
     ctaText: "Claim early access!",
   }
 ][3]
@@ -475,8 +475,9 @@ export default function HomePage() {
         </div>
       </section>
       <section className="bg-white py-16 sm:py-32" id="more-info">
-        <div className="container max-w-6xl mx-auto px-4 sm:px-8 text-center">
-          <h2 className="h2">{oneLiners[0]}</h2>
+        <div className="container max-w-4xl mx-auto px-4 sm:px-8 text-center">
+          <h2 className="h2 mb-6">{oneLiners[0]}</h2>
+          <p className="text-gray-600 text-lg">Shopify&apos;s standard product review metaobjects are a native data type built into every store. Your reviews render in your theme the same way product titles do — no external scripts, no API calls at load time. And they stay in your store even if you switch apps.</p>
         </div>
       </section>
       <section className="bg-white pt-16 sm:pt-32 px-4">
@@ -485,7 +486,7 @@ export default function HomePage() {
           <div className="relative p-6 sm:p-16 rounded-4xl overflow-hidden">
             <AnimatedBackground baseColor={benefits.baseColor} />
             <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 relative">
-              {benefits.items.map((benefit, index) => <div key={index} className={`bg-white rounded-xl self-start p-4 text-gray-800`}>
+              {benefits.items.map((benefit, index) => <div key={index} className={`bg-white rounded-xl p-4 text-gray-800`}>
                 <div className="flex justify-between items-center gap-1">
                   <h3 className="font-bold">{benefit.title}</h3>
                   {benefit.Icon && <benefit.Icon className="w-5 h-5" />}
@@ -577,7 +578,7 @@ export default function HomePage() {
       <section className="bg-white py-16 sm:py-32 px-4" id="pricing">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="h2 mb-4">Transparent and fair pricing. No hidden fees. Generous free plan.</h2>
-          <p className="text-gray-500 mb-12">Start free, upgrade as you grow. No hidden fees.</p>
+          <p className="text-gray-500 mb-12">Start free, upgrade as you grow.</p>
           <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 text-left">
             {plans.map((plan) => {
               const maxReviews = plan.features.find((feature) => feature.id === "max_reviews")

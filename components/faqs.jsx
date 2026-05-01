@@ -16,6 +16,13 @@ const faqs = [
     </>,
   },
   {
+    question: 'Why does it matter that my reviews are stored in Shopify instead of a third-party database?',
+    answer: <>
+      <p>When reviews are stored on a third-party server, your browser has to fetch them via JavaScript after your page loads. This delays rendering, increases your Largest Contentful Paint (LCP), and prevents search engines from indexing your review content and structured data.</p>
+      <p>Metaobjects are queried server-side during Liquid rendering — just like product titles or prices. The reviews are part of your HTML from the first byte. No extra round-trip, no layout shift, no dependency on an external service staying online.</p>
+    </>,
+  },
+  {
     question: 'How do I get started?',
     answer: <>
       <p>Install the app from the Shopify App Store. The free tier activates immediately (up to 100 reviews). Connect your review source, import by uploading a CSV file or start collecting via forms and emails. Add some ready-made app blocks to your store — no coding required for basic setup.</p>
