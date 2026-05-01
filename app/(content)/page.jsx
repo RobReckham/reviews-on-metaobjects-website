@@ -477,7 +477,7 @@ export default function HomePage() {
       <section className="bg-white py-16 sm:py-32" id="more-info">
         <div className="container max-w-4xl mx-auto px-4 sm:px-8 text-center">
           <h2 className="h2 mb-6">{oneLiners[0]}</h2>
-          <p className="text-gray-600 text-lg">Shopify&apos;s standard product review metaobjects are a native data type built into every store. Your reviews render in your theme the same way product titles do — no external scripts, no API calls at load time. And they stay in your store even if you switch apps.</p>
+          <p className="text-gray-600 text-lg">Shopify's standard product review metaobjects are a native data type built into every store. Your reviews render in your theme the same way product titles do — no external scripts, no API calls at load time. And they stay in your store even if you switch apps.</p>
         </div>
       </section>
       <section className="bg-white pt-16 sm:pt-32 px-4">

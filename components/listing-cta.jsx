@@ -17,12 +17,12 @@ export default function ListingCta({ href, className, children }) {
     <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
       <div className="flex flex-col gap-2">
         <h2 className="font-bold">Free setup. Custom design. Zero risk.</h2>
-        <p>We&apos;re opening early access to a handful of stores - and we&apos;re doing the heavy lifting for you.</p>
+        <p>We're opening early access to a handful of stores - and we're doing the heavy lifting for you.</p>
         <p>1. Our developer sets everything up, free of charge</p>
-        <p>2. Custom design? We&apos;ll build it to match your brand</p>
-        <p>3. Doesn&apos;t work out? We revert everything. No lock-in</p>
-        <p>In return, we ask for honest feedback. That&apos;s it.</p>
-        <p>Spots are limited - let&apos;s talk.</p>
+        <p>2. Custom design? We'll build it to match your brand</p>
+        <p>3. Doesn't work out? We revert everything. No lock-in</p>
+        <p>In return, we ask for honest feedback. That's it.</p>
+        <p>Spots are limited - let's talk.</p>
         <div className="flex justify-between gap-4 mt-4">
           <div className="flex items-center gap-2">
             <img
