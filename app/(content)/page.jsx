@@ -42,7 +42,7 @@ const hero = [
     title: "Metaobject Reviews for Shopify",
     subtitle: "Collect, manage, and display reviews natively in Shopify",
     paragraph: "Store your reviews directly in Shopify’s standard product review metaobjects. Collect new reviews, import or sync existing ones and display them natively server-side with Liquid — resulting in faster page loads, better Core Web Vitals, stronger search engine visibility, better conversion rates, more visitors and ultimately more revenue. And you might even save some money depending on your current setup.",
-    bullets: ["Fast server-side rendering", "No JavaScript widgets", "Full control"],
+    bullets: ["Faster store", "Better SEO", "No lock-in", "Fair pricing"],
     ctaText: "Claim early access!",
   },
 ][3]
@@ -50,7 +50,7 @@ const hero = [
 const oneLiners = [
   <>Metaobjects aren’t just for content - they’re for reviews. Your shop, your data, your reviews.</>,
   <>First 100 reviews are free. <ListingCta href={process.env.NEXT_PUBLIC_LISTING_URL} className="underline touch-target-inline">Just try it out</ListingCta>.</>,
-  <>Transparent and fair pricing. No hidden fees. Generous free plan. {process.env.NEXT_PUBLIC_LISTING_URL && <a href={process.env.NEXT_PUBLIC_LISTING_URL} target="_blank" rel="noopener noreferrer" className="underline touch-target-inline">See plans</a>}</>,
+  <>Reviews that load instantly — because they belong in Shopify.</>,
   <>Your shop, your data, your reviews. You are not locked in with us. Use a different service for the same data at any time.</>,
   <>From collection to display — all inside Shopify. Your shop, your data, your reviews.</>,
   'Stop slowing down your store with heavy review widgets.',
@@ -61,7 +61,6 @@ const oneLiners = [
   'Own your reviews instead of renting them.',
   'No more external scripts killing your speed.',
   'The fastest, cleanest way to show authentic reviews.',
-  'Reviews that load instantly — because they belong in Shopify.',
   'Ditch the widgets. Embrace native performance.',
   'Translation included. Performance guaranteed.',
   'Built for speed. Designed for trust.',
@@ -450,8 +449,8 @@ export default function HomePage() {
           <AnimatedBackground />
         </div>
         <div className="px-8 sm:px-8 py-4 text-center relative z-10">
-          <h1 className="h4">{hero.subtitle}</h1>
-          <h2 className="h1 mt-4 mb-8 max-w-6xl mx-auto">{hero.title}</h2>
+          <p className="h4">{hero.subtitle}</p>
+          <h1 className="h1 mt-4 mb-8 max-w-6xl mx-auto">{hero.title}</h1>
           <div className="max-w-3xl mx-auto p">
             <p className="mb-4 leading-relaxed">
               {hero.bullets.map((benefit, index) => <span className={`${colors[index]} px-3 rounded py-1`} key={index}>{benefit}</span>)}
@@ -510,7 +509,7 @@ export default function HomePage() {
           />
         </div>
       </section>
-      <section className="bg-white py-16 sm:py-32">
+      <section className="bg-white pb-16 pt-32 sm:pb-32 sm:pt-48">
         <div className="container max-w-6xl mx-auto px-4 sm:px-8 text-center">
           <h2 className="h2">{oneLiners[1]}</h2>
         </div>
@@ -573,6 +572,43 @@ export default function HomePage() {
               </div>)}
             </div>
           </div>
+        </div>
+      </section>
+      <section className="bg-white py-16 sm:py-32 px-4" id="pricing">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="h2 mb-4">Transparent and fair pricing. No hidden fees. Generous free plan.</h2>
+          <p className="text-gray-500 mb-12">Start free, upgrade as you grow. No hidden fees.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 text-left">
+            {plans.map((plan) => {
+              const maxReviews = plan.features.find((feature) => feature.id === "max_reviews")
+              const booleanFeatures = plan.features.filter((feature) => typeof feature.value === "boolean")
+              return <div key={plan.name} className="rounded-2xl border border-gray-200 flex flex-col">
+                <div className="p-4">
+                  <p className="font-bold text-lg">{plan.name}</p>
+                  {maxReviews && <p className="text-sm text-gray-500 mt-1">{maxReviews.value === Infinity ? "Unlimited" : maxReviews.value.toLocaleString()} reviews max</p>}
+                </div>
+                <ul className="space-y-2 border-t border-b border-gray-100 p-4">
+                  {booleanFeatures.map((feature) => <li key={feature.id} className={`flex items-center gap-2 text-sm ${feature.value ? "" : "text-gray-400"}`}>
+                    {feature.value && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 shrink-0 text-green-600">
+                      <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clipRule="evenodd" />
+                    </svg>}
+                    {!feature.value && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 shrink-0">
+                      <path d="M6.75 9.25a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5h-6.5Z" />
+                    </svg>}
+                    {feature.name}
+                  </li>)}
+                </ul>
+                <div className="p-4">
+                  <p className="text-3xl font-bold">
+                    ${plan.price}
+                    <span className="text-base font-normal text-gray-500">/mo</span>
+                  </p>
+                  {plan.yearlyPrice > 0 && <p className="text-sm text-gray-400 mt-0.5">or ${plan.yearlyPrice}/yr</p>}
+                </div>
+              </div>
+            })}
+          </div>
+          <ListingCta href={process.env.NEXT_PUBLIC_LISTING_URL} className="btn btn-primary mt-12 inline-flex">Claim early access!</ListingCta>
         </div>
       </section>
       <section className="py-16 sm:py-32 px-8 mb-16 relative">
