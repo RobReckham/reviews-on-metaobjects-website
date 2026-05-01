@@ -43,23 +43,23 @@ const hero = [
     subtitle: "Collect, manage, and display reviews natively in Shopify",
     paragraph: "Store your reviews directly in Shopify’s standard product review metaobjects. Collect new reviews, import or sync existing ones and display them natively server-side with Liquid — resulting in faster page loads, better Core Web Vitals, stronger search engine visibility, better conversion rates, more visitors and ultimately more revenue. And you might even save some money depending on your current setup.",
     bullets: ["Fast server-side rendering", "No JavaScript widgets", "Full control"],
-    ctaText: "Install the app for free!",
+    ctaText: "Claim early access!",
   },
 ][3]
 
 const oneLiners = [
-  <>Your shop, your data, your reviews. You are not locked in with us. Use a different service for the same data at any time.</>,
+  <>Metaobjects aren’t just for content - they’re for reviews. Your shop, your data, your reviews.</>,
   <>First 100 reviews are free. <ListingCta href={process.env.NEXT_PUBLIC_LISTING_URL} className="underline touch-target-inline">Just try it out</ListingCta>.</>,
   <>Transparent and fair pricing. No hidden fees. Generous free plan. {process.env.NEXT_PUBLIC_LISTING_URL && <a href={process.env.NEXT_PUBLIC_LISTING_URL} target="_blank" rel="noopener noreferrer" className="underline touch-target-inline">See plans</a>}</>,
+  <>Your shop, your data, your reviews. You are not locked in with us. Use a different service for the same data at any time.</>,
+  <>From collection to display — all inside Shopify. Your shop, your data, your reviews.</>,
   'Stop slowing down your store with heavy review widgets.',
   'Native reviews. No JavaScript. No compromises.',
   'Your reviews. Your data. Your rules.',
-  'Metaobjects aren’t just for content — they’re for reviews.',
   'Faster pages. Better SEO. Real control.',
   'Render reviews server-side. Convert more customers.',
   'Own your reviews instead of renting them.',
   'No more external scripts killing your speed.',
-  'From collection to display — all inside Shopify.',
   'The fastest, cleanest way to show authentic reviews.',
   'Reviews that load instantly — because they belong in Shopify.',
   'Ditch the widgets. Embrace native performance.',
@@ -227,6 +227,7 @@ const feature1 = [
     title: "Collect reviews intelligently",
     baseColor: "oklch(84.5% 0.143 164.978)",
     baseColor: "oklch(90.5% 0.093 164.15)",
+    baseColor: "oklch(82.7% 0.119 306.383)",
     items: [
       {
         title: "Forms on product pages",
@@ -340,6 +341,7 @@ const feature3 = [
     // best
     title: "Display reviews confidently",
     baseColor: "oklch(81% 0.117 11.638)",
+    baseColor: "oklch(82.7% 0.119 306.383)",
     items: [
       {
         title: "Flexible placement",
@@ -396,6 +398,8 @@ const howItWorks = [
     // best
     title: "How it works",
     baseColor: "oklch(81.1% 0.111 293.571)",
+    baseColor: "oklch(90.5% 0.093 164.15)",
+    baseColor: "oklch(88.2% 0.059 254.128)",
     steps: [
       "1. Install the app from the Shopify App Store.",
       "Optional: Import or sync reviews from existing services.",
@@ -413,7 +417,7 @@ const finalCta = [
     title: "Ready for faster, native reviews?",
     baseColor: "oklch(27.8% 0.033 256.848)",
     description: "No more slow, third-party review apps. Take control of your reviews, today.",
-    ctaText: "Visit the Shopify App Store",
+    ctaText: "Claim early access!",
   }
 ][3]
 
