@@ -37,9 +37,10 @@ export default function ListingCta({ href, className, children }) {
               <p className="text-sm text-gray-500">Lead Developer</p>
             </div>
           </div>
-          <div className="flex justify-end items-center gap-2">
+          <div className="flex flex-col justify-end items-center gap-1">
             {false && <button onClick={() => setIsModalOpen(false)} className='btn btn-primary btn-inverted btn-sm'>Close</button>}
-            <a href="mailto:marius@coders.fail" className='btn btn-primary btn-sm'>Send email</a>
+            <a href={`${process.env.NEXT_PUBLIC_CALENDLY_LINK}`} target="_blank" rel="noopener noreferrer" className='btn btn-primary btn-sm'>Schedule a call</a>
+            <a href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL}`} className='underline text-sm'>...or send us an email</a>
           </div>
         </div>
       </div>
