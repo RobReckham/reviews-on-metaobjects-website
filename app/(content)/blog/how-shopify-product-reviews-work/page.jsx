@@ -1,4 +1,4 @@
-import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents } from "../../../../components/blog"
+import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta } from "../../../../components/blog"
 
 export const metadata = {
   title: "How Shopify Product Reviews Work: Metaobjects, Liquid Rendering, and SEO",
@@ -24,10 +24,10 @@ const tocItems = [
 export default function HowShopifyProductReviewsWorkPage() {
   return (
     <main className="bg-white min-h-screen text-gray-900">
-
-      {/* Hero */}
+      <ArticleJsonLd title={metadata.title} description={metadata.description} datePublished="2026-05-02" slug="how-shopify-product-reviews-work" />
       <section className="pt-24 pb-12 border-b border-gray-100">
         <div className="max-w-3xl mx-auto px-4 sm:px-8">
+          <BlogNav />
           <p className="text-sm font-semibold text-blue-700 uppercase tracking-widest mb-4">Technical deep-dive</p>
           <h1 className="text-3xl sm:text-6xl font-black tracking-tight mb-6 text-gray-900">
             How Shopify product reviews work: Metaobjects, server-side rendering, and SEO
@@ -88,6 +88,7 @@ Browser requests your product page
           </ExternalLink>{" "}
           for the full technical definition of LCP.
         </P>
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} stores your reviews directly in Shopify - no external API call, no JavaScript widget injecting content after page load.`} />
       </Section>
 
       {/* 2. What are metaobjects */}
@@ -346,6 +347,7 @@ Browser requests your product page
           markup. Iterating over Metaobject review references in Liquid and outputting per-review JSON-LD is
           straightforward and produces HTML-embedded structured data that Google indexes immediately on first crawl.
         </P>
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} outputs AggregateRating and Review JSON-LD server-side on every product page - Googlebot reads it on first crawl, no JavaScript required.`} />
       </Section>
 
       {/* 6. Liquid rendering */}
@@ -474,6 +476,7 @@ query {
           </ExternalLink>{" "}
           for the full query spec.
         </P>
+        <InlineCta message={`With ${process.env.NEXT_PUBLIC_APP_NAME}, your reviews live in Shopify's Metaobjects - fully accessible via GraphQL and Liquid, yours to keep even after uninstalling.`} />
       </Section>
 
       {/* 8. Syndication */}
@@ -593,9 +596,11 @@ query {
             {" · "}
             <InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink>
           </P>
+          <BlogNav className="mt-6" />
         </div>
       </Section>
 
+      <BlogCta />
     </main>
   )
 }

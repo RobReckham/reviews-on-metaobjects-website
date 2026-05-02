@@ -1,4 +1,4 @@
-import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, ArticleHero, ArticleFooter } from "../../../../components/blog"
+import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta } from "../../../../components/blog"
 
 export const metadata = {
   title: "Why Your Shopify Product Review Stars Don't Show in Google Search",
@@ -21,9 +21,11 @@ const tocItems = [
 export default function ShopifyReviewStarsNotShowingGooglePage() {
   return (
     <main className="bg-white min-h-screen text-gray-900">
+      <ArticleJsonLd title={metadata.title} description={metadata.description} datePublished="2026-05-02" slug="shopify-review-stars-not-showing-google" />
 
       <section className="pt-24 pb-12 border-b border-gray-100">
         <div className="max-w-3xl mx-auto px-4 sm:px-8">
+          <BlogNav />
           <p className="text-sm font-semibold text-blue-700 uppercase tracking-widest mb-4">SEO debugging</p>
           <h1 className="text-3xl sm:text-6xl font-black tracking-tight mb-6 text-gray-900">
             Why your Shopify product review stars don't show in Google Search
@@ -134,6 +136,7 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
           without review data in the rendered HTML - even when the review widget appears fine in a real browser. This
           is the tell.
         </Callout>
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} renders structured data server-side in Liquid - your AggregateRating is in the initial HTML, not injected by JavaScript after page load.`} />
       </Section>
 
       <Section className="bg-gray-50" id="audit-your-store">
@@ -239,6 +242,7 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
           theme has it and add the <code className="bg-gray-200 px-1 rounded text-sm">aggregateRating</code> block to the
           existing structure rather than creating a duplicate <code className="bg-gray-200 px-1 rounded text-sm">Product</code> schema.
         </Callout>
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} handles all of this automatically - structured data, Metaobject storage, and server-side rendering included out of the box.`} />
       </Section>
 
       <Section id="after-the-fix">
@@ -280,9 +284,11 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
             {" · "}
             <InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink>
           </P>
+          <BlogNav className="mt-6" />
         </div>
       </Section>
 
+      <BlogCta />
     </main>
   )
 }

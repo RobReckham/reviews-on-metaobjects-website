@@ -51,7 +51,7 @@ const hero = [
 
 const oneLiners = [
   <>Every other review app stores your data on their servers. We store it directly in yours.</>,
-  <>First 100 reviews are free. <ListingCta href={process.env.NEXT_PUBLIC_LISTING_URL} className="underline touch-target-inline">Just try it out</ListingCta>.</>,
+  <>First 100 reviews are free. <ListingCta className="underline touch-target-inline">Just try it out</ListingCta>.</>,
   <>Reviews that load instantly - because they belong in Shopify.</>,
   <>Your shop, your data, your reviews. You are not locked in with us. Use a different service for the same data at any time.</>,
   <>From collection to display - all inside Shopify. Your shop, your data, your reviews.</>,
@@ -504,7 +504,7 @@ const faqs = [
     question: 'How many reviews can I store and display?',
     answer: <>
       <p>Shopify itself supports up to 1,000,000 product review metaobjects per store.</p>
-      <p>Our app supports unlimited reviews depending on {process.env.NEXT_PUBLIC_LISTING_URL ? <a href={process.env.NEXT_PUBLIC_LISTING_URL} target="_blank" rel="noopener noreferrer" className="underline">the plan you choose</a> : <span className="underline">the plan you choose</span>}.</p>
+      <p>Our app supports unlimited reviews depending on {process.env.NEXT_PUBLIC_LISTING_URL ? <a href={process.env.NEXT_PUBLIC_LISTING_URL} target="_blank" rel="noopener noreferrer" className="underline">the plan you choose</a> : <span>the plan you choose</span>}.</p>
     </>,
   },
   {
@@ -603,7 +603,7 @@ export default function HomePage() {
             <p className="mb-4">{hero.paragraph}</p>
           </div>
           <div className="inline-flex justify-center items-center gap-4 relative">
-            <ListingCta href={process.env.NEXT_PUBLIC_LISTING_URL} className="btn btn-primary">{hero.ctaText}</ListingCta>
+            <ListingCta className="btn btn-primary">{hero.ctaText}</ListingCta>
             <div className="text-right absolute -right-6 -top-2 z-10">
               <img src="/shopify_glyph.svg" alt="Shopify Logo" className="h-14" width="49" height="56" />
             </div>
@@ -725,7 +725,7 @@ export default function HomePage() {
           <h2 className="h2 mb-4">Transparent and fair pricing. No hidden fees. Generous free plan.</h2>
           <p className="text-gray-500 mb-12">Start free, upgrade as you grow.</p>
           <Pricing />
-          <ListingCta href={process.env.NEXT_PUBLIC_LISTING_URL} className="btn btn-primary mt-12 inline-flex">Claim early access!</ListingCta>
+          <ListingCta className="btn btn-primary mt-12 inline-flex">Claim early access!</ListingCta>
         </div>
       </section>
       <FinalCta title={finalCta.title} subtitle={finalCta.description} ctaLabel={finalCta.ctaText} />

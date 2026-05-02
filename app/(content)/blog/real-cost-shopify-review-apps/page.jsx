@@ -1,4 +1,4 @@
-import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents } from "../../../../components/blog"
+import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta } from "../../../../components/blog"
 
 export const metadata = {
   title: "The Hidden Cost of Shopify Review Apps: Speed, SEO, and Data You Don't Own",
@@ -20,9 +20,11 @@ const tocItems = [
 export default function RealCostShopifyReviewAppsPage() {
   return (
     <main className="bg-white min-h-screen text-gray-900">
+      <ArticleJsonLd title={metadata.title} description={metadata.description} datePublished="2026-05-02" slug="real-cost-shopify-review-apps" />
 
       <section className="pt-24 pb-12 border-b border-gray-100">
         <div className="max-w-3xl mx-auto px-4 sm:px-8">
+          <BlogNav />
           <p className="text-sm font-semibold text-blue-700 uppercase tracking-widest mb-4">Analysis</p>
           <h1 className="text-3xl sm:text-6xl font-black tracking-tight mb-6 text-gray-900">
             The hidden cost of Shopify review apps: speed, SEO, and data you don't own
@@ -136,6 +138,7 @@ export default function RealCostShopifyReviewAppsPage() {
           LCP, CLS, and INP are all directly affected by review widget architecture. Performance costs are
           not abstract - they affect your position in organic search.
         </Callout>
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} has zero JavaScript widget - reviews are rendered in Liquid with no external requests, keeping your LCP, CLS, and INP scores clean.`} />
       </Section>
 
       <Section id="the-seo-cost">
@@ -206,6 +209,7 @@ export default function RealCostShopifyReviewAppsPage() {
           but significant amount as social proof. That value is what keeps merchants on expensive plans even when
           the per-feature value has long since declined.
         </Callout>
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} stores reviews as Shopify Metaobjects - they're yours forever, exportable via GraphQL, fully accessible even if you ever uninstall the app.`} buttonLabel="Get more information →" />
       </Section>
 
       <Section id="the-dependency-cost">
@@ -280,9 +284,11 @@ export default function RealCostShopifyReviewAppsPage() {
             {" · "}
             <InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink>
           </P>
+          <BlogNav className="mt-6" />
         </div>
       </Section>
 
+      <BlogCta />
     </main>
   )
 }

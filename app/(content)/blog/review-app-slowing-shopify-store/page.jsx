@@ -1,4 +1,4 @@
-import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents } from "../../../../components/blog"
+import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta } from "../../../../components/blog"
 
 export const metadata = {
   title: "Is Your Review App Slowing Down Your Shopify Store? How to Measure It",
@@ -20,9 +20,11 @@ const tocItems = [
 export default function ReviewAppSlowingShopifyStorePage() {
   return (
     <main className="bg-white min-h-screen text-gray-900">
+      <ArticleJsonLd title={metadata.title} description={metadata.description} datePublished="2026-05-02" slug="review-app-slowing-shopify-store" />
 
       <section className="pt-24 pb-12 border-b border-gray-100">
         <div className="max-w-3xl mx-auto px-4 sm:px-8">
+          <BlogNav />
           <p className="text-sm font-semibold text-blue-700 uppercase tracking-widest mb-4">Performance</p>
           <h1 className="text-3xl sm:text-6xl font-black tracking-tight mb-6 text-gray-900">
             Is your review app slowing down your Shopify store? How to measure it
@@ -95,6 +97,7 @@ export default function ReviewAppSlowingShopifyStorePage() {
           reviews (or temporarily disable the review widget). The delta between the two scores is the widget's
           isolated cost.
         </Callout>
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} has zero JavaScript widget - your reviews are rendered server-side in Liquid with no external network request, no render-blocking scripts.`} />
       </Section>
 
       <Section id="reading-lighthouse-results">
@@ -196,6 +199,7 @@ export default function ReviewAppSlowingShopifyStorePage() {
           and how many reviews are loaded. The point is not the exact number - it is that the server-side number is
           always zero, because no external request ever happens.
         </P>
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} is the server-side alternative - reviews load with the page HTML, no external API, and your Lighthouse score stays clean.`} />
       </Section>
 
       <Section className="bg-gray-50" id="the-architectural-fix">
@@ -233,9 +237,11 @@ export default function ReviewAppSlowingShopifyStorePage() {
             {" · "}
             <InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink>
           </P>
+          <BlogNav className="mt-6" />
         </div>
       </Section>
 
+      <BlogCta />
     </main>
   )
 }

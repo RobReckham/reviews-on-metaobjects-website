@@ -91,7 +91,7 @@ export default function JudgeMeAlternativePage() {
             </p>
           </div>
           <div className="inline-flex justify-center items-center gap-4 relative">
-            <ListingCta href={process.env.NEXT_PUBLIC_LISTING_URL} className="btn btn-primary">Switch from Judge.me today</ListingCta>
+            <ListingCta className="btn btn-primary">Switch from Judge.me today</ListingCta>
             <div className="text-right absolute -right-6 -top-2 z-10">
               <img src="/shopify_glyph.svg" alt="Shopify Logo" className="h-14" width="49" height="56" />
             </div>
@@ -123,7 +123,7 @@ export default function JudgeMeAlternativePage() {
           <p className="text-gray-500 mb-12">Judge.me starts free - so do we, for your first 100 reviews. The difference isn't price. It's where your reviews live and how they render.</p>
           <Pricing />
           <div className="mt-12">
-            <ListingCta href={process.env.NEXT_PUBLIC_LISTING_URL} className="btn btn-primary inline-flex">Sync your Judge.me reviews</ListingCta>
+            <ListingCta className="btn btn-primary inline-flex">Sync your Judge.me reviews</ListingCta>
           </div>
         </div>
       </section>

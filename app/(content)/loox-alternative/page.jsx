@@ -128,7 +128,7 @@ export default function LooxAlternativePage() {
             </p>
           </div>
           <div className="inline-flex justify-center items-center gap-4 relative">
-            <ListingCta href={process.env.NEXT_PUBLIC_LISTING_URL} className="btn btn-primary">Switch from Loox today</ListingCta>
+            <ListingCta className="btn btn-primary">Switch from Loox today</ListingCta>
             <div className="text-right absolute -right-6 -top-2 z-10">
               <img src="/shopify_glyph.svg" alt="Shopify Logo" className="h-14" width="49" height="56" />
             </div>
@@ -196,7 +196,7 @@ export default function LooxAlternativePage() {
           <Pricing />
           <PricingCalculator />
           <div className="mt-12">
-            <ListingCta href={process.env.NEXT_PUBLIC_LISTING_URL} className="btn btn-primary inline-flex">Sync your Loox reviews</ListingCta>
+            <ListingCta className="btn btn-primary inline-flex">Sync your Loox reviews</ListingCta>
           </div>
         </div>
       </section>

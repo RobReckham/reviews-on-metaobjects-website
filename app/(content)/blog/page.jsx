@@ -61,8 +61,31 @@ const posts = [
 ]
 
 export default function BlogIndexPage() {
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": `${process.env.NEXT_PUBLIC_SITE_URL}/blog#blog`,
+    "name": "Shopify Reviews, Performance & SEO",
+    "description": metadata.description,
+    "url": `${process.env.NEXT_PUBLIC_SITE_URL}/blog`,
+    "publisher": {
+      "@type": "Organization",
+      "name": process.env.NEXT_PUBLIC_APP_NAME,
+      "url": process.env.NEXT_PUBLIC_SITE_URL,
+    },
+    "blogPost": posts.map((post) => ({
+      "@type": "BlogPosting",
+      "@id": `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${post.slug}#article`,
+      "headline": post.title,
+      "description": post.description,
+      "datePublished": post.date,
+      "url": `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${post.slug}`,
+    })),
+  }
+
   return (
     <main className="bg-white min-h-screen text-gray-900">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }} />
       <section className="pt-24 pb-16 border-b border-gray-100">
         <div className="max-w-3xl mx-auto px-4 sm:px-8">
           <p className="text-sm font-semibold text-blue-700 uppercase tracking-widest mb-4">Blog</p>

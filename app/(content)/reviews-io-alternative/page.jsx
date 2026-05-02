@@ -128,7 +128,7 @@ export default function ReviewsIoAlternativePage() {
             </p>
           </div>
           <div className="inline-flex justify-center items-center gap-4 relative">
-            <ListingCta href={process.env.NEXT_PUBLIC_LISTING_URL} className="btn btn-primary">Switch from REVIEWS.io today</ListingCta>
+            <ListingCta className="btn btn-primary">Switch from REVIEWS.io today</ListingCta>
             <div className="text-right absolute -right-6 -top-2 z-10">
               <img src="/shopify_glyph.svg" alt="Shopify Logo" className="h-14" width="49" height="56" />
             </div>
@@ -197,7 +197,7 @@ export default function ReviewsIoAlternativePage() {
           <Pricing />
           <PricingCalculator />
           <div className="mt-12">
-            <ListingCta href={process.env.NEXT_PUBLIC_LISTING_URL} className="btn btn-primary inline-flex">Sync your REVIEWS.io reviews</ListingCta>
+            <ListingCta className="btn btn-primary inline-flex">Sync your REVIEWS.io reviews</ListingCta>
           </div>
         </div>
       </section>

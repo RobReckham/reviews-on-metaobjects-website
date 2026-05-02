@@ -1,4 +1,4 @@
-import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents } from "../../../../components/blog"
+import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta } from "../../../../components/blog"
 
 export const metadata = {
   title: "Shopify Metafields vs. Metaobjects: What's the Difference?",
@@ -22,9 +22,11 @@ const tocItems = [
 export default function ShopifyMetafieldsVsMetaobjectsPage() {
   return (
     <main className="bg-white min-h-screen text-gray-900">
+      <ArticleJsonLd title={metadata.title} description={metadata.description} datePublished="2026-05-02" slug="shopify-metafields-vs-metaobjects" />
 
       <section className="pt-24 pb-12 border-b border-gray-100">
         <div className="max-w-3xl mx-auto px-4 sm:px-8">
+          <BlogNav />
           <p className="text-sm font-semibold text-blue-700 uppercase tracking-widest mb-4">Shopify custom data</p>
           <h1 className="text-3xl sm:text-6xl font-black tracking-tight mb-6 text-gray-900">
             Shopify Metafields vs. Metaobjects: what's the difference?
@@ -143,6 +145,7 @@ export default function ShopifyMetafieldsVsMetaobjectsPage() {
             </tbody>
           </table>
         </div>
+        <InlineCta message={`Product reviews are a textbook Metaobject use case - ${process.env.NEXT_PUBLIC_APP_NAME} uses Shopify's standard shopify--product-review definition so your data is portable and queryable.`} />
       </Section>
 
       <Section id="field-types">
@@ -250,6 +253,7 @@ query {
           <ExternalLink href="https://shopify.dev/docs/api/storefront">Storefront GraphQL API</ExternalLink> (the
           Storefront API requires the fields to be marked as storefront-accessible in the definition).
         </P>
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} writes reviews as standard Shopify Metaobjects - query them with GraphQL, render them in Liquid, or export them any time you want.`} />
       </Section>
 
       <Section className="bg-gray-50" id="when-to-use-which">
@@ -335,9 +339,11 @@ query {
             {" · "}
             <InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink>
           </P>
+          <BlogNav className="mt-6" />
         </div>
       </Section>
 
+      <BlogCta />
     </main>
   )
 }
