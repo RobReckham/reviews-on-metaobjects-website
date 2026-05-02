@@ -1,4 +1,6 @@
 import Faqs from "../../components/faqs"
+import FinalCta from "../../components/final-cta"
+import Pricing from "../../components/pricing"
 import ListingCta from "../../components/listing-cta"
 import plans from "../../utils/plans"
 import AnimatedBackground from "../../components/animated-background"
@@ -420,6 +422,145 @@ const finalCta = [
   }
 ][3]
 
+const faqs = [
+  {
+    question: 'What is the standard product review metaobject?',
+    answer: <>
+      <p>Shopify's standard product review metaobject is the official, built-in way to store product reviews. It powers syndication to the Shop app, Google Shopping, and Meta shops, and allows native server-side display in your theme using Liquid.</p>
+    </>,
+  },
+  {
+    question: 'What is a metaobject?',
+    answer: <>
+      <p>Metaobjects allow you to store data in a structured way right in Shopify. It is a way to store data in a way that is easy and fast to query in Shopify's markup language Liquid. It is thus a native and efficient way to store data and display reviews in your theme.</p>
+    </>,
+  },
+  {
+    question: 'Why does it matter that my reviews are stored in Shopify instead of a third-party database?',
+    answer: <>
+      <p>When reviews are stored on a third-party server, your browser has to fetch them via JavaScript after your page loads. This delays rendering, increases your Largest Contentful Paint (LCP), and prevents search engines from indexing your review content and structured data.</p>
+      <p>Metaobjects are queried server-side during Liquid rendering — just like product titles or prices. The reviews are part of your HTML from the first byte. No extra round-trip, no layout shift, no dependency on an external service staying online.</p>
+    </>,
+  },
+  {
+    question: 'How do I get started?',
+    answer: <>
+      <p>Install the app from the Shopify App Store. The free tier activates immediately (up to 100 reviews). Connect your review source, import by uploading a CSV file or start collecting via forms and emails. Add some ready-made app blocks to your store — no coding required for basic setup.</p>
+    </>,
+  },
+  {
+    question: 'How does the app collect new reviews?',
+    answer: <>
+      <p>New reviews are collected automatically through post-purchase emails and customizable on-store submission forms. All collected reviews are stored directly in Shopify's standard product review metaobjects for native display.</p>
+    </>,
+  },
+  {
+    question: 'Can I import reviews from other providers?',
+    answer: <>
+      <p>Yes. The app supports importing existing reviews from providers such as Judge.me, reviews.io, and other sources (CSV file import) into the standard product review metaobjects.</p>
+    </>,
+  },
+  {
+    question: 'What providers are supported for import?',
+    answer: <>
+      <p>The app supports importing and syncing reviews from Judge.me, reviews.io and more. You can also import reviews from other sources by uploading a CSV file. More providers are added regularly to the sync feature based on demand.</p>
+    </>,
+  },
+  {
+    question: 'Can I keep trust badges from other services?',
+    answer: <>
+      <p>Yes. Many of our merchants continue using other services for their trust badges while switching the actual product review display to our native metaobject solution. You can often downgrade your existing review app to their cheapest plan (or even free tier in some cases) and still keep the badge rights. This frequently results in significant cost savings while dramatically improving your store's speed and SEO.</p>
+    </>,
+  },
+  {
+    question: 'Does the app require JavaScript Snippets to display reviews?',
+    answer: <>
+      <p>No. Reviews render natively with Liquid in your theme — fully server-side. This eliminates JavaScript widgets, improves page speed, Core Web Vitals, and supports better SEO through native structured data.</p>
+    </>,
+  },
+  {
+    question: 'How does automatic translation work?',
+    answer: <>
+      <p>The app automatically translates review title and body into your store's published languages. Translations are stored in the metaobjects and displayed correctly based on the shopper's locale.</p>
+    </>,
+  },
+  {
+    question: 'Is variant-specific review display supported?',
+    answer: <>
+      <p>Yes. When reviews contain variant information, the app filters and displays them for the currently selected product variant on the product page.</p>
+    </>,
+  },
+  {
+    question: 'What happens to my product rating aggregates?',
+    answer: <>
+      <p>The app automatically maintains accurate rating aggregates (average rating and review count) in Shopify metafields. These are updated in real time and can be used on collection pages and search results.</p>
+    </>,
+  },
+  {
+    question: 'How many reviews can I store and display?',
+    answer: <>
+      <p>Shopify itself supports up to 1,000,000 product review metaobjects per store.</p>
+      <p>Our app supports unlimited reviews depending on {process.env.NEXT_PUBLIC_LISTING_URL ? <a href={process.env.NEXT_PUBLIC_LISTING_URL} target="_blank" rel="noopener noreferrer" className="underline">the plan you choose</a> : <span className="underline">the plan you choose</span>}.</p>
+    </>,
+  },
+  {
+    question: 'How does it compare to traditional review widgets?',
+    answer: <>
+      <p>Traditional widgets load reviews with JavaScript, which slows down your store. This app uses native metaobjects for server-side rendering, resulting in faster pages, better SEO, and improved Core Web Vitals while still supporting photo/video reviews.</p>
+    </>,
+  },
+  {
+    question: "Does the app affect my store's performance?",
+    answer: <>
+      <p>Yes, but most likely in a good way. Native Liquid rendering from metaobjects is server-side and usually improves page speed compared to JavaScript-based widgets, which depend on external requests and third-party scripts.</p>
+      <p>This improves Core Web Vitals like Largest Contentful Paint (LCP) and Cumulative Layout Shift (CLS), which are important for SEO and user experience.</p>
+    </>,
+  },
+  // {
+  //   question: 'Is the app GDPR compliant?',
+  //   answer: <>
+  //     <p>Yes. The app follows Shopify's privacy and data protection standards. No personal data is stored outside Shopify, and all processing complies with GDPR requirements.</p>
+  //   </>,
+  // },
+  {
+    question: 'Do I need to change my theme?',
+    answer: <>
+      <p>No major changes required. Just add the ready-made display block to your product or collection pages in the theme editor. It works with all Online Store 2.0 themes.</p>
+    </>,
+  },
+  // {
+  //   question: 'Are photo and video reviews supported?',
+  //   answer: <>
+  //     <p>Yes. Photo and video URLs from imported or collected reviews are stored in the metaobjects and displayed natively in your theme.</p>
+  //   </>,
+  // },
+  {
+    question: 'What kind of support do you offer?',
+    answer: <>
+      <p>Free tier: community support.</p>
+      <p>Paid plans: email support with response times under 24 hours.</p>
+    </>,
+  },
+  {
+    question: 'Is there a free trial for paid plans?',
+    answer: <>
+      <p>No, but the free plan comes with all features and 100 reviews included for an unlimited period. You can upgrade to a paid plan at any time.</p>
+    </>,
+  },
+  {
+    question: 'Can I cancel anytime?',
+    answer: <>
+      <p>Yes. All plans have a monthly subscription. Cancel anytime from your Shopify admin. Your review data remains in your Shopify metaobjects after uninstall.</p>
+    </>,
+  },
+  {
+    question: 'What happens when I uninstall the app?',
+    answer: <>
+      <p>The app removes its own data like app blocks cleanly. Your reviews remain in Shopify's standard product review metaobjects, and you can continue using them with any other tool or your own Liquid blocks.</p>
+    </>,
+  },
+]
+
 export default function HomePage() {
   return <>
     <script
@@ -579,61 +720,16 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="h2 mb-4">Transparent and fair pricing. No hidden fees. Generous free plan.</h2>
           <p className="text-gray-500 mb-12">Start free, upgrade as you grow.</p>
-          <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 text-left">
-            {plans.map((plan) => {
-              const maxReviews = plan.features.find((feature) => feature.id === "max_reviews")
-              const booleanFeatures = plan.features.filter((feature) => typeof feature.value === "boolean")
-              return <div key={plan.name} className="rounded-2xl border border-gray-200 flex flex-col">
-                <div className="p-4">
-                  <p className="font-bold text-lg">{plan.name}</p>
-                  {maxReviews && <p className="text-sm text-gray-500 mt-1">{maxReviews.value === Infinity ? "Unlimited" : maxReviews.value.toLocaleString()} reviews max</p>}
-                </div>
-                <ul className="space-y-2 border-t border-b border-gray-100 p-4">
-                  {booleanFeatures.map((feature) => <li key={feature.id} className={`flex items-center gap-2 text-sm ${feature.value ? "" : "text-gray-400"}`}>
-                    {feature.value && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 shrink-0 text-green-600">
-                      <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clipRule="evenodd" />
-                    </svg>}
-                    {!feature.value && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 shrink-0">
-                      <path d="M6.75 9.25a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5h-6.5Z" />
-                    </svg>}
-                    {feature.name}
-                  </li>)}
-                </ul>
-                <div className="p-4">
-                  <p className="text-3xl font-bold">
-                    ${plan.price}
-                    <span className="text-base font-normal text-gray-500">/mo</span>
-                  </p>
-                  {plan.yearlyPrice > 0 && <p className="text-sm text-gray-400 mt-0.5">or ${plan.yearlyPrice}/yr</p>}
-                </div>
-              </div>
-            })}
-          </div>
+          <Pricing />
           <ListingCta href={process.env.NEXT_PUBLIC_LISTING_URL} className="btn btn-primary mt-12 inline-flex">Claim early access!</ListingCta>
         </div>
       </section>
-      <section className="py-16 sm:py-32 px-8 mb-16 relative">
-        <div className="absolute inset-4 rounded-4xl overflow-hidden">
-          <AnimatedBackground baseColor={finalCta.baseColor} />
-        </div>
-        <div className="relative max-w-7xl mx-auto flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
-          <div>
-            <h2 className={`h2 text-white text-shadow-sm relative z-10 mb-4`}>{finalCta.title}</h2>
-            <p className="text-white text-xl text-shadow-sm relative z-10">{finalCta.description}</p>
-          </div>
-          <div className="inline-flex justify-center items-center gap-4 relative">
-            <ListingCta href={process.env.NEXT_PUBLIC_LISTING_URL} className="btn btn-primary btn-inverted !opacity-100">{finalCta.ctaText}</ListingCta>
-            <div className="text-right absolute -right-6 -top-2 z-10">
-              <img src="/shopify_glyph.svg" alt="Shopify Logo" className="h-14" width="49" height="56" />
-            </div>
-          </div>
-        </div>
-      </section>
+      <FinalCta title={finalCta.title} subtitle={finalCta.description} ctaLabel={finalCta.ctaText} />
       <section className="py-16 sm:py-32 relative">
         <AnimatedBackground baseColor="oklch(92.8% 0.006 264.531)" />
         <div className="container max-w-6xl mx-auto px-4 sm:px-8 relative z-10">
           <h2 className="h2 text-right">What. The. FAQ?</h2>
-          <Faqs />
+          <Faqs faqs={faqs} pageUrl={`${process.env.NEXT_PUBLIC_SITE_URL}/`} />
         </div>
       </section>
     </main>
