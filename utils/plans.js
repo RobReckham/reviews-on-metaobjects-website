@@ -24,7 +24,7 @@ export default [
       },
       {
         id: "white_labeling",
-        name: "White-labeling",
+        name: "White-labeling (remove \u201cPowered by\u201d badge)",
         value: false,
       },
       {
@@ -59,7 +59,7 @@ export default [
       },
       {
         id: "white_labeling",
-        name: "White-labeling",
+        name: "White-labeling (remove \u201cPowered by\u201d badge)",
         value: true,
       },
       {
@@ -94,7 +94,7 @@ export default [
       },
       {
         id: "white_labeling",
-        name: "White-labeling",
+        name: "White-labeling (remove \u201cPowered by\u201d badge)",
         value: true,
       },
       {
@@ -129,7 +129,7 @@ export default [
       },
       {
         id: "white_labeling",
-        name: "White-labeling",
+        name: "White-labeling (remove \u201cPowered by\u201d badge)",
         value: true,
       },
       {

@@ -236,7 +236,7 @@ const feature1 = [
       },
       {
         title: "Post-purchase emails",
-        description: "Automatically request reviews and incentivize with discount codes to increase repeat purchases.",
+        description: "Automatically request reviews after purchase. Reward reviewers with a discount code — percentage or fixed — sent automatically once the review is submitted.",
       },
       {
         title: "Import & sync",
@@ -302,6 +302,10 @@ const feature2 = [
       {
         title: "Auto-translate",
         description: "All reviews are translated into your storefront’s languages automatically.",
+      },
+      {
+        title: "Bulk actions",
+        description: "Publish, unpublish, or delete multiple reviews at once from the dashboard.",
       },
     ]
   },
@@ -675,7 +679,7 @@ export default function HomePage() {
           <div className="relative p-6 sm:p-16 rounded-4xl overflow-hidden">
             <AnimatedBackground baseColor={feature2.baseColor} />
             <h2 className={`h2 text-white text-shadow-sm relative z-10 mb-8 text-center`}>{feature2.title}</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 relative">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 relative">
               {feature2.items.map((feature, index) => <div key={index} className={`bg-black/10 text-white text-shadow-sm rounded-xl p-4 border border-white/40`} style={{ boxShadow: "inset 0 0 20px rgba(0, 0, 0, 0.03)" }}>
                 <h3 className="font-bold">{feature.title}</h3>
                 <p className="mt-2">{feature.description}</p>
