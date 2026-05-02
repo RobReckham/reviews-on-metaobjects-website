@@ -27,14 +27,14 @@ export default function ListingCta({ href, className, children }) {
           <div className="flex items-center gap-2">
             <img
               src="https://s3.coders.fail/profile/marius-blank-512.jpg"
-              alt="Marius"
+              alt={process.env.NEXT_PUBLIC_AUTHOR_NAME}
               className="h-16 w-16 rounded-full"
               width={64}
               height={64}
             />
             <div>
-              <p className="font-bold">Marius Korbmacher</p>
-              <p className="text-sm text-gray-500">Lead Developer</p>
+              <p className="font-bold">{process.env.NEXT_PUBLIC_AUTHOR_NAME}</p>
+              <p className="text-sm text-gray-500">{process.env.NEXT_PUBLIC_AUTHOR_POSITION}</p>
             </div>
           </div>
           <div className="flex flex-col justify-end items-center gap-1">

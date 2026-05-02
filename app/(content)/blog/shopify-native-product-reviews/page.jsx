@@ -1,11 +1,11 @@
-import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta } from "../../../../components/blog"
+import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor } from "../../../../components/blog"
 
 export const metadata = {
   title: "Can Shopify Display Product Reviews Natively Without a Third-Party App?",
   description: "Shopify deprecated its built-in Product Reviews app in 2023. Here's what actually ships natively today, what still requires an app, and what 'native' really means for review storage.",
-  alternates: {
-    canonical: "/blog/shopify-native-product-reviews",
-  },
+  alternates: { canonical: "/blog/shopify-native-product-reviews" },
+  slug: "shopify-native-product-reviews",
+  date: "2026-04-04",
 }
 
 const tocItems = [
@@ -20,7 +20,7 @@ const tocItems = [
 export default function ShopifyNativeProductReviewsPage() {
   return (
     <main className="bg-white min-h-screen text-gray-900">
-      <ArticleJsonLd title={metadata.title} description={metadata.description} datePublished="2026-05-02" slug="shopify-native-product-reviews" />
+      <ArticleJsonLd title={metadata.title} description={metadata.description} datePublished={metadata.date} slug={metadata.slug} />
 
       <section className="pt-24 pb-12 border-b border-gray-100">
         <div className="max-w-3xl mx-auto px-4 sm:px-8">
@@ -238,7 +238,8 @@ query {
           to keep, read, and move - independent of any specific vendor relationship.
         </P>
 
-        <div className="mt-10 pt-8 border-t border-gray-200">
+        <ArticleAuthor />
+        <div className="mt-6 border-t border-gray-200 pt-6">
           <P className="text-gray-500 text-sm">
             <strong>Further reading:</strong>{" "}
             <ExternalLink href="https://help.shopify.com/en/manual/products/product-reviews">Shopify Product Reviews help documentation</ExternalLink>

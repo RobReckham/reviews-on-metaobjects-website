@@ -17,8 +17,9 @@ export function ArticleJsonLd({ title, description, datePublished, slug }) {
         "url": articleUrl,
         "mainEntityOfPage": { "@type": "WebPage", "@id": articleUrl },
         "author": {
-          "@type": "Organization",
-          "name": process.env.NEXT_PUBLIC_APP_NAME,
+          "@type": "Person",
+          "name": process.env.NEXT_PUBLIC_AUTHOR_NAME,
+          "image": "https://s3.coders.fail/profile/marius-blank-512.jpg",
           "url": process.env.NEXT_PUBLIC_SITE_URL,
         },
         "publisher": {
@@ -61,6 +62,24 @@ export function InlineCta({ message, buttonLabel }) {
       <AnimatedBackground />
       <p className="relative z-10flex-1 text-gray-900 leading-snug">{message}</p>
       <a href="/" className="relative z-10 btn btn-primary btn-sm w-full">{buttonLabel}</a>
+    </div>
+  )
+}
+
+export function ArticleAuthor() {
+  return (
+    <div className="flex items-center gap-4 mt-10 pt-8 border-t border-gray-200">
+      <img
+        src="https://s3.coders.fail/profile/marius-blank-512.jpg"
+        alt={process.env.NEXT_PUBLIC_AUTHOR_NAME}
+        className="h-12 w-12 rounded-full shrink-0"
+        width={48}
+        height={48}
+      />
+      <div>
+        <p className="text-sm font-semibold text-gray-900">Written by {process.env.NEXT_PUBLIC_AUTHOR_NAME}</p>
+        <p className="text-sm text-gray-500">{process.env.NEXT_PUBLIC_AUTHOR_POSITION} at {process.env.NEXT_PUBLIC_APP_NAME}</p>
+      </div>
     </div>
   )
 }

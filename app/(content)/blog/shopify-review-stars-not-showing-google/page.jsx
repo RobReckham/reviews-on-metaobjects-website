@@ -1,11 +1,11 @@
-import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta } from "../../../../components/blog"
+import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor } from "../../../../components/blog"
 
 export const metadata = {
   title: "Why Your Shopify Product Review Stars Don't Show in Google Search",
   description: "Missing star ratings in Google Search results? This guide explains exactly why review rich snippets fail on Shopify stores - and how to fix it with server-side structured data.",
-  alternates: {
-    canonical: "/blog/shopify-review-stars-not-showing-google",
-  },
+  alternates: { canonical: "/blog/shopify-review-stars-not-showing-google" },
+  slug: "shopify-review-stars-not-showing-google",
+  date: "2026-04-14",
 }
 
 const tocItems = [
@@ -21,7 +21,7 @@ const tocItems = [
 export default function ShopifyReviewStarsNotShowingGooglePage() {
   return (
     <main className="bg-white min-h-screen text-gray-900">
-      <ArticleJsonLd title={metadata.title} description={metadata.description} datePublished="2026-05-02" slug="shopify-review-stars-not-showing-google" />
+      <ArticleJsonLd title={metadata.title} description={metadata.description} datePublished={metadata.date} slug={metadata.slug} />
 
       <section className="pt-24 pb-12 border-b border-gray-100">
         <div className="max-w-3xl mx-auto px-4 sm:px-8">
@@ -266,7 +266,8 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
           visual trust signal is significant at the point where a user is deciding which result to click.
         </P>
 
-        <div className="mt-10 pt-8 border-t border-gray-200">
+        <ArticleAuthor />
+        <div className="mt-6 border-t border-gray-200 pt-6">
           <P className="text-gray-500 text-sm">
             <strong>Further reading:</strong>{" "}
             <ExternalLink href="https://developers.google.com/search/docs/appearance/structured-data/product">Google Product structured data spec</ExternalLink>

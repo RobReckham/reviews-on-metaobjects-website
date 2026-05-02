@@ -1,11 +1,11 @@
-import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta } from "../../../../components/blog"
+import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor } from "../../../../components/blog"
 
 export const metadata = {
   title: "The Hidden Cost of Shopify Review Apps: Speed, SEO, and Data You Don't Own",
   description: "An honest analysis of what standard Shopify review apps cost beyond the monthly fee - page speed, SEO reliability, crawl budget, and what happens to your data when you leave.",
-  alternates: {
-    canonical: "/blog/real-cost-shopify-review-apps",
-  },
+  alternates: { canonical: "/blog/real-cost-shopify-review-apps" },
+  slug: "real-cost-shopify-review-apps",
+  date: "2026-04-09",
 }
 
 const tocItems = [
@@ -20,7 +20,7 @@ const tocItems = [
 export default function RealCostShopifyReviewAppsPage() {
   return (
     <main className="bg-white min-h-screen text-gray-900">
-      <ArticleJsonLd title={metadata.title} description={metadata.description} datePublished="2026-05-02" slug="real-cost-shopify-review-apps" />
+      <ArticleJsonLd title={metadata.title} description={metadata.description} datePublished={metadata.date} slug={metadata.slug} />
 
       <section className="pt-24 pb-12 border-b border-gray-100">
         <div className="max-w-3xl mx-auto px-4 sm:px-8">
@@ -266,7 +266,8 @@ export default function RealCostShopifyReviewAppsPage() {
           run), which is why pricing can be significantly cheaper at scale.
         </P>
 
-        <div className="mt-10 pt-8 border-t border-gray-200">
+        <ArticleAuthor />
+        <div className="mt-6 border-t border-gray-200 pt-6">
           <P className="text-gray-500 text-sm">
             <strong>Further reading:</strong>{" "}
             <ExternalLink href="https://web.dev/articles/vitals">Core Web Vitals - web.dev</ExternalLink>

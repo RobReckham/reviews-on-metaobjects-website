@@ -1,4 +1,11 @@
 import Link from "next/link"
+import { metadata as post1 } from "./shopify-native-product-reviews/page"
+import { metadata as post2 } from "./real-cost-shopify-review-apps/page"
+import { metadata as post3 } from "./shopify-review-stars-not-showing-google/page"
+import { metadata as post4 } from "./review-app-slowing-shopify-store/page"
+import { metadata as post5 } from "./shopify-liquid-json-ld-structured-data/page"
+import { metadata as post6 } from "./shopify-metafields-vs-metaobjects/page"
+import { metadata as post7 } from "./how-shopify-product-reviews-work/page"
 
 export const metadata = {
   title: "Blog - Shopify Reviews, Performance & SEO",
@@ -8,57 +15,7 @@ export const metadata = {
   },
 }
 
-const posts = [
-  {
-    slug: "shopify-native-product-reviews",
-    title: "Can Shopify display product reviews natively without a third-party app?",
-    description: "Shopify deprecated its built-in Product Reviews app in 2024. Here's what actually ships natively today, what still requires an app, and what 'native' really means for review storage.",
-    date: "2026-05-02",
-    tags: ["shopify", "reviews"],
-  },
-  {
-    slug: "real-cost-shopify-review-apps",
-    title: "The hidden cost of Shopify review apps: speed, SEO, and data you don't own",
-    description: "An honest analysis of what standard Shopify review apps cost beyond the monthly fee - page speed, SEO reliability, crawl budget, and what happens to your data when you leave.",
-    date: "2026-05-02",
-    tags: ["performance", "seo", "data"],
-  },
-  {
-    slug: "shopify-review-stars-not-showing-google",
-    title: "Why your Shopify product review stars don't show in Google Search",
-    description: "Missing star ratings in Google Search results? This guide explains exactly why review rich snippets fail on Shopify stores - and how to fix it with server-side structured data.",
-    date: "2026-05-02",
-    tags: ["seo", "structured-data"],
-  },
-  {
-    slug: "review-app-slowing-shopify-store",
-    title: "Is your review app slowing down your Shopify store? How to measure it",
-    description: "A practical guide to measuring the performance impact of third-party review widgets on your Shopify store using Lighthouse, PageSpeed Insights, and Chrome DevTools.",
-    date: "2026-05-02",
-    tags: ["performance", "lighthouse"],
-  },
-  {
-    slug: "shopify-liquid-json-ld-structured-data",
-    title: "How to add JSON-LD structured data in Shopify Liquid: products, reviews, and breadcrumbs",
-    description: "A complete guide to implementing JSON-LD structured data in Shopify Liquid - covering Product schema, AggregateRating from Metafields, Review markup, and BreadcrumbList.",
-    date: "2026-05-02",
-    tags: ["seo", "liquid", "tutorial"],
-  },
-  {
-    slug: "shopify-metafields-vs-metaobjects",
-    title: "Shopify Metafields vs. Metaobjects: what's the difference?",
-    description: "A clear technical explanation of Shopify Metafields and Metaobjects - what each is, how they differ, when to use which, and how they work together in Liquid and GraphQL.",
-    date: "2026-05-02",
-    tags: ["metaobjects", "liquid", "graphql"],
-  },
-  {
-    slug: "how-shopify-product-reviews-work",
-    title: "How Shopify product reviews work: Metaobjects, server-side rendering, and SEO",
-    description: "A technical deep-dive into Shopify's standard product review Metaobject - why server-side Liquid rendering beats JavaScript widgets for speed, SEO, and data ownership.",
-    date: "2026-05-02",
-    tags: ["metaobjects", "performance", "seo"],
-  },
-]
+const posts = [post1, post2, post3, post4, post5, post6, post7]
 
 export default function BlogIndexPage() {
   const blogSchema = {

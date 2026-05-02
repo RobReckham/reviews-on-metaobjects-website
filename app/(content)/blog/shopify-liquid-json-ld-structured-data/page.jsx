@@ -1,11 +1,11 @@
-import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta } from "../../../../components/blog"
+import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor } from "../../../../components/blog"
 
 export const metadata = {
   title: "How to Add JSON-LD Structured Data in Shopify Liquid: Products, Reviews, and Breadcrumbs",
   description: "A complete guide to implementing JSON-LD structured data in Shopify Liquid - covering Product schema, AggregateRating from Metafields, Review markup, and BreadcrumbList.",
-  alternates: {
-    canonical: "/blog/shopify-liquid-json-ld-structured-data",
-  },
+  alternates: { canonical: "/blog/shopify-liquid-json-ld-structured-data" },
+  slug: "shopify-liquid-json-ld-structured-data",
+  date: "2026-04-24",
 }
 
 const tocItems = [
@@ -21,7 +21,7 @@ const tocItems = [
 export default function ShopifyLiquidJsonLdStructuredDataPage() {
   return (
     <main className="bg-white min-h-screen text-gray-900">
-      <ArticleJsonLd title={metadata.title} description={metadata.description} datePublished="2026-05-02" slug="shopify-liquid-json-ld-structured-data" />
+      <ArticleJsonLd title={metadata.title} description={metadata.description} datePublished={metadata.date} slug={metadata.slug} />
 
       <section className="pt-24 pb-12 border-b border-gray-100">
         <div className="max-w-3xl mx-auto px-4 sm:px-8">
@@ -351,7 +351,8 @@ export default function ShopifyLiquidJsonLdStructuredDataPage() {
           </li>
         </Ul>
 
-        <div className="mt-10 pt-8 border-t border-gray-200">
+        <ArticleAuthor />
+        <div className="mt-6 border-t border-gray-200 pt-6">
           <P className="text-gray-500 text-sm">
             <strong>Further reading:</strong>{" "}
             <ExternalLink href="https://developers.google.com/search/docs/appearance/structured-data/product">Google Product structured data spec</ExternalLink>

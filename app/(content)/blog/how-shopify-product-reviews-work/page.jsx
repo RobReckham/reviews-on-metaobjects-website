@@ -1,12 +1,11 @@
-import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta } from "../../../../components/blog"
+import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor } from "../../../../components/blog"
 
 export const metadata = {
   title: "How Shopify Product Reviews Work: Metaobjects, Liquid Rendering, and SEO",
-  description:
-    "A technical deep-dive into Shopify's standard product review Metaobject - server-side Liquid rendering, Core Web Vitals, JSON-LD structured data, and data ownership explained.",
-  alternates: {
-    canonical: "/blog/how-shopify-product-reviews-work",
-  },
+  description: "A technical deep-dive into Shopify's standard product review Metaobject - server-side Liquid rendering, Core Web Vitals, JSON-LD structured data, and data ownership explained.",
+  alternates: { canonical: "/blog/how-shopify-product-reviews-work" },
+  slug: "how-shopify-product-reviews-work",
+  date: "2026-05-01",
 }
 
 const tocItems = [
@@ -24,7 +23,7 @@ const tocItems = [
 export default function HowShopifyProductReviewsWorkPage() {
   return (
     <main className="bg-white min-h-screen text-gray-900">
-      <ArticleJsonLd title={metadata.title} description={metadata.description} datePublished="2026-05-02" slug="how-shopify-product-reviews-work" />
+      <ArticleJsonLd title={metadata.title} description={metadata.description} datePublished={metadata.date} slug={metadata.slug} />
       <section className="pt-24 pb-12 border-b border-gray-100">
         <div className="max-w-3xl mx-auto px-4 sm:px-8">
           <BlogNav />
@@ -576,7 +575,8 @@ query {
           them.
         </P>
 
-        <div className="mt-10 pt-8 border-t border-gray-200">
+        <ArticleAuthor />
+        <div className="mt-6 border-t border-gray-200 pt-6">
           <P className="text-gray-500 text-sm">
             <strong>Further reading:</strong>{" "}
             <ExternalLink href="https://shopify.dev/docs/apps/build/custom-data/metaobjects">Shopify Metaobjects developer docs</ExternalLink>

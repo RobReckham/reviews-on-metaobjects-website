@@ -1,11 +1,11 @@
-import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta } from "../../../../components/blog"
+import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor } from "../../../../components/blog"
 
 export const metadata = {
   title: "Is Your Review App Slowing Down Your Shopify Store? How to Measure It",
   description: "A practical guide to measuring the performance impact of third-party review widgets on your Shopify store using Lighthouse, PageSpeed Insights, and Chrome DevTools.",
-  alternates: {
-    canonical: "/blog/review-app-slowing-shopify-store",
-  },
+  alternates: { canonical: "/blog/review-app-slowing-shopify-store" },
+  slug: "review-app-slowing-shopify-store",
+  date: "2026-04-19",
 }
 
 const tocItems = [
@@ -20,7 +20,7 @@ const tocItems = [
 export default function ReviewAppSlowingShopifyStorePage() {
   return (
     <main className="bg-white min-h-screen text-gray-900">
-      <ArticleJsonLd title={metadata.title} description={metadata.description} datePublished="2026-05-02" slug="review-app-slowing-shopify-store" />
+      <ArticleJsonLd title={metadata.title} description={metadata.description} datePublished={metadata.date} slug={metadata.slug} />
 
       <section className="pt-24 pb-12 border-b border-gray-100">
         <div className="max-w-3xl mx-auto px-4 sm:px-8">
@@ -217,7 +217,8 @@ export default function ReviewAppSlowingShopifyStorePage() {
           entirely.
         </P>
 
-        <div className="mt-10 pt-8 border-t border-gray-200">
+        <ArticleAuthor />
+        <div className="mt-6 border-t border-gray-200 pt-6">
           <P className="text-gray-500 text-sm">
             <strong>Further reading:</strong>{" "}
             <ExternalLink href="https://pagespeed.web.dev">PageSpeed Insights</ExternalLink>
