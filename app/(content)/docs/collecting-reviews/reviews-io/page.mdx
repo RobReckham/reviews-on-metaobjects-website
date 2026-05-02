@@ -5,26 +5,33 @@ description: Manual Reviews.io import and sync.
 
 # Reviews.io
 
-Reviews.io uses a manual import flow.
+Reviews.io uses a manual import flow — you trigger syncs on demand from the app dashboard.
 
 ## Setup
 
-1. Add Reviews.io as a source in the app.
-2. Provide the required connection details.
-3. Start an initial sync/import from <a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}`} target="_blank" rel="noopener">the app dashboard</a>.
+1. Open <a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}`} target="_blank" rel="noopener">the app dashboard</a> and add Reviews.io as a source.
+2. Enter your **Store ID** — this is the domain you registered with Reviews.io (e.g. `www.yourstore.com`).
+3. Select your **Product identifier** — this controls how the import matches review records to Shopify products:
+   - **SKU** (default) — matches by product variant SKU
+   - **Barcode** — matches by variant barcode
+   - **Shopify GID** — matches by Shopify global ID
+   - **Numeric ID** — matches by Shopify numeric product ID
+4. Start an initial sync from the dashboard.
+
+Choose the identifier type that matches how your Reviews.io reviews were originally collected.
 
 ## Sync
 
-- Run sync whenever you want to refresh data.
-- Check status in the app dashboard after each run.
+- Click **Sync now!** on the Reviews.io platform card to pull the latest reviews.
+- Check the sync status and history in the app dashboard after each run.
 
 ## Notes
 
-- Keep source data and product mapping consistent.
-- If results are unexpected, validate source credentials and import configuration.
+- Keep your product identifier strategy consistent — mixing types in the same source causes unlinked reviews.
+- If results are unexpected, validate your Store ID and that the selected identifier type matches your source data.
 
 ## Troubleshooting
 
-- If sync fails, re-check source credentials and connection details.
-- If reviews import without product links, verify identifier mapping strategy.
-- If counts seem low, run another full sync after confirming source-side data scope.
+- If sync fails, re-check your Store ID — it must match exactly what Reviews.io has on file.
+- If reviews import without product links, try a different product identifier type and re-sync.
+- If counts seem low, run another full sync after confirming the data exists on the Reviews.io side.

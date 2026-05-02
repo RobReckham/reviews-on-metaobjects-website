@@ -1,69 +1,51 @@
 ---
 title: Review Form Page
-description: Configure the hosted review request page at the app proxy route.
+description: Add the post-purchase review form block to the review_request metaobject template.
 ---
 
 # Review Form Page
 
-Controls the dedicated hosted page used for post-purchase review requests.
+The post-purchase review form is served as a native Shopify metaobject page — fully rendered server-side in Liquid, no app proxy involved.
 
-## When to use
+## How it works
 
-Use this when you want to automatically email customers after an order and collect trusted, context-aware reviews.
+When the app sends a review request email, the link points to a Shopify page at:
 
-## Main use case: automated post-purchase requests
+```
+https://{your-store}/pages/review-request/{handle}
+```
 
-Typical flow:
+Each link is unique to a specific order and customer. Shopify renders that URL using your theme's metaobject template for `review_request` objects, where the **FiveOh Post Purchase Form** block must be present.
 
-1. An order is created.
-2. The app schedules/sends a review request email based on your email settings.
-3. The email contains a unique review link to your hosted review form page.
-4. The customer opens the link, submits a review, and the app stores it with request context.
-5. The review can be marked as verified-buyer style when request identity is valid.
+The form reads order and customer context directly from the metaobject (customer name, ordered items, product images). On submission the metaobject handle is passed as the identifier so the app can resolve the original request and mark the review as verified.
 
-## Email link behavior
+## Setup
 
-Review request emails include a dedicated link to:
+1. Open the Theme Editor.
+2. Navigate to **Templates → metaobject.review_request** (create it if it doesn't exist yet).
+3. Add the **FiveOh Post Purchase Form** section block to that template.
+4. Save.
 
-- `/apps/reviewsonmetaobjects/review`
-- with a unique `identifier` query parameter
+Once the block is on the template, any review request link the app sends will render your themed form server-side.
 
-That identifier ties the submission back to the original request/order context.
+## What you can customize
 
-## Why this matters for verification
+All content and layout is controlled through the block settings in the Theme Editor:
 
-When a submission comes from a valid request link:
+- Heading text
+- Star color and size
+- Labels and placeholders for rating, title, body, media upload, and author fields
+- Submit button text, submitting/submitted states, success and error messages
+- Form structure (`structure`, `form_item_structure`) and custom CSS
 
-- the app can resolve order/customer context
-- trust signals are stronger than anonymous submissions
-- review quality and anti-spam confidence are improved
+## Notes
 
-Without valid request context, the app can still accept storefront reviews, but they are treated as regular direct submissions.
-
-## Automation settings to configure in app
-
-In app settings, configure:
-
-- whether email-based review collection is enabled
-- send delay after purchase
-- email subject/body templates
-- placeholder usage in templates (for example first name and review link variables)
-- where needed, update values directly in <a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}/settings`} target="_blank" rel="noopener">app settings</a>.
-
-## Key implementation notes
-
-- Keep the app embed enabled for this page so the form renders on the review URL.
-- Do not remove or rewrite the `identifier` parameter in email links.
-- If customers report invalid review links, regenerate/sync request flow and test a fresh order cycle.
-
-## What you can customize on this page
-
-- Form labels and messaging
-- Page layout and structure
-- Visual styling to match your theme
+- The block only renders when the page metaobject is of type `review_request`. It is safe to add to the template without side effects on other metaobject types.
+- The FiveOh Core app embed's **noindex** setting also applies to these pages, keeping them out of search results.
+- Review link generation is handled automatically by the post-purchase email feature — no manual URL construction needed.
 
 ## Troubleshooting
 
-- If the page is blank, confirm the embed is enabled and the app proxy route is reachable.
-- If requests are not treated as verified-style submissions, check that email links keep a valid `identifier`.
-- If customers report broken links, trigger a fresh request cycle and retest with a new order.
+- If the page is blank, confirm the block is added to the `metaobject.review_request` template and saved.
+- If the form renders but context is missing (no product names/images), verify the review request metaobject was created correctly for the order.
+- If customers report broken links, check that the review request email feature is enabled and that a metaobject was created for the relevant order.
