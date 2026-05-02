@@ -16,19 +16,19 @@ export const metadata = {
 const switchReasons = [
   {
     title: "Your reviews belong in your store",
-    description: "Loox stores your review data on their own servers. If you cancel, your reviews are gone. With us, every review lives in Shopify's standard metaobjects — they're yours forever, even if you uninstall our app.",
+    description: "Loox stores your review data on their own servers. If you cancel, your reviews are gone. With us, every review lives in Shopify's standard metaobjects - they're yours forever, even if you uninstall our app.",
   },
   {
     title: "A JavaScript widget is slowing you down",
-    description: "Loox injects a client-side script that fetches and renders reviews after the page loads. That means extra round-trips, layout shift, and a hit to your Lighthouse score. Our reviews render in Liquid — server-side, zero external requests.",
+    description: "Loox injects a client-side script that fetches and renders reviews after the page loads. That means extra round-trips, layout shift, and a hit to your Lighthouse score. Our reviews render in Liquid - server-side, zero external requests.",
   },
   {
     title: "Google can't index what loads via JavaScript",
-    description: "Structured data in a JavaScript widget is unreliable for crawlers. Our reviews output JSON-LD and star ratings in your HTML from the first byte — the kind search engines love for rich snippets.",
+    description: "Structured data in a JavaScript widget is unreliable for crawlers. Our reviews output JSON-LD and star ratings in your HTML from the first byte - the kind search engines love for rich snippets.",
   },
   {
     title: "Loox gets expensive fast",
-    description: "Loox's Beginner plan costs $9.99/mo but caps you at 100 monthly orders. Scale starts at $39.99/mo and adds $40 for every 300 additional orders — a store doing 1,200 orders/mo pays $159.99. The pricing scales with your success, not theirs.",
+    description: "Loox's Beginner plan costs $9.99/mo but caps you at 100 monthly orders. Scale starts at $39.99/mo and adds $40 for every 300 additional orders - a store doing 1,200 orders/mo pays $159.99. The pricing scales with your success, not theirs.",
   },
 ]
 
@@ -49,7 +49,7 @@ const comparisonRows = [
 const migrationSteps = [
   {
     title: "Install the app and connect Loox",
-    description: "Install from the Shopify App Store and connect your Loox account. Your existing reviews sync across automatically — no CSV exports, no manual uploads.",
+    description: "Install from the Shopify App Store and connect your Loox account. Your existing reviews sync across automatically - no CSV exports, no manual uploads.",
   },
   {
     title: "Add the display blocks to your theme",
@@ -57,26 +57,26 @@ const migrationSteps = [
   },
   {
     title: "Cancel Loox whenever you're ready",
-    description: "Once everything looks good, cancel Loox. Your reviews stay in your Shopify store permanently — they're not going anywhere.",
+    description: "Once everything looks good, cancel Loox. Your reviews stay in your Shopify store permanently - they're not going anywhere.",
   },
 ]
 
 const faqs = [
   {
     question: "Will I lose my reviews when I switch from Loox?",
-    answer: "No. Connect your Loox account and your existing reviews sync across automatically. All reviews, ratings, and media are preserved — no exports, no uploads.",
+    answer: "No. Connect your Loox account and your existing reviews sync across automatically. All reviews, ratings, and media are preserved - no exports, no uploads.",
   },
   {
     question: "Why does it matter that reviews render server-side?",
-    answer: "Client-side widgets fetch and render review content after the page loads. This delays your Largest Contentful Paint (LCP), causes layout shift, and prevents search engines from indexing your reviews at crawl time. Server-side rendering via Shopify Metaobjects means reviews are in your HTML from the first byte — faster for visitors, better for rankings.",
+    answer: "Client-side widgets fetch and render review content after the page loads. This delays your Largest Contentful Paint (LCP), causes layout shift, and prevents search engines from indexing your reviews at crawl time. Server-side rendering via Shopify Metaobjects means reviews are in your HTML from the first byte - faster for visitors, better for rankings.",
   },
   {
     question: "Do I need to pay for both apps during the switch?",
-    answer: "Only briefly. Connect Loox, let the sync run, add the display blocks — then cancel Loox. The whole process takes under an hour. Some merchants keep Loox on their cheapest tier for trust badges, but the review data lives in your store with us.",
+    answer: "Only briefly. Connect Loox, let the sync run, add the display blocks - then cancel Loox. The whole process takes under an hour. Some merchants keep Loox on their cheapest tier for trust badges, but the review data lives in your store with us.",
   },
   {
     question: "What happens to my reviews if I later cancel your app?",
-    answer: "Nothing changes. Your reviews are stored in Shopify's standard product review metaobjects — a data type built into every Shopify store. They stay there after uninstalling our app. You can access them with any compatible tool or your own Liquid code.",
+    answer: "Nothing changes. Your reviews are stored in Shopify's standard product review metaobjects - a data type built into every Shopify store. They stay there after uninstalling our app. You can access them with any compatible tool or your own Liquid code.",
   },
   {
     question: "Is switching technical?",
@@ -106,7 +106,7 @@ function CrossIcon() {
 
 function NaIcon() {
   return (
-    <span className="text-gray-400 text-sm">—</span>
+    <span className="text-gray-400 text-sm">-</span>
   )
 }
 
@@ -124,7 +124,7 @@ export default function LooxAlternativePage() {
           <h1 className="h1 mt-4 mb-8 max-w-5xl mx-auto">Faster reviews. Better SEO. Your data stays in your store.</h1>
           <div className="max-w-2xl mx-auto">
             <p className="mb-8 text-lg">
-              Loox is a good app. But it stores your reviews on their servers and loads them via JavaScript — which hurts your page speed, weakens your SEO, and means your data leaves the moment you cancel. There's a better way.
+              Loox is a good app. But it stores your reviews on their servers and loads them via JavaScript - which hurts your page speed, weakens your SEO, and means your data leaves the moment you cancel. There's a better way.
             </p>
           </div>
           <div className="inline-flex justify-center items-center gap-4 relative">
@@ -192,7 +192,7 @@ export default function LooxAlternativePage() {
       <section className="bg-white py-16 sm:py-32 px-4">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="h2 mb-4">Transparent pricing. No lock-in.</h2>
-          <p className="text-gray-500 mb-12">Loox starts at $9.99/mo but caps you at 100 monthly orders. Scale costs $39.99/mo for 300 orders — then adds $40 for every 300 more. A store with 1,200 orders/mo pays $159.99. We start free and stay flat.</p>
+          <p className="text-gray-500 mb-12">Loox starts at $9.99/mo but caps you at 100 monthly orders. Scale costs $39.99/mo for 300 orders - then adds $40 for every 300 more. A store with 1,200 orders/mo pays $159.99. We start free and stay flat.</p>
           <Pricing />
           <PricingCalculator />
           <div className="mt-12">
@@ -224,7 +224,7 @@ export default function LooxAlternativePage() {
       <section className="py-16 sm:py-32 relative">
         <AnimatedBackground baseColor="oklch(92.8% 0.006 264.531)" />
         <div className="container max-w-6xl mx-auto px-4 sm:px-8 relative z-10">
-          <h2 className="h2 text-right">Switching from Loox — FAQ</h2>
+          <h2 className="h2 text-right">Switching from Loox - FAQ</h2>
           <Faqs faqs={faqs} pageUrl={`${process.env.NEXT_PUBLIC_SITE_URL}/loox-alternative`} />
           <p className="text-right mt-8 text-sm text-gray-500">
             <a href="/" className="underline underline-offset-2 hover:text-gray-900 transition-colors">More information about {process.env.NEXT_PUBLIC_APP_NAME} →</a>

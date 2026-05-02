@@ -22,7 +22,7 @@ function calculateReviewsIoPrice(monthlyOrders) {
 
 const disclaimer = (
   <>
-    Assumes 20% review conversion and a 3-year-old store to estimate monthly orders from your total review count. REVIEWS.io charges per review invite — one invite is sent per order. Verify current pricing at{' '}
+    Assumes 20% review conversion and a 3-year-old store to estimate monthly orders from your total review count. REVIEWS.io charges per review invite - one invite is sent per order. Verify current pricing at{' '}
     <a href="https://www.reviews.io/front/pricingplans" target="_blank" rel="noopener noreferrer" className="underline">reviews.io/front/pricingplans</a>.
   </>
 )

@@ -7,7 +7,7 @@
   --inset-shadow-md: inset 0 2px 3px rgba(0, 0, 0, 0.25); 
 }
 
-/* Nextra skip link uses Headless UI Button as <a>, which sets invalid type="button" and fails Lighthouse focusability — use native skip link in app/layout.jsx instead */
+/* Nextra skip link uses Headless UI Button as <a>, which sets invalid type="button" and fails Lighthouse focusability - use native skip link in app/layout.jsx instead */
 a.nextra-skip-nav {
   display: none !important;
 }

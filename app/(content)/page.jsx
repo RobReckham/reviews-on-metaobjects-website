@@ -19,7 +19,7 @@ const hero = [
     // me
     title: "Product reviews right in Shopify",
     subtitle: "The only app you need to manage Shopify's standard review Metaobjects",
-    paragraph: "Stop slowing down your store with heavy review widgets. Import existing reviews from any provider and collect new ones through post-purchase emails and on-store forms. All reviews are stored in Metaobjects for server-side display — delivering faster page loads, improved Core Web Vitals, and strong on-page SEO through native structured data. Plus, you will own your data. No lock-in with a specific app.",
+    paragraph: "Stop slowing down your store with heavy review widgets. Import existing reviews from any provider and collect new ones through post-purchase emails and on-store forms. All reviews are stored in Metaobjects for server-side display - delivering faster page loads, improved Core Web Vitals, and strong on-page SEO through native structured data. Plus, you will own your data. No lock-in with a specific app.",
     bullets: ["Faster store", "Better SEO", "Full control", "Fair pricing"],
     ctaText: "Install the app for free!",
   },
@@ -27,14 +27,14 @@ const hero = [
     // grok
     title: "Native Product Reviews for Shopify",
     subtitle: "Store reviews in Shopify’s standard metaobjects",
-    paragraph: "Store your reviews directly in Shopify’s standard product review metaobjects. Collect new reviews with post-purchase emails and forms, import existing ones, and display them natively with Liquid — delivering faster page loads, better Core Web Vitals, and stronger search visibility.",
+    paragraph: "Store your reviews directly in Shopify’s standard product review metaobjects. Collect new reviews with post-purchase emails and forms, import existing ones, and display them natively with Liquid - delivering faster page loads, better Core Web Vitals, and stronger search visibility.",
     bullets: ["Faster store", "Better SEO", "Full control", "Fair pricing"],
     ctaText: "Install the app for free!",
   },
   {
     // chatgpt
     title: "Product reviews right in Shopify",
-    subtitle: "Collect, manage, and display reviews directly in Shopify — powered by Shopify Metaobjects. Fast, flexible, and fully under your control",
+    subtitle: "Collect, manage, and display reviews directly in Shopify - powered by Shopify Metaobjects. Fast, flexible, and fully under your control",
     paragraph: "Say goodbye to slow, third-party review apps. Our Shopify-native solution stores reviews directly in your store using Metaobjects, boosting page speed, improving SEO with server-side structured data, and giving you full control over your review content. Free for up to 100 reviews, with scalable paid plans for growing stores and agencies.",
     bullets: ["Fast server-side rendering", "No JavaScript widgets", "Full control"],
     ctaText: "Install the app for free!",
@@ -43,7 +43,7 @@ const hero = [
     // best
     title: "Product reviews stored and rendered natively in Shopify",
     subtitle: "Built on Shopify’s standard product review metaobjects",
-    paragraph: "Your reviews render directly in your theme via Liquid — no JavaScript widget, no external server request. Collect new reviews via post-purchase emails and on-store forms, import from Judge.me, Loox, or a CSV, and watch your Lighthouse score climb.",
+    paragraph: "Your reviews render directly in your theme via Liquid - no JavaScript widget, no external server request. Collect new reviews via post-purchase emails and on-store forms, import from Judge.me, Loox, or a CSV, and watch your Lighthouse score climb.",
     bullets: ["Faster store", "Better SEO", "No lock-in", "Fair pricing"],
     ctaText: "Claim early access!",
   },
@@ -52,9 +52,9 @@ const hero = [
 const oneLiners = [
   <>Every other review app stores your data on their servers. We store it directly in yours.</>,
   <>First 100 reviews are free. <ListingCta href={process.env.NEXT_PUBLIC_LISTING_URL} className="underline touch-target-inline">Just try it out</ListingCta>.</>,
-  <>Reviews that load instantly — because they belong in Shopify.</>,
+  <>Reviews that load instantly - because they belong in Shopify.</>,
   <>Your shop, your data, your reviews. You are not locked in with us. Use a different service for the same data at any time.</>,
-  <>From collection to display — all inside Shopify. Your shop, your data, your reviews.</>,
+  <>From collection to display - all inside Shopify. Your shop, your data, your reviews.</>,
   'Stop slowing down your store with heavy review widgets.',
   'Native reviews. No JavaScript. No compromises.',
   'Your reviews. Your data. Your rules.',
@@ -165,7 +165,7 @@ const benefits = [
           <path fillRule="evenodd" d="M8.25 6.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM15.75 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM2.25 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM6.31 15.117A6.745 6.745 0 0 1 12 12a6.745 6.745 0 0 1 6.709 7.498.75.75 0 0 1-.372.568A12.696 12.696 0 0 1 12 21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 0 1-.372-.568 6.787 6.787 0 0 1 1.019-4.38Z" clipRule="evenodd" />
           <path d="M5.082 14.254a8.287 8.287 0 0 0-1.308 5.135 9.687 9.687 0 0 1-1.764-.44l-.115-.04a.563.563 0 0 1-.373-.487l-.01-.121a3.75 3.75 0 0 1 3.57-4.047ZM20.226 19.389a8.287 8.287 0 0 0-1.308-5.135 3.75 3.75 0 0 1 3.57 4.047l-.01.121a.563.563 0 0 1-.373.486l-.115.04c-.567.2-1.156.349-1.764.441Z" />
         </svg>},
-        description: "Reviews stored as standard Shopify metaobjects sync automatically to the Shop app, Google Shopping, and Meta Shops. Many themes include review sections that work out of the box — no custom code needed.",
+        description: "Reviews stored as standard Shopify metaobjects sync automatically to the Shop app, Google Shopping, and Meta Shops. Many themes include review sections that work out of the box - no custom code needed.",
       },
       {
         title: "Complete control",
@@ -215,12 +215,12 @@ const feature1 = [
     // chatgpt
     title: "Collect Your Reviews",
     items: [
-      "Forms on product pages — let anyone leave reviews quickly.",
-      "Post-purchase emails — automatically request reviews and incentivize with discount codes to increase repeat purchases.",
-      "Import & sync — migrate from other review services like Judge.me",
-      "Media support — allow images and videos to make reviews more engaging.",
-      "Variant-specific reviews — show relevant reviews for the selected size, color or option.",
-      "Automatic deduplication — prevents abuse and accidental imports.",
+      "Forms on product pages - let anyone leave reviews quickly.",
+      "Post-purchase emails - automatically request reviews and incentivize with discount codes to increase repeat purchases.",
+      "Import & sync - migrate from other review services like Judge.me",
+      "Media support - allow images and videos to make reviews more engaging.",
+      "Variant-specific reviews - show relevant reviews for the selected size, color or option.",
+      "Automatic deduplication - prevents abuse and accidental imports.",
     ]
   },
   {
@@ -236,7 +236,7 @@ const feature1 = [
       },
       {
         title: "Post-purchase emails",
-        description: "Automatically request reviews after purchase. Reward reviewers with a discount code — percentage or fixed — sent automatically once the review is submitted.",
+        description: "Automatically request reviews after purchase. Reward reviewers with a discount code - percentage or fixed - sent automatically once the review is submitted.",
       },
       {
         title: "Import & sync",
@@ -281,9 +281,9 @@ const feature2 = [
     // chatgpt
     title: "Manage Your Reviews",
     features: [
-      "Approve or auto-publish — filter reviews by rating, content, or media attachments.",
-      "Reply quickly — respond to reviews to build trust and improve customer satisfaction.",
-      "Auto-translate — all reviews can be translated into your storefront’s languages.",
+      "Approve or auto-publish - filter reviews by rating, content, or media attachments.",
+      "Reply quickly - respond to reviews to build trust and improve customer satisfaction.",
+      "Auto-translate - all reviews can be translated into your storefront’s languages.",
     ]
   },
   {
@@ -336,10 +336,10 @@ const feature3 = [
     // chatgpt
     title: "Display Your Reviews",
     features: [
-      "Flexible placement — product ratings on product & collection pages, full review lists anywhere.",
-      "Advanced filtering & search — let customers find the most relevant reviews easily.",
-      "Language-aware — display reviews in the visitor’s language automatically.",
-      "Fully customizable blocks — pre-built app blocks work out of the box, but you can also build your own using the Metaobjects data directly.",
+      "Flexible placement - product ratings on product & collection pages, full review lists anywhere.",
+      "Advanced filtering & search - let customers find the most relevant reviews easily.",
+      "Language-aware - display reviews in the visitor’s language automatically.",
+      "Fully customizable blocks - pre-built app blocks work out of the box, but you can also build your own using the Metaobjects data directly.",
     ]
   },
   {
@@ -443,13 +443,13 @@ const faqs = [
     question: 'Why does it matter that my reviews are stored in Shopify instead of a third-party database?',
     answer: <>
       <p>When reviews are stored on a third-party server, your browser has to fetch them via JavaScript after your page loads. This delays rendering, increases your Largest Contentful Paint (LCP), and prevents search engines from indexing your review content and structured data.</p>
-      <p>Metaobjects are queried server-side during Liquid rendering — just like product titles or prices. The reviews are part of your HTML from the first byte. No extra round-trip, no layout shift, no dependency on an external service staying online.</p>
+      <p>Metaobjects are queried server-side during Liquid rendering - just like product titles or prices. The reviews are part of your HTML from the first byte. No extra round-trip, no layout shift, no dependency on an external service staying online.</p>
     </>,
   },
   {
     question: 'How do I get started?',
     answer: <>
-      <p>Install the app from the Shopify App Store. The free tier activates immediately (up to 100 reviews). Connect your review source, import by uploading a CSV file or start collecting via forms and emails. Add some ready-made app blocks to your store — no coding required for basic setup.</p>
+      <p>Install the app from the Shopify App Store. The free tier activates immediately (up to 100 reviews). Connect your review source, import by uploading a CSV file or start collecting via forms and emails. Add some ready-made app blocks to your store - no coding required for basic setup.</p>
     </>,
   },
   {
@@ -479,7 +479,7 @@ const faqs = [
   {
     question: 'Does the app require JavaScript Snippets to display reviews?',
     answer: <>
-      <p>No. Reviews render natively with Liquid in your theme — fully server-side. This eliminates JavaScript widgets, improves page speed, Core Web Vitals, and supports better SEO through native structured data.</p>
+      <p>No. Reviews render natively with Liquid in your theme - fully server-side. This eliminates JavaScript widgets, improves page speed, Core Web Vitals, and supports better SEO through native structured data.</p>
     </>,
   },
   {
@@ -622,7 +622,7 @@ export default function HomePage() {
       <section className="bg-white py-16 sm:py-32" id="more-info">
         <div className="container max-w-4xl mx-auto px-4 sm:px-8 text-center">
           <h2 className="h2 mb-6">{oneLiners[0]}</h2>
-          <p className="text-gray-600 text-lg">Shopify's standard product review metaobjects are a native data type built into every store. Your reviews render in your theme the same way product titles do — no external scripts, no API calls at load time. And they stay in your store even if you switch apps.</p>
+          <p className="text-gray-600 text-lg">Shopify's standard product review metaobjects are a native data type built into every store. Your reviews render in your theme the same way product titles do - no external scripts, no API calls at load time. And they stay in your store even if you switch apps.</p>
         </div>
       </section>
       <section className="bg-white pt-16 sm:pt-32 px-4">

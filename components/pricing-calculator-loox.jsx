@@ -21,7 +21,7 @@ function calculateLooxPrice(monthlyOrders) {
 
 const disclaimer = (
   <>
-    Assumes 20% review conversion and a 3-year-old store — both conservative estimates that favour Loox. Real-world conversion rates are typically 5–15%, meaning actual Loox costs are likely higher. Loox Scale: $39.99/mo base (300 orders) +$40/300 orders, capped at $799.99/mo (6,000 orders). Loox Unlimited: $299.99/mo flat. Verify current pricing at{' '}
+    Assumes 20% review conversion and a 3-year-old store - both conservative estimates that favour Loox. Real-world conversion rates are typically 5–15%, meaning actual Loox costs are likely higher. Loox Scale: $39.99/mo base (300 orders) +$40/300 orders, capped at $799.99/mo (6,000 orders). Loox Unlimited: $299.99/mo flat. Verify current pricing at{' '}
     <a href="https://loox.app/pricing" target="_blank" rel="noopener noreferrer" className="underline">loox.app/pricing</a>.
   </>
 )

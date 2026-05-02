@@ -16,15 +16,15 @@ export const metadata = {
 const switchReasons = [
   {
     title: "Your reviews still load via JavaScript",
-    description: "REVIEWS.io displays reviews through a client-side widget that fetches content from their servers after the page loads. That adds network round-trips, causes layout shift, and hurts your Core Web Vitals. Our reviews render in Liquid — server-side, in your HTML from the first byte.",
+    description: "REVIEWS.io displays reviews through a client-side widget that fetches content from their servers after the page loads. That adds network round-trips, causes layout shift, and hurts your Core Web Vitals. Our reviews render in Liquid - server-side, in your HTML from the first byte.",
   },
   {
     title: "Review data lives on their servers, not in Shopify",
-    description: "REVIEWS.io lets you export your data, which is good. But the data still lives on their infrastructure — not inside Shopify. That means it can't render server-side in Liquid, can't be queried natively in your theme, and depends on their uptime to show up on your store.",
+    description: "REVIEWS.io lets you export your data, which is good. But the data still lives on their infrastructure - not inside Shopify. That means it can't render server-side in Liquid, can't be queried natively in your theme, and depends on their uptime to show up on your store.",
   },
   {
     title: "Google can't index what loads via JavaScript",
-    description: "Structured data injected by a JavaScript widget is unreliable for crawlers. Our reviews output JSON-LD and star ratings in your HTML from the first byte — the kind of markup search engines use for rich snippets and product ratings in results.",
+    description: "Structured data injected by a JavaScript widget is unreliable for crawlers. Our reviews output JSON-LD and star ratings in your HTML from the first byte - the kind of markup search engines use for rich snippets and product ratings in results.",
   },
   {
     title: "Pricing jumps fast at every tier",
@@ -49,7 +49,7 @@ const comparisonRows = [
 const migrationSteps = [
   {
     title: "Install the app and connect REVIEWS.io",
-    description: "Install from the Shopify App Store and connect your REVIEWS.io account. Your existing reviews sync across automatically — no CSV exports, no manual uploads.",
+    description: "Install from the Shopify App Store and connect your REVIEWS.io account. Your existing reviews sync across automatically - no CSV exports, no manual uploads.",
   },
   {
     title: "Add the display blocks to your theme",
@@ -57,30 +57,30 @@ const migrationSteps = [
   },
   {
     title: "Cancel REVIEWS.io whenever you're ready",
-    description: "Once everything looks good, cancel REVIEWS.io. Your reviews stay in your Shopify store permanently — they're not going anywhere.",
+    description: "Once everything looks good, cancel REVIEWS.io. Your reviews stay in your Shopify store permanently - they're not going anywhere.",
   },
 ]
 
 const faqs = [
   {
     question: "Will I lose my reviews when I switch from REVIEWS.io?",
-    answer: "No. Connect your REVIEWS.io account and your existing reviews sync across automatically. All reviews, ratings, and media are preserved — no exports, no uploads.",
+    answer: "No. Connect your REVIEWS.io account and your existing reviews sync across automatically. All reviews, ratings, and media are preserved - no exports, no uploads.",
   },
   {
     question: "REVIEWS.io says I own my data. Why should I switch?",
-    answer: "Owning your data and having your data in Shopify are two different things. REVIEWS.io lets you export — that's good. But your reviews still live on their servers, which means they can't render server-side in Liquid, depend on their infrastructure to display, and don't benefit from Shopify's native structured data output. With us, your reviews are stored in Shopify's standard metaobjects — no external dependency, ever.",
+    answer: "Owning your data and having your data in Shopify are two different things. REVIEWS.io lets you export - that's good. But your reviews still live on their servers, which means they can't render server-side in Liquid, depend on their infrastructure to display, and don't benefit from Shopify's native structured data output. With us, your reviews are stored in Shopify's standard metaobjects - no external dependency, ever.",
   },
   {
     question: "Why does it matter that reviews render server-side?",
-    answer: "Client-side widgets fetch and render review content after the page loads. This delays your Largest Contentful Paint (LCP), causes layout shift, and prevents search engines from indexing your reviews at crawl time. Server-side rendering via Shopify Metaobjects means reviews are in your HTML from the first byte — faster for visitors, better for rankings.",
+    answer: "Client-side widgets fetch and render review content after the page loads. This delays your Largest Contentful Paint (LCP), causes layout shift, and prevents search engines from indexing your reviews at crawl time. Server-side rendering via Shopify Metaobjects means reviews are in your HTML from the first byte - faster for visitors, better for rankings.",
   },
   {
     question: "Do I need to pay for both apps during the switch?",
-    answer: "Only briefly. Connect REVIEWS.io, let the sync run, add the display blocks — then cancel REVIEWS.io. The whole process takes under an hour.",
+    answer: "Only briefly. Connect REVIEWS.io, let the sync run, add the display blocks - then cancel REVIEWS.io. The whole process takes under an hour.",
   },
   {
     question: "What happens to my reviews if I later cancel your app?",
-    answer: "Nothing changes. Your reviews are stored in Shopify's standard product review metaobjects — a data type built into every Shopify store. They stay there after uninstalling our app. You can access them with any compatible tool or your own Liquid code.",
+    answer: "Nothing changes. Your reviews are stored in Shopify's standard product review metaobjects - a data type built into every Shopify store. They stay there after uninstalling our app. You can access them with any compatible tool or your own Liquid code.",
   },
   {
     question: "Is switching technical?",
@@ -106,7 +106,7 @@ function CrossIcon() {
 
 function NaIcon() {
   return (
-    <span className="text-gray-400 text-sm">—</span>
+    <span className="text-gray-400 text-sm">-</span>
   )
 }
 
@@ -124,7 +124,7 @@ export default function ReviewsIoAlternativePage() {
           <h1 className="h1 mt-4 mb-8 max-w-5xl mx-auto">Faster reviews. Better SEO. Your data lives in your store.</h1>
           <div className="max-w-2xl mx-auto">
             <p className="mb-8 text-lg">
-              REVIEWS.io is a capable platform. But it stores your reviews on their servers and loads them via JavaScript — hurting page speed, weakening SEO, and making you dependent on their uptime. There's a better way.
+              REVIEWS.io is a capable platform. But it stores your reviews on their servers and loads them via JavaScript - hurting page speed, weakening SEO, and making you dependent on their uptime. There's a better way.
             </p>
           </div>
           <div className="inline-flex justify-center items-center gap-4 relative">
@@ -193,7 +193,7 @@ export default function ReviewsIoAlternativePage() {
       <section className="bg-white py-16 sm:py-32 px-4">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="h2 mb-4">Transparent pricing. No invite caps.</h2>
-          <p className="text-gray-500 mb-12">REVIEWS.io goes from $29/mo to $99/mo to $299/mo as your order volume grows. Auto-translate is locked behind their $499/mo Plus plan. We charge per total reviews stored — one flat rate, no surprises.</p>
+          <p className="text-gray-500 mb-12">REVIEWS.io goes from $29/mo to $99/mo to $299/mo as your order volume grows. Auto-translate is locked behind their $499/mo Plus plan. We charge per total reviews stored - one flat rate, no surprises.</p>
           <Pricing />
           <PricingCalculator />
           <div className="mt-12">
@@ -225,7 +225,7 @@ export default function ReviewsIoAlternativePage() {
       <section className="py-16 sm:py-32 relative">
         <AnimatedBackground baseColor="oklch(92.8% 0.006 264.531)" />
         <div className="container max-w-6xl mx-auto px-4 sm:px-8 relative z-10">
-          <h2 className="h2 text-right">Switching from REVIEWS.io — FAQ</h2>
+          <h2 className="h2 text-right">Switching from REVIEWS.io - FAQ</h2>
           <Faqs faqs={faqs} pageUrl={`${process.env.NEXT_PUBLIC_SITE_URL}/reviews-io-alternative`} />
           <p className="text-right mt-8 text-sm text-gray-500">
             <a href="/" className="underline underline-offset-2 hover:text-gray-900 transition-colors">More information about {process.env.NEXT_PUBLIC_APP_NAME} →</a>
