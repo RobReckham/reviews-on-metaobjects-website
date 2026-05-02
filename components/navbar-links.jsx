@@ -8,7 +8,11 @@ export default function NavbarLinks() {
   const linkClasses = 'text-sm whitespace-nowrap text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-gray-200 transition-colors';
 
   return (
-    <div className="site-nav-items">
+    <div className="site-nav-items flex gap-4">
+      <Link
+        href="/blog"
+        className={`${linkClasses} ${pathname.startsWith("/blog") ? "font-bold text-black! dark:text-white!" : ""}`}
+      >Blog</Link>
       <Link
         href="/docs"
         className={`${linkClasses} ${/^\/docs(?:\/|$)/.test(pathname) ? "font-bold text-black! dark:text-white!" : ""}`}
