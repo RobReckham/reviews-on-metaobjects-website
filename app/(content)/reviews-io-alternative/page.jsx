@@ -1,70 +1,74 @@
 import AnimatedBackground from "../../../components/animated-background"
 import ListingCta from "../../../components/listing-cta"
 import Pricing from "../../../components/pricing"
-import PricingCalculator from "../../../components/pricing-calculator-loox"
+import PricingCalculator from "../../../components/pricing-calculator-reviews-io"
 import FinalCta from "../../../components/final-cta"
 import Faqs from "../../../components/faqs"
 
 export const metadata = {
-  title: "Loox Alternative: Native Shopify Reviews without JavaScript Widgets",
-  description: "Switch from Loox to a faster, SEO-friendly review app built on Shopify Metaobjects. Your existing Loox reviews sync automatically. Own your data forever, no lock-in.",
+  title: "REVIEWS.io Alternative: Native Shopify Reviews without JavaScript Widgets",
+  description: "Switch from REVIEWS.io to a faster, SEO-friendly review app built on Shopify Metaobjects. Your existing reviews sync automatically. Own your data in Shopify forever, no lock-in.",
   alternates: {
-    canonical: "/loox-alternative",
+    canonical: "/reviews-io-alternative",
   },
 }
 
 const switchReasons = [
   {
-    title: "Your reviews belong in your store",
-    description: "Loox stores your review data on their own servers. If you cancel, your reviews are gone. With us, every review lives in Shopify's standard metaobjects — they're yours forever, even if you uninstall our app.",
+    title: "Your reviews still load via JavaScript",
+    description: "REVIEWS.io displays reviews through a client-side widget that fetches content from their servers after the page loads. That adds network round-trips, causes layout shift, and hurts your Core Web Vitals. Our reviews render in Liquid — server-side, in your HTML from the first byte.",
   },
   {
-    title: "A JavaScript widget is slowing you down",
-    description: "Loox injects a client-side script that fetches and renders reviews after the page loads. That means extra round-trips, layout shift, and a hit to your Lighthouse score. Our reviews render in Liquid — server-side, zero external requests.",
+    title: "Review data lives on their servers, not in Shopify",
+    description: "REVIEWS.io lets you export your data, which is good. But the data still lives on their infrastructure — not inside Shopify. That means it can't render server-side in Liquid, can't be queried natively in your theme, and depends on their uptime to show up on your store.",
   },
   {
     title: "Google can't index what loads via JavaScript",
-    description: "Structured data in a JavaScript widget is unreliable for crawlers. Our reviews output JSON-LD and star ratings in your HTML from the first byte — the kind search engines love for rich snippets.",
+    description: "Structured data injected by a JavaScript widget is unreliable for crawlers. Our reviews output JSON-LD and star ratings in your HTML from the first byte — the kind of markup search engines use for rich snippets and product ratings in results.",
   },
   {
-    title: "Loox gets expensive fast",
-    description: "Loox's Beginner plan costs $9.99/mo but caps you at 100 monthly orders. Scale starts at $39.99/mo and adds $40 for every 300 additional orders — a store doing 1,200 orders/mo pays $159.99. The pricing scales with your success, not theirs.",
+    title: "Pricing jumps fast at every tier",
+    description: "REVIEWS.io goes from $29/mo (300 invites) to $99/mo (1,500 invites) to $299/mo (5,000 invites) to $499/mo (10,000 invites). Features like auto-translate are locked behind the Plus plan at $499/mo. We stay flat from the start.",
   },
 ]
 
 const comparisonRows = [
-  { feature: "Reviews render server-side (no JS widget)", us: true, loox: false },
-  { feature: "Review data stored in your Shopify store", us: true, loox: false },
-  { feature: "Data survives app uninstall", us: true, loox: false },
-  { feature: "Auto-translate into store languages (all plans)", us: true, loox: false, looxNote: "Convert plan only ($49.99+/mo)" },
-  { feature: "Photo & video reviews", us: true, loox: true },
-  { feature: "Post-purchase email review requests", us: true, loox: true },
-  { feature: "On-store review submission form", us: true, loox: true },
-  { feature: "Variant-specific reviews", us: true, loox: true },
-  { feature: "Continuous sync from Loox", us: true, loox: null },
-  { feature: "Free plan included", us: true, loox: false },
-  { feature: "Works with any OS 2.0 theme", us: true, loox: true },
+  { feature: "Reviews render server-side (no JS widget)", us: true, them: false },
+  { feature: "Review data stored in your Shopify store", us: true, them: false },
+  { feature: "Data survives app uninstall", us: true, them: false },
+  { feature: "Auto-translate into store languages (all plans)", us: true, them: false, competitorNote: "Plus plan only ($499+/mo)" },
+  { feature: "Photo & video reviews", us: true, them: true },
+  { feature: "Post-purchase email review requests", us: true, them: true },
+  { feature: "On-store review submission form", us: true, them: true },
+  { feature: "Variant-specific reviews", us: true, them: false },
+  { feature: "Continuous sync from REVIEWS.io", us: true, them: null },
+  { feature: "Free plan included", us: true, them: true, competitorNote: "25 invites/mo only" },
+  { feature: "Works with any OS 2.0 theme", us: true, them: true },
 ]
 
 const migrationSteps = [
   {
-    title: "Install the app and connect Loox",
-    description: "Install from the Shopify App Store and connect your Loox account. Your existing reviews sync across automatically — no CSV exports, no manual uploads.",
+    title: "Install the app and connect REVIEWS.io",
+    description: "Install from the Shopify App Store and connect your REVIEWS.io account. Your existing reviews sync across automatically — no CSV exports, no manual uploads.",
   },
   {
     title: "Add the display blocks to your theme",
     description: "Drop our ready-made app blocks into your theme editor. No coding required for a standard setup.",
   },
   {
-    title: "Cancel Loox whenever you're ready",
-    description: "Once everything looks good, cancel Loox. Your reviews stay in your Shopify store permanently — they're not going anywhere.",
+    title: "Cancel REVIEWS.io whenever you're ready",
+    description: "Once everything looks good, cancel REVIEWS.io. Your reviews stay in your Shopify store permanently — they're not going anywhere.",
   },
 ]
 
 const faqs = [
   {
-    question: "Will I lose my reviews when I switch from Loox?",
-    answer: "No. Connect your Loox account and your existing reviews sync across automatically. All reviews, ratings, and media are preserved — no exports, no uploads.",
+    question: "Will I lose my reviews when I switch from REVIEWS.io?",
+    answer: "No. Connect your REVIEWS.io account and your existing reviews sync across automatically. All reviews, ratings, and media are preserved — no exports, no uploads.",
+  },
+  {
+    question: "REVIEWS.io says I own my data. Why should I switch?",
+    answer: "Owning your data and having your data in Shopify are two different things. REVIEWS.io lets you export — that's good. But your reviews still live on their servers, which means they can't render server-side in Liquid, depend on their infrastructure to display, and don't benefit from Shopify's native structured data output. With us, your reviews are stored in Shopify's standard metaobjects — no external dependency, ever.",
   },
   {
     question: "Why does it matter that reviews render server-side?",
@@ -72,7 +76,7 @@ const faqs = [
   },
   {
     question: "Do I need to pay for both apps during the switch?",
-    answer: "Only briefly. Connect Loox, let the sync run, add the display blocks — then cancel Loox. The whole process takes under an hour. Some merchants keep Loox on their cheapest tier for trust badges, but the review data lives in your store with us.",
+    answer: "Only briefly. Connect REVIEWS.io, let the sync run, add the display blocks — then cancel REVIEWS.io. The whole process takes under an hour.",
   },
   {
     question: "What happens to my reviews if I later cancel your app?",
@@ -80,11 +84,7 @@ const faqs = [
   },
   {
     question: "Is switching technical?",
-    answer: "No. Connect Loox in the app, wait for the sync, add the display blocks in the theme editor. Our support team helps if you get stuck.",
-  },
-  {
-    question: "Do I need to change my theme?",
-    answer: "No major changes. Just add our app block to your product page in the Shopify theme editor. It works out of the box with all Online Store 2.0 themes.",
+    answer: "No. Connect REVIEWS.io in the app, wait for the sync, add the display blocks in the theme editor. Our support team helps if you get stuck.",
   },
 ]
 
@@ -110,7 +110,7 @@ function NaIcon() {
   )
 }
 
-export default function LooxAlternativePage() {
+export default function ReviewsIoAlternativePage() {
   return <>
     <main className="bg-white min-h-screen text-gray-900">
 
@@ -120,15 +120,15 @@ export default function LooxAlternativePage() {
           <AnimatedBackground />
         </div>
         <div className="px-8 py-4 text-center relative z-10">
-          <p className="h4">The Loox alternative built on Shopify itself</p>
-          <h1 className="h1 mt-4 mb-8 max-w-5xl mx-auto">Faster reviews. Better SEO. Your data stays in your store.</h1>
+          <p className="h4">The REVIEWS.io alternative built on Shopify itself</p>
+          <h1 className="h1 mt-4 mb-8 max-w-5xl mx-auto">Faster reviews. Better SEO. Your data lives in your store.</h1>
           <div className="max-w-2xl mx-auto">
             <p className="mb-8 text-lg">
-              Loox is a good app. But it stores your reviews on their servers and loads them via JavaScript — which hurts your page speed, weakens your SEO, and means your data leaves the moment you cancel. There's a better way.
+              REVIEWS.io is a capable platform. But it stores your reviews on their servers and loads them via JavaScript — hurting page speed, weakening SEO, and making you dependent on their uptime. There's a better way.
             </p>
           </div>
           <div className="inline-flex justify-center items-center gap-4 relative">
-            <ListingCta href={process.env.NEXT_PUBLIC_LISTING_URL} className="btn btn-primary">Switch from Loox today</ListingCta>
+            <ListingCta href={process.env.NEXT_PUBLIC_LISTING_URL} className="btn btn-primary">Switch from REVIEWS.io today</ListingCta>
             <div className="text-right absolute -right-6 -top-2 z-10">
               <img src="/shopify_glyph.svg" alt="Shopify Logo" className="h-14" width="49" height="56" />
             </div>
@@ -136,11 +136,11 @@ export default function LooxAlternativePage() {
         </div>
       </section>
 
-      {/* Why switch from Loox */}
+      {/* Why switch from REVIEWS.io */}
       <section className="bg-white pt-16 sm:pt-32 px-4">
         <div className="relative max-w-7xl mx-auto">
-          <h2 className="h2 mb-4 text-gray-900 text-center">Why merchants switch from Loox</h2>
-          <p className="text-center text-gray-500 mb-8 max-w-2xl mx-auto">Loox works well for getting started. These are the reasons stores outgrow it.</p>
+          <h2 className="h2 mb-4 text-gray-900 text-center">Why merchants switch from REVIEWS.io</h2>
+          <p className="text-center text-gray-500 mb-8 max-w-2xl mx-auto">REVIEWS.io works well for many stores. But there are reasons Shopify merchants outgrow it.</p>
           <div className="relative p-6 sm:p-16 rounded-4xl overflow-hidden">
             <AnimatedBackground baseColor="oklch(88.2% 0.059 254.128)" />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 relative">
@@ -163,7 +163,7 @@ export default function LooxAlternativePage() {
                 <tr className="border-b border-gray-200 bg-gray-50">
                   <th className="text-left p-4 font-semibold text-gray-700 w-full">Feature</th>
                   <th className="p-4 font-semibold text-gray-900 text-center whitespace-nowrap">{process.env.NEXT_PUBLIC_APP_NAME}</th>
-                  <th className="p-4 font-semibold text-gray-500 text-center whitespace-nowrap">Loox</th>
+                  <th className="p-4 font-semibold text-gray-500 text-center whitespace-nowrap">REVIEWS.io</th>
                 </tr>
               </thead>
               <tbody>
@@ -176,10 +176,10 @@ export default function LooxAlternativePage() {
                   </td>
                   <td className="p-4 text-center">
                     <div className="flex justify-center flex-col items-center gap-1">
-                      {row.loox === true && <CheckIcon />}
-                      {row.loox === false && <CrossIcon />}
-                      {row.loox === null && <NaIcon />}
-                      {row.looxNote && <span className="text-xs text-gray-400 leading-tight">{row.looxNote}</span>}
+                      {row.them === true && <CheckIcon />}
+                      {row.them === false && <CrossIcon />}
+                      {row.them === null && <NaIcon />}
+                      {row.competitorNote && <span className="text-xs text-gray-400 leading-tight">{row.competitorNote}</span>}
                     </div>
                   </td>
                 </tr>)}
@@ -189,14 +189,15 @@ export default function LooxAlternativePage() {
         </div>
       </section>
 
+      {/* Pricing */}
       <section className="bg-white py-16 sm:py-32 px-4">
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="h2 mb-4">Transparent pricing. No lock-in.</h2>
-          <p className="text-gray-500 mb-12">Loox starts at $9.99/mo but caps you at 100 monthly orders. Scale costs $39.99/mo for 300 orders — then adds $40 for every 300 more. A store with 1,200 orders/mo pays $159.99. We start free and stay flat.</p>
+          <h2 className="h2 mb-4">Transparent pricing. No invite caps.</h2>
+          <p className="text-gray-500 mb-12">REVIEWS.io goes from $29/mo to $99/mo to $299/mo as your order volume grows. Auto-translate is locked behind their $499/mo Plus plan. We charge per total reviews stored — one flat rate, no surprises.</p>
           <Pricing />
           <PricingCalculator />
           <div className="mt-12">
-            <ListingCta href={process.env.NEXT_PUBLIC_LISTING_URL} className="btn btn-primary inline-flex">Sync your Loox reviews</ListingCta>
+            <ListingCta href={process.env.NEXT_PUBLIC_LISTING_URL} className="btn btn-primary inline-flex">Sync your REVIEWS.io reviews</ListingCta>
           </div>
         </div>
       </section>
@@ -206,7 +207,7 @@ export default function LooxAlternativePage() {
         <div className="relative max-w-2xl mx-auto">
           <div className="relative p-6 sm:p-16 rounded-4xl overflow-hidden">
             <AnimatedBackground baseColor="oklch(82.7% 0.119 306.383)" />
-            <h2 className="h2 text-white text-shadow-sm relative z-10 mb-2 text-center">Switch from Loox in minutes</h2>
+            <h2 className="h2 text-white text-shadow-sm relative z-10 mb-2 text-center">Switch from REVIEWS.io in minutes</h2>
             <p className="text-white/80 text-center relative z-10 mb-8">No downtime. No data loss. No developer needed.</p>
             <div className="grid grid-cols-1 gap-4 relative">
               {migrationSteps.map((migrationStep, index) => <div key={index} className="bg-black/10 text-white text-shadow-sm rounded-xl p-4 border border-white/40" style={{ boxShadow: "inset 0 0 20px rgba(0, 0, 0, 0.02)" }}>
@@ -218,14 +219,14 @@ export default function LooxAlternativePage() {
         </div>
       </section>
 
-      <FinalCta title="Ready to move your reviews into Shopify?" subtitle="Connect Loox, sync your reviews, add the blocks. Done." ctaLabel="Move your reviews to Shopify" />
+      <FinalCta title="Ready to move your reviews into Shopify?" subtitle="Connect REVIEWS.io, sync your reviews, add the blocks. Done." ctaLabel="Move your reviews to Shopify" />
 
       {/* FAQ */}
       <section className="py-16 sm:py-32 relative">
         <AnimatedBackground baseColor="oklch(92.8% 0.006 264.531)" />
         <div className="container max-w-6xl mx-auto px-4 sm:px-8 relative z-10">
-          <h2 className="h2 text-right">Switching from Loox — FAQ</h2>
-          <Faqs faqs={faqs} pageUrl={`${process.env.NEXT_PUBLIC_SITE_URL}/loox-alternative`} />
+          <h2 className="h2 text-right">Switching from REVIEWS.io — FAQ</h2>
+          <Faqs faqs={faqs} pageUrl={`${process.env.NEXT_PUBLIC_SITE_URL}/reviews-io-alternative`} />
           <p className="text-right mt-8 text-sm text-gray-500">
             <a href="/" className="underline underline-offset-2 hover:text-gray-900 transition-colors">More information about {process.env.NEXT_PUBLIC_APP_NAME} →</a>
           </p>
