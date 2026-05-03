@@ -4,6 +4,7 @@ export const metadata = {
   title: "Shopify Metafields vs. Metaobjects: What's the Difference?",
   description: "A clear technical explanation of Shopify Metafields and Metaobjects - what each is, how they differ, when to use which, and how they work together in Liquid and GraphQL.",
   alternates: { canonical: "/blog/shopify-metafields-vs-metaobjects" },
+  openGraph: { type: "article", publishedTime: "2026-04-28" },
   slug: "shopify-metafields-vs-metaobjects",
   date: "2026-04-28",
 }

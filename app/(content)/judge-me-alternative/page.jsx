@@ -5,8 +5,8 @@ import FinalCta from "../../../components/final-cta"
 import Faqs from "../../../components/faqs"
 
 export const metadata = {
-  title: "Judge.me Alternative: Native Shopify Reviews without JavaScript Widgets",
-  description: "Switch from Judge.me to a review app built on Shopify Metaobjects. Reviews render server-side in Liquid, live in your store forever, and get indexed by Google from the first byte.",
+  title: "Judge.me Alternative: Shopify Reviews via Metaobjects, No JavaScript Widget",
+  description: `Migrate from Judge.me to ${process.env.NEXT_PUBLIC_APP_NAME}. Keep all your reviews, eliminate the JavaScript widget, and store review data directly in Shopify Metaobjects - server-side rendering, better Lighthouse scores, star ratings in Google.`,
   alternates: {
     canonical: "/judge-me-alternative",
   },

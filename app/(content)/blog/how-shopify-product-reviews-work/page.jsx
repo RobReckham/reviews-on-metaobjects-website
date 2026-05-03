@@ -4,6 +4,7 @@ export const metadata = {
   title: "How Shopify Product Reviews Work: Metaobjects, Liquid Rendering, and SEO",
   description: "A technical deep-dive into Shopify's standard product review Metaobject - server-side Liquid rendering, Core Web Vitals, JSON-LD structured data, and data ownership explained.",
   alternates: { canonical: "/blog/how-shopify-product-reviews-work" },
+  openGraph: { type: "article", publishedTime: "2026-05-01" },
   slug: "how-shopify-product-reviews-work",
   date: "2026-05-01",
 }

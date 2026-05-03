@@ -5,7 +5,7 @@ import Layout from "../components/layout";
 import { getPageMap } from "nextra/page-map";
 
 const title = `Shopify reviews powering metaobjects | ${process.env.NEXT_PUBLIC_APP_NAME}`;
-const description = "The Shopify app that provides all tools to manage Shopify's standard product review Metaobjects.";
+const description = "Shopify product reviews stored natively as Metaobjects. Collect, manage, and display reviews server-side in Liquid - no JavaScript widget, better Core Web Vitals, star ratings in Google search.";
 const ogImage = "https://assets.reviewsonmetaobjects.com/landing-01.jpg";
 
 export const viewport = {
@@ -25,7 +25,7 @@ export const metadata = {
   },
   manifest: "/site.webmanifest",
   appleWebApp: {
-    title: "FiveOh",
+    title: process.env.NEXT_PUBLIC_APP_NAME,
   },
   title,
   description,

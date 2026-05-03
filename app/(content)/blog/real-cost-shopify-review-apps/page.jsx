@@ -4,6 +4,7 @@ export const metadata = {
   title: "The Hidden Cost of Shopify Review Apps: Speed, SEO, and Data You Don't Own",
   description: "An honest analysis of what standard Shopify review apps cost beyond the monthly fee - page speed, SEO reliability, crawl budget, and what happens to your data when you leave.",
   alternates: { canonical: "/blog/real-cost-shopify-review-apps" },
+  openGraph: { type: "article", publishedTime: "2026-04-09" },
   slug: "real-cost-shopify-review-apps",
   date: "2026-04-09",
 }

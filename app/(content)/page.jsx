@@ -9,6 +9,8 @@ import Image from "next/image"
 import FounderSection from "../../components/founder-section"
 
 export const metadata = {
+  title: `Shopify Product Reviews via Metaobjects - No JavaScript Widget | ${process.env.NEXT_PUBLIC_APP_NAME}`,
+  description: "The only Shopify review app that stores reviews natively as Metaobjects and renders them server-side in Liquid. No JavaScript widget, better Core Web Vitals, star ratings in Google, no vendor lock-in.",
   alternates: {
     canonical: "/",
   },

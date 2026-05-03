@@ -5,8 +5,8 @@ import Faqs from "../../../components/faqs"
 import Pricing from "../../../components/pricing"
 
 export const metadata = {
-  title: "Shopify Review App for Agencies - Native Performance, Free Setup, Priority Support",
-  description: "The review app Shopify agencies actually recommend. Zero JavaScript widget, client data stored in Shopify's standard Metaobjects, and hands-on onboarding during early access.",
+  title: "Shopify Review App for Agencies - No JavaScript Widget, Client Data Stored in Shopify",
+  description: `Stop recommending review apps that tank your client's Lighthouse scores. ${process.env.NEXT_PUBLIC_APP_NAME} renders reviews server-side in Liquid via native Shopify Metaobjects - no widget, no lock-in, no performance hit.`,
   alternates: {
     canonical: "/for-shopify-agencies",
   },
@@ -223,7 +223,7 @@ export default function ForShopifyAgenciesPage() {
                 <div className="flex items-center gap-4">
                   <img
                     src="https://s3.coders.fail/profile/marius-blank-512.jpg"
-                    alt="Marius Korbmacher"
+                    alt={process.env.NEXT_PUBLIC_AUTHOR_NAME}
                     className="h-20 w-20 rounded-full shrink-0"
                     width={80}
                     height={80}

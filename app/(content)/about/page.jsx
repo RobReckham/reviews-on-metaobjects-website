@@ -3,8 +3,8 @@ import FounderSection from "../../../components/founder-section"
 import ListingCta from "../../../components/listing-cta"
 
 export const metadata = {
-  title: "About - Marius Korbmacher, Shopify Developer",
-  description: "I'm Marius - a Shopify developer who got tired of watching review apps tank client stores. So I built a better one, the way Shopify actually intended.",
+  title: `Marius Korbmacher - Shopify Developer Behind ${process.env.NEXT_PUBLIC_APP_NAME}`,
+  description: `Shopify developer with 5+ years building high-traffic stores. Built ${process.env.NEXT_PUBLIC_APP_NAME} because no review app was doing it right.`,
   alternates: {
     canonical: "/about",
   },
@@ -58,7 +58,7 @@ export default function AboutPage() {
             <div className="flex flex-col sm:flex-row items-start gap-10">
               <img
                 src="https://s3.coders.fail/profile/marius-blank-512.jpg"
-                alt="Marius Korbmacher"
+                alt={process.env.NEXT_PUBLIC_AUTHOR_NAME}
                 className="h-32 w-32 rounded-full shrink-0"
                 width={128}
                 height={128}

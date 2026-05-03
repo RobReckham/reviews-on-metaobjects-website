@@ -6,8 +6,8 @@ import FinalCta from "../../../components/final-cta"
 import Faqs from "../../../components/faqs"
 
 export const metadata = {
-  title: "REVIEWS.io Alternative: Native Shopify Reviews without JavaScript Widgets",
-  description: "Switch from REVIEWS.io to a faster, SEO-friendly review app built on Shopify Metaobjects. Your existing reviews sync automatically. Own your data in Shopify forever, no lock-in.",
+  title: "REVIEWS.io Alternative: Shopify Reviews via Metaobjects, No JavaScript Widget",
+  description: `Migrate from REVIEWS.io to ${process.env.NEXT_PUBLIC_APP_NAME}. Reviews stored natively in Shopify Metaobjects and rendered server-side in Liquid - no external script, better Core Web Vitals, star ratings in Google search results.`,
   alternates: {
     canonical: "/reviews-io-alternative",
   },

@@ -9,7 +9,7 @@ export default function FounderSection() {
           <div className="flex items-center gap-4">
             <img
               src="https://s3.coders.fail/profile/marius-blank-512.jpg"
-              alt="Marius Korbmacher"
+              alt={process.env.NEXT_PUBLIC_AUTHOR_NAME}
               className="h-20 w-20 rounded-full shrink-0"
               width={96}
               height={96}

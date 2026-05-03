@@ -6,8 +6,8 @@ import FinalCta from "../../../components/final-cta"
 import Faqs from "../../../components/faqs"
 
 export const metadata = {
-  title: "Loox Alternative: Native Shopify Reviews without JavaScript Widgets",
-  description: "Switch from Loox to a faster, SEO-friendly review app built on Shopify Metaobjects. Your existing Loox reviews sync automatically. Own your data forever, no lock-in.",
+  title: "Loox Alternative: Shopify Reviews via Metaobjects, No JavaScript Widget",
+  description: `Migrate from Loox to ${process.env.NEXT_PUBLIC_APP_NAME}. Stop paying per-order fees and eliminate the client-side widget. Reviews stored natively in Shopify Metaobjects, rendered server-side in Liquid, star ratings in Google.`,
   alternates: {
     canonical: "/loox-alternative",
   },
