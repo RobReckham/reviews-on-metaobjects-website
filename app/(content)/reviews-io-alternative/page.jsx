@@ -106,7 +106,7 @@ function CrossIcon() {
 
 function NaIcon() {
   return (
-    <span className="text-gray-400 text-sm">-</span>
+    <span className="text-gray-500 text-sm">-</span>
   )
 }
 
@@ -179,7 +179,7 @@ export default function ReviewsIoAlternativePage() {
                       {row.them === true && <CheckIcon />}
                       {row.them === false && <CrossIcon />}
                       {row.them === null && <NaIcon />}
-                      {row.competitorNote && <span className="text-xs text-gray-400 leading-tight">{row.competitorNote}</span>}
+                      {row.competitorNote && <span className="text-xs text-gray-500 leading-tight">{row.competitorNote}</span>}
                     </div>
                   </td>
                 </tr>)}

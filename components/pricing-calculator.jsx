@@ -56,7 +56,7 @@ export default function PricingCalculator({ competitorName, calculateCompetitorP
           onChange={(e) => setSliderValue(Number(e.target.value))}
           className="w-full accent-gray-900 cursor-pointer"
         />
-        <div className="flex justify-between text-xs text-gray-400 mt-1">
+        <div className="flex justify-between text-xs text-gray-500 mt-1">
           <span>100</span>
           <span>1k</span>
           <span>10k</span>
@@ -86,22 +86,22 @@ export default function PricingCalculator({ competitorName, calculateCompetitorP
         </div>
 
         <div className={`rounded-2xl p-6 border-2 ${!weAreCheaper ? "border-gray-900" : "border-gray-200"}`}>
-          <p className="text-sm font-semibold text-gray-400 mb-2">{competitorName}</p>
+          <p className="text-sm font-semibold text-gray-500 mb-2">{competitorName}</p>
           {competitor.price !== null ? (
-            <p className={`text-2xl sm:text-4xl font-bold ${!weAreCheaper ? "text-gray-900" : "text-gray-400"}`}>
+            <p className={`text-2xl sm:text-4xl font-bold ${!weAreCheaper ? "text-gray-900" : "text-gray-500"}`}>
               {competitorCurrencySymbol}{competitor.price.toFixed(2)}
               <span className="text-base font-normal">/mo</span>
             </p>
           ) : (
-            <p className="text-2xl sm:text-4xl font-bold text-gray-400">Custom</p>
+            <p className="text-2xl sm:text-4xl font-bold text-gray-500">Custom</p>
           )}
-          <p className={`text-sm mt-1 ${!weAreCheaper ? "text-gray-500" : "text-gray-400"}`}>
+          <p className={`text-sm mt-1 ${!weAreCheaper ? "text-gray-500" : "text-gray-500"}`}>
             {competitor.name} plan · ~{estimatedMonthlyOrders.toLocaleString()} orders/mo
           </p>
         </div>
       </div>
 
-      <p className="text-xs text-gray-400 mt-4">{disclaimer}</p>
+      <p className="text-xs text-gray-500 mt-4">{disclaimer}</p>
     </div>
   )
 }

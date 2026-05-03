@@ -89,7 +89,7 @@ export default function AboutPage() {
       {/* Brands */}
       <section className="bg-white pb-16 sm:pb-32 px-4">
         <div className="max-w-2xl mx-auto">
-          <p className="text-sm text-gray-400 uppercase tracking-widest mb-6">Stores I've worked on</p>
+          <p className="text-sm text-gray-500 uppercase tracking-widest mb-6">Stores I've worked on</p>
           <div className="flex flex-wrap gap-3">
             {brands.map((brand) => (
               <span key={brand} className="bg-gray-100 text-gray-700 rounded-lg px-4 py-2 text-sm font-medium">{brand}</span>

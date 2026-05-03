@@ -106,7 +106,7 @@ function CrossIcon() {
 
 function NaIcon() {
   return (
-    <span className="text-gray-400 text-sm">-</span>
+    <span className="text-gray-500 text-sm">-</span>
   )
 }
 
@@ -179,7 +179,7 @@ export default function LooxAlternativePage() {
                       {row.loox === true && <CheckIcon />}
                       {row.loox === false && <CrossIcon />}
                       {row.loox === null && <NaIcon />}
-                      {row.looxNote && <span className="text-xs text-gray-400 leading-tight">{row.looxNote}</span>}
+                      {row.looxNote && <span className="text-xs text-gray-500 leading-tight">{row.looxNote}</span>}
                     </div>
                   </td>
                 </tr>)}

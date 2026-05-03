@@ -89,7 +89,7 @@ export function BlogNav({ className = "mb-8" }) {
     <div className={className}>
       <a
         href="/blog"
-        className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-gray-900 transition-colors"
+        className="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-900 transition-colors"
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-3.5 h-3.5">
           <path fillRule="evenodd" d="M9.78 4.22a.75.75 0 0 1 0 1.06L7.06 8l2.72 2.72a.75.75 0 1 1-1.06 1.06L5.47 8.53a.75.75 0 0 1 0-1.06l3.25-3.25a.75.75 0 0 1 1.06 0Z" clipRule="evenodd" />
@@ -111,12 +111,12 @@ export function BlogCta() {
         <h2 className="text-2xl sm:text-4xl font-black tracking-tight mb-4 text-white">
           Reviews stored in Shopify. Rendered in Liquid. Yours to keep.
         </h2>
-        <p className="text-gray-400 text-base sm:text-lg mb-8 max-w-xl mx-auto">
+        <p className="text-gray-500 text-base sm:text-lg mb-8 max-w-xl mx-auto">
           The review app that writes to Shopify's standard product review Metaobjects - server-side rendering, no JavaScript widget, no external dependency, no vendor lock-in.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <ListingCta className="btn btn-primary btn-inverted opacity-100!">Join the closed beta. Limited spots available.</ListingCta>
-          <a href="/" className="text-sm text-gray-400 hover:text-white underline underline-offset-2 transition-colors">Learn more →</a>
+          <a href="/" className="text-sm text-gray-500 hover:text-white underline underline-offset-2 transition-colors">Learn more →</a>
         </div>
       </div>
     </section>

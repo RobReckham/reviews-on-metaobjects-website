@@ -16,11 +16,11 @@ const Logo = (
 );
 
 const Footer = function() {
-  const linkClasses = "text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors";
+  const linkClasses = "text-sm text-gray-600 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors";
   return (
     <NextraFooter>
       <div className="w-full flex flex-wrap justify-between items-center gap-x-4 gap-y-2">
-        <div className="text-sm text-gray-600 dark:text-gray-400">{process.env.NEXT_PUBLIC_APP_NAME} {new Date().getFullYear()} © All rights reserved.</div>
+        <div className="text-sm text-gray-600 dark:text-gray-500">{process.env.NEXT_PUBLIC_APP_NAME} {new Date().getFullYear()} © All rights reserved.</div>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
           <Link href="/" className={linkClasses}>Home</Link>
           <Link href="/about" className={linkClasses}>About</Link>

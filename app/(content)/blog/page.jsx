@@ -56,7 +56,7 @@ export default function BlogIndexPage() {
           <ul className="space-y-10">
             {posts.map((post) => (
               <li key={post.slug} className="border-b border-gray-100 pb-10 last:border-0">
-                <time className="text-sm text-gray-400 mb-2 block">
+                <time className="text-sm text-gray-500 mb-2 block">
                   {new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
                 </time>
                 <Link href={`/blog/${post.slug}`} className="group">

@@ -12,7 +12,7 @@ export default function Pricing() {
             {maxReviews && <p className="text-sm text-gray-500 mt-1">{maxReviews.value === Infinity ? "Unlimited" : maxReviews.value.toLocaleString()} reviews max</p>}
           </div>
           <ul className="space-y-2 border-t border-b border-gray-100 p-4">
-            {booleanFeatures.map((feature) => <li key={feature.id} className={`flex items-center gap-2 text-sm ${feature.value ? "" : "text-gray-400"}`}>
+            {booleanFeatures.map((feature) => <li key={feature.id} className={`flex items-center gap-2 text-sm ${feature.value ? "" : "text-gray-500"}`}>
               {feature.value && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 shrink-0 text-green-600">
                 <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clipRule="evenodd" />
               </svg>}
@@ -27,7 +27,7 @@ export default function Pricing() {
               ${plan.price}
               <span className="text-base font-normal text-gray-500">/mo</span>
             </p>
-            {plan.yearlyPrice > 0 && <p className="text-sm text-gray-400 mt-0.5">or ${plan.yearlyPrice}/yr</p>}
+            {plan.yearlyPrice > 0 && <p className="text-sm text-gray-500 mt-0.5">or ${plan.yearlyPrice}/yr</p>}
           </div>
         </div>
       })}

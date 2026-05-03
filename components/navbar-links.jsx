@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 export default function NavbarLinks() {
   const pathname = usePathname();
-  const linkClasses = 'text-sm whitespace-nowrap text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-gray-200 transition-colors';
+  const linkClasses = 'text-sm whitespace-nowrap text-gray-600 hover:text-black dark:text-gray-500 dark:hover:text-gray-200 transition-colors';
 
   return (
     <div className="site-nav-items flex gap-4">
