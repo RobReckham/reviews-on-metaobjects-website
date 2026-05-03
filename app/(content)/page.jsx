@@ -46,6 +46,7 @@ const benefits = {
   title: "Why reviews should live directly in Shopify",
   subtitle: "Third-party review apps slow your store and lock you in. There’s a better way.",
   baseColor: "oklch(88.2% 0.059 254.128)",
+  baseColor: "oklch(21% 0.034 264.665)",
   items: [
     {
       title: "Faster pages",
@@ -93,6 +94,7 @@ const feature1 = {
   baseColor: "oklch(84.5% 0.143 164.978)",
   baseColor: "oklch(90.5% 0.093 164.15)",
   baseColor: "oklch(82.7% 0.119 306.383)",
+  baseColor: "oklch(21% 0.034 264.665)",
   items: [
     {
       title: "Forms on product pages",
@@ -124,6 +126,7 @@ const feature1 = {
 const feature2 = {
   title: "Manage reviews easily",
   baseColor: "oklch(82.7% 0.119 306.383)",
+  baseColor: "oklch(21% 0.034 264.665)",
   items: [
     {
       title: "Approve or auto-publish",
@@ -148,6 +151,7 @@ const feature3 = {
   title: "Display reviews confidently",
   baseColor: "oklch(81% 0.117 11.638)",
   baseColor: "oklch(82.7% 0.119 306.383)",
+  baseColor: "oklch(21% 0.034 264.665)",
   items: [
     {
       title: "Flexible placement",
@@ -389,16 +393,16 @@ export default function HomePage() {
       </section>
       <section className="bg-white pt-16 sm:pt-32 px-4">
         <div className="relative max-w-7xl mx-auto">
-          <h2 className={`h2 mb-4 text-gray-900 text-center`}>{benefits.title}</h2>
           <div className="relative p-6 sm:p-16 rounded-4xl overflow-hidden">
             <AnimatedBackground baseColor={benefits.baseColor} />
+            <h2 className="h2 text-white text-shadow-sm mb-4 text-center relative sm:mb-8">{benefits.title}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 relative">
-              {benefits.items.map((benefit, index) => <div key={index} className={`bg-white rounded-xl p-4 text-gray-800`}>
-                <div className="flex justify-between items-center gap-1">
+              {benefits.items.map((benefit, index) => <div key={index} className={`bg-white/10 rounded-2xl p-6 border border-white/20`}>
+                <div className="flex justify-between items-center gap-1 text-white">
                   <h3 className="font-bold">{benefit.title}</h3>
                   {benefit.Icon && <benefit.Icon className="w-5 h-5" />}
                 </div>
-                <p className="mt-2">{benefit.description}</p>
+                <p className="mt-2 text-white/80">{benefit.description}</p>
               </div>)}
             </div>
           </div>
@@ -422,13 +426,13 @@ export default function HomePage() {
           <h2 className="h2">{oneLiners[1]}</h2>
         </div>
       </section>
-      <section className="bg-white py-16 sm:py-32 px-4">
+      <section className="bg-white py-8 sm:py-16 px-4">
         <div className="relative max-w-7xl mx-auto">
+          <h2 className="h2 mb-4 text-gray-900 text-center">{feature1.title}</h2>
           <div className="relative p-6 sm:p-16 rounded-4xl overflow-hidden">
             <AnimatedBackground baseColor={feature1.baseColor} />
-            <h2 className={`h2 text-white text-shadow-sm relative z-10 mb-8 text-center`}>{feature1.title}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 relative">
-              {feature1.items.map((feature, index) => <div key={index} className={`bg-black/15 text-white text-shadow-sm rounded-xl p-4 border border-white/60`} style={{ boxShadow: "inset 0 0 20px rgba(0, 0, 0, 0.02)" }}>
+              {feature1.items.map((feature, index) => <div key={index} className={`bg-white backdrop-blur-sm rounded-xl p-6 text-gray-800`}>
                 <h3 className="font-bold">{feature.title}</h3>
                 <p className="mt-2">{feature.description}</p>
               </div>)}
@@ -436,13 +440,13 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <section className="bg-white py-16 sm:py-32 px-4">
+      <section className="bg-white py-8 sm:py-16 px-4">
         <div className="relative max-w-7xl mx-auto">
+          <h2 className="h2 mb-4 text-gray-900 text-center">{feature2.title}</h2>
           <div className="relative p-6 sm:p-16 rounded-4xl overflow-hidden">
             <AnimatedBackground baseColor={feature2.baseColor} />
-            <h2 className={`h2 text-white text-shadow-sm relative z-10 mb-8 text-center`}>{feature2.title}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 relative">
-              {feature2.items.map((feature, index) => <div key={index} className={`bg-black/10 text-white text-shadow-sm rounded-xl p-4 border border-white/40`} style={{ boxShadow: "inset 0 0 20px rgba(0, 0, 0, 0.03)" }}>
+              {feature2.items.map((feature, index) => <div key={index} className={`bg-white backdrop-blur-sm rounded-xl p-6 text-gray-800`}>
                 <h3 className="font-bold">{feature.title}</h3>
                 <p className="mt-2">{feature.description}</p>
               </div>)}
@@ -450,13 +454,13 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <section className="bg-white py-16 sm:py-32 px-4">
+      <section className="bg-white py-8 sm:py-16 px-4">
         <div className="relative max-w-7xl mx-auto">
+          <h2 className="h2 mb-4 text-gray-900 text-center">{feature3.title}</h2>
           <div className="relative p-6 sm:p-16 rounded-4xl overflow-hidden">
             <AnimatedBackground baseColor={feature3.baseColor} />
-            <h2 className={`h2 text-white text-shadow-sm relative z-10 mb-8 text-center`}>{feature3.title}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 relative">
-              {feature3.items.map((feature, index) => <div key={index} className={`bg-black/10 text-white text-shadow-sm rounded-xl p-4 border border-white/40`} style={{ boxShadow: "inset 0 0 20px rgba(0, 0, 0, 0.03)" }}>
+              {feature3.items.map((feature, index) => <div key={index} className={`bg-white backdrop-blur-sm rounded-xl p-6 text-gray-800`}>
                 <h3 className="font-bold">{feature.title}</h3>
                 <p className="mt-2">{feature.description}</p>
               </div>)}
@@ -471,14 +475,13 @@ export default function HomePage() {
       </section>
       <section className="bg-white py-16 sm:py-32 px-4">
         <div className="relative max-w-2xl mx-auto">
-          <div className="relative p-6 sm:p-16 rounded-4xl overflow-hidden">
-            <AnimatedBackground baseColor={howItWorks.baseColor} />
-            <h2 className={`h2 text-white text-shadow-sm relative z-10 mb-8 text-center`}>{howItWorks.title}</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-1 gap-4 relative">
-              {howItWorks.steps.map((step, index) => <div key={index} className={`bg-white text-gray-900 rounded-xl p-4`} style={{ boxShadow: "inset 0 0 20px rgba(0, 0, 0, 0.03)" }}>
-                <h3 className="font-bold">{step}</h3>
-              </div>)}
-            </div>
+          <h2 className="h2 mb-4 text-gray-900 text-center">{howItWorks.title}</h2>
+          <div className="grid grid-cols-1 gap-4 relative">
+            {howItWorks.steps.map((step, index) => (
+              <div key={index} className="text-gray-800 border border-gray-200 rounded-xl p-4">
+                <h3 className="font-bold text-lg">{step}</h3>
+              </div>
+            ))}
           </div>
         </div>
       </section>

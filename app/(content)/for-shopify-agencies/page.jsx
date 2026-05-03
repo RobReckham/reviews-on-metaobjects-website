@@ -198,15 +198,13 @@ export default function ForShopifyAgenciesPage() {
         <div className="relative max-w-2xl mx-auto">
           <h2 className="h2 mb-4 text-gray-900 text-center">How it works for agencies</h2>
           <p className="text-center text-gray-500 mb-8 max-w-4xl mx-auto">From a 15-minute call to a fully integrated client store. You stay the agency. We stay invisible.</p>
-          <div className="relative">
-            <div className="grid grid-cols-1 gap-4 relative">
-              {steps.map((step, index) => (
-                <div key={index} className="text-gray-800 border border-gray-200 rounded-xl p-4">
-                  <h3 className="font-bold text-lg mb-2">{index + 1}. {step.title}</h3>
-                  <p>{step.description}</p>
-                </div>
-              ))}
-            </div>
+          <div className="grid grid-cols-1 gap-4 relative">
+            {steps.map((step, index) => (
+              <div key={index} className="text-gray-800 border border-gray-200 rounded-xl p-4">
+                <h3 className="font-bold text-lg mb-2">{index + 1}. {step.title}</h3>
+                <p>{step.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
