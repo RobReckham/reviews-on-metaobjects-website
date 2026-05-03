@@ -14,14 +14,14 @@ function Stars({ className = 'w-6 h-6', value = 5 }) {
 }
 
 export default function SkelletonReview({ index = 0 }) {
-  const imageIndex = Math.floor(Math.random() * 11 * 2) + 1
+  const imageIndex = (index * 7 % 22) + 1
   const imageSrc = imageIndex > 11 ? null : `https://assets.reviewsonmetaobjects.com/skelletons/product-${imageIndex}.jpg`
 
-  const lineCount = Math.floor(Math.random() * 2) + 1
-  const starsValue = Math.floor(Math.random() * 2) + 4
+  const lineCount = (index % 2) + 1
+  const starsValue = (index % 2) + 4
 
-  const reviewIndex = Math.floor(Math.random() * 2)
-  const verifiedBadge = Math.floor(Math.random() * 3)
+  const reviewType = index % 2
+  const verifiedBadge = index % 3
 
   const baseClasses = 'self-end bg-white w-full hover:scale-110 transition-transform duration-300'
 
@@ -30,13 +30,13 @@ export default function SkelletonReview({ index = 0 }) {
     target.scrollIntoView({ behavior: 'smooth' })
   }
 
-  if (reviewIndex === 0) {
+  if (reviewType === 0) {
     return <button type="button" aria-label="View Example Review" onClick={onClickReview} className={`${baseClasses} p-4 flex gap-4 rounded-xl w-sm shadow-lg cursor-pointer`}>
       {imageSrc && <img src={imageSrc} alt="Dummy Product Image" className="w-32 h-32 object-cover bg-gray-200 rounded-lg" width="32" height="32" />}
       <div className="flex flex-col gap-2 w-full relative">
         <Stars value={starsValue} />
         <div className="flex flex-col gap-2 w-full relative">
-          {Array.from({ length: lineCount }).map((_, index) => <div key={index} className="bg-gray-200 rounded-full h-4 w-full" style={{ width: `${Math.floor(Math.random() * 100)}%` }} />)}
+          {Array.from({ length: lineCount }).map((_, lineIndex) => <div key={lineIndex} className="bg-gray-200 rounded-full h-4 w-full" style={{ width: `${(index * 17 + lineIndex * 31) % 71 + 30}%` }} />)}
         </div>
         {!!verifiedBadge && <span className="bg-green-600 text-white self-start rounded-full px-2 py-1 text-xs w-auto">Verified</span>}
       </div>
@@ -47,7 +47,7 @@ export default function SkelletonReview({ index = 0 }) {
     {imageSrc && <img src={imageSrc} alt="Dummy Product Image" className="w-full h-32 object-cover bg-gray-200 rounded-lg" width="32" height="32" />}
     <Stars value={starsValue} />
     <div className="flex flex-col gap-2 w-full relative">
-      {Array.from({ length: lineCount }).map((_, index) => <div key={index} className="bg-gray-200 rounded-full h-4 w-full" style={{ width: `${Math.floor(Math.random() * 100)}%` }} />)}
+      {Array.from({ length: lineCount }).map((_, lineIndex) => <div key={lineIndex} className="bg-gray-200 rounded-full h-4 w-full" style={{ width: `${(index * 17 + lineIndex * 31) % 71 + 30}%` }} />)}
     </div>
     {!!verifiedBadge && <span className="bg-green-600 text-white self-start rounded-full px-2 py-1 text-xs w-auto">Verified</span>}
   </button>
