@@ -10,6 +10,10 @@ export default function NavbarLinks() {
   return (
     <div className="site-nav-items flex gap-4">
       <Link
+        href="/about"
+        className={`${linkClasses} ${pathname === "/about" ? "font-bold text-black! dark:text-white!" : ""}`}
+      >About</Link>
+      <Link
         href="/for-shopify-agencies"
         className={`${linkClasses} ${pathname === "/for-shopify-agencies" ? "font-bold text-black! dark:text-white!" : ""}`}
       >For agencies</Link>

@@ -23,7 +23,7 @@ const painPoints = [
   },
   {
     title: "Widgets that fight the theme you wrote",
-    description: "Black-box JS widgets inject their own markup and CSS. You spend hours patching around someone else's DOM instead of shipping a clean solution. Updates ship without warning and break your overrides.",
+    description: "Many review widgets render inside an iframe or use shadow DOM - your CSS can't reach them at all. Matching a client's Figma design means hours of reverse-engineering someone else's markup, only for the next app update to break it. Sometimes pixel-perfect is simply not possible.",
   },
   {
     title: "Stuck in a ticket queue while your client is on the phone",
@@ -42,7 +42,7 @@ const benefits = [
   },
   {
     title: "Full Liquid customization",
-    description: "Our app blocks are configurable and individually styleable. But the real power is underneath: query review data directly in your own Liquid files and build any custom display from scratch - completely independent of our blocks.",
+    description: "Our app blocks are configurable and individually styleable with regular CSS. But the real power is underneath: query review data directly in your own Liquid files and build any custom display from scratch - your markup, your classes, your design. Figma to code with no compromises.",
   },
   {
     title: "Client data stays in Shopify. Forever.",
@@ -217,21 +217,24 @@ export default function ForShopifyAgenciesPage() {
             <div className="relative z-10">
               <h2 className="h2 text-white text-shadow-sm mb-4 text-center">I'll do the entire setup in your name</h2>
               <p className="text-white/80 text-center mb-10">
-                During early access I'm onboarding agency clients hands-on. Book a quick call and we'll figure out together which of your client stores is the best starting point. From there, I personally handle the full integration - install, theme blocks, brand-matched styling, review migration - all branded as your work. Zero implementation hours on your side. Zero handoff to junior support.
+                During early access I'm onboarding agency clients hands-on. Book a quick call and we'll figure out together if our app is a good fit for your clients. From there, I personally handle the full integration - install, theme blocks, brand-matched styling, review migration - all branded as your work. Zero implementation hours on your side. Zero handoff to junior support.
               </p>
-              <div className="flex flex-col sm:flex-row items-center gap-6 bg-white/10 rounded-2xl p-6 border border-white/20">
-                <img
-                  src="https://s3.coders.fail/profile/marius-blank-512.jpg"
-                  alt="Marius Korbmacher"
-                  className="h-20 w-20 rounded-full shrink-0"
-                  width={80}
-                  height={80}
-                />
-                <div className="text-center sm:text-left">
-                  <p className="font-bold text-white text-lg">{process.env.NEXT_PUBLIC_AUTHOR_NAME}</p>
-                  <p className="text-white/70 text-sm mb-3">Senior Shopify Developer &amp; founder, {process.env.NEXT_PUBLIC_APP_NAME}</p>
-                  <p className="text-white/80 text-sm">"I've done the agency work. I know what it's like to explain to a client that external apps break their Core Web Vitals. Every setup I do is clean, correct, and built to last."</p>
+              <div className="space-y-4 bg-white/10 rounded-2xl p-6 border border-white/20">
+                <div className="flex items-center gap-4">
+                  <img
+                    src="https://s3.coders.fail/profile/marius-blank-512.jpg"
+                    alt="Marius Korbmacher"
+                    className="h-20 w-20 rounded-full shrink-0"
+                    width={80}
+                    height={80}
+                  />
+                  <div>
+                    <p className="font-bold text-white text-lg">{process.env.NEXT_PUBLIC_AUTHOR_NAME}</p>
+                    <p className="text-white/70 text-sm mb-3">Founder & Senior Shopify developer for 5+ years<br />worked on stores for ProSiebenSat.1, Artdeco, New Balance and many more</p>
+                  </div>
                 </div>
+                <p className="text-white/80 text-sm">"I've done the agency work. I know what it's like to explain a Lighthouse regression to a client, or spend hours trying to match a Figma file inside an iframe you can't style. Every setup I do is clean, correct, and built to last."</p>
+                <p className="text-white/70 text-sm text-right"><a href="/about" className="underline underline-offset-2 hover:text-white transition-colors">Read the full story</a></p>
               </div>
               <div className="mt-8 text-center flex flex-col items-center gap-4">
                 <ListingCta href={process.env.NEXT_PUBLIC_CALENDLY_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-inverted opacity-100!">Book a free demo call</ListingCta>

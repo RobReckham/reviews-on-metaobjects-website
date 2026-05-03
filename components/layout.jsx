@@ -23,6 +23,7 @@ const Footer = function() {
         <div className="text-sm text-gray-600 dark:text-gray-400">{process.env.NEXT_PUBLIC_APP_NAME} {new Date().getFullYear()} © All rights reserved.</div>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
           <Link href="/" className={linkClasses}>Home</Link>
+          <Link href="/about" className={linkClasses}>About</Link>
           <Link href="/for-shopify-agencies" className={linkClasses}>For agencies</Link>
           <Link href="/blog" className={linkClasses}>Blog</Link>
           <Link href="/docs" className={linkClasses}>Docs</Link>

@@ -6,6 +6,7 @@ import plans from "../../utils/plans"
 import AnimatedBackground from "../../components/animated-background"
 import SkelletonReview from "../../components/skelleton-review"
 import Image from "next/image"
+import FounderSection from "../../components/founder-section"
 
 export const metadata = {
   alternates: {
@@ -468,11 +469,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <section className="bg-white py-16 sm:py-32">
-        <div className="container max-w-6xl mx-auto px-4 sm:px-8 text-center">
-          <h2 className="h2">{oneLiners[2]}</h2>
-        </div>
-      </section>
       <section className="bg-white py-16 sm:py-32 px-4">
         <div className="relative max-w-2xl mx-auto">
           <h2 className="h2 mb-4 text-gray-900 text-center">{howItWorks.title}</h2>
@@ -485,6 +481,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      <FounderSection />
       <section className="bg-white py-16 sm:py-32 px-4" id="pricing">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="h2 mb-4">Pricing that doesn't punish growth</h2>
