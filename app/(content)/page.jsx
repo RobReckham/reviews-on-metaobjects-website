@@ -51,7 +51,7 @@ const hero = [
 
 const oneLiners = [
   <>Every other review app stores your data on their servers. We store it directly in yours.</>,
-  <>First 100 reviews are free. <ListingCta className="underline touch-target-inline">Just try it out</ListingCta>.</>,
+  <>Faster pages convert better. Star ratings in Google bring more clicks. Same store, more sales.</>,
   <>Reviews that load instantly - because they belong in Shopify.</>,
   <>Your shop, your data, your reviews. You are not locked in with us. Use a different service for the same data at any time.</>,
   <>From collection to display - all inside Shopify. Your shop, your data, your reviews.</>,
@@ -146,18 +146,18 @@ const benefits = [
     baseColor: "oklch(88.2% 0.059 254.128)",
     items: [
       {
-        title: "Faster store",
+        title: "Faster pages",
         Icon: function Icon({ className }) { return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
           <path fillRule="evenodd" d="M14.615 1.595a.75.75 0 0 1 .359.852L12.982 9.75h7.268a.75.75 0 0 1 .548 1.262l-10.5 11.25a.75.75 0 0 1-1.272-.71l1.992-7.302H3.75a.75.75 0 0 1-.548-1.262l10.5-11.25a.75.75 0 0 1 .913-.143Z" clipRule="evenodd" />
         </svg>},
-        description: "Other services load reviews with JavaScript. We store them in Shopify’s standard metaobjects and render them natively with Liquid. Result: faster pages and better Core Web Vitals.",
+        description: "Other apps load reviews with JavaScript after the page is already painted. We render them server-side in Liquid - so they appear with the rest of the page. Better Core Web Vitals, social proof visible from the first frame.",
       },
       {
         title: "Better SEO",
         Icon: function Icon({ className }) { return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
           <path fillRule="evenodd" d="M5.166 2.621v.858c-1.035.148-2.059.33-3.071.543a.75.75 0 0 0-.584.859 6.753 6.753 0 0 0 6.138 5.6 6.73 6.73 0 0 0 2.743 1.346A6.707 6.707 0 0 1 9.279 15H8.54c-1.036 0-1.875.84-1.875 1.875V19.5h-.75a2.25 2.25 0 0 0-2.25 2.25c0 .414.336.75.75.75h15a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-2.25-2.25h-.75v-2.625c0-1.036-.84-1.875-1.875-1.875h-.739a6.706 6.706 0 0 1-1.112-3.173 6.73 6.73 0 0 0 2.743-1.347 6.753 6.753 0 0 0 6.139-5.6.75.75 0 0 0-.585-.858 47.077 47.077 0 0 0-3.07-.543V2.62a.75.75 0 0 0-.658-.744 49.22 49.22 0 0 0-6.093-.377c-2.063 0-4.096.128-6.093.377a.75.75 0 0 0-.657.744Zm0 2.629c0 1.196.312 2.32.857 3.294A5.266 5.266 0 0 1 3.16 5.337a45.6 45.6 0 0 1 2.006-.343v.256Zm13.5 0v-.256c.674.1 1.343.214 2.006.343a5.265 5.265 0 0 1-2.863 3.207 6.72 6.72 0 0 0 .857-3.294Z" clipRule="evenodd" />
         </svg>},      
-        description: "Native structured data from metaobjects improves rich snippets and search rankings. No more hidden reviews behind JS.",
+        description: "JavaScript-loaded reviews are invisible to most search crawlers. Native metaobjects output structured data Google indexes immediately - so star ratings show up in search results, click-through rates climb, and free organic traffic grows.",
       },
       {
         title: "Higher compatibility",
@@ -622,7 +622,7 @@ export default function HomePage() {
       <section className="bg-white py-16 sm:py-32" id="more-info">
         <div className="container max-w-4xl mx-auto px-4 sm:px-8 text-center">
           <h2 className="h2 mb-6">{oneLiners[0]}</h2>
-          <p className="text-gray-600 text-lg">Shopify's standard product review metaobjects are a native data type built into every store. Your reviews render in your theme the same way product titles do - no external scripts, no API calls at load time. And they stay in your store even if you switch apps.</p>
+          <p className="text-gray-600 text-lg">Shopify has its own native data type for product reviews - the standard product review metaobject. Most review apps ignore it and run their own database. We built our entire product around it. Your reviews render in your theme the same way product titles do, with no external scripts and no API calls at page load. And they stay in your store forever, even after you uninstall the app.</p>
         </div>
       </section>
       <section className="bg-white pt-16 sm:pt-32 px-4">
@@ -722,8 +722,8 @@ export default function HomePage() {
       </section>
       <section className="bg-white py-16 sm:py-32 px-4" id="pricing">
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="h2 mb-4">Transparent and fair pricing. No hidden fees. Generous free plan.</h2>
-          <p className="text-gray-500 mb-12">Start free, upgrade as you grow.</p>
+          <h2 className="h2 mb-4">Pricing that doesn't punish growth</h2>
+          <p className="text-gray-500 mb-12">Start free with up to 100 reviews. Paid plans are flat with a hard cap - no per-order fees, no volume tiers, no surprise bills as your store scales. We can keep it this low because reviews live in Shopify's infrastructure, not ours. Switching from a usage-based competitor often saves you a few thousand dollars a year.</p>
           <Pricing />
           <ListingCta className="btn btn-primary mt-12 inline-flex">Claim early access!</ListingCta>
         </div>
