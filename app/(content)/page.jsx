@@ -358,7 +358,7 @@ export default function HomePage() {
       }) }}
     />
     <main className="bg-white min-h-screen text-gray-900">
-      <section className="pt-24 pb-48 mb-24 relative">
+      <section className="pt-8 sm:pt-24 pb-48 mb-24 relative">
         <div className="absolute inset-4 rounded-4xl overflow-hidden">
           <AnimatedBackground />
         </div>
@@ -366,8 +366,8 @@ export default function HomePage() {
           <p className="h4">{hero.subtitle}</p>
           <h1 className="h1 mt-4 mb-8 max-w-6xl mx-auto">{hero.title}</h1>
           <div className="max-w-3xl mx-auto p">
-            <p className="mb-4 leading-relaxed">
-              {hero.bullets.map((benefit, index) => <span className={`${colors[index]} px-3 rounded py-1`} key={index}>{benefit}</span>)}
+            <p className="mb-4 leading-relaxed flex flex-wrap justify-center gap-1">
+              {hero.bullets.map((benefit, index) => <span className={`rounded-full px-3 text-sm bg-white/60 py-1 whitespace-nowrap`} key={index}>{benefit}</span>)}
             </p>
             <p className="mb-4">{hero.paragraph}</p>
           </div>

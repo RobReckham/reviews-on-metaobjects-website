@@ -115,7 +115,7 @@ export default function ReviewsIoAlternativePage() {
     <main className="bg-white min-h-screen text-gray-900">
 
       {/* Hero */}
-      <section className="pt-24 pb-32 relative">
+      <section className="py-12 sm:py-24 relative">
         <div className="absolute inset-4 rounded-4xl overflow-hidden">
           <AnimatedBackground />
         </div>
