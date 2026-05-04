@@ -16,7 +16,7 @@ const Logo = (
       width={40}
       height={40}
     />
-    <div>FiveOh Reviews<br />on Metaobjects</div>
+    <div className="whitespace-nowrap text-sm sm:text-base">FiveOh Reviews<br />on Metaobjects</div>
   </div>
 );
 

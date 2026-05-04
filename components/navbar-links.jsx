@@ -19,11 +19,11 @@ export default function NavbarLinks() {
       >Blog</Link>
       <Link
         href="/about"
-        className={`${linkClasses} ${pathname === "/about" ? "font-bold text-black! dark:text-white!" : ""}`}
+        className={`${linkClasses} hidden sm:block ${pathname === "/about" ? "font-bold text-black! dark:text-white!" : ""}`}
       >Story</Link>
       <Link
         href="/docs"
-        className={`${linkClasses} ${/^\/docs(?:\/|$)/.test(pathname) ? "font-bold text-black! dark:text-white!" : ""}`}
+        className={`${linkClasses} hidden sm:block ${/^\/docs(?:\/|$)/.test(pathname) ? "font-bold text-black! dark:text-white!" : ""}`}
       >Docs</Link>
     </div>
   );
