@@ -2,6 +2,7 @@ import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul,
 
 export const metadata = {
   title: "How to Add JSON-LD Structured Data in Shopify Liquid: Products, Reviews, and Breadcrumbs",
+  shortTitle: "Add JSON-LD structured data in Shopify Liquid",
   description: "A complete guide to implementing JSON-LD structured data in Shopify Liquid - covering Product schema, AggregateRating from Metafields, Review markup, and BreadcrumbList.",
   alternates: { canonical: "/blog/shopify-liquid-json-ld-structured-data" },
   openGraph: { type: "article", publishedTime: "2026-04-24" },

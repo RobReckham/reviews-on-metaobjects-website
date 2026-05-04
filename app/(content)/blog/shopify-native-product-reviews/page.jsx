@@ -2,6 +2,7 @@ import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul,
 
 export const metadata = {
   title: "Can Shopify Display Product Reviews Natively Without a Third-Party App?",
+  shortTitle: "Shopify native product reviews",
   description: "Shopify deprecated its built-in Product Reviews app in 2023. Here's what actually ships natively today, what still requires an app, and what 'native' really means for review storage.",
   alternates: { canonical: "/blog/shopify-native-product-reviews" },
   openGraph: { type: "article", publishedTime: "2026-04-04" },

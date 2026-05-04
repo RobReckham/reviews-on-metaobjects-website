@@ -2,6 +2,7 @@ import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul,
 
 export const metadata = {
   title: "The Hidden Cost of Shopify Review Apps: Speed, SEO, and Data You Don't Own",
+  shortTitle: "The hidden cost of Shopify review apps",
   description: "An honest analysis of what standard Shopify review apps cost beyond the monthly fee - page speed, SEO reliability, crawl budget, and what happens to your data when you leave.",
   alternates: { canonical: "/blog/real-cost-shopify-review-apps" },
   openGraph: { type: "article", publishedTime: "2026-04-09" },

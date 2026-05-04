@@ -2,6 +2,7 @@ import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul,
 
 export const metadata = {
   title: "Shopify Metafields vs. Metaobjects: What's the Difference?",
+  shortTitle: "Shopify metafields vs. metaobjects",
   description: "A clear technical explanation of Shopify Metafields and Metaobjects - what each is, how they differ, when to use which, and how they work together in Liquid and GraphQL.",
   alternates: { canonical: "/blog/shopify-metafields-vs-metaobjects" },
   openGraph: { type: "article", publishedTime: "2026-04-28" },
