@@ -6,7 +6,7 @@ const OUR_TIERS = [
   { maxReviews: 100, price: 0, name: "Free" },
   { maxReviews: 10000, price: 20, name: "Basic" },
   { maxReviews: 100000, price: 60, name: "Pro" },
-  { maxReviews: Infinity, price: 120, name: "Premium" },
+  { maxReviews: Infinity, price: 180, name: "Unlimited" },
 ]
 
 // Assuming 20 reviews per 100 orders and an average store age of 3 years (36 months):

@@ -28,6 +28,7 @@ export default function Pricing() {
               <span className="text-base font-normal text-gray-500">/mo</span>
             </p>
             {plan.yearlyPrice > 0 && <p className="text-sm text-gray-500 mt-0.5">or ${plan.yearlyPrice}/yr</p>}
+            {plan.trialDays && <p className="text-sm text-gray-500 mt-1">{plan.trialDays}-day free trial</p>}
           </div>
         </div>
       })}

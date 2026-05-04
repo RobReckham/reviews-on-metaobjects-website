@@ -12,11 +12,14 @@ export default function FinalCta({ title, subtitle, ctaLabel }) {
           <h2 className="h2 text-white text-shadow-sm relative z-10 mb-4">{title}</h2>
           <p className="text-white text-xl text-shadow-sm relative z-10">{subtitle}</p>
         </div>
-        <div className="inline-flex justify-center items-center gap-4 relative">
-          <ListingCta className="btn btn-primary btn-inverted opacity-100!">{ctaLabel}</ListingCta>
-          <div className="text-right absolute -right-6 -top-2 z-10">
-            <img src="/shopify_glyph.svg" alt="Shopify Logo" className="h-14" width="49" height="56" />
+        <div className="flex flex-col items-center gap-2">
+          <div className="inline-flex justify-center items-center gap-4 relative">
+            <ListingCta className="btn btn-primary btn-inverted opacity-100!">{ctaLabel}</ListingCta>
+            <div className="text-right absolute -right-6 -top-2 z-10">
+              <img src="/shopify_glyph.svg" alt="Shopify Logo" className="h-14" width="49" height="56" />
+            </div>
           </div>
+          <p className="text-sm text-white/70">14-day free trial on all paid plans</p>
         </div>
       </div>
     </section>

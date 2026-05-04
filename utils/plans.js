@@ -41,6 +41,7 @@ export default [
     description: "Up to 10,000 reviews",
     availability: "https://schema.org/InStock",
     yearlyPrice: 200,
+    trialDays: 14,
     features: [
       {
         id: "max_reviews",
@@ -76,6 +77,7 @@ export default [
     description: "Up to 100,000 reviews",
     availability: "https://schema.org/InStock",
     yearlyPrice: 600,
+    trialDays: 14,
     features: [
       {
         id: "max_reviews",
@@ -105,12 +107,13 @@ export default [
     ],
   },
   {
-    name: "Premium",
-    price: 120,
+    name: "Unlimited",
+    price: 180,
     priceCurrency: "USD",
     description: "Unlimited reviews",
     availability: "https://schema.org/InStock",
-    yearlyPrice: 1200,
+    yearlyPrice: 1800,
+    trialDays: 14,
     features: [
       {
         id: "max_reviews",

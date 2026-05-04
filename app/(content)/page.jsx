@@ -317,7 +317,7 @@ const faqs = [
   {
     question: 'Is there a free trial for paid plans?',
     answer: <>
-      <p>No, but the free plan comes with all features and 100 reviews included for an unlimited period. You can upgrade to a paid plan at any time.</p>
+      <p>Yes - all paid plans include a 14-day free trial. The free plan also stays available with up to 100 reviews for as long as you need it.</p>
     </>,
   },
   {
@@ -371,11 +371,14 @@ export default function HomePage() {
             </p>
             <p className="mb-4">{hero.paragraph}</p>
           </div>
-          <div className="inline-flex justify-center items-center gap-4 relative">
-            <ListingCta className="btn btn-primary">{hero.ctaText}</ListingCta>
-            <div className="text-right absolute -right-6 -top-2 z-10">
-              <img src="/shopify_glyph.svg" alt="Shopify Logo" className="h-14" width="49" height="56" />
+          <div className="flex flex-col items-center gap-2">
+            <div className="inline-flex justify-center items-center gap-4 relative">
+              <ListingCta className="btn btn-primary">{hero.ctaText}</ListingCta>
+              <div className="text-right absolute -right-6 -top-2 z-10">
+                <img src="/shopify_glyph.svg" alt="Shopify Logo" className="h-14" width="49" height="56" />
+              </div>
             </div>
+            <p className="text-sm text-gray-600">14-day free trial on all paid plans</p>
           </div>
         </div>
         <div className="relative -mb-64 w-full py-8 overflow-hidden">
@@ -489,7 +492,10 @@ export default function HomePage() {
           <h2 className="h2 mb-4">Pricing that doesn't punish growth</h2>
           <p className="text-gray-500 mb-12">Start free with up to 100 reviews. Paid plans are flat with a hard cap - no per-order fees, no volume tiers, no surprise bills as your store scales. We can keep it this low because reviews live in Shopify's infrastructure, not ours. Switching from a usage-based competitor often saves you a few thousand dollars a year.</p>
           <Pricing />
-          <ListingCta className="btn btn-primary mt-12 inline-flex">Claim early access!</ListingCta>
+          <div className="flex flex-col items-center gap-2 mt-12">
+            <ListingCta className="btn btn-primary inline-flex">Claim early access!</ListingCta>
+            <p className="text-sm text-gray-500">14-day free trial on all paid plans</p>
+          </div>
         </div>
       </section>
       <FinalCta title={finalCta.title} subtitle={finalCta.description} ctaLabel={finalCta.ctaText} />
