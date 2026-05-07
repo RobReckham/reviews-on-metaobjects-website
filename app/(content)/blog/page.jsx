@@ -15,7 +15,7 @@ export const metadata = {
   },
 }
 
-const posts = [post1, post2, post3, post4, post5, post6, post7]
+const posts = [post1, post2, post3, post4, post5, post6, post7].reverse()
 
 export default function BlogIndexPage() {
   const blogSchema = {
