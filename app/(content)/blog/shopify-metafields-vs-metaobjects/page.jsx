@@ -40,7 +40,7 @@ export default function ShopifyMetafieldsVsMetaobjectsPage() {
             for both.
           </P>
           <P className="text-gray-500 text-sm sm:text-base">
-            Audience: Shopify developers, technical merchants, theme developers. Reading time: ~8 minutes.
+            Reading time: ~8 minutes.
           </P>
           <TableOfContents items={tocItems} />
         </div>
@@ -147,14 +147,14 @@ export default function ShopifyMetafieldsVsMetaobjectsPage() {
             </tbody>
           </table>
         </div>
-        <InlineCta message={`Product reviews are a textbook Metaobject use case - ${process.env.NEXT_PUBLIC_APP_NAME} uses Shopify's standard shopify--product-review definition so your data is portable and queryable.`} />
+        <InlineCta message={`Product reviews are a textbook Metaobject use case - ${process.env.NEXT_PUBLIC_APP_NAME} uses Shopify's standard product_review definition so your data is portable and queryable.`} />
       </Section>
 
       <Section id="field-types">
         <H2 id="field-types">4. Field types: what data can they hold?</H2>
         <P>
           Both Metafields and Metaobject fields share the same underlying type system. Shopify supports{" "}
-          <ExternalLink href="https://shopify.dev/docs/apps/build/custom-data/metafields/types">
+          <ExternalLink href="https://shopify.dev/docs/apps/build/metafields/list-of-data-types">
             a wide range of field types
           </ExternalLink>
           , including:
@@ -201,7 +201,7 @@ export default function ShopifyMetafieldsVsMetaobjectsPage() {
 {% comment %}
   product.metafields.reviews.product_reviews is a
   list.metaobject_reference Metafield - it returns
-  a list of shopify--product-review Metaobject instances.
+  a list of product_review Metaobject instances.
 {% endcomment %}
 {% assign reviews = product.metafields.reviews.product_reviews.value %}
 {% for review in reviews %}
@@ -236,7 +236,7 @@ query {
         <H3>Querying Metaobjects by type</H3>
         <CodeBlock>{`
 query {
-  metaobjects(type: "shopify--product-review", first: 20) {
+  metaobjects(type: "product_review", first: 20) {
     edges {
       node {
         handle
@@ -297,7 +297,7 @@ query {
         <Ul>
           <li>
             Each individual review is a <strong>Metaobject</strong> of type{" "}
-            <code className="bg-gray-200 px-1 rounded text-sm">shopify--product-review</code>, with fields for rating, body, author,
+            <code className="bg-gray-200 px-1 rounded text-sm">product_review</code>, with fields for rating, body, author,
             date, and a product reference.
           </li>
           <li>
@@ -325,23 +325,20 @@ query {
 
         <ArticleAuthor />
         <div className="mt-6 border-t border-gray-200 pt-6">
-          <P className="text-gray-500 text-sm">
-            <strong>Further reading:</strong>{" "}
-            <ExternalLink href="https://shopify.dev/docs/apps/build/custom-data/metafields">Shopify Metafields documentation</ExternalLink>
-            {" · "}
-            <ExternalLink href="https://shopify.dev/docs/apps/build/custom-data/metaobjects">Shopify Metaobjects documentation</ExternalLink>
-            {" · "}
-            <ExternalLink href="https://shopify.dev/docs/apps/build/custom-data/metafields/types">Metafield types reference</ExternalLink>
-            {" · "}
-            <ExternalLink href="https://shopify.dev/docs/apps/build/custom-data/metafields/list-of-standard-definitions">Standard definitions list</ExternalLink>
-          </P>
-          <P className="text-gray-500 text-sm mt-2">
-            <InternalLink href="/blog/how-shopify-product-reviews-work">How Shopify product reviews work →</InternalLink>
-            {" · "}
-            <InternalLink href="/blog/shopify-liquid-json-ld-structured-data">Adding JSON-LD structured data in Liquid →</InternalLink>
-            {" · "}
-            <InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink>
-          </P>
+          <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">Further reading</p>
+          <div className="space-y-1.5 text-sm">
+            <div><ExternalLink href="https://shopify.dev/docs/apps/build/custom-data/metafields">Shopify Metafields documentation</ExternalLink></div>
+            <div><ExternalLink href="https://shopify.dev/docs/apps/build/custom-data/metaobjects">Shopify Metaobjects documentation</ExternalLink></div>
+            <div><ExternalLink href="https://shopify.dev/docs/apps/build/custom-data/metafields/types">Metafield types reference</ExternalLink></div>
+            <div><ExternalLink href="https://shopify.dev/docs/apps/build/custom-data/metafields/list-of-standard-definitions">Standard definitions list</ExternalLink></div>
+            <div><ExternalLink href="https://shopify.dev/docs/apps/build/metaobjects/standard-review-metaobject">Shopify standard product review Metaobject</ExternalLink></div>
+          </div>
+          <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3 mt-5">Related articles</p>
+          <div className="space-y-1.5 text-sm">
+            <div><InternalLink href="/blog/how-shopify-product-reviews-work">How Shopify product reviews work →</InternalLink></div>
+            <div><InternalLink href="/blog/shopify-liquid-json-ld-structured-data">Adding JSON-LD structured data in Liquid →</InternalLink></div>
+            <div><InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink></div>
+          </div>
           <BlogNav className="mt-6" />
         </div>
       </Section>

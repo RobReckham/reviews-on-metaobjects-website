@@ -38,7 +38,7 @@ export default function ShopifyNativeProductReviewsPage() {
             deprecated, what still needs an app, and what "natively stored" actually means for your data.
           </P>
           <P className="text-gray-500 text-sm sm:text-base">
-            Audience: merchants evaluating Shopify, developers onboarding new stores. Reading time: ~7 minutes.
+            Reading time: ~7 minutes.
           </P>
           <TableOfContents items={tocItems} />
         </div>
@@ -47,9 +47,9 @@ export default function ShopifyNativeProductReviewsPage() {
       <Section id="the-short-answer">
         <H2 id="the-short-answer">1. The short answer</H2>
         <P>
-          Shopify does not ship a complete, ready-to-use review collection and display system out of the box in
-          {new Date().getFullYear()}. What it <em>does</em> ship is the <strong>data infrastructure</strong> for reviews: a standardised
-          Metaobject definition that any compliant app can write to, and that Liquid can render directly from.
+          Shopify does not ship a complete, ready-to-use review collection and display system out of the box in 
+          {new Date().getFullYear()}. What it <em>does</em> ship is the <strong>data infrastructure</strong> for reviews: a <ExternalLink href="https://shopify.dev/docs/apps/build/metaobjects/standard-review-metaobject">standardised
+          Metaobject definition</ExternalLink> that any compliant app can write to, and that Liquid can render directly from.
         </P>
         <P>
           For collection (email requests, submission forms, moderation, translation), you still need an app. But
@@ -93,7 +93,7 @@ export default function ShopifyNativeProductReviewsPage() {
         <H2 id="what-shopify-ships-today">3. What Shopify ships natively today</H2>
         <P>
           Shopify's native contribution to product reviews in {new Date().getFullYear()} is the{" "}
-          <ExternalLink href="https://shopify.dev/docs/apps/build/custom-data/metafields/list-of-standard-definitions">
+          <ExternalLink href="https://shopify.dev/docs/apps/build/metaobjects/standard-review-metaobject">
             standard product review Metaobject definition
           </ExternalLink>
           . This is a standardised schema - a formal specification for how review data should be structured -
@@ -102,7 +102,7 @@ export default function ShopifyNativeProductReviewsPage() {
         <P>Specifically, Shopify defines and maintains:</P>
         <Ul>
           <li>
-            The <code className="bg-gray-200 px-1 rounded text-sm">shopify--product-review</code> Metaobject type, with standard fields
+            The <code className="bg-gray-200 px-1 rounded text-sm">product_review</code> Metaobject type, with standard fields
             for rating, body text, author, date, and product reference
           </li>
           <li>
@@ -222,7 +222,7 @@ export default function ShopifyNativeProductReviewsPage() {
         <CodeBlock>{`
 # Query your reviews directly - no app API required
 query {
-  metaobjects(type: "shopify--product-review", first: 50) {
+  metaobjects(type: "product_review", first: 50) {
     edges {
       node {
         handle
@@ -242,23 +242,20 @@ query {
 
         <ArticleAuthor />
         <div className="mt-6 border-t border-gray-200 pt-6">
-          <P className="text-gray-500 text-sm">
-            <strong>Further reading:</strong>{" "}
-            <ExternalLink href="https://help.shopify.com/en/manual/products/product-reviews">Shopify Product Reviews help documentation</ExternalLink>
-            {" · "}
-            <ExternalLink href="https://shopify.dev/docs/apps/build/custom-data/metaobjects">Shopify Metaobjects developer docs</ExternalLink>
-            {" · "}
-            <ExternalLink href="https://shopify.dev/docs/apps/build/custom-data/metafields/list-of-standard-definitions">Standard Metafield and Metaobject definitions</ExternalLink>
-          </P>
-          <P className="text-gray-500 text-sm mt-2">
-            <InternalLink href="/blog/how-shopify-product-reviews-work">Deep-dive: how Shopify Metaobject reviews work →</InternalLink>
-            {" · "}
-            <InternalLink href="/blog/real-cost-shopify-review-apps">The hidden cost of review apps →</InternalLink>
-            {" · "}
-            <InternalLink href="/blog/shopify-metafields-vs-metaobjects">Metafields vs. Metaobjects explained →</InternalLink>
-            {" · "}
-            <InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink>
-          </P>
+          <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">Further reading</p>
+          <div className="space-y-1.5 text-sm">
+            <div><ExternalLink href="https://help.shopify.com/en/manual/products/product-reviews">Shopify Product Reviews help documentation</ExternalLink></div>
+            <div><ExternalLink href="https://shopify.dev/docs/apps/build/custom-data/metaobjects">Shopify Metaobjects developer docs</ExternalLink></div>
+            <div><ExternalLink href="https://shopify.dev/docs/apps/build/custom-data/metafields/list-of-standard-definitions">Standard Metafield and Metaobject definitions</ExternalLink></div>
+            <div><ExternalLink href="https://shopify.dev/docs/apps/build/metaobjects/standard-review-metaobject">Shopify standard product review Metaobject</ExternalLink></div>
+          </div>
+          <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3 mt-5">Related articles</p>
+          <div className="space-y-1.5 text-sm">
+            <div><InternalLink href="/blog/how-shopify-product-reviews-work">Deep-dive: how Shopify Metaobject reviews work →</InternalLink></div>
+            <div><InternalLink href="/blog/real-cost-shopify-review-apps">The hidden cost of review apps →</InternalLink></div>
+            <div><InternalLink href="/blog/shopify-metafields-vs-metaobjects">Metafields vs. Metaobjects explained →</InternalLink></div>
+            <div><InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink></div>
+          </div>
           <BlogNav className="mt-6" />
         </div>
       </Section>

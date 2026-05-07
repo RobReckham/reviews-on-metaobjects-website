@@ -41,7 +41,7 @@ export default function HowShopifyProductReviewsWorkPage() {
             superior approach for any store that cares about performance and SEO.
           </P>
           <P className="text-gray-500 text-sm sm:text-base">
-            Audience: developers, technical merchants, Shopify agencies. Reading time: ~10 minutes.
+            Reading time: ~10 minutes.
           </P>
           <TableOfContents items={tocItems} />
         </div>
@@ -106,7 +106,7 @@ Browser requests your product page
         </P>
         <P>Each Metaobject type is defined by a <strong>definition</strong> that specifies:</P>
         <Ul>
-          <li>A unique <code className="bg-gray-200 px-1 rounded text-sm">type</code> identifier (e.g. <code className="bg-gray-200 px-1 rounded text-sm">shopify--product-review</code>)</li>
+          <li>A unique <code className="bg-gray-200 px-1 rounded text-sm">type</code> identifier (e.g. <code className="bg-gray-200 px-1 rounded text-sm">product_review</code>)</li>
           <li>Named <strong>fields</strong> with strict types: <code className="bg-gray-200 px-1 rounded text-sm">single_line_text_field</code>, <code className="bg-gray-200 px-1 rounded text-sm">rating</code>, <code className="bg-gray-200 px-1 rounded text-sm">product_reference</code>, <code className="bg-gray-200 px-1 rounded text-sm">date_time</code>, etc.</li>
           <li>Access controls (storefront-readable vs. admin-only)</li>
           <li>Display name and description for the Shopify Admin UI</li>
@@ -149,10 +149,10 @@ Browser requests your product page
         <P>
           Shopify maintains an <strong>official, standardised Metaobject definition</strong> specifically for product
           reviews:{" "}
-          <ExternalLink href="https://shopify.dev/docs/apps/build/custom-data/metafields/list-of-standard-definitions#product-rating-count">
+          <ExternalLink href="https://shopify.dev/docs/apps/build/metaobjects/standard-review-metaobject">
             the standard product review Metaobject
           </ExternalLink>
-          . Its type handle is <code className="bg-gray-200 px-1 rounded text-sm">shopify--product-review</code>.
+          . Its type handle is <code className="bg-gray-200 px-1 rounded text-sm">product_review</code>.
         </P>
         <P>The definition ships with the following standard fields:</P>
 
@@ -199,7 +199,7 @@ Browser requests your product page
         </Ul>
         <P>
           Using a standard definition (rather than a custom one) is important because Shopify and third-party platforms
-          recognise the <code className="bg-gray-200 px-1 rounded text-sm">shopify--product-review</code> type by convention. This is what
+          recognise the <code className="bg-gray-200 px-1 rounded text-sm">product_review</code> type by convention. This is what
           enables the native syndication behaviour described in section 8.
         </P>
         <Callout>
@@ -378,7 +378,7 @@ Browser requests your product page
   <div class="product-rating">
     <span>{{ rating | round: 1 }} / 5</span>
     <span>({{ rating_count }} reviews)</span>
-  </div>
+  </ul>
 {% endif %}
         `}</CodeBlock>
 
@@ -414,7 +414,7 @@ Browser requests your product page
         <H3>App Blocks vs. custom Liquid sections</H3>
         <P>
           Shopify's{" "}
-          <ExternalLink href="https://shopify.dev/docs/storefronts/themes/architecture/sections/app-blocks">
+          <ExternalLink href="https://shopify.dev/docs/storefronts/themes/architecture/blocks/app-blocks">
             App Blocks
           </ExternalLink>{" "}
           allow apps to inject Liquid sections into Online Store 2.0 themes through the theme editor without modifying
@@ -425,9 +425,7 @@ Browser requests your product page
           For developers who want full control, the review data is directly accessible in custom Liquid sections, since
           it lives in the same Shopify store. You are not locked into using any app's rendering layer.
         </P>
-        <Callout>
-          <InternalLink href="/docs/app-blocks">Read the App Blocks documentation →</InternalLink>
-        </Callout>
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} ships ready-made App Blocks for product pages - drop-in review display, star ratings, and submission forms that work with any Online Store 2.0 theme, no code required.`} />
       </Section>
 
       {/* 7. Data ownership */}
@@ -453,7 +451,7 @@ Browser requests your product page
         <CodeBlock>{`
 # Admin GraphQL - list product reviews
 query {
-  metaobjects(type: "shopify--product-review", first: 50) {
+  metaobjects(type: "product_review", first: 50) {
     edges {
       node {
         handle
@@ -485,7 +483,7 @@ query {
         <H2 id="syndication">8. Syndication to Shop, Google Shopping, and Meta</H2>
         <P>
           Because the standard{" "}
-          <code className="bg-gray-200 px-1 rounded text-sm">shopify--product-review</code> definition is a
+          <code className="bg-gray-200 px-1 rounded text-sm">product_review</code> definition is a
           platform-level convention, Shopify's own integrations recognise it:
         </P>
 
@@ -501,7 +499,7 @@ query {
         <H3>Google Merchant Center / Google Shopping</H3>
         <P>
           Shopify's{" "}
-          <ExternalLink href="https://help.shopify.com/en/manual/promoting-marketing/seo/google">
+          <ExternalLink href="https://help.shopify.com/en/manual/online-sales-channels/google">
             Google &amp; YouTube channel
           </ExternalLink>{" "}
           can syndicate product reviews to Google Merchant Center when they are stored in the standard Metaobject
@@ -512,8 +510,8 @@ query {
         <H3>Meta Shops</H3>
         <P>
           Similarly, the{" "}
-          <ExternalLink href="https://help.shopify.com/en/manual/promoting-marketing/social-media/facebook">
-            Facebook &amp; Instagram channel
+          <ExternalLink href="https://help.shopify.com/en/manual/online-sales-channels/facebook-instagram-by-meta">
+            Facebook &amp; Instagram by Meta channel
           </ExternalLink>{" "}
           can surface product ratings from the standard Metafield (<code className="bg-gray-200 px-1 rounded text-sm">reviews.rating</code>) in
           Meta Shops product listings.
@@ -579,25 +577,20 @@ query {
 
         <ArticleAuthor />
         <div className="mt-6 border-t border-gray-200 pt-6">
-          <P className="text-gray-500 text-sm">
-            <strong>Further reading:</strong>{" "}
-            <ExternalLink href="https://shopify.dev/docs/apps/build/custom-data/metaobjects">Shopify Metaobjects developer docs</ExternalLink>
-            {" · "}
-            <ExternalLink href="https://shopify.dev/docs/storefronts/themes/product-merchandising/product-reviews">Product reviews in Shopify themes</ExternalLink>
-            {" · "}
-            <ExternalLink href="https://web.dev/articles/vitals">Core Web Vitals - web.dev</ExternalLink>
-            {" · "}
-            <ExternalLink href="https://developers.google.com/search/docs/appearance/structured-data/product">Google Product structured data spec</ExternalLink>
-            {" · "}
-            <ExternalLink href="https://schema.org/AggregateRating">schema.org/AggregateRating</ExternalLink>
-            {" · "}
-            <ExternalLink href="https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics">Google JavaScript SEO basics</ExternalLink>
-          </P>
-          <P className="text-gray-500 text-sm mt-2">
-            <InternalLink href="/docs">Read the app documentation →</InternalLink>
-            {" · "}
-            <InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink>
-          </P>
+          <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">Further reading</p>
+          <div className="space-y-1.5 text-sm">
+            <div><ExternalLink href="https://shopify.dev/docs/apps/build/custom-data/metaobjects">Shopify Metaobjects developer docs</ExternalLink></div>
+            <div><ExternalLink href="https://shopify.dev/docs/storefronts/themes/product-merchandising/product-reviews">Product reviews in Shopify themes</ExternalLink></div>
+            <div><ExternalLink href="https://web.dev/articles/vitals">Core Web Vitals - web.dev</ExternalLink></div>
+            <div><ExternalLink href="https://developers.google.com/search/docs/appearance/structured-data/product">Google Product structured data spec</ExternalLink></div>
+            <div><ExternalLink href="https://schema.org/AggregateRating">schema.org/AggregateRating</ExternalLink></div>
+            <div><ExternalLink href="https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics">Google JavaScript SEO basics</ExternalLink></div>
+          </div>
+          <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3 mt-5">Related articles</p>
+          <div className="space-y-1.5 text-sm">
+            <div><InternalLink href="/docs">Read the app documentation →</InternalLink></div>
+            <div><InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink></div>
+          </div>
           <BlogNav className="mt-6" />
         </div>
       </Section>

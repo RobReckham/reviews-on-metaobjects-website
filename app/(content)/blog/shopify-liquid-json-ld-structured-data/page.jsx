@@ -11,7 +11,7 @@ export const metadata = {
 }
 
 const tocItems = [
-  { id: "what-is-json-ld", label: "What JSON-LD is and why it belongs in <head>" },
+  { id: "what-is-json-ld", label: "What JSON-LD is and where it belongs" },
   { id: "product-schema", label: "Product schema" },
   { id: "aggregate-rating", label: "Adding aggregateRating from Metafields" },
   { id: "individual-reviews", label: "Individual Review markup" },
@@ -39,14 +39,14 @@ export default function ShopifyLiquidJsonLdStructuredDataPage() {
             guide covers the three most impactful schemas for Shopify stores, with copy-paste Liquid code for each.
           </P>
           <P className="text-gray-500 text-sm sm:text-base">
-            Audience: Shopify developers, theme developers, SEO practitioners. Reading time: ~10 minutes.
+            Reading time: ~10 minutes.
           </P>
           <TableOfContents items={tocItems} />
         </div>
       </section>
 
       <Section id="what-is-json-ld">
-        <H2 id="what-is-json-ld">1. What JSON-LD is and why it belongs in &lt;head&gt;</H2>
+        <H2 id="what-is-json-ld">1. What JSON-LD is and where it belongs</H2>
         <P>
           <ExternalLink href="https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data">
             Structured data
@@ -65,15 +65,12 @@ export default function ShopifyLiquidJsonLdStructuredDataPage() {
           require you to annotate individual HTML elements - it lives separately from your visible markup.
         </P>
         <P>
-          Place it inside <code className="bg-gray-200 px-1 rounded text-sm">&lt;head&gt;</code> - or at minimum, before the closing{" "}
-          <code className="bg-gray-200 px-1 rounded text-sm">&lt;/body&gt;</code> tag. Google does not require{" "}
-          <code className="bg-gray-200 px-1 rounded text-sm">&lt;head&gt;</code> placement, but it is best practice so the data is available
-          as early as possible in the parse.
-        </P>
-        <P>
-          In Shopify, the right place is a snippet included from your theme's{" "}
-          <code className="bg-gray-200 px-1 rounded text-sm">layout/theme.liquid</code> file, rendered conditionally based on the current
-          template.
+          Google accepts JSON-LD anywhere in the page - <code className="bg-gray-200 px-1 rounded text-sm">&lt;head&gt;</code> or{" "}
+          <code className="bg-gray-200 px-1 rounded text-sm">&lt;body&gt;</code>. This means there is no reason to centralise all structured
+          data in <code className="bg-gray-200 px-1 rounded text-sm">layout/theme.liquid</code> with conditional template checks. The cleaner
+          approach is to put each schema where it contextually belongs: product markup inside the product template or
+          section, breadcrumb markup inside the relevant layout, and so on. Each file is self-contained and the
+          structured data lives next to the content it describes.
         </P>
         <Callout>
           JSON-LD is <em>not</em> visible content. It does not affect your page's visual design. It is read only by
@@ -96,11 +93,7 @@ export default function ShopifyLiquidJsonLdStructuredDataPage() {
         </P>
         <CodeBlock>{`
 {%- comment -%}
-  snippets/structured-data-product.liquid
-  Include from layout/theme.liquid inside <head>:
-  {%- if template == 'product' -%}
-    {%- render 'structured-data-product' -%}
-  {%- endif -%}
+  sections/main-product.liquid
 {%- endcomment -%}
 
 <script type="application/ld+json">
@@ -355,25 +348,21 @@ export default function ShopifyLiquidJsonLdStructuredDataPage() {
 
         <ArticleAuthor />
         <div className="mt-6 border-t border-gray-200 pt-6">
-          <P className="text-gray-500 text-sm">
-            <strong>Further reading:</strong>{" "}
-            <ExternalLink href="https://developers.google.com/search/docs/appearance/structured-data/product">Google Product structured data spec</ExternalLink>
-            {" · "}
-            <ExternalLink href="https://schema.org/Product">schema.org/Product</ExternalLink>
-            {" · "}
-            <ExternalLink href="https://schema.org/AggregateRating">schema.org/AggregateRating</ExternalLink>
-            {" · "}
-            <ExternalLink href="https://search.google.com/test/rich-results">Rich Results Test</ExternalLink>
-            {" · "}
-            <ExternalLink href="https://shopify.dev/docs/api/liquid/objects/metafield">Liquid Metafield object</ExternalLink>
-          </P>
-          <P className="text-gray-500 text-sm mt-2">
-            <InternalLink href="/blog/shopify-review-stars-not-showing-google">Why review stars don't show in Google →</InternalLink>
-            {" · "}
-            <InternalLink href="/blog/how-shopify-product-reviews-work">How Shopify Metaobject reviews work →</InternalLink>
-            {" · "}
-            <InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink>
-          </P>
+          <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">Further reading</p>
+          <div className="space-y-1.5 text-sm">
+            <div><ExternalLink href="https://developers.google.com/search/docs/appearance/structured-data/product">Google Product structured data spec</ExternalLink></div>
+            <div><ExternalLink href="https://schema.org/Product">schema.org/Product</ExternalLink></div>
+            <div><ExternalLink href="https://schema.org/AggregateRating">schema.org/AggregateRating</ExternalLink></div>
+            <div><ExternalLink href="https://search.google.com/test/rich-results">Rich Results Test</ExternalLink></div>
+            <div><ExternalLink href="https://shopify.dev/docs/api/liquid/objects/metafield">Liquid Metafield object</ExternalLink></div>
+            <div><ExternalLink href="https://shopify.dev/docs/apps/build/metaobjects/standard-review-metaobject">Shopify standard product review Metaobject</ExternalLink></div>
+          </div>
+          <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3 mt-5">Related articles</p>
+          <div className="space-y-1.5 text-sm">
+            <div><InternalLink href="/blog/shopify-review-stars-not-showing-google">Why review stars don't show in Google →</InternalLink></div>
+            <div><InternalLink href="/blog/how-shopify-product-reviews-work">How Shopify Metaobject reviews work →</InternalLink></div>
+            <div><InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink></div>
+          </div>
           <BlogNav className="mt-6" />
         </div>
       </Section>

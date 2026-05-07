@@ -38,7 +38,7 @@ export default function ReviewAppSlowingShopifyStorePage() {
             suspicions.
           </P>
           <P className="text-gray-500 text-sm sm:text-base">
-            Audience: merchants, developers, anyone running Lighthouse audits. Reading time: ~8 minutes.
+            Reading time: ~8 minutes.
           </P>
           <TableOfContents items={tocItems} />
         </div>
@@ -181,7 +181,7 @@ export default function ReviewAppSlowingShopifyStorePage() {
             <tbody className="divide-y divide-gray-100">
               {[
                 ["JS bundle size", "50–200 kB (gzipped)", "0 kB"],
-                ["External API requests", "1–3 (data, fonts, images)", "0"],
+                ["External API requests", "5–20 (data, fonts, images)", "0"],
                 ["Main-thread blocking time added", "100–600 ms", "0 ms"],
                 ["LCP delay added", "0.5–4 s (connection-dependent)", "0 s"],
                 ["CLS from injection", "0.05–0.3 shift score", "0"],
@@ -213,7 +213,7 @@ export default function ReviewAppSlowingShopifyStorePage() {
           requests or JS execution.
         </P>
         <P>
-          Shopify's standard product review Metaobject definition (<code className="bg-gray-200 px-1 rounded text-sm">shopify--product-review</code>)
+          Shopify's <ExternalLink href="https://shopify.dev/docs/apps/build/metaobjects/standard-review-metaobject">standard product review Metaobject definition</ExternalLink> (<code className="bg-gray-200 px-1 rounded text-sm">product_review</code>)
           is the official data structure for this. Review apps that write to this format store data in your Shopify
           store, not on their own servers - enabling Liquid-based rendering and eliminating the widget dependency
           entirely.
@@ -221,25 +221,21 @@ export default function ReviewAppSlowingShopifyStorePage() {
 
         <ArticleAuthor />
         <div className="mt-6 border-t border-gray-200 pt-6">
-          <P className="text-gray-500 text-sm">
-            <strong>Further reading:</strong>{" "}
-            <ExternalLink href="https://pagespeed.web.dev">PageSpeed Insights</ExternalLink>
-            {" · "}
-            <ExternalLink href="https://web.dev/articles/vitals">Core Web Vitals - web.dev</ExternalLink>
-            {" · "}
-            <ExternalLink href="https://web.dev/articles/lcp">Largest Contentful Paint</ExternalLink>
-            {" · "}
-            <ExternalLink href="https://web.dev/articles/cls">Cumulative Layout Shift</ExternalLink>
-            {" · "}
-            <ExternalLink href="https://developers.google.com/search/docs/appearance/core-web-vitals">CWV and Google ranking</ExternalLink>
-          </P>
-          <P className="text-gray-500 text-sm mt-2">
-            <InternalLink href="/blog/how-shopify-product-reviews-work">How Shopify Metaobject reviews work →</InternalLink>
-            {" · "}
-            <InternalLink href="/blog/shopify-review-stars-not-showing-google">Fix missing review stars in Google →</InternalLink>
-            {" · "}
-            <InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink>
-          </P>
+          <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">Further reading</p>
+          <div className="space-y-1.5 text-sm">
+            <div><ExternalLink href="https://pagespeed.web.dev">PageSpeed Insights</ExternalLink></div>
+            <div><ExternalLink href="https://web.dev/articles/vitals">Core Web Vitals - web.dev</ExternalLink></div>
+            <div><ExternalLink href="https://web.dev/articles/lcp">Largest Contentful Paint</ExternalLink></div>
+            <div><ExternalLink href="https://web.dev/articles/cls">Cumulative Layout Shift</ExternalLink></div>
+            <div><ExternalLink href="https://developers.google.com/search/docs/appearance/core-web-vitals">CWV and Google ranking</ExternalLink></div>
+            <div><ExternalLink href="https://shopify.dev/docs/apps/build/metaobjects/standard-review-metaobject">Shopify standard product review Metaobject</ExternalLink></div>
+          </div>
+          <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3 mt-5">Related articles</p>
+          <div className="space-y-1.5 text-sm">
+            <div><InternalLink href="/blog/how-shopify-product-reviews-work">How Shopify Metaobject reviews work →</InternalLink></div>
+            <div><InternalLink href="/blog/shopify-review-stars-not-showing-google">Fix missing review stars in Google →</InternalLink></div>
+            <div><InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink></div>
+          </div>
           <BlogNav className="mt-6" />
         </div>
       </Section>

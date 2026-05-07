@@ -224,7 +224,7 @@ export function ArticleHero({ tag = "Technical deep-dive", title, description, r
         <h1 className="text-3xl sm:text-6xl font-black tracking-tight mb-6 text-gray-900">{title}</h1>
         <P>{description}</P>
         <P className="text-gray-500 text-sm sm:text-base">
-          Audience: developers, technical merchants, Shopify agencies. Reading time: {readingTime}.
+          Reading time: {readingTime}.
         </P>
       </div>
     </section>

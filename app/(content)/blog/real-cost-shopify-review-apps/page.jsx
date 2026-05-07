@@ -42,7 +42,7 @@ export default function RealCostShopifyReviewAppsPage() {
             what it costs.
           </P>
           <P className="text-gray-500 text-sm sm:text-base">
-            Audience: merchants evaluating review apps, developers advising clients. Reading time: ~8 minutes.
+            Reading time: ~8 minutes.
           </P>
           <TableOfContents items={tocItems} />
         </div>
@@ -104,7 +104,7 @@ export default function RealCostShopifyReviewAppsPage() {
 
         <H3>Additional network requests</H3>
         <P>
-          A typical review widget adds 1–4 network requests to an external domain per page load:
+          A typical review widget adds 5–20 network requests to an external domain per page load:
         </P>
         <Ul>
           <li>The JavaScript bundle itself (50–200 kB, often more)</li>
@@ -176,6 +176,7 @@ export default function RealCostShopifyReviewAppsPage() {
           the structured data it would have generated never appears in the rendered output - and no stars are
           indexed regardless of how many reviews your products have.
         </P>
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} outputs structured data directly in the initial HTML - Googlebot reads your AggregateRating on first crawl, no JavaScript rendering required.`} />
       </Section>
 
       <Section className="bg-gray-50" id="the-data-cost">
@@ -236,7 +237,7 @@ export default function RealCostShopifyReviewAppsPage() {
         <H2 id="what-an-alternative-looks-like">6. What an alternative architecture looks like</H2>
         <P>
           The alternative to external data storage is storing reviews inside Shopify itself, as Metaobjects.
-          Shopify's standard product review Metaobject definition (<code className="bg-gray-200 px-1 rounded text-sm">shopify--product-review</code>)
+          Shopify's standard product review Metaobject definition (<code className="bg-gray-200 px-1 rounded text-sm">product_review</code>)
           provides exactly this: a platform-native data structure for review records that lives in your store's
           own database.
         </P>
@@ -270,23 +271,20 @@ export default function RealCostShopifyReviewAppsPage() {
 
         <ArticleAuthor />
         <div className="mt-6 border-t border-gray-200 pt-6">
-          <P className="text-gray-500 text-sm">
-            <strong>Further reading:</strong>{" "}
-            <ExternalLink href="https://web.dev/articles/vitals">Core Web Vitals - web.dev</ExternalLink>
-            {" · "}
-            <ExternalLink href="https://developers.google.com/search/docs/crawling-indexing/large-site-managing-crawl-budget">Google crawl budget documentation</ExternalLink>
-            {" · "}
-            <ExternalLink href="https://shopify.dev/docs/apps/build/custom-data/metaobjects">Shopify Metaobjects docs</ExternalLink>
-          </P>
-          <P className="text-gray-500 text-sm mt-2">
-            <InternalLink href="/blog/review-app-slowing-shopify-store">How to measure your review app's performance cost →</InternalLink>
-            {" · "}
-            <InternalLink href="/blog/shopify-review-stars-not-showing-google">Fix missing review stars in Google →</InternalLink>
-            {" · "}
-            <InternalLink href="/blog/how-shopify-product-reviews-work">How Shopify Metaobject reviews work →</InternalLink>
-            {" · "}
-            <InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink>
-          </P>
+          <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">Further reading</p>
+          <div className="space-y-1.5 text-sm">
+            <div><ExternalLink href="https://web.dev/articles/vitals">Core Web Vitals - web.dev</ExternalLink></div>
+            <div><ExternalLink href="https://developers.google.com/search/docs/crawling-indexing/large-site-managing-crawl-budget">Google crawl budget documentation</ExternalLink></div>
+            <div><ExternalLink href="https://shopify.dev/docs/apps/build/custom-data/metaobjects">Shopify Metaobjects docs</ExternalLink></div>
+            <div><ExternalLink href="https://shopify.dev/docs/apps/build/metaobjects/standard-review-metaobject">Shopify standard product review Metaobject</ExternalLink></div>
+          </div>
+          <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3 mt-5">Related articles</p>
+          <div className="space-y-1.5 text-sm">
+            <div><InternalLink href="/blog/review-app-slowing-shopify-store">How to measure your review app's performance cost →</InternalLink></div>
+            <div><InternalLink href="/blog/shopify-review-stars-not-showing-google">Fix missing review stars in Google →</InternalLink></div>
+            <div><InternalLink href="/blog/how-shopify-product-reviews-work">How Shopify Metaobject reviews work →</InternalLink></div>
+            <div><InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink></div>
+          </div>
           <BlogNav className="mt-6" />
         </div>
       </Section>
