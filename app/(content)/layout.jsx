@@ -4,7 +4,7 @@ import Layout from "../../components/layout";
 const ORDER = {
   "/docs": ["index", "collecting-reviews", "app-blocks", "troubleshooting"],
   "/docs/collecting-reviews": ["index", "post-purchase-email", "storefront", "file-import", "judgeme", "loox", "reviews-io"],
-  "/docs/app-blocks": ["index", "customising-app-blocks", "core", "product-rating", "product-reviews", "review-form", "product-card-ratings", "post-purchase-form"],
+  "/docs/app-blocks": ["index", "customising-app-blocks", "core", "product-rating", "review-list", "review-form", "product-card-ratings", "post-purchase-form"],
 };
 
 const reorderPageMap = (nodes, route = "/docs") => {
