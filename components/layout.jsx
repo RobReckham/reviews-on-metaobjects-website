@@ -26,6 +26,11 @@ const footerLinks = [
     label: "Product",
     items: [
       {
+        label: "Demo store",
+        href: "https://reviewsonmetaobjects.myshopify.com/products/the-collection-snowboard-oxygen",
+        target: "_blank",
+      },
+      {
         label: "For merchants",
         href: "/",
       },
@@ -128,7 +133,7 @@ const Footer = function() {
               </h3>
               <ul className="list-none p-0 m-0">
                 {link.items.map((item) => <li key={item.label}>
-                  <Link href={item.href} className={linkClasses}>{item.label}</Link>
+                  <Link href={item.href} target={item.target || '_self'} className={linkClasses}>{item.label}</Link>
                 </li>)}
               </ul>
             </div>
