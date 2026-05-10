@@ -590,6 +590,7 @@ query {
           <div className="space-y-1.5 text-sm">
             <div><InternalLink href="/docs">Read the app documentation →</InternalLink></div>
             <div><InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink></div>
+            <div><ExternalLink href="https://reviewsonmetaobjects.myshopify.com/products/the-complete-snowboard">Demo store - see it live (password: demo) →</ExternalLink></div>
           </div>
           <BlogNav className="mt-6" />
         </div>

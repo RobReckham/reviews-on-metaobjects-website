@@ -175,6 +175,14 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
           no individual reviews.
         </P>
         <P>
+          To see what a passing result looks like, run the test against a product page on the{" "}
+          <ExternalLink href="https://reviewsonmetaobjects.myshopify.com/products/the-complete-snowboard">
+            demo store
+          </ExternalLink>{" "}
+          (password: demo) - it outputs both <code className="bg-gray-200 px-1 rounded text-sm">aggregateRating</code> and individual{" "}
+          <code className="bg-gray-200 px-1 rounded text-sm">Review</code> items server-side.
+        </P>
+        <P>
           Run the test both with and without JavaScript. If{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">aggregateRating</code> appears in the JS-rendered
           version but not in the raw HTML version, you have failure mode 2. If neither version shows a{" "}
@@ -380,6 +388,7 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
             <div><InternalLink href="/blog/how-shopify-product-reviews-work">How Shopify product reviews work →</InternalLink></div>
             <div><InternalLink href="/blog/shopify-liquid-json-ld-structured-data">Full JSON-LD guide for Shopify →</InternalLink></div>
             <div><InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink></div>
+            <div><ExternalLink href="https://reviewsonmetaobjects.myshopify.com/products/the-complete-snowboard">Demo store - test structured data live (password: demo) →</ExternalLink></div>
           </div>
           <BlogNav className="mt-6" />
         </div>

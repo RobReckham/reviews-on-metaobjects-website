@@ -362,6 +362,7 @@ export default function ShopifyLiquidJsonLdStructuredDataPage() {
             <div><InternalLink href="/blog/shopify-review-stars-not-showing-google">Why review stars don't show in Google →</InternalLink></div>
             <div><InternalLink href="/blog/how-shopify-product-reviews-work">How Shopify Metaobject reviews work →</InternalLink></div>
             <div><InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink></div>
+            <div><ExternalLink href="https://reviewsonmetaobjects.myshopify.com/products/the-complete-snowboard">Demo store - inspect the structured data live (password: demo) →</ExternalLink></div>
           </div>
           <BlogNav className="mt-6" />
         </div>
