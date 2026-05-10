@@ -3,6 +3,7 @@ import ListingCta from "../../../components/listing-cta"
 import FinalCta from "../../../components/final-cta"
 import Faqs from "../../../components/faqs"
 import Pricing from "../../../components/pricing"
+import DemoStore from "../../../components/demo-store"
 
 export const metadata = {
   title: "Shopify Review App for Agencies - No JavaScript Widget, Client Data Stored in Shopify",
@@ -79,6 +80,12 @@ const steps = [
 
 const faqs = [
   {
+    question: "How to see it in action?",
+    answer: <>
+      <p>We have a demo store with all app blocks installed! Just visit our <a href="https://reviewsonmetaobjects.myshopify.com/products/the-collection-snowboard-oxygen" target="_blank" rel="noopener" className="underline">demo store</a>. It is password-protected: enter <strong>demo</strong>. After that you can click through products and collections the same way a customer would. Feel free to run speed and SEO audits on it.</p>
+    </>,
+  },
+  {
     question: "What exactly is included in the free setup?",
     answer: "Everything from app install through to a live, brand-matched review system on the client's store. Theme integration on product and collection pages, app block configuration, display styling matched to the existing theme, post-purchase email setup, review migration. All of it done under your agency, so your client sees your team delivering it. If they need something more bespoke beyond that, we scope it together.",
   },
@@ -125,14 +132,18 @@ export default function ForShopifyAgenciesPage() {
               Zero client-side JavaScript. Reviews stored as standard Shopify Metaobjects, queryable from any Liquid file. Flat pricing with a hard cap. No Lighthouse regression. No vendor lock-in. No surprise bills as your client scales.
             </p>
           </div>
-          <div className="flex flex-col items-center gap-4">
-            <div className="inline-flex justify-center items-center gap-4 relative">
-              <ListingCta href={process.env.NEXT_PUBLIC_CALENDLY_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Book a free demo call</ListingCta>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8 relative mt-4">
+            <div className="relative flex flex-col items-center gap-2 sm:order-2">
+              <ListingCta className="btn btn-primary">Book a free demo call</ListingCta>
+              <a href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL}`} className="underline text-sm">...or send us an email</a>
+            </div>
+            <div className="relative sm:order-1">
+              <a href="https://reviewsonmetaobjects.myshopify.com/products/the-collection-snowboard-oxygen" target="_blank" rel="noopener" className="btn btn-inverted">See demo store</a>
               <div className="text-right absolute -right-6 -top-2 z-10">
                 <img src="/shopify_glyph.svg" alt="Shopify Logo" className="h-14" width="49" height="56" />
               </div>
+              <p className="text-sm text-gray-600 mt-2">password: demo</p>
             </div>
-            <a href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL}`} className="underline">...or send us an email</a>
           </div>
         </div>
       </section>
@@ -176,13 +187,16 @@ export default function ForShopifyAgenciesPage() {
         </div>
       </section>
 
+      <section className="bg-white py-16 sm:py-32 px-4">
+        <DemoStore />
+      </section>
 
       {/* Code snippet - direct Liquid access */}
       <section className="bg-white py-16 sm:py-32 px-4">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="h2 mb-4">Your reviews. Your Liquid. Your rules.</h2>
           <p className="text-gray-500 mb-8 max-w-2xl mx-auto">Reviews are standard Shopify Metaobjects - which means you can query them directly in any Liquid file. No wrapper, no proprietary API call, no dependency on our app blocks.</p>
-          <pre className="bg-gray-950 text-left text-green-400 rounded-2xl p-8 overflow-x-auto text-sm font-mono leading-relaxed"><code>{`{% for review in product.metafields.reviews.list.value %}
+          <pre className="bg-gray-950 text-left text-green-400 rounded-2xl p-8 overflow-x-auto text-sm font-mono leading-relaxed max-w-2xl mx-auto"><code>{`{% for review in product.metafields.reviews.list.value %}
   <div class="review">
     <span class="rating">{{ review.rating.value }}/5</span>
     <h3>{{ review.title.value }}</h3>
@@ -264,7 +278,7 @@ export default function ForShopifyAgenciesPage() {
       <section className="py-16 sm:py-32 relative">
         <AnimatedBackground baseColor="oklch(92.8% 0.006 264.531)" />
         <div className="container max-w-6xl mx-auto px-4 sm:px-8 relative z-10">
-          <h2 className="h2 text-right">Agency FAQ</h2>
+          <h2 className="h2 text-right">What. The. FAQ?</h2>
           <Faqs faqs={faqs} pageUrl={`${process.env.NEXT_PUBLIC_SITE_URL}/for-shopify-agencies`} />
           <p className="text-right mt-8 text-sm text-gray-500">
             <a href="/" className="underline underline-offset-2 hover:text-gray-900 transition-colors">More about {process.env.NEXT_PUBLIC_APP_NAME} →</a>

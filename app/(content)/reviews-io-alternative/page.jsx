@@ -4,6 +4,7 @@ import Pricing from "../../../components/pricing"
 import PricingCalculator from "../../../components/pricing-calculator-reviews-io"
 import FinalCta from "../../../components/final-cta"
 import Faqs from "../../../components/faqs"
+import DemoStore from "../../../components/demo-store"
 
 export const metadata = {
   title: "REVIEWS.io Alternative: Shopify Reviews via Metaobjects, No JavaScript Widget",
@@ -127,10 +128,17 @@ export default function ReviewsIoAlternativePage() {
               REVIEWS.io is a capable platform. But it stores your reviews on their servers and loads them via JavaScript - hurting page speed, weakening SEO, and making you dependent on their uptime. There's a better way.
             </p>
           </div>
-          <div className="inline-flex justify-center items-center gap-4 relative">
-            <ListingCta className="btn btn-primary">Switch from REVIEWS.io today</ListingCta>
-            <div className="text-right absolute -right-6 -top-2 z-10">
-              <img src="/shopify_glyph.svg" alt="Shopify Logo" className="h-14" width="49" height="56" />
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8 relative mt-4">
+            <div className="relative sm:order-2">
+              <ListingCta className="btn btn-primary">Switch from REVIEWS.io today</ListingCta>
+              <p className="text-sm text-gray-600 mt-2">14-day free trial on all paid plans</p>
+            </div>
+            <div className="relative sm:order-1">
+              <a href="https://reviewsonmetaobjects.myshopify.com/products/the-collection-snowboard-oxygen" target="_blank" rel="noopener" className="btn btn-inverted">See demo store</a>
+              <div className="text-right absolute -right-6 -top-2 z-10">
+                <img src="/shopify_glyph.svg" alt="Shopify Logo" className="h-14" width="49" height="56" />
+              </div>
+              <p className="text-sm text-gray-600 mt-2">password: demo</p>
             </div>
           </div>
         </div>
@@ -142,7 +150,7 @@ export default function ReviewsIoAlternativePage() {
           <h2 className="h2 mb-4 text-gray-900 text-center">Why merchants switch from REVIEWS.io</h2>
           <p className="text-center text-gray-500 mb-8 max-w-2xl mx-auto">REVIEWS.io works well for many stores. But there are reasons Shopify merchants outgrow it.</p>
           <div className="relative p-6 sm:p-16 rounded-4xl overflow-hidden">
-            <AnimatedBackground baseColor="oklch(88.2% 0.059 254.128)" />
+            <AnimatedBackground baseColor="oklch(21% 0.034 264.665)"/>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 relative">
               {switchReasons.map((reason, index) => <div key={index} className="bg-white rounded-xl p-6 text-gray-800">
                 <h3 className="font-bold text-lg mb-2">{reason.title}</h3>
@@ -189,6 +197,10 @@ export default function ReviewsIoAlternativePage() {
         </div>
       </section>
 
+      <section className="bg-white py-16 sm:py-32 px-4">
+        <DemoStore />
+      </section>
+
       {/* Pricing */}
       <section className="bg-white py-16 sm:py-32 px-4">
         <div className="max-w-5xl mx-auto text-center">
@@ -205,16 +217,15 @@ export default function ReviewsIoAlternativePage() {
       {/* Migration steps */}
       <section className="bg-white py-16 sm:py-32 px-4">
         <div className="relative max-w-2xl mx-auto">
-          <div className="relative p-6 sm:p-16 rounded-4xl overflow-hidden">
-            <AnimatedBackground baseColor="oklch(82.7% 0.119 306.383)" />
-            <h2 className="h2 text-white text-shadow-sm relative z-10 mb-2 text-center">Switch from REVIEWS.io in minutes</h2>
-            <p className="text-white/80 text-center relative z-10 mb-8">No downtime. No data loss. No developer needed.</p>
-            <div className="grid grid-cols-1 gap-4 relative">
-              {migrationSteps.map((migrationStep, index) => <div key={index} className="bg-black/10 text-white text-shadow-sm rounded-xl p-4 border border-white/40" style={{ boxShadow: "inset 0 0 20px rgba(0, 0, 0, 0.02)" }}>
+          <h2 className="h2 mb-4 text-gray-900 text-center">Switch from REVIEWS.io in minutes</h2>
+          <p className="text-black/80 text-center relative z-10 mb-8">No downtime. No data loss. No developer needed.</p>
+          <div className="grid grid-cols-1 gap-4 relative">
+            {migrationSteps.map((migrationStep, index) => (
+              <div key={index} className="text-gray-800 border border-gray-200 rounded-xl p-4">
                 <h3 className="font-bold">{index + 1}. {migrationStep.title}</h3>
                 <p className="mt-1">{migrationStep.description}</p>
-              </div>)}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -225,7 +236,7 @@ export default function ReviewsIoAlternativePage() {
       <section className="py-16 sm:py-32 relative">
         <AnimatedBackground baseColor="oklch(92.8% 0.006 264.531)" />
         <div className="container max-w-6xl mx-auto px-4 sm:px-8 relative z-10">
-          <h2 className="h2 text-right">Switching from REVIEWS.io - FAQ</h2>
+          <h2 className="h2 text-right">What. The. FAQ?</h2>
           <Faqs faqs={faqs} pageUrl={`${process.env.NEXT_PUBLIC_SITE_URL}/reviews-io-alternative`} />
           <p className="text-right mt-8 text-sm text-gray-500">
             <a href="/" className="underline underline-offset-2 hover:text-gray-900 transition-colors">More information about {process.env.NEXT_PUBLIC_APP_NAME} →</a>

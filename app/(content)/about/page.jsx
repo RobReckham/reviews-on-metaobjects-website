@@ -1,6 +1,6 @@
 import AnimatedBackground from "../../../components/animated-background"
-import FounderSection from "../../../components/founder-section"
 import ListingCta from "../../../components/listing-cta"
+import DemoStore from "../../../components/demo-store"
 
 export const metadata = {
   title: `Marius Korbmacher - Shopify Developer Behind ${process.env.NEXT_PUBLIC_APP_NAME}`,
@@ -100,7 +100,7 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section className="bg-white pb-16 sm:pb-32 px-4">
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <div className="relative p-8 sm:p-16 rounded-4xl overflow-hidden">
             <AnimatedBackground baseColor="oklch(27.8% 0.033 256.848)" />
             <div className="relative z-10 text-center">
@@ -108,7 +108,7 @@ export default function AboutPage() {
               <p className="text-white/80 mb-8">
                 I'm still onboarding stores hands-on during early access. Book a quick call and I'll tell you exactly what impact switching would have on your specific setup.
               </p>
-              <div className="flex flex-col items-center gap-4">
+              <div className="flex flex-col items-center gap-2">
                 <ListingCta href={process.env.NEXT_PUBLIC_CALENDLY_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-inverted opacity-100!">Book a free call</ListingCta>
                 <a href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL}`} className="text-white/70 underline text-sm">...or send me an email</a>
               </div>
@@ -117,6 +117,9 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section className="bg-white pb-16 sm:pb-32 px-4">
+        <DemoStore />
+      </section>
     </main>
   )
 }
