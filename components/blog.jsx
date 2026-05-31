@@ -195,6 +195,14 @@ export function Ul({ children }) {
   )
 }
 
+export function Ol({ children }) {
+  return (
+    <ol className="list-decimal list-outside pl-5 space-y-2 text-gray-700 text-base sm:text-lg mb-6">
+      {children}
+    </ol>
+  )
+}
+
 // items: Array<{ id: string, label: string }>
 export function TableOfContents({ items }) {
   return (

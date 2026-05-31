@@ -6,6 +6,11 @@ import { metadata as post4 } from "./review-app-slowing-shopify-store/page"
 import { metadata as post5 } from "./shopify-liquid-json-ld-structured-data/page"
 import { metadata as post6 } from "./shopify-metafields-vs-metaobjects/page"
 import { metadata as post7 } from "./how-shopify-product-reviews-work/page"
+import { metadata as post8 } from "./social-proof-shopify-landing-pages/page"
+import { metadata as post9 } from "./social-proof-shopify-homepage/page"
+import { metadata as post10 } from "./social-proof-shopify-collection-pages/page"
+import { metadata as post11 } from "./social-proof-shopify-product-pages/page"
+import { metadata as post12 } from "./shopify-social-proof-best-practices/page"
 
 export const metadata = {
   title: "Blog - Shopify Reviews, Performance & SEO",
@@ -15,7 +20,7 @@ export const metadata = {
   },
 }
 
-const posts = [post1, post2, post3, post4, post5, post6, post7].reverse()
+const posts = [post1, post2, post3, post4, post5, post6, post7, post8, post9, post10, post11, post12].reverse()
 
 export default function BlogIndexPage() {
   const blogSchema = {
