@@ -5,7 +5,7 @@ export const metadata = {
   shortTitle: "Add JSON-LD structured data in Shopify Liquid",
   description: "Copy-paste Liquid code for Product schema, AggregateRating, Review markup, and BreadcrumbList - all server-side so Google reads it on the first crawl.",
   alternates: { canonical: "/blog/shopify-liquid-json-ld-structured-data" },
-  openGraph: { type: "article", publishedTime: "2026-04-24" },
+  openGraph: { type: "article", publishedTime: "2026-04-24", images: ["https://assets.reviewsonmetaobjects.com/the-shopify-reviews-blog.jpg"] },
   slug: "shopify-liquid-json-ld-structured-data",
   date: "2026-04-24",
 }

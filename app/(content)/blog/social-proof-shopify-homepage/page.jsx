@@ -5,7 +5,7 @@ export const metadata = {
   shortTitle: "Social proof on the Shopify homepage",
   description: "Your homepage has seconds to build trust. Here's which social proof elements — review highlights, trust bars, testimonials — work above the fold without hurting load time.",
   alternates: { canonical: "/blog/social-proof-shopify-homepage" },
-  openGraph: { type: "article", publishedTime: "2026-05-27" },
+  openGraph: { type: "article", publishedTime: "2026-05-27", images: ["https://assets.reviewsonmetaobjects.com/the-shopify-reviews-blog.jpg"] },
   slug: "social-proof-shopify-homepage",
   date: "2026-05-27",
 }

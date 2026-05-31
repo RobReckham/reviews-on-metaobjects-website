@@ -5,7 +5,7 @@ export const metadata = {
   shortTitle: "Social proof on Shopify collection pages",
   description: "Star ratings on product cards increase collection-page clicks. Here's where to place them, how to aggregate scores across variants, and how to keep pages fast.",
   alternates: { canonical: "/blog/social-proof-shopify-collection-pages" },
-  openGraph: { type: "article", publishedTime: "2026-05-27" },
+  openGraph: { type: "article", publishedTime: "2026-05-27", images: ["https://assets.reviewsonmetaobjects.com/the-shopify-reviews-blog.jpg"] },
   slug: "social-proof-shopify-collection-pages",
   date: "2026-05-27",
 }

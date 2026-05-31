@@ -5,7 +5,7 @@ export const metadata = {
   shortTitle: "Shopify metafields vs. metaobjects",
   description: "Metafields attach data to existing resources. Metaobjects create standalone entries - like product reviews. Real Liquid and GraphQL code examples for both.",
   alternates: { canonical: "/blog/shopify-metafields-vs-metaobjects" },
-  openGraph: { type: "article", publishedTime: "2026-04-28" },
+  openGraph: { type: "article", publishedTime: "2026-04-28", images: ["https://assets.reviewsonmetaobjects.com/the-shopify-reviews-blog.jpg"] },
   slug: "shopify-metafields-vs-metaobjects",
   date: "2026-04-28",
 }

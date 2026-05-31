@@ -5,7 +5,7 @@ export const metadata = {
   shortTitle: "Social proof on Shopify product pages",
   description: "Based on A/B tests on large Shopify stores — where to place star ratings, review counts, and live signals on product pages, including structured data Google can read.",
   alternates: { canonical: "/blog/social-proof-shopify-product-pages" },
-  openGraph: { type: "article", publishedTime: "2026-05-27" },
+  openGraph: { type: "article", publishedTime: "2026-05-27", images: ["https://assets.reviewsonmetaobjects.com/the-shopify-reviews-blog.jpg"] },
   slug: "social-proof-shopify-product-pages",
   date: "2026-05-27",
 }

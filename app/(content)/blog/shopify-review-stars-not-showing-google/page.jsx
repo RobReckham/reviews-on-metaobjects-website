@@ -5,7 +5,7 @@ export const metadata = {
   shortTitle: "Shopify review stars not showing in Google",
   description: "Missing star ratings in Google Search results? This guide explains exactly why review rich snippets fail on Shopify stores - and how to fix it with server-side structured data.",
   alternates: { canonical: "/blog/shopify-review-stars-not-showing-google" },
-  openGraph: { type: "article", publishedTime: "2026-04-14" },
+  openGraph: { type: "article", publishedTime: "2026-04-14", images: ["https://assets.reviewsonmetaobjects.com/the-shopify-reviews-blog.jpg"] },
   slug: "shopify-review-stars-not-showing-google",
   date: "2026-04-14",
 }

@@ -5,7 +5,7 @@ export const metadata = {
   shortTitle: "How Shopify product reviews work",
   description: "Most review apps load via JavaScript - slowing your store and hiding reviews from Google. Here's how Shopify's Metaobject architecture solves both.",
   alternates: { canonical: "/blog/how-shopify-product-reviews-work" },
-  openGraph: { type: "article", publishedTime: "2026-05-01" },
+  openGraph: { type: "article", publishedTime: "2026-05-01", images: ["https://assets.reviewsonmetaobjects.com/the-shopify-reviews-blog.jpg"] },
   slug: "how-shopify-product-reviews-work",
   date: "2026-05-01",
 }

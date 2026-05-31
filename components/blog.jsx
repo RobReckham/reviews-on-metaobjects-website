@@ -27,6 +27,12 @@ export function ArticleJsonLd({ title, description, datePublished, slug }) {
           "name": process.env.NEXT_PUBLIC_APP_NAME,
           "url": process.env.NEXT_PUBLIC_SITE_URL,
         },
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://assets.reviewsonmetaobjects.com/the-shopify-reviews-blog.jpg",
+          "width": 1200,
+          "height": 630,
+        },
         "isPartOf": {
           "@type": "Blog",
           "@id": `${process.env.NEXT_PUBLIC_SITE_URL}/blog#blog`,

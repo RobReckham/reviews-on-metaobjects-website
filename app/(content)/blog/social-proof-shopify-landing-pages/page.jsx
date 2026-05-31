@@ -5,7 +5,7 @@ export const metadata = {
   shortTitle: "Social proof on Shopify landing pages",
   description: "Paid traffic that lands without social proof leaks conversions. Here's which trust signals to show on campaign pages and how to render them server-side so they don't slow the page.",
   alternates: { canonical: "/blog/social-proof-shopify-landing-pages" },
-  openGraph: { type: "article", publishedTime: "2026-05-27" },
+  openGraph: { type: "article", publishedTime: "2026-05-27", images: ["https://assets.reviewsonmetaobjects.com/the-shopify-reviews-blog.jpg"] },
   slug: "social-proof-shopify-landing-pages",
   date: "2026-05-27",
 }

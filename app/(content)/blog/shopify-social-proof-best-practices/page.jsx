@@ -5,7 +5,7 @@ export const metadata = {
   shortTitle: "Shopify social proof best practices",
   description: "Which social proof elements work on product pages, collection pages, homepage, and landing pages — and how to implement each server-side without JavaScript slowing your store.",
   alternates: { canonical: "/blog/shopify-social-proof-best-practices" },
-  openGraph: { type: "article", publishedTime: "2026-05-27" },
+  openGraph: { type: "article", publishedTime: "2026-05-27", images: ["https://assets.reviewsonmetaobjects.com/the-shopify-reviews-blog.jpg"] },
   slug: "shopify-social-proof-best-practices",
   date: "2026-05-27",
 }

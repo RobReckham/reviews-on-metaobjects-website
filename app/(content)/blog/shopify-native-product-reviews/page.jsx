@@ -5,7 +5,7 @@ export const metadata = {
   shortTitle: "Shopify native product reviews",
   description: "Shopify deprecated its built-in Product Reviews app in 2023. Here's what actually ships natively today, what still requires an app, and what 'native' really means for review storage.",
   alternates: { canonical: "/blog/shopify-native-product-reviews" },
-  openGraph: { type: "article", publishedTime: "2026-04-04" },
+  openGraph: { type: "article", publishedTime: "2026-04-04", images: ["https://assets.reviewsonmetaobjects.com/the-shopify-reviews-blog.jpg"] },
   slug: "shopify-native-product-reviews",
   date: "2026-04-04",
 }

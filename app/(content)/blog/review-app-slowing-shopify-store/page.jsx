@@ -5,7 +5,7 @@ export const metadata = {
   shortTitle: "Review app slowing down Shopify store",
   description: "A practical guide to measuring the performance impact of third-party review widgets on your Shopify store using Lighthouse, PageSpeed Insights, and Chrome DevTools.",
   alternates: { canonical: "/blog/review-app-slowing-shopify-store" },
-  openGraph: { type: "article", publishedTime: "2026-04-19" },
+  openGraph: { type: "article", publishedTime: "2026-04-19", images: ["https://assets.reviewsonmetaobjects.com/the-shopify-reviews-blog.jpg"] },
   slug: "review-app-slowing-shopify-store",
   date: "2026-04-19",
 }
