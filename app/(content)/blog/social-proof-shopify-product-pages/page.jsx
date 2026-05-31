@@ -1,9 +1,9 @@
-import { Section, ExternalLink, InternalLink, Callout, H2, H3, P, Ul, Ol, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor } from "../../../../components/blog"
+import { Section, ExternalLink, InternalLink, Callout, H2, H3, P, Ul, Ol, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor, BlogFaqs } from "../../../../components/blog"
 
 export const metadata = {
   title: "Social Proof on Shopify Product Pages: Placement Guide (A/B Test Data)",
   shortTitle: "Social proof on Shopify product pages",
-  description: "Based on A/B tests on large Shopify stores — where to place star ratings, review counts, and live signals on product pages, including structured data Google can read.",
+  description: "Based on A/B tests on large Shopify stores - where to place star ratings, review counts, and live signals on product pages, including structured data Google can read.",
   alternates: { canonical: "/blog/social-proof-shopify-product-pages" },
   openGraph: { type: "article", publishedTime: "2026-05-27", images: ["https://assets.reviewsonmetaobjects.com/the-shopify-reviews-blog.jpg"] },
   slug: "social-proof-shopify-product-pages",
@@ -29,6 +29,25 @@ const tocItems = [
   { id: "performance", label: "Performance: what not to do" },
   { id: "shopify-implementation", label: "Setting this up in your theme" },
   { id: "ab-testing", label: "A/B testing: what's worth testing" },
+]
+
+const faqs = [
+  {
+    question: "Where should I place the star rating on a Shopify product page?",
+    answer: "Directly below the product title is the highest-performing placement, supported by A/B tests across large Shopify stores. This positions the rating at the point where shoppers first read the product name, giving immediate trust context before they engage with price or description.",
+  },
+  {
+    question: "How many reviews should I show on a product page?",
+    answer: "Show all reviews but paginate if the count is large (20+ per page). Research on review consumption shows most buyers read two to five reviews before deciding - but knowing more exist increases confidence. The review count displayed next to the star rating matters as much as the rating itself.",
+  },
+  {
+    question: "Do product page reviews help with Google SEO?",
+    answer: "Yes, in two ways. First, reviews add unique keyword-rich content that search engines index. Second, correct AggregateRating structured data in your HTML enables star ratings to appear in Google search results, which increases click-through rates. Both effects compound over time as review volume grows.",
+  },
+  {
+    question: "Should I show reviews per variant or aggregate across all variants?",
+    answer: "Show aggregate ratings by default, with filtering available if a product has variants with meaningfully different characteristics. Shoppers choosing between a blue and black version of the same hoodie do not need separate review pools. Shoppers choosing between different mattress firmness levels might benefit from variant filtering.",
+  },
 ]
 
 export default function SocialProofShopifyProductPagesPage() {
@@ -790,6 +809,8 @@ export default function SocialProofShopifyProductPagesPage() {
           <BlogNav className="mt-6" />
         </div>
       </Section>
+
+      <BlogFaqs faqs={faqs} />
 
       <BlogCta />
     </main>

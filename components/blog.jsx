@@ -245,6 +245,38 @@ export function ArticleHero({ tag = "Technical deep-dive", title, description, r
   )
 }
 
+export function BlogFaqs({ faqs }) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(({ question, answer }) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: { "@type": "Answer", text: answer },
+    })),
+  }
+
+  return (
+    <Section className="bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <h2 className="text-2xl font-black tracking-tight text-gray-900 mb-8">Frequently asked questions</h2>
+      <div className="space-y-3">
+        {faqs.map(({ question, answer }) => (
+          <details key={question} className="group bg-white rounded-xl overflow-hidden">
+            <summary className="flex justify-between items-center gap-4 p-6 cursor-pointer list-none font-semibold text-gray-900 [&::-webkit-details-marker]:hidden">
+              {question}
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 shrink-0 transition-transform group-open:rotate-180">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              </svg>
+            </summary>
+            <p className="px-6 pb-6 text-gray-600 leading-relaxed">{answer}</p>
+          </details>
+        ))}
+      </div>
+    </Section>
+  )
+}
+
 export function ArticleFooter({ furtherReading = [], internalLinks = [] }) {
   return (
     <div className="mt-10 pt-8 border-t border-gray-200">

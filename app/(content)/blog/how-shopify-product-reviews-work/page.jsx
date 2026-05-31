@@ -1,4 +1,4 @@
-import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor } from "../../../../components/blog"
+import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor, BlogFaqs } from "../../../../components/blog"
 
 export const metadata = {
   title: "How Shopify Product Reviews Work: Metaobjects, Liquid Rendering, and SEO",
@@ -20,6 +20,25 @@ const tocItems = [
   { id: "data-ownership", label: "Data ownership and portability" },
   { id: "syndication", label: "Syndication to Shop, Google, and Meta" },
   { id: "summary", label: "Summary" },
+]
+
+const faqs = [
+  {
+    question: "How do Shopify product reviews work technically?",
+    answer: "Reviews written to Shopify's standard Metaobject definition are stored as structured data entries inside your Shopify store. Your Liquid theme reads them directly using standard Metafield syntax - no API calls, no external requests. The review content renders server-side as part of your HTML.",
+  },
+  {
+    question: "Why do most review apps use JavaScript widgets?",
+    answer: "Most review apps store review data on their own servers, not inside Shopify. To display reviews, they inject a JavaScript widget that fetches content from their servers after the page loads. This introduces external dependencies, network round-trips, and makes the content invisible to search engines at crawl time.",
+  },
+  {
+    question: "Do JavaScript review widgets hurt Core Web Vitals?",
+    answer: "Yes, in most cases. A JavaScript widget that fetches and renders review content after the initial page load typically delays Largest Contentful Paint (LCP) and causes Cumulative Layout Shift (CLS) - both Core Web Vitals metrics Google uses as ranking signals. Server-side rendering eliminates both problems.",
+  },
+  {
+    question: "Can Google index reviews that load via JavaScript?",
+    answer: "Sometimes, but unreliably. Google does process JavaScript, but it uses a two-wave crawl process that can introduce significant delays before JS-rendered content is indexed. Structured data injected by JavaScript is particularly unreliable. Reviews rendered server-side in HTML are indexed on the first crawl.",
+  },
 ]
 
 export default function HowShopifyProductReviewsWorkPage() {
@@ -595,6 +614,8 @@ query {
           <BlogNav className="mt-6" />
         </div>
       </Section>
+
+      <BlogFaqs faqs={faqs} />
 
       <BlogCta />
     </main>

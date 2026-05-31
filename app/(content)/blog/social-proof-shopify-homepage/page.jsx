@@ -1,9 +1,9 @@
-import { Section, ExternalLink, InternalLink, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor } from "../../../../components/blog"
+import { Section, ExternalLink, InternalLink, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor, BlogFaqs } from "../../../../components/blog"
 
 export const metadata = {
   title: "Social Proof on the Shopify Homepage: What to Show and Where",
   shortTitle: "Social proof on the Shopify homepage",
-  description: "Your homepage has seconds to build trust. Here's which social proof elements — review highlights, trust bars, testimonials — work above the fold without hurting load time.",
+  description: "Your homepage has seconds to build trust. Here's which social proof elements - review highlights, trust bars, testimonials - work above the fold without hurting load time.",
   alternates: { canonical: "/blog/social-proof-shopify-homepage" },
   openGraph: { type: "article", publishedTime: "2026-05-27", images: ["https://assets.reviewsonmetaobjects.com/the-shopify-reviews-blog.jpg"] },
   slug: "social-proof-shopify-homepage",
@@ -20,6 +20,25 @@ const tocItems = [
   { id: "what-not-to-do", label: "What not to do on the homepage" },
   { id: "shopify-implementation", label: "Shopify implementation" },
   { id: "performance", label: "Performance" },
+]
+
+const faqs = [
+  {
+    question: "What social proof should I show on my Shopify homepage?",
+    answer: "The highest-performing homepage social proof elements are an aggregate trust bar (total review count, average rating, number of customers), a curated testimonial section with specific outcomes, and star ratings near your hero headline. The goal is to establish credibility before the visitor has seen a specific product.",
+  },
+  {
+    question: "Where on the homepage should I place social proof?",
+    answer: "Above the fold or immediately below your hero section works best for high-level trust signals like total reviews and aggregate ratings. Testimonials and review highlights perform well mid-page as shoppers explore your brand. Avoid placing all social proof in the footer - most visitors never scroll that far.",
+  },
+  {
+    question: "Does homepage social proof affect conversion rates?",
+    answer: "Yes, particularly for first-time visitors arriving via paid ads or social. Homepage social proof reduces bounce rates by establishing trust in the first few seconds. The impact is smaller for direct or branded traffic where visitors already have brand familiarity.",
+  },
+  {
+    question: "Should I show individual reviews or just aggregate ratings on my homepage?",
+    answer: "Both work for different reasons. Aggregate ratings build quantitative trust quickly. Individual review quotes with specific outcomes build qualitative trust. For homepage use, two to four curated testimonials alongside an aggregate number is a common high-performing pattern.",
+  },
 ]
 
 export default function SocialProofShopifyHomepagePage() {
@@ -272,6 +291,8 @@ export default function SocialProofShopifyHomepagePage() {
           <BlogNav className="mt-6" />
         </div>
       </Section>
+
+      <BlogFaqs faqs={faqs} />
 
       <BlogCta />
     </main>

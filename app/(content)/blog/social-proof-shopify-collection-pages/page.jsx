@@ -1,4 +1,4 @@
-import { Section, ExternalLink, InternalLink, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor } from "../../../../components/blog"
+import { Section, ExternalLink, InternalLink, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor, BlogFaqs } from "../../../../components/blog"
 
 export const metadata = {
   title: "Social Proof on Shopify Collection Pages: Star Ratings That Convert",
@@ -19,6 +19,25 @@ const tocItems = [
   { id: "setting-up-in-your-theme", label: "Setting this up in your theme" },
   { id: "performance-considerations", label: "Performance: why this page type is especially sensitive" },
   { id: "filtering-by-rating", label: "Filtering and sorting by rating" },
+]
+
+const faqs = [
+  {
+    question: "Should I show star ratings on Shopify collection pages?",
+    answer: "Yes - star ratings on product cards in collection grids consistently increase click-through rates to product pages. Even a small star rating next to the product name helps shoppers shortlist products before committing to view one in detail.",
+  },
+  {
+    question: "How do I add star ratings to product cards in a Shopify theme?",
+    answer: "In Online Store 2.0 themes, edit the product card Liquid snippet (usually card-product.liquid) and output the product.metafields.reviews.rating Metafield value as a star display. Apps that use Shopify's standard Metaobject format populate this Metafield automatically.",
+  },
+  {
+    question: "Do star ratings on collection pages affect SEO?",
+    answer: "Not directly - collection pages rarely qualify for AggregateRating rich results in Google since they show multiple products. The SEO benefit comes indirectly: higher click-through to product pages increases engagement, and products with more reviews signal trust to both users and crawlers.",
+  },
+  {
+    question: "What is the best way to show ratings across product variants on collection pages?",
+    answer: "Show the product-level aggregate rating, not a variant-specific one. Most shoppers on collection pages have not yet chosen a variant, so the combined score across all variants gives the most useful signal. Shopify's standard reviews.rating Metafield on the product object is already variant-agnostic.",
+  },
 ]
 
 export default function SocialProofShopifyCollectionPagesPage() {
@@ -206,6 +225,8 @@ export default function SocialProofShopifyCollectionPagesPage() {
           <BlogNav className="mt-6" />
         </div>
       </Section>
+
+      <BlogFaqs faqs={faqs} />
 
       <BlogCta />
     </main>

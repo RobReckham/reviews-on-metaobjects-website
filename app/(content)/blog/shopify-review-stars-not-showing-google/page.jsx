@@ -1,4 +1,4 @@
-import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor } from "../../../../components/blog"
+import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor, BlogFaqs } from "../../../../components/blog"
 
 export const metadata = {
   title: "Shopify Review Stars Missing from Google? Causes and Fixes",
@@ -19,6 +19,25 @@ const tocItems = [
   { id: "individual-review-markup", label: "Individual Review markup: the missing piece" },
   { id: "liquid-implementation", label: "What the structured data looks like" },
   { id: "after-the-fix", label: "After the fix: what to expect" },
+]
+
+const faqs = [
+  {
+    question: "Why are my Shopify review stars not showing in Google?",
+    answer: "The most common cause is that your structured data is injected by JavaScript after the page loads, making it unreliable for Googlebot to read at crawl time. Other causes include missing or malformed AggregateRating schema, or review content that does not match the structured data on the page.",
+  },
+  {
+    question: "How long does it take for review stars to appear in Google after fixing structured data?",
+    answer: "After deploying correct server-side structured data, Google typically picks it up within one to four weeks depending on how frequently your pages are crawled. You can speed this up by submitting URLs for re-indexing via Google Search Console. Check the Rich Results Test tool first to confirm your markup is valid.",
+  },
+  {
+    question: "Does Shopify automatically add structured data for reviews?",
+    answer: "Not automatically. Some Shopify themes include basic Product schema, but AggregateRating markup - the specific structured data needed for star ratings in Google - must be added explicitly. Apps that store reviews in Shopify Metaobjects can output this data server-side via Liquid.",
+  },
+  {
+    question: "Will switching to a different review app fix my missing stars in Google?",
+    answer: "Only if the new app outputs AggregateRating structured data server-side in your HTML, not via a JavaScript widget. Check by viewing your page source and searching for 'aggregateRating' - if it is not in the raw HTML, Google cannot reliably read it at crawl time.",
+  },
 ]
 
 export default function ShopifyReviewStarsNotShowingGooglePage() {
@@ -393,6 +412,8 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
           <BlogNav className="mt-6" />
         </div>
       </Section>
+
+      <BlogFaqs faqs={faqs} />
 
       <BlogCta />
     </main>

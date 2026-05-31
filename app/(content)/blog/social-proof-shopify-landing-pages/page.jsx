@@ -1,4 +1,4 @@
-import { Section, ExternalLink, InternalLink, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor } from "../../../../components/blog"
+import { Section, ExternalLink, InternalLink, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor, BlogFaqs } from "../../../../components/blog"
 
 export const metadata = {
   title: "Social Proof on Shopify Landing Pages: Convert Paid Traffic Faster",
@@ -21,6 +21,25 @@ const tocItems = [
   { id: "what-not-to-do", label: "What not to include" },
   { id: "shopify-implementation", label: "Shopify implementation" },
   { id: "performance", label: "Performance" },
+]
+
+const faqs = [
+  {
+    question: "What social proof works best on Shopify landing pages?",
+    answer: "On campaign or landing pages, the most effective social proof is highly specific: testimonials that directly address the objection the ad raised, star ratings near the call-to-action button, and for higher-priced products, longer review excerpts that describe outcomes. Generic trust badges tend to be ignored.",
+  },
+  {
+    question: "Should landing pages have reviews or just star ratings?",
+    answer: "Both, placed strategically. Star ratings near the headline establish instant credibility. Two to three testimonials in the mid-page, selected to address the specific promise of the ad, handle deeper objections. Full review sections near the bottom serve visitors who scroll before buying.",
+  },
+  {
+    question: "Does social proof on landing pages improve ROAS?",
+    answer: "Yes, when matched to the ad's promise. The most common failure is landing pages with generic social proof that does not address what the ad said. If your ad promises the softest sheets, the social proof should include testimonials that specifically mention softness or sleep quality.",
+  },
+  {
+    question: "Can landing page social proof hurt conversions if done wrong?",
+    answer: "Yes. Showing a low average rating (below 4.0), displaying too few reviews (one or two) without context, or using testimonials that read as obviously fake all damage trust rather than build it. If your review count is low, it is better to use two to three specific hand-picked testimonials and skip the aggregate rating.",
+  },
 ]
 
 export default function SocialProofShopifyLandingPagesPage() {
@@ -356,6 +375,8 @@ export default function SocialProofShopifyLandingPagesPage() {
           <BlogNav className="mt-6" />
         </div>
       </Section>
+
+      <BlogFaqs faqs={faqs} />
 
       <BlogCta />
     </main>

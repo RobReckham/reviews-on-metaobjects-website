@@ -1,4 +1,4 @@
-import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor } from "../../../../components/blog"
+import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor, BlogFaqs } from "../../../../components/blog"
 
 export const metadata = {
   title: "Shopify Metafields vs. Metaobjects: What's the Difference?",
@@ -19,6 +19,25 @@ const tocItems = [
   { id: "graphql-access", label: "Accessing both via GraphQL" },
   { id: "when-to-use-which", label: "When to use which" },
   { id: "product-reviews-example", label: "Example: product reviews use both" },
+]
+
+const faqs = [
+  {
+    question: "What is the difference between Shopify Metafields and Metaobjects?",
+    answer: "Metafields attach extra data to existing Shopify resources - a product, variant, customer, or order. Metaobjects are standalone data entries that exist independently of any specific resource. A product's average star rating is a Metafield. A product review with its body, author, date, and product reference is a Metaobject.",
+  },
+  {
+    question: "When should I use a Metafield vs. a Metaobject in Shopify?",
+    answer: "Use Metafields when you need to extend an existing resource with additional data - like adding a material field to products or a loyalty tier to customers. Use Metaobjects when you need to model something standalone - like a review, a team member, a FAQ entry, or a size guide that multiple products reference.",
+  },
+  {
+    question: "Can I access Shopify Metaobjects in Liquid?",
+    answer: "Yes. Metaobjects are accessible in Liquid via metafield references on resources. For product reviews stored as standard Metaobjects, you access them via product.metafields.reviews.product_reviews in Liquid templates - no API call or JavaScript required.",
+  },
+  {
+    question: "Are Shopify product reviews stored as Metafields or Metaobjects?",
+    answer: "Individual reviews are stored as Metaobjects - each review is a standalone entry with fields for rating, body, author, and a reference back to the product. The aggregate rating (average score and review count) is stored as a Metafield on the product, automatically computed by Shopify from the individual review Metaobjects.",
+  },
 ]
 
 export default function ShopifyMetafieldsVsMetaobjectsPage() {
@@ -343,6 +362,8 @@ query {
           <BlogNav className="mt-6" />
         </div>
       </Section>
+
+      <BlogFaqs faqs={faqs} />
 
       <BlogCta />
     </main>

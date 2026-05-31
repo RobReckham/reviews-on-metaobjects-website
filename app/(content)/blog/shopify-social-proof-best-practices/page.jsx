@@ -1,9 +1,9 @@
-import { Section, ExternalLink, InternalLink, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor } from "../../../../components/blog"
+import { Section, ExternalLink, InternalLink, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor, BlogFaqs } from "../../../../components/blog"
 
 export const metadata = {
   title: "Shopify Social Proof Best Practices: The Complete Guide",
   shortTitle: "Shopify social proof best practices",
-  description: "Which social proof elements work on product pages, collection pages, homepage, and landing pages — and how to implement each server-side without JavaScript slowing your store.",
+  description: "Which social proof elements work on product pages, collection pages, homepage, and landing pages - and how to implement each server-side without JavaScript slowing your store.",
   alternates: { canonical: "/blog/shopify-social-proof-best-practices" },
   openGraph: { type: "article", publishedTime: "2026-05-27", images: ["https://assets.reviewsonmetaobjects.com/the-shopify-reviews-blog.jpg"] },
   slug: "shopify-social-proof-best-practices",
@@ -20,6 +20,25 @@ const tocItems = [
   { id: "performance-principles", label: "Performance principles" },
   { id: "shopify-architecture", label: "Choosing the right review app setup" },
   { id: "collecting-reviews", label: "Collecting the reviews that power it all" },
+]
+
+const faqs = [
+  {
+    question: "What is social proof in e-commerce?",
+    answer: "Social proof is evidence that other people have bought from you, trust you, or found your product valuable. In e-commerce this includes star ratings, review counts, individual reviews, customer photos, and testimonials. It reduces purchase anxiety by showing that others have taken the same risk and found it worthwhile.",
+  },
+  {
+    question: "Does social proof actually increase conversion rates?",
+    answer: "Yes, consistently. Star ratings on product pages typically lift conversion rates by 10–30% depending on the product category and baseline review count. The effect is strongest when social proof is placed close to the decision point - near the add-to-cart button - and when reviews are specific rather than generic.",
+  },
+  {
+    question: "Where should I put social proof on my Shopify store?",
+    answer: "The highest-value placements are: below the product title on product pages (star rating and review count), on product cards in collection grids (mini star row), on the homepage above the fold (aggregate trust bar or testimonials), and near the CTA on landing pages. Each placement serves a different stage of the purchase journey.",
+  },
+  {
+    question: "How many reviews do I need before showing social proof?",
+    answer: "For aggregate ratings, five or more reviews is enough to show a credible score. Below that, displaying a rating can actually hurt trust. For review sections, showing three to five reviews is better than showing none - even a small number of specific, detailed reviews builds more confidence than empty space.",
+  },
 ]
 
 export default function ShopifySocialProofBestPracticesPage() {
@@ -425,6 +444,8 @@ export default function ShopifySocialProofBestPracticesPage() {
           <BlogNav className="mt-6" />
         </div>
       </Section>
+
+      <BlogFaqs faqs={faqs} />
 
       <BlogCta />
     </main>

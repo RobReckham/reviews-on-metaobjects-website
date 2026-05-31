@@ -1,4 +1,4 @@
-import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor } from "../../../../components/blog"
+import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor, BlogFaqs } from "../../../../components/blog"
 
 export const metadata = {
   title: "The Hidden Cost of Shopify Review Apps: Speed, SEO, and Data You Don't Own",
@@ -17,6 +17,25 @@ const tocItems = [
   { id: "the-data-cost", label: "The data cost" },
   { id: "the-dependency-cost", label: "The external dependency cost" },
   { id: "what-an-alternative-looks-like", label: "What an alternative architecture looks like" },
+]
+
+const faqs = [
+  {
+    question: "How much do Shopify review apps typically cost?",
+    answer: "Pricing varies significantly. Judge.me has a free plan and a paid plan around $15/month. Loox starts at $9.99/month but charges per order, reaching $159.99/month at 1,200 monthly orders. REVIEWS.io goes from $29/month to $499/month. The visible subscription cost is often just part of the total.",
+  },
+  {
+    question: "Do review apps affect Shopify store speed?",
+    answer: "Yes, most do. Apps that load reviews via a JavaScript widget add external script requests, network round-trips, and often cause layout shift. The impact is measurable in Lighthouse and Core Web Vitals. Apps that render reviews server-side in Liquid have zero additional load-time cost.",
+  },
+  {
+    question: "What happens to my reviews if I cancel a review app?",
+    answer: "It depends on where the app stores your data. Most review apps store review data on their own servers - cancelling ends your access. Apps that store reviews in Shopify's standard product review Metaobjects leave the data inside your store permanently, regardless of whether you keep the app.",
+  },
+  {
+    question: "Is there a free Shopify review app that stores data in Shopify?",
+    answer: "Shopify's own deprecated Product Reviews app stored data in Shopify's format, but it is no longer actively supported. Most modern review apps that write to the standard Metaobject format offer free plans with limited features or order volumes.",
+  },
 ]
 
 export default function RealCostShopifyReviewAppsPage() {
@@ -289,6 +308,8 @@ export default function RealCostShopifyReviewAppsPage() {
           <BlogNav className="mt-6" />
         </div>
       </Section>
+
+      <BlogFaqs faqs={faqs} />
 
       <BlogCta />
     </main>

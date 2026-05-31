@@ -1,4 +1,4 @@
-import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor } from "../../../../components/blog"
+import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor, BlogFaqs } from "../../../../components/blog"
 
 export const metadata = {
   title: "JSON-LD Structured Data in Shopify Liquid (With Code Examples)",
@@ -18,6 +18,25 @@ const tocItems = [
   { id: "breadcrumb-schema", label: "BreadcrumbList schema" },
   { id: "validation", label: "Validating with Google's Rich Results Test" },
   { id: "common-mistakes", label: "Common mistakes" },
+]
+
+const faqs = [
+  {
+    question: "Where does JSON-LD go in a Shopify Liquid theme?",
+    answer: "JSON-LD should be placed in the head of your page or at the end of the body. In Shopify Liquid, the cleanest approach is to add it to your theme.liquid layout file or to the specific section or template file for the page type it applies to - for example, product.liquid for Product schema.",
+  },
+  {
+    question: "Does Shopify automatically add JSON-LD structured data?",
+    answer: "Some Shopify themes include basic JSON-LD for Product and BreadcrumbList. However, AggregateRating markup for reviews - which enables star ratings in Google - is rarely included by default and must be added manually or via a compliant review app that outputs it server-side.",
+  },
+  {
+    question: "What is the difference between JSON-LD and microdata for Shopify structured data?",
+    answer: "JSON-LD is a separate script block that describes your page entities in structured JSON. Microdata is markup embedded directly into your HTML using attributes like itemscope and itemprop. Google supports both, but recommends JSON-LD as it is easier to maintain, does not interfere with your HTML structure, and can be cleanly templated in Liquid.",
+  },
+  {
+    question: "Why is my JSON-LD structured data valid but not showing rich results in Google?",
+    answer: "Valid structured data is necessary but not sufficient for rich results. Google also requires the page to meet eligibility guidelines, the structured data to match the visible page content, and - crucially - the markup to be present in the raw HTML at crawl time, not injected by JavaScript after the page loads.",
+  },
 ]
 
 export default function ShopifyLiquidJsonLdStructuredDataPage() {
@@ -367,6 +386,8 @@ export default function ShopifyLiquidJsonLdStructuredDataPage() {
           <BlogNav className="mt-6" />
         </div>
       </Section>
+
+      <BlogFaqs faqs={faqs} />
 
       <BlogCta />
     </main>

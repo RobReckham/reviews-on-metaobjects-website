@@ -1,4 +1,4 @@
-import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor } from "../../../../components/blog"
+import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor, BlogFaqs } from "../../../../components/blog"
 
 export const metadata = {
   title: "Is Your Review App Slowing Down Your Shopify Store? How to Measure It",
@@ -17,6 +17,25 @@ const tocItems = [
   { id: "devtools-network", label: "Isolating the widget with DevTools Network" },
   { id: "real-numbers", label: "Real numbers: what a typical widget costs" },
   { id: "the-architectural-fix", label: "The architectural fix" },
+]
+
+const faqs = [
+  {
+    question: "How do I check if my review app is slowing down my Shopify store?",
+    answer: "Run a Google Lighthouse audit in Chrome DevTools on your product page with the app installed and compare it to a page without the app, or use PageSpeed Insights at pagespeed.web.dev. Look specifically at Total Blocking Time, Largest Contentful Paint, and the list of render-blocking resources - your review app scripts will appear there.",
+  },
+  {
+    question: "Which Shopify review apps have the least impact on page speed?",
+    answer: "Apps that render reviews server-side using Shopify Metaobjects and Liquid have effectively zero impact on page load time - the content is part of your HTML from the first byte. Apps that inject JavaScript widgets have the most impact. Server-side apps include those built on Shopify's standard product review Metaobject format.",
+  },
+  {
+    question: "How much do review app scripts typically affect Lighthouse scores?",
+    answer: "It varies by app, but a typical JavaScript review widget can add 200–600ms to Total Blocking Time and drop Lighthouse performance scores by 5–20 points depending on the app and network conditions. Apps with large image libraries or widget frameworks have the largest impact.",
+  },
+  {
+    question: "Can I keep my review app and still have a fast store?",
+    answer: "It depends on the app. If your app loads reviews via a JavaScript widget, there is always some performance cost. If you switch to an app that stores reviews in Shopify Metaobjects and renders them via Liquid, there is no JavaScript widget at all and no performance penalty.",
+  },
 ]
 
 export default function ReviewAppSlowingShopifyStorePage() {
@@ -248,6 +267,8 @@ export default function ReviewAppSlowingShopifyStorePage() {
           <BlogNav className="mt-6" />
         </div>
       </Section>
+
+      <BlogFaqs faqs={faqs} />
 
       <BlogCta />
     </main>

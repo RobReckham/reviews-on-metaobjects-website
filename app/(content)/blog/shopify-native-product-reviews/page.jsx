@@ -1,4 +1,4 @@
-import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor } from "../../../../components/blog"
+import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor, BlogFaqs } from "../../../../components/blog"
 
 export const metadata = {
   title: "Shopify Native Product Reviews: What Actually Ships Built-In",
@@ -17,6 +17,25 @@ const tocItems = [
   { id: "what-still-needs-an-app", label: "What still requires an app" },
   { id: "what-native-really-means", label: "What 'native' really means" },
   { id: "the-data-stays", label: "The data stays regardless of the app" },
+]
+
+const faqs = [
+  {
+    question: "Does Shopify have built-in product reviews?",
+    answer: "Shopify does not include a complete review collection and display system out of the box. What it provides is a standard Metaobject definition for storing review data - any compliant app writes to this format, and your Liquid theme can render it directly without external scripts.",
+  },
+  {
+    question: "What happened to Shopify's free Product Reviews app?",
+    answer: "Shopify deprecated its first-party Product Reviews app in May 2024. It still exists for merchants who had it installed but is no longer actively developed. Shopify replaced it with the standard product review Metaobject definition, which any compliant third-party app can write to.",
+  },
+  {
+    question: "Can I collect reviews on Shopify without paying for an app?",
+    answer: "Not easily. The standard Metaobject infrastructure handles storage, but collection features - email review requests, submission forms, moderation, photo uploads - still require an app. The deprecated first-party app is technically still installable for some merchants but is unsupported.",
+  },
+  {
+    question: "Do Shopify reviews stay in my store if I cancel my review app?",
+    answer: "It depends on how the app stores data. Apps that write to Shopify's standard product review Metaobjects store reviews inside your Shopify store permanently - they remain after uninstalling. Apps that store review data on their own servers take that data with them when you cancel.",
+  },
 ]
 
 export default function ShopifyNativeProductReviewsPage() {
@@ -260,6 +279,8 @@ query {
           <BlogNav className="mt-6" />
         </div>
       </Section>
+
+      <BlogFaqs faqs={faqs} />
 
       <BlogCta />
     </main>
