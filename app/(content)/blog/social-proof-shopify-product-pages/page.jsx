@@ -38,7 +38,7 @@ const faqs = [
   },
   {
     question: "How many reviews should I show on a product page?",
-    answer: "Show all reviews but paginate if the count is large (20+ per page). Research on review consumption shows most buyers read two to five reviews before deciding - but knowing more exist increases confidence. The review count displayed next to the star rating matters as much as the rating itself.",
+    answer: "Show all reviews but paginate if the count is large (20+ per page). Research on review consumption shows most buyers read two to five reviews before deciding — but knowing more exist increases confidence. The review count displayed next to the star rating matters as much as the rating itself.",
   },
   {
     question: "Do product page reviews help with Google SEO?",
@@ -47,6 +47,22 @@ const faqs = [
   {
     question: "Should I show reviews per variant or aggregate across all variants?",
     answer: "Show aggregate ratings by default, with filtering available if a product has variants with meaningfully different characteristics. Shoppers choosing between a blue and black version of the same hoodie do not need separate review pools. Shoppers choosing between different mattress firmness levels might benefit from variant filtering.",
+  },
+  {
+    question: "What structured data should Shopify product pages have to show star ratings in Google?",
+    answer: "Product pages need a JSON-LD Product schema containing a nested AggregateRating object with ratingValue, reviewCount, and bestRating. This must be rendered server-side in the raw HTML — not injected by JavaScript — to be reliably read by Googlebot. Individual Review entries can optionally be nested inside the Product schema for richer structured data, though AggregateRating alone is sufficient for star ratings in search results.",
+  },
+  {
+    question: "How do I get my Shopify product reviews to appear in Google Shopping?",
+    answer: "Your reviews must be stored in Shopify's standard product review Metaobject format and your store must have the Google channel connected. Shopify can then sync product ratings to Google Merchant Center automatically, which surfaces aggregate star ratings on Shopping listings. Reviews stored on third-party app servers are not synced automatically and require the app to maintain a separate product ratings feed.",
+  },
+  {
+    question: "What is the minimum review count needed to qualify for Google rich results?",
+    answer: "Google does not publish a specific minimum, but in practice products with fewer than three reviews rarely show star ratings in search results consistently. Most SEO practitioners recommend a minimum of five to ten reviews before expecting rich results to appear. The ratingValue must also be within the stated bestRating range, and the visible rating on the page must match the structured data.",
+  },
+  {
+    question: "Can AI shopping assistants like ChatGPT read product reviews from Shopify stores?",
+    answer: "AI shopping assistants that browse the web — including ChatGPT with browsing enabled, Perplexity Shopping, and Google AI Overviews — can read product review content that is rendered server-side in your HTML. Reviews stored in Shopify Metaobjects and output via Liquid are fully readable by these systems from the first crawl. Reviews loaded by JavaScript widgets are often not available. Stores using server-side review rendering are more likely to have their product ratings and review sentiment factored into AI-generated product recommendations and comparisons.",
   },
 ]
 

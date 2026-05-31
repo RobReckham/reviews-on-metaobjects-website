@@ -37,6 +37,22 @@ const faqs = [
     question: "Why is my JSON-LD structured data valid but not showing rich results in Google?",
     answer: "Valid structured data is necessary but not sufficient for rich results. Google also requires the page to meet eligibility guidelines, the structured data to match the visible page content, and - crucially - the markup to be present in the raw HTML at crawl time, not injected by JavaScript after the page loads.",
   },
+  {
+    question: "How do I validate my JSON-LD structured data in Shopify?",
+    answer: "Use Google's Rich Results Test at search.google.com/test/rich-results with your live product page URL. It shows which structured data types are detected, whether they are valid, and whether they qualify for rich results. For development, you can paste raw HTML directly. Schema.org's validator at validator.schema.org also checks markup against the spec.",
+  },
+  {
+    question: "Can I have multiple JSON-LD script blocks on one Shopify page?",
+    answer: "Yes. Google supports multiple JSON-LD blocks on a single page and will read all of them. A common pattern is a Product block in the main product template, an AggregateRating block added by a review section, and a BreadcrumbList block in the layout file - all independently valid and parsed together.",
+  },
+  {
+    question: "Which structured data types does Google support for Shopify product pages?",
+    answer: "For product pages, Google supports: Product (required), Offer (price, availability), AggregateRating (average star score and review count), Review (individual reviews), and BreadcrumbList (navigation path). Of these, AggregateRating is the one that enables star ratings in search results and has the most visible impact on click-through rates.",
+  },
+  {
+    question: "Does JSON-LD structured data help with Google AI Overviews and AI search engines?",
+    answer: "Yes, and this is becoming increasingly important. AI search engines like Google AI Overviews, Perplexity, and ChatGPT Browse read structured data to understand your pages accurately. JSON-LD in your HTML tells these systems precisely what your product is, its price, its rating, and who reviewed it - in a machine-readable format they can cite with confidence. Server-side JSON-LD is far more reliably processed by AI crawlers than JavaScript-injected markup.",
+  },
 ]
 
 export default function ShopifyLiquidJsonLdStructuredDataPage() {

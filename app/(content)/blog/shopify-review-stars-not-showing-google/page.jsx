@@ -38,6 +38,22 @@ const faqs = [
     question: "Will switching to a different review app fix my missing stars in Google?",
     answer: "Only if the new app outputs AggregateRating structured data server-side in your HTML, not via a JavaScript widget. Check by viewing your page source and searching for 'aggregateRating' - if it is not in the raw HTML, Google cannot reliably read it at crawl time.",
   },
+  {
+    question: "How do I validate my Shopify structured data for review stars?",
+    answer: "Use Google's Rich Results Test at search.google.com/test/rich-results - paste your product page URL and it will show whether your AggregateRating markup is detected and valid. If valid markup is detected but stars still do not appear in search, check Search Console's Rich Results report for manual actions or eligibility issues. Always test with a product that has at least one published review.",
+  },
+  {
+    question: "What is the difference between AggregateRating and Review schema for Shopify?",
+    answer: "AggregateRating is a summary - it tells Google the overall average score and total review count for a product. Review schema represents individual reviews, each with its own rating, author, and body text. Google requires AggregateRating for the star rating display in search results. Including individual Review schema as well strengthens the structured data signal and can improve rich result eligibility.",
+  },
+  {
+    question: "Do Google AI Overviews show star ratings and review data from Shopify stores?",
+    answer: "Google AI Overviews can surface review information when generating product-related answers, but they depend on structured data being present in the raw HTML at crawl time. Stores with server-side AggregateRating and Review markup are more likely to have their review data included in AI Overview responses. JavaScript-injected structured data is not reliably processed by the AI Overview system.",
+  },
+  {
+    question: "Can review stars differ between product variants in Google Search?",
+    answer: "Google currently shows one AggregateRating per product URL, not per variant. If your variants share a URL (the standard Shopify approach), they share one rating. If variants have separate URLs, each can have its own structured data. The standard Shopify reviews.rating Metafield is product-level, not variant-level, which aligns with how Google processes the schema.",
+  },
 ]
 
 export default function ShopifyReviewStarsNotShowingGooglePage() {

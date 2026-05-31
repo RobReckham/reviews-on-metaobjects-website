@@ -36,6 +36,18 @@ const faqs = [
     question: "Is there a free Shopify review app that stores data in Shopify?",
     answer: "Shopify's own deprecated Product Reviews app stored data in Shopify's format, but it is no longer actively supported. Most modern review apps that write to the standard Metaobject format offer free plans with limited features or order volumes.",
   },
+  {
+    question: "What is vendor lock-in for Shopify review apps?",
+    answer: "Vendor lock-in occurs when your review data is stored on the app vendor's servers rather than inside Shopify. Leaving the app means losing access to your reviews unless the vendor provides export - which is often restricted to paid plans or may be blocked entirely on cancellation. The more reviews you have accumulated, the higher the switching cost, which is what keeps merchants on escalating pricing tiers.",
+  },
+  {
+    question: "Is per-order pricing or flat-rate pricing better for Shopify review apps?",
+    answer: "Flat-rate pricing is almost always better for the merchant. Per-order pricing scales your cost with your revenue while delivering essentially the same feature set. A store doing 5,000 monthly orders pays 50x the fee of a store doing 100 orders but receives the same review collection and display functionality. Flat-rate apps remove this penalty for growth.",
+  },
+  {
+    question: "Do JavaScript review widgets affect visibility in AI search results like Perplexity?",
+    answer: "Yes. AI search engines such as Perplexity, Google AI Overviews, and ChatGPT Browse crawl pages similarly to Googlebot - reading HTML with limited JavaScript execution. If your review content and structured data are loaded by a JavaScript widget, AI crawlers cannot read them. This means your product reviews, star ratings, and review content cannot be cited in AI-generated answers, reducing your visibility as AI-driven search traffic grows.",
+  },
 ]
 
 export default function RealCostShopifyReviewAppsPage() {

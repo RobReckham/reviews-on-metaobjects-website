@@ -38,6 +38,18 @@ const faqs = [
     question: "Are Shopify product reviews stored as Metafields or Metaobjects?",
     answer: "Individual reviews are stored as Metaobjects - each review is a standalone entry with fields for rating, body, author, and a reference back to the product. The aggregate rating (average score and review count) is stored as a Metafield on the product, automatically computed by Shopify from the individual review Metaobjects.",
   },
+  {
+    question: "Are Shopify Metaobjects available on all plans?",
+    answer: "Metaobjects are available on all Shopify plans including Basic. The number of Metaobject definitions and entries you can create scales with your plan, but the standard product review Metaobject definition is part of Shopify's platform and does not count against custom definition limits.",
+  },
+  {
+    question: "Can I query Shopify Metaobjects via the Storefront API or GraphQL?",
+    answer: "Yes. Metaobjects are accessible via both the Admin GraphQL API (full read/write) and the Storefront API (read-only, for headless storefronts). This means review data stored as Metaobjects is portable to headless or custom storefronts without requiring a separate API integration with a third-party review vendor.",
+  },
+  {
+    question: "Can AI search engines like Perplexity understand Shopify Metaobject data?",
+    answer: "AI search engines read the rendered HTML of your pages, not Shopify's internal data layer. What matters is how your Liquid theme outputs Metaobject data - if reviews render as readable text and structured JSON-LD in the HTML, AI crawlers can read and cite them. Metaobject-based reviews rendered server-side in Liquid are fully accessible to AI search engines like Perplexity, ChatGPT Browse, and Google AI Overviews.",
+  },
 ]
 
 export default function ShopifyMetafieldsVsMetaobjectsPage() {

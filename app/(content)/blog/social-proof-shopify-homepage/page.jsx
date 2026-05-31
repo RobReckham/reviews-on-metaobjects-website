@@ -39,6 +39,18 @@ const faqs = [
     question: "Should I show individual reviews or just aggregate ratings on my homepage?",
     answer: "Both work for different reasons. Aggregate ratings build quantitative trust quickly. Individual review quotes with specific outcomes build qualitative trust. For homepage use, two to four curated testimonials alongside an aggregate number is a common high-performing pattern.",
   },
+  {
+    question: "How do I choose which testimonials to feature on my Shopify homepage?",
+    answer: "Select testimonials that address the most common purchase objections for your category. The best homepage testimonials are specific (mention a result or use case), outcome-focused (describe what changed after purchase), and from a recognisable customer type (so visitors can self-identify). Generic praise like 'great product' is significantly less effective than 'I have tried five similar products and this is the only one that worked for me.'",
+  },
+  {
+    question: "Should homepage social proof be dynamic (pulled from reviews) or hardcoded?",
+    answer: "A mix works best. Aggregate numbers (total reviews, average rating) should be dynamic so they stay accurate as your review count grows. Curated testimonials can be hardcoded or hand-selected - this lets you choose the most compelling examples rather than showing whatever appears most recently. Apps that store reviews in Shopify Metaobjects make it easy to read dynamic aggregates in Liquid while curating specific testimonials manually.",
+  },
+  {
+    question: "Does homepage social proof influence how AI search engines present my brand?",
+    answer: "Yes. When users ask AI tools like Perplexity or ChatGPT about your brand or product category, the AI crawls your site and uses what it finds to form its answer. Homepage social proof rendered server-side - testimonials, review counts, aggregate ratings - becomes part of what the AI knows about you. Stores with strong, readable social proof on their homepage are more likely to be described positively by AI assistants when your brand name or category is queried.",
+  },
 ]
 
 export default function SocialProofShopifyHomepagePage() {

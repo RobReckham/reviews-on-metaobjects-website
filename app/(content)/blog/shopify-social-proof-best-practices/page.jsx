@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     question: "Does social proof actually increase conversion rates?",
-    answer: "Yes, consistently. Star ratings on product pages typically lift conversion rates by 10–30% depending on the product category and baseline review count. The effect is strongest when social proof is placed close to the decision point - near the add-to-cart button - and when reviews are specific rather than generic.",
+    answer: "Yes, consistently. Star ratings on product pages typically lift conversion rates by 10-30% depending on the product category and baseline review count. The effect is strongest when social proof is placed close to the decision point - near the add-to-cart button - and when reviews are specific rather than generic.",
   },
   {
     question: "Where should I put social proof on my Shopify store?",
@@ -38,6 +38,22 @@ const faqs = [
   {
     question: "How many reviews do I need before showing social proof?",
     answer: "For aggregate ratings, five or more reviews is enough to show a credible score. Below that, displaying a rating can actually hurt trust. For review sections, showing three to five reviews is better than showing none - even a small number of specific, detailed reviews builds more confidence than empty space.",
+  },
+  {
+    question: "What is the difference between social proof and trust signals?",
+    answer: "Social proof is peer-based validation - other customers saying your product is good. Trust signals are institutional validation - security badges, return policies, payment logos, certifications. Both reduce purchase anxiety but in different ways. Social proof answers 'will I like this product?' Trust signals answer 'is it safe to buy here?' High-performing stores use both, with social proof closer to the product and trust signals closer to the checkout.",
+  },
+  {
+    question: "Should I show negative reviews on my Shopify store?",
+    answer: "Yes. Hiding negative reviews reduces trust rather than increasing it - shoppers are suspicious of a store with only 5-star reviews. A realistic rating distribution (mostly 4-5 stars with some 3-star reviews) is significantly more credible than a suspiciously perfect score. Responding to critical reviews professionally also demonstrates customer service quality.",
+  },
+  {
+    question: "Does the type of social proof that works best vary by product category?",
+    answer: "Yes, significantly. High-consideration purchases (electronics, furniture, skincare) benefit most from detailed reviews that address specific concerns. Impulse purchases benefit more from review counts and aggregate ratings that quickly establish credibility. Products with visible results (fitness, beauty, food) perform well with customer photos. Fashion and apparel benefit from fit-specific reviews that reduce size uncertainty.",
+  },
+  {
+    question: "Does social proof content help my Shopify store appear in AI search results?",
+    answer: "Yes, and this matters more as AI-driven search grows. AI search engines like Perplexity, Google AI Overviews, and ChatGPT Browse read your page content to answer user questions. Server-side review text, star ratings, and testimonials give AI crawlers concrete evidence about your products that they can cite in answers. Stores with rich, accessible review content are more likely to be recommended when users ask AI assistants about products in your category.",
   },
 ]
 

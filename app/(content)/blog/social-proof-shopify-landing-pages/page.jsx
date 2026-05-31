@@ -40,6 +40,18 @@ const faqs = [
     question: "Can landing page social proof hurt conversions if done wrong?",
     answer: "Yes. Showing a low average rating (below 4.0), displaying too few reviews (one or two) without context, or using testimonials that read as obviously fake all damage trust rather than build it. If your review count is low, it is better to use two to three specific hand-picked testimonials and skip the aggregate rating.",
   },
+  {
+    question: "How do I choose which customer reviews to feature on a landing page?",
+    answer: "Select reviews that directly address the main objection your ad or landing page promise raises. If the ad promises a specific outcome, feature reviews that confirm it. If price is an objection, feature reviews that mention value for money. Avoid generic 'great product' reviews — they add noise rather than resolving specific hesitations. Longer, more specific reviews typically outperform short ones on landing pages.",
+  },
+  {
+    question: "Should my landing page testimonials be different from my product page reviews?",
+    answer: "Ideally yes. Product page reviews serve self-selected buyers researching a specific product — they can be longer and more technical. Landing page testimonials serve paid traffic that may not have heard of you — they need to establish instant credibility and address the promise of the specific ad. Pull the best reviews from your product page as a starting point, then filter aggressively for specificity and outcome relevance.",
+  },
+  {
+    question: "Can landing page social proof help my Shopify store appear in AI search results when people research my brand?",
+    answer: "Landing pages are typically crawled less frequently than main product and collection pages, and campaign-specific URLs are often noindexed. For AI search visibility, your main product pages and blog content matter more. However, if your landing pages are indexed, server-side rendered testimonials contribute to the overall picture AI search engines build of your brand sentiment — which can influence how your store is described in AI-generated brand comparisons.",
+  },
 ]
 
 export default function SocialProofShopifyLandingPagesPage() {

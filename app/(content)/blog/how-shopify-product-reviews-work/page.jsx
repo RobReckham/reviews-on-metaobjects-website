@@ -39,6 +39,18 @@ const faqs = [
     question: "Can Google index reviews that load via JavaScript?",
     answer: "Sometimes, but unreliably. Google does process JavaScript, but it uses a two-wave crawl process that can introduce significant delays before JS-rendered content is indexed. Structured data injected by JavaScript is particularly unreliable. Reviews rendered server-side in HTML are indexed on the first crawl.",
   },
+  {
+    question: "What fields does the standard product review Metaobject have?",
+    answer: "The standard product_review Metaobject definition includes: rating (a number 1 to 5), body (the review text), author (display name), date created, and a product reference. Shopify automatically computes aggregate values - reviews.rating and reviews.rating_count - as standard Metafields on the product, derived from the individual Metaobject entries.",
+  },
+  {
+    question: "What is the difference between reviews.rating and individual review Metaobjects?",
+    answer: "reviews.rating is a computed Metafield on the product object - it stores the average star score and is updated automatically as reviews are added. Individual reviews are stored as separate Metaobject entries, each with full detail including review text, author, and date. Liquid templates use reviews.rating for displaying a summary score and loop over the individual Metaobjects to display the full review list.",
+  },
+  {
+    question: "Does server-side review rendering help with Google AI Overviews and AI search engines?",
+    answer: "Yes, significantly. AI search engines like Google AI Overviews, Perplexity, and ChatGPT Browse read HTML content at crawl time with limited JavaScript execution. Reviews rendered server-side in your HTML are fully readable by these crawlers - they can extract review content, ratings, and structured data to inform AI-generated answers about your products. JavaScript-loaded reviews are largely invisible to them.",
+  },
 ]
 
 export default function HowShopifyProductReviewsWorkPage() {

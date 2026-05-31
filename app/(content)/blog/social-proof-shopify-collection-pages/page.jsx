@@ -38,6 +38,18 @@ const faqs = [
     question: "What is the best way to show ratings across product variants on collection pages?",
     answer: "Show the product-level aggregate rating, not a variant-specific one. Most shoppers on collection pages have not yet chosen a variant, so the combined score across all variants gives the most useful signal. Shopify's standard reviews.rating Metafield on the product object is already variant-agnostic.",
   },
+  {
+    question: "How many reviews does a product need before showing ratings on collection pages?",
+    answer: "A minimum of five reviews is generally the right threshold before displaying a star rating. Below five, the score is statistically unreliable and can actually decrease trust if a single bad experience drives an artificially low score. Most Liquid implementations hide the rating display when the review count Metafield is below a threshold you set.",
+  },
+  {
+    question: "Can shoppers filter or sort Shopify collection pages by star rating?",
+    answer: "Yes, if your theme supports it. Shopify's native filter system can include rating as a filter option when using the standard reviews.rating Metafield. This allows shoppers to filter to products with ratings above a threshold. Implementing this requires adding reviews.rating to your search and filter configuration in the Shopify admin - no custom code needed for Online Store 2.0 themes.",
+  },
+  {
+    question: "Can AI shopping assistants read star ratings from Shopify collection pages?",
+    answer: "AI shopping assistants like ChatGPT Browse and Perplexity read the HTML of your collection pages. Star ratings rendered server-side in Liquid are visible to these crawlers - they can identify which products in your collection have high ratings and cite that in recommendations. If ratings are loaded by a JavaScript widget, AI assistants cannot see them at all, putting you at a disadvantage when users ask AI tools to recommend products in your category.",
+  },
 ]
 
 export default function SocialProofShopifyCollectionPagesPage() {

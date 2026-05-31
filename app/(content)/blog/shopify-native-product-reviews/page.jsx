@@ -36,6 +36,18 @@ const faqs = [
     question: "Do Shopify reviews stay in my store if I cancel my review app?",
     answer: "It depends on how the app stores data. Apps that write to Shopify's standard product review Metaobjects store reviews inside your Shopify store permanently - they remain after uninstalling. Apps that store review data on their own servers take that data with them when you cancel.",
   },
+  {
+    question: "What is the standard product review Metaobject definition?",
+    answer: "It is a schema Shopify maintains for storing review data consistently across the platform. It defines a product_review Metaobject type with standard fields: star rating, review body, author name, submission date, and a reference to the reviewed product. Apps that write to this definition store review data inside your Shopify store rather than on their own servers.",
+  },
+  {
+    question: "Do reviews stored in Shopify Metaobjects appear in Google Shopping?",
+    answer: "Yes. Shopify's standard review Metaobjects integrate with Shopify's native channel connectors. Reviews stored in the standard format can be syndicated to Google Shopping and Meta Shops via Shopify's own channel integrations - without needing a separate product review feed from a third-party app.",
+  },
+  {
+    question: "Can AI search engines like Perplexity or Google AI Overviews read Shopify product reviews?",
+    answer: "AI search engines read your page content the same way Googlebot does - they process HTML and structured data, with limited JavaScript rendering. Reviews stored in Shopify Metaobjects render server-side in your HTML, making them fully accessible to AI crawlers. Reviews loaded by a JavaScript widget are frequently invisible to AI search engines, which means they cannot be cited when these tools answer questions about your products.",
+  },
 ]
 
 export default function ShopifyNativeProductReviewsPage() {

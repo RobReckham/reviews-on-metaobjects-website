@@ -30,11 +30,23 @@ const faqs = [
   },
   {
     question: "How much do review app scripts typically affect Lighthouse scores?",
-    answer: "It varies by app, but a typical JavaScript review widget can add 200–600ms to Total Blocking Time and drop Lighthouse performance scores by 5–20 points depending on the app and network conditions. Apps with large image libraries or widget frameworks have the largest impact.",
+    answer: "It varies by app, but a typical JavaScript review widget can add 200-600ms to Total Blocking Time and drop Lighthouse performance scores by 5-20 points depending on the app and network conditions. Apps with large image libraries or widget frameworks have the largest impact.",
   },
   {
     question: "Can I keep my review app and still have a fast store?",
     answer: "It depends on the app. If your app loads reviews via a JavaScript widget, there is always some performance cost. If you switch to an app that stores reviews in Shopify Metaobjects and renders them via Liquid, there is no JavaScript widget at all and no performance penalty.",
+  },
+  {
+    question: "Does render-blocking JavaScript affect page speed differently than async JavaScript?",
+    answer: "Yes. Render-blocking scripts pause HTML parsing entirely until they have downloaded and executed - nothing below them in the DOM is built yet. Async and deferred scripts allow parsing to continue and execute later. Many review widgets load async, which avoids blocking initial render but still delays review content from appearing and can cause Cumulative Layout Shift when they inject review cards into the DOM.",
+  },
+  {
+    question: "How does Shopify store page speed affect SEO rankings?",
+    answer: "Google uses Core Web Vitals - Largest Contentful Paint, Cumulative Layout Shift, and Interaction to Next Paint - as ranking signals. Review apps that delay LCP (by loading review content after the main page) or cause CLS (by injecting widgets into the DOM) directly reduce your scores on these metrics. Stores with better Core Web Vitals scores have an advantage in organic rankings, all else being equal.",
+  },
+  {
+    question: "Does a slow review widget affect how AI search engines crawl and index my store?",
+    answer: "Yes. AI search crawlers like those used by Perplexity, Google AI Overviews, and ChatGPT Browse typically execute limited JavaScript. A review widget that requires JavaScript to load its content is invisible to these crawlers - both the review text and any structured data the widget generates. This means slow or JS-dependent review apps reduce your store's visibility in AI-driven search, not just in traditional Google rankings.",
   },
 ]
 
