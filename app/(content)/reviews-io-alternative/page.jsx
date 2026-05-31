@@ -7,8 +7,8 @@ import Faqs from "../../../components/faqs"
 import DemoStore from "../../../components/demo-store"
 
 export const metadata = {
-  title: "REVIEWS.io Alternative: Shopify Reviews via Metaobjects, No JavaScript Widget",
-  description: `Migrate from REVIEWS.io to ${process.env.NEXT_PUBLIC_APP_NAME}. Reviews stored natively in Shopify Metaobjects and rendered server-side in Liquid - no external script, better Core Web Vitals, star ratings in Google search results.`,
+  title: "REVIEWS.io Alternative for Shopify: Own Your Data, Pay Less",
+  description: `REVIEWS.io stores your reviews on their servers. ${process.env.NEXT_PUBLIC_APP_NAME} puts them inside Shopify — your data, permanently. Flat pricing, faster pages, star ratings in Google.`,
   alternates: {
     canonical: "/reviews-io-alternative",
   },

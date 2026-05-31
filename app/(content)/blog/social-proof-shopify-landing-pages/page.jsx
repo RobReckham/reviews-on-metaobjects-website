@@ -1,9 +1,9 @@
 import { Section, ExternalLink, InternalLink, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor } from "../../../../components/blog"
 
 export const metadata = {
-  title: "Social Proof on Shopify Landing Pages: Best Practices for Higher Conversions",
+  title: "Social Proof on Shopify Landing Pages: Convert Paid Traffic Faster",
   shortTitle: "Social proof on Shopify landing pages",
-  description: "How to use social proof on Shopify landing pages and campaign pages - testimonials, ratings, UGC, and trust signals that convert paid traffic without slowing your page.",
+  description: "Paid traffic that lands without social proof leaks conversions. Here's which trust signals to show on campaign pages and how to render them server-side so they don't slow the page.",
   alternates: { canonical: "/blog/social-proof-shopify-landing-pages" },
   openGraph: { type: "article", publishedTime: "2026-05-27" },
   slug: "social-proof-shopify-landing-pages",

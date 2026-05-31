@@ -7,8 +7,8 @@ import Faqs from "../../../components/faqs"
 import DemoStore from "../../../components/demo-store"
 
 export const metadata = {
-  title: "Loox Alternative: Shopify Reviews via Metaobjects, No JavaScript Widget",
-  description: `Migrate from Loox to ${process.env.NEXT_PUBLIC_APP_NAME}. Stop paying per-order fees and eliminate the client-side widget. Reviews stored natively in Shopify Metaobjects, rendered server-side in Liquid, star ratings in Google.`,
+  title: "Loox Alternative for Shopify: Flat Pricing, No Data Lock-In",
+  description: `Stop paying per-order Loox fees. ${process.env.NEXT_PUBLIC_APP_NAME} stores reviews inside Shopify — not Loox's servers — so your data is yours. Flat pricing, faster pages, star ratings in Google.`,
   alternates: {
     canonical: "/loox-alternative",
   },

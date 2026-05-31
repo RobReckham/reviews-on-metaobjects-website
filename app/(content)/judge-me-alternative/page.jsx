@@ -6,8 +6,8 @@ import Faqs from "../../../components/faqs"
 import DemoStore from "../../../components/demo-store"
 
 export const metadata = {
-  title: "Judge.me Alternative: Shopify Reviews via Metaobjects, No JavaScript Widget",
-  description: `Migrate from Judge.me to ${process.env.NEXT_PUBLIC_APP_NAME}. Keep all your reviews, eliminate the JavaScript widget, and store review data directly in Shopify Metaobjects - server-side rendering, better Lighthouse scores, star ratings in Google.`,
+  title: "Judge.me Alternative for Shopify: Keep Your Reviews, Own Your Data",
+  description: `Keep all your reviews when you switch. ${process.env.NEXT_PUBLIC_APP_NAME} stores them inside Shopify — not on Judge.me's servers — so you own the data permanently. Faster pages, stars in Google.`,
   alternates: {
     canonical: "/judge-me-alternative",
   },

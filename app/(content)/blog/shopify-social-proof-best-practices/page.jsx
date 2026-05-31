@@ -3,7 +3,7 @@ import { Section, ExternalLink, InternalLink, Callout, H2, H3, P, Ul, TableOfCon
 export const metadata = {
   title: "Shopify Social Proof Best Practices: The Complete Guide",
   shortTitle: "Shopify social proof best practices",
-  description: "The complete guide to social proof on Shopify stores - what to show on product pages, collection pages, the homepage, and landing pages to maximise conversions without slowing your store.",
+  description: "Which social proof elements work on product pages, collection pages, homepage, and landing pages — and how to implement each server-side without JavaScript slowing your store.",
   alternates: { canonical: "/blog/shopify-social-proof-best-practices" },
   openGraph: { type: "article", publishedTime: "2026-05-27" },
   slug: "shopify-social-proof-best-practices",

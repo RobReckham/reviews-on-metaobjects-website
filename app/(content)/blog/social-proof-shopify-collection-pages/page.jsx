@@ -1,9 +1,9 @@
 import { Section, ExternalLink, InternalLink, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor } from "../../../../components/blog"
 
 export const metadata = {
-  title: "Social Proof on Shopify Collection Pages: Best Practices for Higher Conversions",
+  title: "Social Proof on Shopify Collection Pages: Star Ratings That Convert",
   shortTitle: "Social proof on Shopify collection pages",
-  description: "How to add high-converting social proof to Shopify collection pages - star ratings on product cards, review counts, aggregate trust signals, and performance-safe implementation.",
+  description: "Star ratings on product cards increase collection-page clicks. Here's where to place them, how to aggregate scores across variants, and how to keep pages fast.",
   alternates: { canonical: "/blog/social-proof-shopify-collection-pages" },
   openGraph: { type: "article", publishedTime: "2026-05-27" },
   slug: "social-proof-shopify-collection-pages",

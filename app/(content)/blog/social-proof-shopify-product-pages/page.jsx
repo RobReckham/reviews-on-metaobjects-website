@@ -1,9 +1,9 @@
 import { Section, ExternalLink, InternalLink, Callout, H2, H3, P, Ul, Ol, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor } from "../../../../components/blog"
 
 export const metadata = {
-  title: "Social Proof on Shopify Product Pages: Best Practices for Higher Conversions",
+  title: "Social Proof on Shopify Product Pages: Placement Guide (A/B Test Data)",
   shortTitle: "Social proof on Shopify product pages",
-  description: "Where to place high-converting social proof on Shopify product pages - star ratings, live signals, variant display, structured data for Google and AI. Based on dozens of A/B tests on large Shopify stores.",
+  description: "Based on A/B tests on large Shopify stores — where to place star ratings, review counts, and live signals on product pages, including structured data Google can read.",
   alternates: { canonical: "/blog/social-proof-shopify-product-pages" },
   openGraph: { type: "article", publishedTime: "2026-05-27" },
   slug: "social-proof-shopify-product-pages",

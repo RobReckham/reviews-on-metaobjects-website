@@ -3,7 +3,7 @@ import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul,
 export const metadata = {
   title: "How Shopify Product Reviews Work: Metaobjects, Liquid Rendering, and SEO",
   shortTitle: "How Shopify product reviews work",
-  description: "A technical deep-dive into Shopify's standard product review Metaobject - server-side Liquid rendering, Core Web Vitals, JSON-LD structured data, and data ownership explained.",
+  description: "Most review apps load via JavaScript — slowing your store and hiding reviews from Google. Here's how Shopify's Metaobject architecture solves both.",
   alternates: { canonical: "/blog/how-shopify-product-reviews-work" },
   openGraph: { type: "article", publishedTime: "2026-05-01" },
   slug: "how-shopify-product-reviews-work",

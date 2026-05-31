@@ -1,7 +1,7 @@
 import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor } from "../../../../components/blog"
 
 export const metadata = {
-  title: "Can Shopify Display Product Reviews Natively Without a Third-Party App?",
+  title: "Shopify Native Product Reviews: What Actually Ships Built-In",
   shortTitle: "Shopify native product reviews",
   description: "Shopify deprecated its built-in Product Reviews app in 2023. Here's what actually ships natively today, what still requires an app, and what 'native' really means for review storage.",
   alternates: { canonical: "/blog/shopify-native-product-reviews" },
