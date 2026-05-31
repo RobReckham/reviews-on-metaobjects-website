@@ -314,6 +314,7 @@ export default function RealCostShopifyReviewAppsPage() {
             <div><InternalLink href="/blog/review-app-slowing-shopify-store">How to measure your review app's performance cost →</InternalLink></div>
             <div><InternalLink href="/blog/shopify-review-stars-not-showing-google">Fix missing review stars in Google →</InternalLink></div>
             <div><InternalLink href="/blog/how-shopify-product-reviews-work">How Shopify Metaobject reviews work →</InternalLink></div>
+            <div><InternalLink href="/blog/shopify-social-proof-best-practices">Shopify social proof best practices →</InternalLink></div>
             <div><InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink></div>
             <div><ExternalLink href="https://reviewsonmetaobjects.myshopify.com/products/the-complete-snowboard">Demo store - see it live (password: demo) →</ExternalLink></div>
           </div>

@@ -620,6 +620,8 @@ query {
           <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3 mt-5">Related articles</p>
           <div className="space-y-1.5 text-sm">
             <div><InternalLink href="/docs">Read the app documentation →</InternalLink></div>
+            <div><InternalLink href="/blog/shopify-social-proof-best-practices">Shopify social proof best practices →</InternalLink></div>
+            <div><InternalLink href="/blog/social-proof-shopify-product-pages">Social proof on Shopify product pages →</InternalLink></div>
             <div><InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink></div>
             <div><ExternalLink href="https://reviewsonmetaobjects.myshopify.com/products/the-complete-snowboard">Demo store - see it live (password: demo) →</ExternalLink></div>
           </div>

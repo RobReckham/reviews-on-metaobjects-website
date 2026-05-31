@@ -422,6 +422,8 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
           <div className="space-y-1.5 text-sm">
             <div><InternalLink href="/blog/how-shopify-product-reviews-work">How Shopify product reviews work →</InternalLink></div>
             <div><InternalLink href="/blog/shopify-liquid-json-ld-structured-data">Full JSON-LD guide for Shopify →</InternalLink></div>
+            <div><InternalLink href="/blog/shopify-social-proof-best-practices">Shopify social proof best practices →</InternalLink></div>
+            <div><InternalLink href="/blog/social-proof-shopify-product-pages">Social proof on Shopify product pages →</InternalLink></div>
             <div><InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink></div>
             <div><ExternalLink href="https://reviewsonmetaobjects.myshopify.com/products/the-complete-snowboard">Demo store - test structured data live (password: demo) →</ExternalLink></div>
           </div>
