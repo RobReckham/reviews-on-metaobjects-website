@@ -8,7 +8,7 @@ import DemoStore from "../../../components/demo-store"
 
 export const metadata = {
   title: "Loox Alternative for Shopify: Flat Pricing, No Data Lock-In",
-  description: `Stop paying per-order Loox fees. ${process.env.NEXT_PUBLIC_APP_NAME} stores reviews inside Shopify — not Loox's servers — so your data is yours. Flat pricing, faster pages, star ratings in Google.`,
+  description: `Stop paying per-order Loox fees. ${process.env.NEXT_PUBLIC_APP_NAME} stores reviews inside Shopify - not Loox's servers - so your data is yours. Flat pricing, faster pages, star ratings in Google.`,
   alternates: {
     canonical: "/loox-alternative",
   },

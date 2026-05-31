@@ -7,7 +7,7 @@ import DemoStore from "../../../components/demo-store"
 
 export const metadata = {
   title: "Judge.me Alternative for Shopify: Keep Your Reviews, Own Your Data",
-  description: `Keep all your reviews when you switch. ${process.env.NEXT_PUBLIC_APP_NAME} stores them inside Shopify — not on Judge.me's servers — so you own the data permanently. Faster pages, stars in Google.`,
+  description: `Keep all your reviews when you switch. ${process.env.NEXT_PUBLIC_APP_NAME} stores them inside Shopify - not on Judge.me's servers - so you own the data permanently. Faster pages, stars in Google.`,
   alternates: {
     canonical: "/judge-me-alternative",
   },

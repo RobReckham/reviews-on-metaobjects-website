@@ -288,7 +288,7 @@ export default function SocialProofShopifyLandingPagesPage() {
           <ExternalLink href="https://shopify.dev/docs/apps/build/metaobjects/standard-review-metaobject">
             Shopify Metaobjects
           </ExternalLink>{" "}
-          and syncs the aggregate back to product Metafields — most review apps do neither, so you end
+          and syncs the aggregate back to product Metafields - most review apps do neither, so you end
           up copy-pasting quotes into static text fields that go stale.
         </P>
         <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} stores reviews as Shopify Metaobjects and syncs the aggregate back to product Metafields - testimonial and trust bar App Blocks let you pick reviews and publish from the theme editor.`} />

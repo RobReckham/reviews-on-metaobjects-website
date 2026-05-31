@@ -62,15 +62,15 @@ export default function SocialProofShopifyProductPagesPage() {
         <H2 id="why-pdp-matters">1. Why the product page is your highest-stakes page</H2>
         <P>
           Collection pages influence browsing; the product page is where the final decision happens. A visitor
-          here has expressed intent — they are evaluating whether to buy. Social proof short-circuits the
+          here has expressed intent - they are evaluating whether to buy. Social proof short-circuits the
           uncertainty: a product with 200 reviews and a 4.6-star average answers "is this actually good?" faster
           than any copy. Products with reviews convert 3–4× better than those without, and the effect is
           strongest on higher-priced items where perceived purchase risk is highest.
         </P>
         <P>
           Social proof on the product page works as a two-step persuasion pattern, not a single signal. The
-          star rating above the fold is the hook — it reduces exit intent immediately. The review list below
-          the fold is the closer — it gives the engaged, high-intent visitor the detail they need to commit.
+          star rating above the fold is the hook - it reduces exit intent immediately. The review list below
+          the fold is the closer - it gives the engaged, high-intent visitor the detail they need to commit.
           Treating them as independent placements misses this dynamic. The above-fold rating should always
           anchor-link to the review list below, making the two work as a single conversion unit.
         </P>
@@ -85,7 +85,7 @@ export default function SocialProofShopifyProductPagesPage() {
       <Section className="bg-gray-50" id="above-fold">
         <H2 id="above-fold">2. Above-the-fold social proof: ratings, counts, and live signals</H2>
         <P>
-          The highest-impact placement is a compact star rating widget directly beneath or even above the product title —
+          The highest-impact placement is a compact star rating widget directly beneath or even above the product title -
           above the fold, before the add-to-cart button. It should show a visual star graphic, the numeric
           rating to one decimal place, and the review count as a clickable anchor link to the review list.
         </P>
@@ -95,29 +95,29 @@ export default function SocialProofShopifyProductPagesPage() {
         </P>
         <Ol>
           <li>
-            <strong>"X purchased in the last 24 hours"</strong> — a real-time purchase counter. This is urgency
+            <strong>"X purchased in the last 24 hours"</strong> - a real-time purchase counter. This is urgency
             and social proof combined: it tells the visitor the product is actively selling right now, to real
             people, today. In our A/B testing on large Shopify stores this consistently outperforms static
-            signals near the CTA. It works best for products with meaningful daily velocity — on slow-moving
+            signals near the CTA. It works best for products with meaningful daily velocity - on slow-moving
             SKUs it can backfire if the number is low.
           </li>
           <li>
-            <strong>"2,400+ verified buyers"</strong> — a verified purchase count badge beneath the rating.
+            <strong>"2,400+ verified buyers"</strong> - a verified purchase count badge beneath the rating.
             Distinct from the review count: a product can have 2,400 verified purchases but only 180 reviews.
             The purchase count is a stronger volume signal.
           </li>
           <li>
-            <strong>"X people are viewing this right now"</strong> — a softer live signal, works well for
+            <strong>"X people are viewing this right now"</strong> - a softer live signal, works well for
             limited-inventory or high-demand products. Less credible on commodities.
           </li>
         </Ol>
         <P>
-          {process.env.NEXT_PUBLIC_APP_NAME} ships App Blocks for signals #1 and #2 out of the box — drop them
+          {process.env.NEXT_PUBLIC_APP_NAME} ships App Blocks for signals #1 and #2 out of the box - drop them
           into any theme from the theme editor. Both blocks include a minimum threshold setting, so the
           counter only appears once it reaches a number you consider meaningful.
         </P>
         <Callout>
-          On mobile — where the majority of Shopify traffic arrives — above-the-fold space is more constrained.
+          On mobile - where the majority of Shopify traffic arrives - above-the-fold space is more constrained.
           The rating widget should be a single compact line: "★★★★☆ 4.7 (143 reviews)". Multi-line rating
           displays push the price and add-to-cart button below the fold. Live signals like the purchase counter
           should sit between the price and the CTA button, where they are in the thumb zone and seen before the
@@ -126,7 +126,7 @@ export default function SocialProofShopifyProductPagesPage() {
         </Callout>
         <P>
           Keep the star widget to 16–20px. Gold/amber is the established convention shoppers process without
-          thinking, but your theme's primary color works well too — design consistency with the rest of the
+          thinking, but your theme's primary color works well too - design consistency with the rest of the
           page can outweigh the convention benefit, as long as the color has sufficient contrast and reads
           clearly at small sizes. What doesn't work: colors with low contrast on white (light yellow, pale
           orange) or colors that read as neutral rather than positive (grey, muted blue).
@@ -145,12 +145,12 @@ export default function SocialProofShopifyProductPagesPage() {
         <P>
           The count matters as much as the rating.{" "}
           <ExternalLink href="https://baymard.com/blog/user-perception-of-product-ratings">Baymard</ExternalLink>{" "}
-          found users need both to trust a score — a 4.9 from 3 reviews reads as unverified, not impressive.
+          found users need both to trust a score - a 4.9 from 3 reviews reads as unverified, not impressive.
           How you handle each count range matters:
         </P>
         <Ul>
-          <li><strong>No reviews, section hidden:</strong> neutral — product reads as new or unproven. Acceptable for new SKUs.</li>
-          <li><strong>Section visible, zero reviews:</strong> keep the section — a "Be the first to review" CTA with the submission form is how you get the first review. An empty section with no CTA is wasted space.</li>
+          <li><strong>No reviews, section hidden:</strong> neutral - product reads as new or unproven. Acceptable for new SKUs.</li>
+          <li><strong>Section visible, zero reviews:</strong> keep the section - a "Be the first to review" CTA with the submission form is how you get the first review. An empty section with no CTA is wasted space.</li>
           <li><strong>1–9 reviews:</strong> negligible CVR lift above the fold; hide the count in the rating widget, but show the review cards below. The content is useful even if the count isn't compelling.</li>
           <li><strong>10–19 reviews:</strong> modest signal; worth showing the count above the fold.</li>
           <li><strong>20–99 reviews:</strong> solid social proof for most categories.</li>
@@ -159,7 +159,7 @@ export default function SocialProofShopifyProductPagesPage() {
         </Ul>
         <P>
           The practical priority is getting every product to 10+ reviews as fast as possible. The fastest
-          reliable method is a post-purchase email — see{" "}
+          reliable method is a post-purchase email - see{" "}
           <InternalLink href="/docs/collecting-reviews/post-purchase-email">setting up a post-purchase review request</InternalLink>.
         </P>
       </Section>
@@ -169,7 +169,7 @@ export default function SocialProofShopifyProductPagesPage() {
         <H2 id="star-scale">4. Rating scale: 5 stars, 10 points, or something else?</H2>
         <P>
           Amazon, Google Shopping, Trustpilot, Yelp, and virtually every major e-commerce platform converge
-          on the same scale: 5 stars. That convergence is not accidental — it is the result of decades of
+          on the same scale: 5 stars. That convergence is not accidental - it is the result of decades of
           UX research and A/B testing at scale. Shoppers have a deeply internalized reference for what
           4.6 out of 5 means; they have no equivalent calibration for 7.8 out of 10 or a four-paw icon.
         </P>
@@ -177,10 +177,10 @@ export default function SocialProofShopifyProductPagesPage() {
           Alternative scales each fail in a specific way:
         </P>
         <Ul>
-          <li><strong>10-point scales:</strong> seem more precise, but precision without calibration is meaningless — users have no mental model for what separates an 8.1 from an 8.4, so the extra granularity goes unused and the display takes more space</li>
+          <li><strong>10-point scales:</strong> seem more precise, but precision without calibration is meaningless - users have no mental model for what separates an 8.1 from an 8.4, so the extra granularity goes unused and the display takes more space</li>
           <li><strong>3-star scales:</strong> each step represents a third of the entire range, making subtle quality differences impossible to express; distribution data becomes nearly useless</li>
-          <li><strong>Thumbs up/down:</strong> removes relative quality entirely — there is no way to distinguish "works fine" from "genuinely excellent", which loses the nuance that drives purchase decisions</li>
-          <li><strong>Custom emoji or branded scales:</strong> add delight but break structured data compatibility — Google's <code className="bg-gray-200 px-1 rounded text-sm">AggregateRating</code> schema requires a numeric value on a standard scale, so you lose rich snippet eligibility</li>
+          <li><strong>Thumbs up/down:</strong> removes relative quality entirely - there is no way to distinguish "works fine" from "genuinely excellent", which loses the nuance that drives purchase decisions</li>
+          <li><strong>Custom emoji or branded scales:</strong> add delight but break structured data compatibility - Google's <code className="bg-gray-200 px-1 rounded text-sm">AggregateRating</code> schema requires a numeric value on a standard scale, so you lose rich snippet eligibility</li>
         </Ul>
       </Section>
 
@@ -202,7 +202,7 @@ export default function SocialProofShopifyProductPagesPage() {
         <Ul>
           <li>
             <strong>They make positive reviews credible.</strong> A mixed record makes all feedback feel
-            genuine — including the good.
+            genuine - including the good.
           </li>
           <li>
             <strong>They reduce returns and follow-on negative reviews.</strong> A buyer who read the
@@ -216,7 +216,7 @@ export default function SocialProofShopifyProductPagesPage() {
           </li>
         </Ul>
         <P>
-          Moderate for fake, off-topic, or offensive content — not for criticism. The correct tool for
+          Moderate for fake, off-topic, or offensive content - not for criticism. The correct tool for
           legitimate concerns is a public response, not removal.
         </P>
       </Section>
@@ -225,7 +225,7 @@ export default function SocialProofShopifyProductPagesPage() {
       <Section className="bg-gray-50" id="review-list">
         <H2 id="review-list">6. The review list: placement, depth, and content quality</H2>
         <P>
-          The review list belongs below the product description and specs — natural scanning flow is title →
+          The review list belongs below the product description and specs - natural scanning flow is title →
           price → description → specs → reviews. The list is the closer in the two-step persuasion pattern:
           it serves the visitor who has already been hooked by the rating and wants detail before committing.
         </P>
@@ -244,12 +244,12 @@ export default function SocialProofShopifyProductPagesPage() {
             <strong>Reviewer name and date on every card.</strong> Anonymous or undated reviews feel
             fabricated. The standard Shopify{" "}
             <code className="bg-gray-200 px-1 rounded text-sm">product_review</code> Metaobject stores
-            author, date, rating, body, verified status, and photo references — every field you need
+            author, date, rating, body, verified status, and photo references - every field you need
             for a complete review card is built into the data model.
           </li>
           <li>
             <strong>Sort options: most recent and most helpful.</strong> Most recent is the right default.
-            Most helpful serves the high-intent researcher who wants the longest, most detailed reviews —
+            Most helpful serves the high-intent researcher who wants the longest, most detailed reviews -
             a different but equally valuable visitor type.
           </li>
         </Ul>
@@ -257,20 +257,20 @@ export default function SocialProofShopifyProductPagesPage() {
         <H3>Content quality signals</H3>
         <P>
           Not all reviews are equal. A single detailed 200-word review with a photo is worth more for
-          conversion than ten "Great product!" one-liners. Consider surfacing a "top review" prominently —
-          pinned at the top or visually distinguished — if you have a standout review that answers the
+          conversion than ten "Great product!" one-liners. Consider surfacing a "top review" prominently -
+          pinned at the top or visually distinguished - if you have a standout review that answers the
           most common objections clearly. In our experience working on high-volume Shopify stores, this
           single change on product pages with many short reviews consistently improves time-on-page and
           add-to-cart rate.
         </P>
         <P>
           Length alone is not the only quality signal. Look for reviews that mention specific use cases,
-          compare to alternatives, or address common concerns. These are the reviews that convert — they
+          compare to alternatives, or address common concerns. These are the reviews that convert - they
           answer questions the product description doesn't.
         </P>
         <P>
-          Stars on individual review cards should be 20–24px — slightly larger than the above-fold widget
-          since each card has dedicated vertical space. Keep the same color as the above-fold widget —
+          Stars on individual review cards should be 20–24px - slightly larger than the above-fold widget
+          since each card has dedicated vertical space. Keep the same color as the above-fold widget -
           whether that's gold/amber or your theme's primary color. Inconsistent star colors between
           placements undermine visual coherence more than the color choice itself.
         </P>
@@ -280,7 +280,7 @@ export default function SocialProofShopifyProductPagesPage() {
       <Section id="photo-reviews">
         <H2 id="photo-reviews">7. Photo and video reviews</H2>
         <P>
-          Photo reviews outperform text-only reviews in visual and tactile categories — apparel, furniture,
+          Photo reviews outperform text-only reviews in visual and tactile categories - apparel, furniture,
           beauty, homewares, outdoor gear. A customer photo of the product in a real setting beats any studio
           shot for believability because it cannot be produced by the brand.
         </P>
@@ -291,7 +291,7 @@ export default function SocialProofShopifyProductPagesPage() {
             filtering, and search controls but above the first review card. This keeps UGC inside the social
             proof context where a visitor is already in evaluation mode, and avoids the theme integration
             complexity of injecting a strip into the product image gallery area.
-            On mobile it maps directly to familiar social media scroll behaviour — a swipeable row of square
+            On mobile it maps directly to familiar social media scroll behaviour - a swipeable row of square
             thumbnails that requires minimal vertical space.
           </li>
           <li>
@@ -307,10 +307,10 @@ export default function SocialProofShopifyProductPagesPage() {
         <P>
           All review photos must be lazy-loaded. Use{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">loading="lazy"</code> on every review{" "}
-          <code className="bg-gray-200 px-1 rounded text-sm">&lt;img&gt;</code> tag — eager-loading all customer
+          <code className="bg-gray-200 px-1 rounded text-sm">&lt;img&gt;</code> tag - eager-loading all customer
           images on page open would severely damage LCP, particularly on mobile connections.
         </P>
-        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} stores review photos as Shopify file references inside the product_review Metaobject — served via Shopify's CDN, no external image host.`} />
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} stores review photos as Shopify file references inside the product_review Metaobject - served via Shopify's CDN, no external image host.`} />
       </Section>
 
       {/* 8 */}
@@ -318,15 +318,15 @@ export default function SocialProofShopifyProductPagesPage() {
         <H2 id="recency-decay">8. Recency decay and the trust timeline</H2>
         <P>
           A product with 300 reviews, all from 2022, reads differently from one with 30 reviews from the
-          last three months. Review recency decays — older reviews signal that a product was good, not that
+          last three months. Review recency decays - older reviews signal that a product was good, not that
           it is good. This matters especially in categories where products are updated (electronics, apparel,
           supplements) or where customer experience can change (service-dependent businesses, subscription
           products).
         </P>
         <P>
           Shoppers pick up on this. A product page where every review is two or three years old raises a
-          quiet concern: has something changed? Did people stop buying it? Showing dates prominently — not
-          buried — is important precisely because recency is a trust signal in its own right.
+          quiet concern: has something changed? Did people stop buying it? Showing dates prominently - not
+          buried - is important precisely because recency is a trust signal in its own right.
         </P>
         <P>
           Two features address this well:
@@ -339,7 +339,7 @@ export default function SocialProofShopifyProductPagesPage() {
           <li>
             <strong>A rating-over-time graph.</strong>{" "}
             {process.env.NEXT_PUBLIC_APP_NAME} shows a graph of average rating and review count over time
-            directly in the review section. This is unusually transparent — and that transparency builds
+            directly in the review section. This is unusually transparent - and that transparency builds
             trust. A product whose rating has been consistently 4.6+ for two years reads as reliably good.
             A product whose rating improved from 3.8 to 4.7 tells a story of a brand that listened and
             improved. Both are compelling in different ways, and neither story can be told with a single
@@ -357,8 +357,8 @@ export default function SocialProofShopifyProductPagesPage() {
       <Section id="trusted-reviews">
         <H2 id="trusted-reviews">9. Verified buyers: why source credibility matters</H2>
         <P>
-          Not all review sources carry the same trust weight. A review from a verified buyer — someone whose
-          purchase is confirmed in the store's order history — is structurally more credible than an open
+          Not all review sources carry the same trust weight. A review from a verified buyer - someone whose
+          purchase is confirmed in the store's order history - is structurally more credible than an open
           submission. Shoppers know this intuitively: unverified reviews are easy to fabricate, verified
           ones are not.
         </P>
@@ -378,13 +378,13 @@ export default function SocialProofShopifyProductPagesPage() {
           <li>
             <strong>It signals platform integrity to the visitor.</strong> A store that gates reviews behind
             purchase verification is signalling that it doesn't pad its rating. That signal itself builds
-            trust — even with shoppers who never consciously notice the badge.
+            trust - even with shoppers who never consciously notice the badge.
           </li>
         </Ul>
         <P>
           How verification works depends on the review app. The most reliable approach is the post-purchase
           flow: the app sends a review request to the buyer's email after an order is fulfilled, and any review
-          submitted through that link is verified by definition — no email matching required at submission time.
+          submitted through that link is verified by definition - no email matching required at submission time.
           Public review forms, by contrast, cannot verify the reviewer since there is no order context to check against.
           Shopify's standard{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">product_review</code> Metaobject includes a{" "}
@@ -393,10 +393,10 @@ export default function SocialProofShopifyProductPagesPage() {
         <Callout>
           Consider whether to allow unverified reviews at all. Open submissions get you more volume but
           dilute trust signals. A smaller set of verified reviews typically converts better than a larger
-          set of mixed reviews — particularly for stores where trust is a primary purchase barrier (health,
+          set of mixed reviews - particularly for stores where trust is a primary purchase barrier (health,
           personal care, premium pricing).
         </Callout>
-        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} grants the verified badge exclusively through the post-purchase flow — reviews submitted via public form are never marked verified.`} />
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} grants the verified badge exclusively through the post-purchase flow - reviews submitted via public form are never marked verified.`} />
       </Section>
 
       {/* 10 */}
@@ -417,19 +417,19 @@ export default function SocialProofShopifyProductPagesPage() {
           <li>The brand is confident enough in its product to leave the critical review visible</li>
         </Ul>
         <P>
-          These are significant trust signals — arguably more persuasive than a dozen additional 5-star
+          These are significant trust signals - arguably more persuasive than a dozen additional 5-star
           reviews, because they demonstrate behaviour under pressure rather than just success.
         </P>
         <P>
           Practically: prioritise responding to 1, 2, and 3-star reviews that mention specific issues. Responses
-          to 5-star reviews are low-value at scale — a brief "Thanks!" on every positive review reads as
+          to 5-star reviews are low-value at scale - a brief "Thanks!" on every positive review reads as
           automated and adds no information. Respond where it matters.
         </P>
         <Callout>
           Responses should be written by a real person, not templated. Shoppers can tell. A template response
           to a specific complaint ("We're sorry to hear about your experience and have escalated this to our
           team") signals the opposite of care. A specific, factual response ("The sizing on this run changed
-          in our SS25 batch — we've updated the size guide to reflect this") is credible and useful.
+          in our SS25 batch - we've updated the size guide to reflect this") is credible and useful.
         </Callout>
       </Section>
 
@@ -437,7 +437,7 @@ export default function SocialProofShopifyProductPagesPage() {
       <Section id="variant-display">
         <H2 id="variant-display">11. Review display for product variants</H2>
         <P>
-          Most Shopify products have variants — size, colour, material, flavour. The question of which
+          Most Shopify products have variants - size, colour, material, flavour. The question of which
           reviews to show when a specific variant is selected is non-trivial and significantly underspecified
           in most review apps.
         </P>
@@ -446,7 +446,7 @@ export default function SocialProofShopifyProductPagesPage() {
           <li>
             <strong>Show all reviews for all variants (pooled).</strong> Maximises review count and social
             proof volume. The risk: a red version may have consistent quality issues while the blue is
-            flawless — pooled reviews obscure this. A shopper selecting the red variant sees a 4.6 average
+            flawless - pooled reviews obscure this. A shopper selecting the red variant sees a 4.6 average
             that doesn't reflect their choice.
           </li>
           <li>
@@ -487,7 +487,7 @@ export default function SocialProofShopifyProductPagesPage() {
         <Ul>
           <li>
             <strong>Below the review list, always visible.</strong> Good for stores actively trying to
-            grow review volume — the form is reachable without any friction for anyone who has just read
+            grow review volume - the form is reachable without any friction for anyone who has just read
             reviews and is motivated to write one.
           </li>
           <li>
@@ -497,7 +497,7 @@ export default function SocialProofShopifyProductPagesPage() {
           </li>
         </Ul>
         <P>
-          On mobile, modals are preferable to inline expansion — an inline form expanding in the middle
+          On mobile, modals are preferable to inline expansion - an inline form expanding in the middle
           of the review list causes a jarring layout shift and pushes existing content far down the page.
           A bottom-sheet modal keeps the context clear and the form keyboard-accessible.
         </P>
@@ -509,7 +509,7 @@ export default function SocialProofShopifyProductPagesPage() {
         </P>
         <Ul>
           <li><strong>Minimum viable form:</strong> star rating + body text. Lowest friction, highest submission rate. Good for stores focused on volume.</li>
-          <li><strong>Standard form:</strong> star rating + title + body + name. The title field produces better content — reviewers tend to lead with their key point when asked for a headline.</li>
+          <li><strong>Standard form:</strong> star rating + title + body + name. The title field produces better content - reviewers tend to lead with their key point when asked for a headline.</li>
           <li><strong>Rich form:</strong> all of the above + photo upload + "Would you recommend this?" The photo prompt alone meaningfully increases UGC photo rate without adding cognitive load.</li>
         </Ul>
         <Callout>
@@ -518,7 +518,7 @@ export default function SocialProofShopifyProductPagesPage() {
           optional secondary fields or introduce it only after the core rating + text is submitted.
         </Callout>
         <P>
-          The star input on the form should be the largest on the page — 28–36px, fully interactive with
+          The star input on the form should be the largest on the page - 28–36px, fully interactive with
           clear hover and tap states. It's the first thing a reviewer touches; making it visually prominent
           and easy to hit reduces abandonment. Include an accessible label with the numeric value for screen
           readers.
@@ -529,28 +529,28 @@ export default function SocialProofShopifyProductPagesPage() {
       <Section id="incentivising-reviews">
         <H2 id="incentivising-reviews">13. Incentivising customers to leave reviews</H2>
         <P>
-          A discount on the next order is the most common incentive — and it works. Whether it's worth
+          A discount on the next order is the most common incentive - and it works. Whether it's worth
           the margin cost depends on how valuable early review volume is to your store. A few things to know:
         </P>
         <Ul>
           <li>
             <strong>Incentivise submissions, not ratings.</strong> Tying a reward to a 5-star rating
             specifically violates Google's guidelines and FTC endorsement rules. A general "leave any
-            honest review, get 10% off" is a different category — the incentive is for writing a review,
+            honest review, get 10% off" is a different category - the incentive is for writing a review,
             not for writing a positive one.
           </li>
           <li>
             <strong>Incentives attract low-quality reviews.</strong> "Great product!" submitted to collect a
-            10% code is common. If you incentivise, do it selectively — reward photo or video reviews only,
+            10% code is common. If you incentivise, do it selectively - reward photo or video reviews only,
             which pushes submitters toward higher-effort, higher-value content.
           </li>
           <li>
             <strong>Timing matters as much as incentive size.</strong> A review request sent 3–5 days after
-            confirmed delivery — when the experience is fresh — outperforms a larger discount offered at the
+            confirmed delivery - when the experience is fresh - outperforms a larger discount offered at the
             wrong moment.
           </li>
         </Ul>
-        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} sends post-purchase review requests with configurable timing and supports discount code delivery for photo reviews — without touching your theme or requiring a separate email platform.`} />
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} sends post-purchase review requests with configurable timing and supports discount code delivery for photo reviews - without touching your theme or requiring a separate email platform.`} />
       </Section>
 
       {/* 14 */}
@@ -577,12 +577,12 @@ export default function SocialProofShopifyProductPagesPage() {
           <ExternalLink href="https://schema.org/AggregateRating">
             <code>schema.org/AggregateRating</code>
           </ExternalLink>{" "}
-          markup in the page's HTML — separate from the visual stars on your page. Generating this
+          markup in the page's HTML - separate from the visual stars on your page. Generating this
           correctly requires both steps: individual reviews stored as{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">product_review</code> Metaobjects <em>and</em>{" "}
           the aggregate synced back to the{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">reviews.rating</code> Metafield on the product.
-          Most review apps do neither — they keep reviews on external servers and inject structured
+          Most review apps do neither - they keep reviews on external servers and inject structured
           data via JavaScript, which means it never makes it into the initial HTML.
         </P>
         <P>
@@ -600,7 +600,7 @@ export default function SocialProofShopifyProductPagesPage() {
         </P>
         <Ul>
           <li>
-            <strong>The page must be about a single, specific product</strong> — not a category, collection,
+            <strong>The page must be about a single, specific product</strong> - not a category, collection,
             or brand page. <code className="bg-gray-200 px-1 rounded text-sm">AggregateRating</code> on a collection page
             will be ignored.
           </li>
@@ -628,7 +628,7 @@ export default function SocialProofShopifyProductPagesPage() {
         <H3>GEO: structured data for AI search (ChatGPT, Perplexity, Gemini)</H3>
         <P>
           Generative Engine Optimisation (GEO) is the emerging practice of making content accessible and
-          credible to AI-powered search engines — ChatGPT, Perplexity, Google's AI Overviews, and Gemini.
+          credible to AI-powered search engines - ChatGPT, Perplexity, Google's AI Overviews, and Gemini.
           These systems are increasingly used for product research, and they are beginning to surface product
           recommendations with review data.
         </P>
@@ -676,7 +676,7 @@ export default function SocialProofShopifyProductPagesPage() {
           </li>
           <li>
             <strong>No reserved space for review content.</strong> A widget injecting unknown-height content
-            after initial paint is a direct CLS hit — one of the most common CLS sources we see in Lighthouse
+            after initial paint is a direct CLS hit - one of the most common CLS sources we see in Lighthouse
             audits on Shopify stores.
           </li>
         </Ul>
@@ -709,7 +709,7 @@ export default function SocialProofShopifyProductPagesPage() {
         </Ul>
         <P>
           Drag, drop, set your minimum review count threshold, publish. No theme code edits. This requires
-          an app that does both steps — stores{" "}
+          an app that does both steps - stores{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">product_review</code> Metaobjects <em>and</em>{" "}
           syncs the aggregate back to the product Metafields. Most review apps do neither. When both steps
           are in place, structured data, native filtering, Liquid rendering, and GEO visibility all work
@@ -727,7 +727,7 @@ export default function SocialProofShopifyProductPagesPage() {
         <H2 id="ab-testing">18. A/B testing: what's worth testing</H2>
         <P>
           Most social proof decisions are made once and never revisited. These are the elements we have seen
-          generate meaningful CVR differences in A/B tests on large Shopify stores — worth running if your
+          generate meaningful CVR differences in A/B tests on large Shopify stores - worth running if your
           traffic supports testing (roughly 1,000+ product page visits per week per variant):
         </P>
         <Ul>
@@ -748,13 +748,13 @@ export default function SocialProofShopifyProductPagesPage() {
           </li>
           <li>
             <strong>Star rating size and weight.</strong> Larger, bolder star displays in the above-fold
-            position. Subtle improvements to a visually weak rating widget are worth testing — the widget
+            position. Subtle improvements to a visually weak rating widget are worth testing - the widget
             is doing conversion work, not just decorating the page.
           </li>
           <li>
             <strong>Live purchase signal placement.</strong> Test "23 purchased in the last 24 hours" above
             vs. below the add-to-cart button, and with vs. without the purchase counter entirely. Results
-            vary significantly by product velocity — this signal is net-negative on slow-moving SKUs.
+            vary significantly by product velocity - this signal is net-negative on slow-moving SKUs.
           </li>
           <li>
             <strong>Pinned "top review".</strong> A manually or algorithmically surfaced top review at the
@@ -775,7 +775,7 @@ export default function SocialProofShopifyProductPagesPage() {
             <div><ExternalLink href="https://developers.google.com/search/docs/appearance/structured-data/product">Google Product structured data documentation</ExternalLink></div>
             <div><ExternalLink href="https://baymard.com/blog/user-perception-of-product-ratings">Baymard: user perception of product ratings</ExternalLink></div>
             <div><ExternalLink href="https://spiegel.medill.northwestern.edu/wp-content/uploads/sites/2/2021/04/Spiegel_Online-Review_eBook_Jun2017_FINAL.pdf">Spiegel Research Center: online reviews and purchase likelihood</ExternalLink></div>
-            <div><ExternalLink href="https://web.dev/articles/lcp">Largest Contentful Paint — web.dev</ExternalLink></div>
+            <div><ExternalLink href="https://web.dev/articles/lcp">Largest Contentful Paint - web.dev</ExternalLink></div>
             <div><ExternalLink href="https://shopify.dev/docs/storefronts/themes/architecture/blocks/app-blocks">Shopify App Blocks documentation</ExternalLink></div>
           </div>
           <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3 mt-5">Related articles</p>

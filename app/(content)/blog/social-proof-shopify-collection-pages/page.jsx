@@ -35,7 +35,7 @@ export default function SocialProofShopifyCollectionPagesPage() {
           </h1>
           <P>
             Collection pages are where shoppers browse and compare. Star ratings and review counts on product
-            cards increase click-through to the product page — and for products with strong scores, they are
+            cards increase click-through to the product page - and for products with strong scores, they are
             the decisive signal that makes a shopper click yours over a competitor's. This guide covers what
             to show, where to place it, and how to implement it without damaging page performance.
           </P>
@@ -51,13 +51,13 @@ export default function SocialProofShopifyCollectionPagesPage() {
         <P>
           Collection pages sit between discovery and decision. A shopper browsing "men's running shoes" is
           comparing 20–40 products simultaneously, making rapid parallel judgements about which ones deserve
-          a closer look. Social proof here does not close sales — it influences <em>clicks</em>. The
+          a closer look. Social proof here does not close sales - it influences <em>clicks</em>. The
           conversion you are optimising for is the click-through to the product page, where the full review
           content does the rest.
         </P>
         <P>
           This means collection page social proof must be compact, immediately scannable, and zero friction.
-          A rating and count — "★★★★☆ 4.6 (312)" — tells the shopper everything they need at this stage.
+          A rating and count - "★★★★☆ 4.6 (312)" - tells the shopper everything they need at this stage.
           Anything that requires them to stop and read is friction, not trust.
         </P>
       </Section>
@@ -81,8 +81,8 @@ export default function SocialProofShopifyCollectionPagesPage() {
         <H2 id="review-count-on-cards">3. Review count on product cards</H2>
         <P>
           The count matters as much as the rating. A product with 4.7 stars and 1 review is far less
-          convincing than one with 4.4 stars and 380 reviews. Display it in parentheses after the rating —
-          "4.6 (312)" — the pattern shoppers recognise from Amazon and Google Shopping. For counts above
+          convincing than one with 4.4 stars and 380 reviews. Display it in parentheses after the rating -
+          "4.6 (312)" - the pattern shoppers recognise from Amazon and Google Shopping. For counts above
           999, abbreviate ("1.2k"); below that, the exact number adds credibility.
         </P>
       </Section>
@@ -136,7 +136,7 @@ export default function SocialProofShopifyCollectionPagesPage() {
           ratings appear. Only an app that stores reviews as Metaobjects and syncs the aggregate back
           to product Metafields can render ratings in the initial HTML load with the rest of the page.
         </P>
-        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} stores reviews as Shopify Metaobjects and syncs the aggregate back to reviews.rating and reviews.rating_count on every product — collection page ratings load in the initial HTML, no widget needed.`} />
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} stores reviews as Shopify Metaobjects and syncs the aggregate back to reviews.rating and reviews.rating_count on every product - collection page ratings load in the initial HTML, no widget needed.`} />
       </Section>
 
       <Section id="performance-considerations">
@@ -146,7 +146,7 @@ export default function SocialProofShopifyCollectionPagesPage() {
           page for paid campaigns. The specific risk is <strong>per-card JavaScript widgets</strong>: some
           review apps render a separate widget per product card, each triggering its own external API
           request. On a 24-product collection, that is up to 24 separate round-trips to the review app's
-          servers before the page is fully rendered — a direct hit to LCP, INP, and ad spend efficiency.
+          servers before the page is fully rendered - a direct hit to LCP, INP, and ad spend efficiency.
         </P>
         <P>
           The Metafield-based Liquid approach in section 6 eliminates this entirely: one server-side pass,
@@ -170,7 +170,7 @@ export default function SocialProofShopifyCollectionPagesPage() {
           </ExternalLink>
           ) supports filtering by Metafield values. This only works if the{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">reviews.rating</code> Metafield actually
-          exists on each product — which requires an app that stores reviews as{" "}
+          exists on each product - which requires an app that stores reviews as{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">product_review</code> Metaobjects and syncs
           the aggregate back to the product. Most review apps do neither, so the Metafield is never
           populated and native filtering is not possible.

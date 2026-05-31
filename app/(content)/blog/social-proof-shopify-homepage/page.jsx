@@ -51,14 +51,14 @@ export default function SocialProofShopifyHomepagePage() {
       <Section id="homepage-conversion-goal">
         <H2 id="homepage-conversion-goal">1. What the homepage is actually for</H2>
         <P>
-          The homepage conversion goal is not "add to cart" — it is "keep browsing." A homepage visitor
+          The homepage conversion goal is not "add to cart" - it is "keep browsing." A homepage visitor
           needs to answer two questions fast: <em>Is this brand legitimate?</em> and{" "}
           <em>Is this worth my time?</em> Social proof answers the first.
         </P>
         <P>
           This shapes what to show: brand-level signals, not product-level ones. Aggregate counts ("4,800
           five-star reviews"), editorial pull-quotes, and customer photo galleries build trust in the store
-          as a whole. Individual product ratings belong on product cards in featured sections — not as the
+          as a whole. Individual product ratings belong on product cards in featured sections - not as the
           dominant homepage signal.
         </P>
       </Section>
@@ -78,7 +78,7 @@ export default function SocialProofShopifyHomepagePage() {
           <li>Optional: platform logos (Google, Trustpilot, Shop) next to the rating</li>
         </Ul>
         <Callout>
-          Keep it single-line and visually lightweight — it should reinforce the hero, not compete with it.
+          Keep it single-line and visually lightweight - it should reinforce the hero, not compete with it.
           On mobile, "★ 4.7 · 4,800+ reviews" takes minimal space and still carries significant weight.
         </Callout>
         <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} keeps your store-level review count and average rating updated automatically - your trust bar stays current without manual edits.`} />
@@ -88,8 +88,8 @@ export default function SocialProofShopifyHomepagePage() {
         <H2 id="review-highlights-section">3. A review highlights section</H2>
         <P>
           3–5 curated pull-quotes is among the most persuasive homepage elements available. Unlike aggregate
-          statistics, individual testimonials tell a story. A real sentence from a real customer — with
-          their name, product, and star rating — is more convincing than any marketing copy.
+          statistics, individual testimonials tell a story. A real sentence from a real customer - with
+          their name, product, and star rating - is more convincing than any marketing copy.
         </P>
         <Ul>
           <li>
@@ -109,7 +109,7 @@ export default function SocialProofShopifyHomepagePage() {
           </li>
         </Ul>
         <P>
-          Pick reviews manually from your review app's admin — or, if your app stores reviews as Shopify
+          Pick reviews manually from your review app's admin - or, if your app stores reviews as Shopify
           Metaobjects and syncs them back to your store, select specific reviews directly from the theme
           editor block settings. Most review apps do neither, so manual curation from the admin is the
           fallback. Do not auto-pull the latest five - curation quality matters more than freshness on
@@ -136,15 +136,15 @@ export default function SocialProofShopifyHomepagePage() {
       <Section id="ugc-carousel">
         <H2 id="ugc-carousel">5. UGC photo carousels</H2>
         <P>
-          For brands where appearance matters — apparel, homeware, beauty, food — a customer photo gallery
+          For brands where appearance matters - apparel, homeware, beauty, food - a customer photo gallery
           is one of the most persuasive homepage elements. Authentic, unpolished images show products in
           real settings with real people, which studio photography cannot replicate.
         </P>
         <Ul>
-          <li><strong>Horizontal scroll of customer images</strong> — familiar social-media pattern, works naturally on desktop and mobile.</li>
-          <li><strong>Link each photo to the reviewed product</strong> — a tapped photo leading directly to the product page combines inspiration with conversion.</li>
-          <li><strong>Caption or star rating on each image</strong> — context turns a gallery into a trust signal.</li>
-          <li><strong>Lazy-load all images</strong> — photo carousels are a common LCP killer. Every image outside the initial viewport must use <code className="bg-gray-200 px-1 rounded text-sm">loading="lazy"</code>.</li>
+          <li><strong>Horizontal scroll of customer images</strong> - familiar social-media pattern, works naturally on desktop and mobile.</li>
+          <li><strong>Link each photo to the reviewed product</strong> - a tapped photo leading directly to the product page combines inspiration with conversion.</li>
+          <li><strong>Caption or star rating on each image</strong> - context turns a gallery into a trust signal.</li>
+          <li><strong>Lazy-load all images</strong> - photo carousels are a common LCP killer. Every image outside the initial viewport must use <code className="bg-gray-200 px-1 rounded text-sm">loading="lazy"</code>.</li>
         </Ul>
         <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} stores review photos as Shopify file references inside the product_review Metaobject, served via Shopify's global CDN.`} />
       </Section>
@@ -153,13 +153,13 @@ export default function SocialProofShopifyHomepagePage() {
         <H2 id="press-and-third-party">6. Press mentions and third-party endorsements</H2>
         <P>
           Social proof extends beyond customer reviews. An "as featured in" logo strip is one of the
-          lowest-effort, highest-credibility additions for any brand with editorial coverage — even a
+          lowest-effort, highest-credibility additions for any brand with editorial coverage - even a
           single mention in a publication your customers recognise is worth displaying. Used alongside
           review data, press logos and platform badges (Google Customer Reviews, Trustpilot) reinforce
           credibility from multiple independent sources.
         </P>
         <Callout>
-          These signals belong at the top of the page — in the trust bar or directly below the hero —
+          These signals belong at the top of the page - in the trust bar or directly below the hero -
           not buried in the footer. If they exist, they should intercept the visitor early.
         </Callout>
       </Section>
@@ -196,7 +196,7 @@ export default function SocialProofShopifyHomepagePage() {
           <ExternalLink href="https://shopify.dev/docs/apps/build/metaobjects/standard-review-metaobject">
             Shopify Metaobjects
           </ExternalLink>{" "}
-          <em>and</em> sync the aggregate back to product Metafields. Most review apps do neither — reviews
+          <em>and</em> sync the aggregate back to product Metafields. Most review apps do neither - reviews
           stay on external servers and ratings on featured product cards require a JavaScript widget.
           An app that does both steps gives you ratings in the initial HTML, reviews selectable from
           the theme editor, and nothing depending on an external server. Add the blocks:
@@ -229,22 +229,22 @@ export default function SocialProofShopifyHomepagePage() {
         <Ul>
           <li>
             <strong>JavaScript-injected review widgets</strong> that fetch from external APIs after page
-            load — same problem as on product pages, amplified by homepage traffic volume.
+            load - same problem as on product pages, amplified by homepage traffic volume.
           </li>
           <li>
-            <strong>Eagerly-loaded customer photo galleries</strong> with no lazy-loading — the fastest
+            <strong>Eagerly-loaded customer photo galleries</strong> with no lazy-loading - the fastest
             way to damage LCP.
           </li>
           <li>
             <strong>Third-party review platform widgets</strong> (embedded Trustpilot, Google Reviews
-            iframes) — these load entire external page contexts and are among the heaviest possible
+            iframes) - these load entire external page contexts and are among the heaviest possible
             additions to any page.
           </li>
         </Ul>
         <P>
           Measure the cost of any external widget with{" "}
           <ExternalLink href="https://pagespeed.web.dev">PageSpeed Insights</ExternalLink> before and after
-          — the CLS and LCP impact is frequently larger than expected. For a step-by-step audit process,
+          - the CLS and LCP impact is frequently larger than expected. For a step-by-step audit process,
           see{" "}
           <InternalLink href="/blog/review-app-slowing-shopify-store">how to measure the performance cost of your review app</InternalLink>.
           For the full picture across all Shopify page types, see{" "}

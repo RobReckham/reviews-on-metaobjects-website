@@ -3,7 +3,7 @@ import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul,
 export const metadata = {
   title: "Shopify Metafields vs. Metaobjects: What's the Difference?",
   shortTitle: "Shopify metafields vs. metaobjects",
-  description: "Metafields attach data to existing resources. Metaobjects create standalone entries — like product reviews. Real Liquid and GraphQL code examples for both.",
+  description: "Metafields attach data to existing resources. Metaobjects create standalone entries - like product reviews. Real Liquid and GraphQL code examples for both.",
   alternates: { canonical: "/blog/shopify-metafields-vs-metaobjects" },
   openGraph: { type: "article", publishedTime: "2026-04-28" },
   slug: "shopify-metafields-vs-metaobjects",

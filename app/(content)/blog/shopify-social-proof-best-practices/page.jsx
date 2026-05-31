@@ -110,7 +110,7 @@ export default function ShopifySocialProofBestPracticesPage() {
       <Section id="collection-pages">
         <H2 id="collection-pages">3. Collection pages</H2>
         <P>
-          Collection pages are where shoppers compare. Social proof here should be compact and immediate —
+          Collection pages are where shoppers compare. Social proof here should be compact and immediate -
           the goal is to influence which product card gets clicked, not to close a sale.
         </P>
 
@@ -130,7 +130,7 @@ export default function ShopifySocialProofBestPracticesPage() {
           the aggregate back to the{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">reviews.rating</code> product Metafield,
           Shopify's native storefront filtering in OS2.0 themes can expose rating as a filterable attribute.
-          Most review apps do neither — they keep reviews on external servers — so the Metafield is never
+          Most review apps do neither - they keep reviews on external servers - so the Metafield is never
           populated and native filtering is impossible. When it is populated, shoppers who use it convert
           at roughly 2x the collection average in our tests.
         </P>
@@ -150,7 +150,7 @@ export default function ShopifySocialProofBestPracticesPage() {
 
         <H3>Aggregate trust bar</H3>
         <P>
-          A single-line trust bar positioned below the hero — "★ 4.7 · 4,800+ verified reviews" — is the
+          A single-line trust bar positioned below the hero - "★ 4.7 · 4,800+ verified reviews" - is the
           highest-impact, lowest-friction homepage social proof element. Above the fold on desktop;
           space-efficient single line on mobile.
         </P>
@@ -180,7 +180,7 @@ export default function ShopifySocialProofBestPracticesPage() {
       <Section id="landing-pages">
         <H2 id="landing-pages">5. Landing and campaign pages</H2>
         <P>
-          Landing pages — paid ad destinations, campaign pages, editorial content — often receive cold
+          Landing pages - paid ad destinations, campaign pages, editorial content - often receive cold
           traffic with zero prior familiarity with your brand. Social proof density should be{" "}
           <em>higher</em> here than on standard store pages, not lower.
         </P>
@@ -188,7 +188,7 @@ export default function ShopifySocialProofBestPracticesPage() {
         <H3>Above-the-fold trust signal</H3>
         <P>
           Every landing page receiving cold traffic needs at least one immediate trust signal above the
-          fold — an aggregate rating bar, a headline testimonial in the hero, or a trust badge row. The
+          fold - an aggregate rating bar, a headline testimonial in the hero, or a trust badge row. The
           visitor who bounces before scrolling has seen none of your below-fold social proof.
         </P>
 
@@ -196,7 +196,7 @@ export default function ShopifySocialProofBestPracticesPage() {
         <P>
           Place 1–2 objection-resolving testimonials directly adjacent to or immediately above the primary
           CTA. This is where hesitation peaks. Choose reviews that address the specific doubt a visitor is
-          most likely to have at the decision point — value, fit, trust, delivery, returns.
+          most likely to have at the decision point - value, fit, trust, delivery, returns.
         </P>
         <P>
           See the{" "}
@@ -219,12 +219,12 @@ export default function ShopifySocialProofBestPracticesPage() {
         </P>
         <P>
           What to look for: structured data baked into the page HTML on first load, kept in sync with
-          your visible review count. This requires an app that does the full chain —{" "}
+          your visible review count. This requires an app that does the full chain -{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">product_review</code> Metaobjects for the
           individual reviews, plus the aggregate synced back to the{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">reviews.rating</code> Metafield on each
           product. That Metafield is what the structured data block reads from. Most review apps do
-          neither step — reviews live on external servers and structured data is injected via JavaScript —
+          neither step - reviews live on external servers and structured data is injected via JavaScript -
           which is why we see stores with 400 reviewed products but stars on only a handful in Google.
         </P>
 
@@ -332,7 +332,7 @@ export default function ShopifySocialProofBestPracticesPage() {
           <em>and</em> syncs the aggregate back to the{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">reviews.rating</code> and{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">reviews.rating_count</code> product Metafields.
-          Most review apps do neither — they store reviews on external servers and serve them via JavaScript
+          Most review apps do neither - they store reviews on external servers and serve them via JavaScript
           widgets. An app that does both steps enables server-side rendering, native Shopify filtering,
           and structured data in the initial HTML. Reviews stored as Metaobjects live in your store,
           not on a third-party server, and are yours to keep if you ever switch apps. Pair that with{" "}
@@ -364,7 +364,7 @@ export default function ShopifySocialProofBestPracticesPage() {
 
         <H3>On-site review submission</H3>
         <P>
-          A submission form on the product page catches customers who return after purchase — common for
+          A submission form on the product page catches customers who return after purchase - common for
           products with sizing, ingredients, or specs worth re-reading. Lower volume than email but
           requires zero additional outreach.
         </P>
@@ -387,7 +387,7 @@ export default function ShopifySocialProofBestPracticesPage() {
         </P>
         <Ul>
           <li><strong>Incentivise submissions, not ratings.</strong> Tying a reward to a 5-star rating specifically violates Google's guidelines and FTC endorsement rules. A general "leave any honest review, get 10% off" is fine.</li>
-          <li><strong>Incentives attract low-effort reviews.</strong> If you offer a discount, consider requiring a photo or video to claim it — this pushes submitters toward higher-value content instead of one-liners.</li>
+          <li><strong>Incentives attract low-effort reviews.</strong> If you offer a discount, consider requiring a photo or video to claim it - this pushes submitters toward higher-value content instead of one-liners.</li>
           <li><strong>Timing matters as much as incentive size.</strong> A request sent 3–5 days after confirmed delivery outperforms a larger discount offered at the wrong moment.</li>
         </Ul>
 
