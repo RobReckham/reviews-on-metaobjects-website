@@ -7,7 +7,7 @@ import DemoStore from "../../../components/demo-store"
 
 export const metadata = {
   title: "Shopify Review App for Agencies - No JavaScript Widget, Client Data Stored in Shopify",
-  description: `Stop recommending review apps that tank your client's Lighthouse scores. ${process.env.NEXT_PUBLIC_APP_NAME} renders reviews server-side in Liquid via native Shopify Metaobjects - no widget, no lock-in, no performance hit.`,
+  description: `Stop recommending review apps that tank your client's Lighthouse scores. ${process.env.NEXT_PUBLIC_APP_NAME} renders reviews server-side via native Shopify Metaobjects - no widget, no performance hit, and full review texts indexed by Google and visible to ChatGPT and Perplexity.`,
   alternates: {
     canonical: "/for-shopify-agencies",
   },
@@ -56,6 +56,18 @@ const benefits = [
   {
     title: "Automated review collection out of the box",
     description: "Post-purchase review request emails are included. No dev work, no third-party integration, no extra cost. Your client starts collecting reviews from day one without any manual setup.",
+  },
+  {
+    title: "Reviews that show up in AI search",
+    description: "Other review apps hide full review texts from Google, ChatGPT, and Perplexity - they read HTML, not JS widgets. Ours are in the HTML from byte one: clients rank for long-tail searches and show up when AI answers questions about their products.",
+  },
+  {
+    title: "Auto-translate on every plan",
+    description: "Reviews are automatically translated into all of the store's published languages. Included at every tier - competitors lock it behind their most expensive plans. No awkward upsell conversation when your client launches a new market.",
+  },
+  {
+    title: "Syncs to the Shop app automatically",
+    description: "Reviews stored as Shopify's standard product review Metaobjects syndicate to the Shop app out of the box. No extra setup, no separate integration - it's a consequence of using the right data standard.",
   },
 ]
 

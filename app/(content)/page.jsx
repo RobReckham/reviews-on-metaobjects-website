@@ -11,7 +11,7 @@ import DemoStore from "../../components/demo-store"
 
 export const metadata = {
   title: `Shopify Product Reviews via Metaobjects - Own Your Data, Improve SEO & Speed | ${process.env.NEXT_PUBLIC_APP_NAME}`,
-  description: "The only Shopify review app that stores reviews natively as Metaobjects. Your reviews live in Shopify as the primary record - no vendor lock-in, keep them after uninstall. Better SEO, faster pages, and a fraction of the cost of Loox or Reviews.io.",
+  description: "The only Shopify review app that stores reviews natively as Metaobjects. Review texts live in your HTML - indexed by Google, ranking for long-tail searches, readable by ChatGPT and Perplexity. No vendor lock-in, faster pages, a fraction of the cost of Loox or Reviews.io.",
   alternates: {
     canonical: "/",
   },
@@ -20,7 +20,7 @@ export const metadata = {
 const hero = {
   title: "Your review app is killing your PageSpeed, SEO and sales",
   subtitle: "Built on Shopify’s standard product review metaobjects",
-  paragraph: "Reviews stored right in Shopify - no vendor lock-in, no data held hostage, fully renderable in Liquid. Better SEO, faster pages, and a fraction of the cost of most review apps.",
+  paragraph: "Reviews stored right in Shopify - no vendor lock-in, no data held hostage, fully renderable in Liquid. Visible to search and AI, faster pages, and a fraction of the cost of most review apps.",
   bullets: ["Own your data", "No lock-in", "Better SEO", "Design freedom", "Fair pricing"],
   ctaText: "Claim early access!",
 }
@@ -63,7 +63,7 @@ const benefits = {
       Icon: function Icon({ className }) { return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
         <path fillRule="evenodd" d="M5.166 2.621v.858c-1.035.148-2.059.33-3.071.543a.75.75 0 0 0-.584.859 6.753 6.753 0 0 0 6.138 5.6 6.73 6.73 0 0 0 2.743 1.346A6.707 6.707 0 0 1 9.279 15H8.54c-1.036 0-1.875.84-1.875 1.875V19.5h-.75a2.25 2.25 0 0 0-2.25 2.25c0 .414.336.75.75.75h15a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-2.25-2.25h-.75v-2.625c0-1.036-.84-1.875-1.875-1.875h-.739a6.706 6.706 0 0 1-1.112-3.173 6.73 6.73 0 0 0 2.743-1.347 6.753 6.753 0 0 0 6.139-5.6.75.75 0 0 0-.585-.858 47.077 47.077 0 0 0-3.07-.543V2.62a.75.75 0 0 0-.658-.744 49.22 49.22 0 0 0-6.093-.377c-2.063 0-4.096.128-6.093.377a.75.75 0 0 0-.657.744Zm0 2.629c0 1.196.312 2.32.857 3.294A5.266 5.266 0 0 1 3.16 5.337a45.6 45.6 0 0 1 2.006-.343v.256Zm13.5 0v-.256c.674.1 1.343.214 2.006.343a5.265 5.265 0 0 1-2.863 3.207 6.72 6.72 0 0 0 .857-3.294Z" clipRule="evenodd" />
       </svg>},
-      description: "JavaScript-loaded reviews are invisible to most search crawlers. Native metaobjects output structured data Google indexes immediately - so star ratings show up in search results, click-through rates climb, and free organic traffic grows.",
+      description: "Other apps hide review texts from Google, ChatGPT, and Perplexity. We expose the full content - so your reviews get indexed, rank for long-tail searches, and help AI tools answer specific questions about your products.",
     },
     {
       title: "Full design freedom",
@@ -285,6 +285,13 @@ const faqs = [
     question: 'How does it compare to traditional review widgets?',
     answer: <>
       <p>Traditional widgets load reviews with JavaScript, which slows down your store. This app uses native metaobjects for server-side rendering, resulting in faster pages, better SEO, and improved Core Web Vitals while still supporting photo/video reviews.</p>
+    </>,
+  },
+  {
+    question: 'Are my full review texts visible to Google, ChatGPT, and Perplexity?',
+    answer: <>
+      <p>Other apps load reviews via a JavaScript widget after the page loads. Google, ChatGPT, and Perplexity all read page HTML - none of them execute that widget. They see your product page, but the review texts are simply not there.</p>
+      <p>With us, the full review content is in your HTML from the first byte. That means your reviews get indexed, rank for the long-tail searches your customers are actually typing, and give AI tools the content they need to answer specific questions about your products.</p>
     </>,
   },
   {

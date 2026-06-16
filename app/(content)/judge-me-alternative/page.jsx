@@ -7,7 +7,7 @@ import DemoStore from "../../../components/demo-store"
 
 export const metadata = {
   title: "Judge.me Alternative for Shopify: Keep Your Reviews, Own Your Data",
-  description: `Keep all your reviews when you switch. ${process.env.NEXT_PUBLIC_APP_NAME} stores them inside Shopify - not on Judge.me's servers - so you own the data permanently. Faster pages, stars in Google.`,
+  description: `Keep all your reviews when you switch. ${process.env.NEXT_PUBLIC_APP_NAME} stores them inside Shopify - not on Judge.me's servers. Review texts indexed by Google, visible to ChatGPT and Perplexity. Faster pages, no lock-in.`,
   alternates: {
     canonical: "/judge-me-alternative",
   },
@@ -25,6 +25,10 @@ const switchReasons = [
   {
     title: "Google can't index what loads via JavaScript",
     description: "Structured data in a JavaScript widget is unreliable for crawlers. Our reviews output JSON-LD and star ratings in your HTML from the first byte - the kind search engines use for rich snippets and product ratings directly in search results.",
+  },
+  {
+    title: "Your review texts are hidden from Google, ChatGPT, and Perplexity",
+    description: "Judge.me loads reviews via a JavaScript widget after the page loads. Google, ChatGPT, and Perplexity all read page HTML - none of them execute that widget. The full review texts are simply not there. With us, the content is in your HTML from the first byte - indexed by Google, ranking for long-tail searches, and readable by AI tools answering specific questions about your products.",
   },
   {
     title: "Your reviews in Liquid, not a black-box widget",

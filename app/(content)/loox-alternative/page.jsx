@@ -8,7 +8,7 @@ import DemoStore from "../../../components/demo-store"
 
 export const metadata = {
   title: "Loox Alternative for Shopify: Flat Pricing, No Data Lock-In",
-  description: `Stop paying per-order Loox fees. ${process.env.NEXT_PUBLIC_APP_NAME} stores reviews inside Shopify - not Loox's servers - so your data is yours. Flat pricing, faster pages, star ratings in Google.`,
+  description: `Stop paying per-order Loox fees. ${process.env.NEXT_PUBLIC_APP_NAME} stores reviews inside Shopify - not Loox's servers - so your data is yours. Flat pricing, faster pages, and review texts actually indexed by Google and visible to ChatGPT and Perplexity.`,
   alternates: {
     canonical: "/loox-alternative",
   },
@@ -26,6 +26,10 @@ const switchReasons = [
   {
     title: "Google can't index what loads via JavaScript",
     description: "Structured data in a JavaScript widget is unreliable for crawlers. Our reviews output JSON-LD and star ratings in your HTML from the first byte - the kind search engines love for rich snippets.",
+  },
+  {
+    title: "Your review texts are hidden from Google, ChatGPT, and Perplexity",
+    description: "Loox loads reviews via a JavaScript widget after the page loads. Google, ChatGPT, and Perplexity all read page HTML - none of them execute that widget. The full review texts are simply not there. With us, the content is in your HTML from the first byte - indexed by Google, ranking for long-tail searches, and readable by AI tools answering specific questions about your products.",
   },
   {
     title: "Loox gets expensive fast",

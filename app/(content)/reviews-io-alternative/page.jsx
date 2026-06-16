@@ -8,7 +8,7 @@ import DemoStore from "../../../components/demo-store"
 
 export const metadata = {
   title: "REVIEWS.io Alternative for Shopify: Own Your Data, Pay Less",
-  description: `REVIEWS.io stores your reviews on their servers. ${process.env.NEXT_PUBLIC_APP_NAME} puts them inside Shopify - your data, permanently. Flat pricing, faster pages, star ratings in Google.`,
+  description: `REVIEWS.io stores your reviews on their servers. ${process.env.NEXT_PUBLIC_APP_NAME} puts them inside Shopify - your data, permanently. Flat pricing, faster pages, and review texts actually indexed by Google and visible to ChatGPT and Perplexity.`,
   alternates: {
     canonical: "/reviews-io-alternative",
   },
@@ -26,6 +26,10 @@ const switchReasons = [
   {
     title: "Google can't index what loads via JavaScript",
     description: "Structured data injected by a JavaScript widget is unreliable for crawlers. Our reviews output JSON-LD and star ratings in your HTML from the first byte - the kind of markup search engines use for rich snippets and product ratings in results.",
+  },
+  {
+    title: "Your review texts are hidden from Google, ChatGPT, and Perplexity",
+    description: "REVIEWS.io loads reviews via a JavaScript widget after the page loads. Google, ChatGPT, and Perplexity all read page HTML - none of them execute that widget. The full review texts are simply not there. With us, the content is in your HTML from the first byte - indexed by Google, ranking for long-tail searches, and readable by AI tools answering specific questions about your products.",
   },
   {
     title: "Pricing jumps fast at every tier",
