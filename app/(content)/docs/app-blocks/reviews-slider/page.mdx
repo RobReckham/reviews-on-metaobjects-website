@@ -1,0 +1,64 @@
+---
+title: Reviews Slider
+description: Horizontal reviews slider with a summary tile for homepage, collections, and product pages.
+---
+
+# Reviews Slider
+
+Displays a horizontal scrolling reviews carousel with an optional summary tile (rating, count, logo).
+
+## When to use
+
+Use this when you want compact social proof that works beyond the product page - homepage, landing pages, collection pages, or as a secondary highlight on product pages.
+
+Unlike Review List, this is a carousel of recent reviews, not a full browsable list.
+
+## Review scope
+
+Choose what reviews feed the slider:
+
+- **Product reviews** - current product (and its variants). On non-product pages this falls back to all reviews.
+- **Store reviews** - store-level reviews only.
+- **All reviews** - mixed shop-wide reviews (default).
+
+## How it renders
+
+- Shows newest reviews first, up to the max you set (2–48).
+- Includes a summary tile with heading, stars, review count, and optional logo.
+- Works as a regular section app block in Theme Editor.
+
+## What you can customize
+
+- Max reviews to show
+- Heading and summary heading
+- Summary logo
+- Empty state text and hide-if-empty behavior
+- Review scope (product / store / all)
+- Heading tag for SEO
+- Anchor ID (for click-to-scroll from Product Rating)
+- Structure, review item structure, and custom CSS (advanced)
+
+## Typical usage
+
+1. Enable [FiveOh Core](/docs/app-blocks/core) if it is not already on.
+2. In Theme Editor, add **FiveOh Reviews Slider** to the template you want.
+3. Set review scope: **All reviews** for homepage/landing, **Product reviews** on PDPs.
+4. Optionally set an Anchor ID and link Product Rating click-to-scroll to it.
+
+## Notes
+
+- Pair with [Product Rating](/docs/app-blocks/product-rating) when you want summary stars above the fold and a slider further down.
+- For a full review feed on the product page, use [Review List](/docs/app-blocks/review-list) instead (or as well).
+- Structure and CSS follow the same pattern as other blocks - see [Customising app blocks](/docs/app-blocks/customising-app-blocks).
+
+## Quick links
+
+<a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}/app-blocks`} target="_blank" rel="noopener">Open app blocks page in app</a>  
+<a href="https://reviewsonmetaobjects.myshopify.com/products/the-complete-snowboard" target="_blank" rel="noopener">Demo store</a> (password: demo)
+
+## Troubleshooting
+
+- If the slider is empty, verify reviews exist for the selected scope and are published.
+- If Product reviews shows shop-wide content, you are likely not on a product template (fallback to all reviews).
+- If layout looks broken after edits, reset structure/CSS under advanced settings and re-apply changes incrementally.
+- If click-to-scroll from Product Rating fails, confirm the Anchor ID matches the rating block target.
