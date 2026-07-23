@@ -2,7 +2,7 @@ import plans from "../utils/plans"
 
 export default function Pricing() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 text-left">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 text-left">
       {plans.map((plan) => {
         const maxReviews = plan.features.find((feature) => feature.id === "max_reviews")
         const booleanFeatures = plan.features.filter((feature) => typeof feature.value === "boolean")

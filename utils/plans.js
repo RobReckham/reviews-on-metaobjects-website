@@ -36,11 +36,47 @@ export default [
   },
   {
     name: "Basic",
-    price: 20,
+    price: 36,
+    priceCurrency: "USD",
+    description: "Up to 1,000 reviews",
+    availability: "https://schema.org/InStock",
+    yearlyPrice: 360,
+    trialDays: 14,
+    features: [
+      {
+        id: "max_reviews",
+        name: "Max reviews",
+        value: 1000,
+      },
+      {
+        id: "auto_translate",
+        name: "Auto-translate",
+        value: true,
+      },
+      {
+        id: "continuous_sync",
+        name: "Continuous sync",
+        value: true,
+      },
+      {
+        id: "white_labeling",
+        name: "White-labeling (remove \u201cPowered by\u201d badge)",
+        value: true,
+      },
+      {
+        id: "liquid_code",
+        name: "Liquid code for custom sections",
+        value: true,
+      },
+    ],
+  },
+  {
+    name: "Pro",
+    price: 120,
     priceCurrency: "USD",
     description: "Up to 10,000 reviews",
     availability: "https://schema.org/InStock",
-    yearlyPrice: 200,
+    yearlyPrice: 1200,
     trialDays: 14,
     features: [
       {
@@ -66,23 +102,23 @@ export default [
       {
         id: "liquid_code",
         name: "Liquid code for custom sections",
-        value: false,
+        value: true,
       },
     ],
   },
   {
-    name: "Pro",
-    price: 60,
+    name: "Scale",
+    price: 240,
     priceCurrency: "USD",
-    description: "Up to 100,000 reviews",
+    description: "Up to 50,000 reviews",
     availability: "https://schema.org/InStock",
-    yearlyPrice: 600,
+    yearlyPrice: 2400,
     trialDays: 14,
     features: [
       {
         id: "max_reviews",
         name: "Max reviews",
-        value: 100000,
+        value: 50000,
       },
       {
         id: "auto_translate",
@@ -108,11 +144,11 @@ export default [
   },
   {
     name: "Unlimited",
-    price: 180,
+    price: 480,
     priceCurrency: "USD",
     description: "Unlimited reviews",
     availability: "https://schema.org/InStock",
-    yearlyPrice: 1800,
+    yearlyPrice: 4800,
     trialDays: 14,
     features: [
       {
