@@ -16,7 +16,7 @@ Use this app block to improve product discovery and help shoppers compare items 
 This app block requires **both**:
 
 1. The Product Card Ratings app embed enabled in Theme Editor.
-2. A small snippet in your product card template so the embed knows where to inject rating markup.
+2. A small snippet in your product card template (and predictive search results, if you use them).
 
 Without the snippet, nothing will render on cards.
 
@@ -25,8 +25,10 @@ Without the snippet, nothing will render on cards.
 Add this inside your product-card loop where `card_product` is available:
 
 ```liquid
-<script class="fo-product-card-rating-{{ card_product.id }}">fiveoh.mountProductCardRating({ productId: {{ card_product.id | json }}, ratingValue: {{ card_product.metafields.reviews.rating.value.rating | json }}, ratingCount: {{ card_product.metafields.reviews.rating_count.value | json }} });</script>
+<fo-product-card-rating product-id="{{ card_product.id }}" rating-value="{{ card_product.metafields['app--324569563137'].rating.value.rating }}" rating-count="{{ card_product.metafields['app--324569563137'].rating_count.value }}"></fo-product-card-rating>
 ```
+
+Also add the same snippet in predictive search result markup if you want ratings there.
 
 ## Where to place the snippet
 
@@ -41,8 +43,8 @@ Add this inside your product-card loop where `card_product` is available:
 2. Open a collection page with products that have reviews.
 3. Confirm rating appears on cards.
 4. If not visible:
-   - check snippet exists in the rendered card HTML,
-   - verify class contains the real product ID,
+   - check `<fo-product-card-rating>` exists in the rendered card HTML,
+   - verify `product-id` is the real product ID,
    - confirm review metafields exist for those products.
 
 ## What you can customize
