@@ -1,5 +1,6 @@
-import AnimatedBackground from "./animated-background"
-import ListingCta from "./listing-cta"
+import Eyebrow from "./eyebrow"
+
+const LISTING_URL = process.env.NEXT_PUBLIC_LISTING_URL || "https://apps.shopify.com/reviews-on-metaobjects";
 
 // { title, description, datePublished, slug }
 export function ArticleJsonLd({ title, description, datePublished, slug }) {
@@ -64,10 +65,9 @@ export function ArticleJsonLd({ title, description, datePublished, slug }) {
 export function InlineCta({ message, buttonLabel }) {
   buttonLabel = buttonLabel || `Get more information →`
   return (
-    <div className="mt-8 flex flex-col gap-3 rounded-4xl p-4 relative overflow-hidden">
-      <AnimatedBackground />
-      <p className="relative z-10flex-1 text-gray-900 leading-snug">{message}</p>
-      <a href="/" className="relative z-10 btn btn-primary btn-sm w-full">{buttonLabel}</a>
+    <div className="mt-8 flex flex-col gap-3 rounded-2xl border-l-4 border-[#fde047] bg-gray-50 p-5">
+      <p className="flex-1 font-medium text-gray-900 leading-snug">{message}</p>
+      <a href={LISTING_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm w-full">{buttonLabel}</a>
     </div>
   )
 }
@@ -108,21 +108,20 @@ export function BlogNav({ className = "mb-8" }) {
 
 export function BlogCta() {
   return (
-    <section className="py-16 sm:py-24 px-4 relative">
-      <div className="absolute inset-4 rounded-4xl overflow-hidden">
-        <AnimatedBackground baseColor="oklch(27.8% 0.033 256.848)" />
-      </div>
-      <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-8 text-center">
-        <p className="text-sm font-semibold text-blue-400 uppercase tracking-widest mb-4">{process.env.NEXT_PUBLIC_APP_NAME}</p>
-        <h2 className="text-2xl sm:text-4xl font-black tracking-tight mb-4 text-white">
+    <section className="py-16 sm:py-24 px-4">
+      <div className="max-w-3xl mx-auto overflow-hidden rounded-4xl bg-slate-950 bg-linear-to-t to-slate-800 px-6 py-14 text-center sm:px-8">
+        <div className="flex justify-center">
+          <Eyebrow>{process.env.NEXT_PUBLIC_APP_NAME}</Eyebrow>
+        </div>
+        <h2 className="mt-5 text-2xl sm:text-4xl font-extrabold tracking-tight mb-4 text-white">
           Reviews stored in Shopify. Rendered in Liquid. Yours to keep.
         </h2>
-        <p className="text-gray-500 text-base sm:text-lg mb-8 max-w-xl mx-auto">
-          The review app that writes to Shopify's standard product review Metaobjects - server-side rendering, no JavaScript widget, no external dependency, no vendor lock-in.
+        <p className="text-gray-400 text-base sm:text-lg mb-8 max-w-xl mx-auto">
+          The review app that writes to Shopify&rsquo;s standard product review Metaobjects &mdash; server-side rendering, no JavaScript widget, no external dependency, no vendor lock-in.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <ListingCta className="btn btn-primary btn-inverted opacity-100!">Join the closed beta. Limited spots available.</ListingCta>
-          <a href="/" className="text-sm text-gray-500 hover:text-white underline underline-offset-2 transition-colors">Learn more →</a>
+          <a href={LISTING_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-inverted opacity-100!">Install on Shopify</a>
+          <a href="/" className="text-sm text-gray-400 hover:text-white underline underline-offset-2 transition-colors">Learn more &rarr;</a>
         </div>
       </div>
     </section>
@@ -139,7 +138,7 @@ export function Section({ children, className = "" }) {
 
 export function ExternalLink({ href, children }) {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 text-blue-700 hover:text-blue-900 transition-colors">
+    <a href={href} target="_blank" rel="noopener noreferrer" className="text-gray-900 underline underline-offset-2 decoration-2 decoration-gray-300 hover:decoration-[#fde047] transition-colors">
       {children}
     </a>
   )
@@ -163,7 +162,7 @@ export function CodeBlock({ children }) {
 
 export function Callout({ children }) {
   return (
-    <div className="border-l-4 border-blue-500 bg-blue-50 rounded-r-xl px-5 py-4 my-6 text-sm text-gray-700 leading-relaxed">
+    <div className="border-l-4 border-[#fde047] bg-[#fde047]/10 rounded-r-xl px-5 py-4 my-6 text-sm text-gray-700 leading-relaxed">
       {children}
     </div>
   )
@@ -171,7 +170,7 @@ export function Callout({ children }) {
 
 export function H2({ children, id }) {
   return (
-    <h2 id={id} className="text-2xl sm:text-4xl font-black tracking-tight mt-16 mb-4 text-gray-900">
+    <h2 id={id} className="text-2xl sm:text-4xl font-extrabold tracking-tight mt-16 mb-4 text-gray-900">
       {children}
     </h2>
   )
@@ -219,7 +218,7 @@ export function TableOfContents({ items }) {
           <li key={item.id}>
             <a
               href={`#${item.id}`}
-              className="text-sm text-blue-700 hover:text-blue-900 underline underline-offset-2 transition-colors"
+              className="text-sm text-gray-700 underline underline-offset-2 decoration-gray-300 hover:decoration-[#fde047] hover:text-gray-900 transition-colors"
             >
               {index + 1}. {item.label}
             </a>
@@ -234,8 +233,8 @@ export function ArticleHero({ tag = "Technical deep-dive", title, description, r
   return (
     <section className="pt-24 pb-12 border-b border-gray-100">
       <div className="max-w-3xl mx-auto px-4 sm:px-8">
-        <p className="text-sm font-semibold text-blue-700 uppercase tracking-widest mb-4">{tag}</p>
-        <h1 className="text-3xl sm:text-6xl font-black tracking-tight mb-6 text-gray-900">{title}</h1>
+        <div className="mb-5"><Eyebrow>{tag}</Eyebrow></div>
+        <h1 className="text-3xl sm:text-6xl font-extrabold tracking-tight mb-6 text-gray-900">{title}</h1>
         <P>{description}</P>
         <P className="text-gray-500 text-sm sm:text-base">
           Reading time: {readingTime}.
@@ -259,7 +258,7 @@ export function BlogFaqs({ faqs }) {
   return (
     <Section className="bg-gray-50">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <h2 className="text-2xl font-black tracking-tight text-gray-900 mb-8">Frequently asked questions</h2>
+      <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-gray-900 mb-8">Frequently asked questions</h2>
       <div className="space-y-3">
         {faqs.map(({ question, answer }) => (
           <details key={question} className="group bg-white rounded-xl overflow-hidden">

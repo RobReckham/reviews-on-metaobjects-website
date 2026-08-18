@@ -63,8 +63,8 @@ export default function ShopifyLiquidJsonLdStructuredDataPage() {
       <section className="pt-24 pb-12 border-b border-gray-100">
         <div className="max-w-3xl mx-auto px-4 sm:px-8">
           <BlogNav />
-          <p className="text-sm font-semibold text-blue-700 uppercase tracking-widest mb-4">SEO tutorial</p>
-          <h1 className="text-3xl sm:text-6xl font-black tracking-tight mb-6 text-gray-900">
+          <p className="inline-block rounded bg-[#fde047] px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-gray-900 mb-5">SEO tutorial</p>
+          <h1 className="text-3xl sm:text-6xl font-extrabold tracking-tight mb-6 text-gray-900">
             How to add JSON-LD structured data in Shopify Liquid: products, reviews, and breadcrumbs
           </h1>
           <P>

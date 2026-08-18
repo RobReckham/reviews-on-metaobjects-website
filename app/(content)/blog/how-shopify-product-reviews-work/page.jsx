@@ -60,8 +60,8 @@ export default function HowShopifyProductReviewsWorkPage() {
       <section className="pt-24 pb-12 border-b border-gray-100">
         <div className="max-w-3xl mx-auto px-4 sm:px-8">
           <BlogNav />
-          <p className="text-sm font-semibold text-blue-700 uppercase tracking-widest mb-4">Technical deep-dive</p>
-          <h1 className="text-3xl sm:text-6xl font-black tracking-tight mb-6 text-gray-900">
+          <p className="inline-block rounded bg-[#fde047] px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-gray-900 mb-5">Technical deep-dive</p>
+          <h1 className="text-3xl sm:text-6xl font-extrabold tracking-tight mb-6 text-gray-900">
             How Shopify product reviews work: Metaobjects, server-side rendering, and SEO
           </h1>
           <P>
@@ -206,7 +206,7 @@ Browser requests your product page
                 ["status", "single_line_text_field", "Moderation state (e.g. published)"],
               ].map(([key, type, desc]) => (
                 <tr key={key} className="hover:bg-gray-50">
-                  <td className="p-3 font-mono text-xs text-blue-800">{key}</td>
+                  <td className="p-3 font-mono text-xs text-gray-900">{key}</td>
                   <td className="p-3 font-mono text-xs text-gray-500">{type}</td>
                   <td className="p-3 text-gray-700">{desc}</td>
                 </tr>
