@@ -1,253 +1,238 @@
-import AnimatedBackground from "../../../components/animated-background"
-import ListingCta from "../../../components/listing-cta"
-import Pricing from "../../../components/pricing"
-import PricingCalculator from "../../../components/pricing-calculator-reviews-io"
-import FinalCta from "../../../components/final-cta"
-import Faqs from "../../../components/faqs"
+import CtaBand from "../../../components/cta-band"
+import PricingSection from "../../../components/pricing-section"
 import DemoStore from "../../../components/demo-store"
+import Eyebrow from "../../../components/eyebrow"
+
+const LISTING_URL = process.env.NEXT_PUBLIC_LISTING_URL || "https://apps.shopify.com/reviews-on-metaobjects"
+const DEMO_URL = "https://reviewsonmetaobjects.myshopify.com/products/the-collection-snowboard-oxygen"
+const FIVEOH_LOGO = "https://assets.reviewsonmetaobjects.com/logo-300.jpg"
 
 export const metadata = {
-  title: "REVIEWS.io Alternative for Shopify: Own Your Data, Pay Less",
-  description: `REVIEWS.io stores your reviews on their servers. ${process.env.NEXT_PUBLIC_APP_NAME} puts them inside Shopify - your data, permanently. Flat pricing, faster pages, and review texts actually indexed by Google and visible to ChatGPT and Perplexity.`,
+  title: "REVIEWS.io Alternative for Shopify: Keep REVIEWS.io, Own the Display",
+  description: `You don't have to leave REVIEWS.io. ${process.env.NEXT_PUBLIC_APP_NAME} syncs your REVIEWS.io reviews into Shopify's native metaobjects and renders them server-side in Liquid: pixel-perfect, faster pages, and readable by Google and AI. Keep collecting in REVIEWS.io; own the display.`,
   alternates: {
     canonical: "/reviews-io-alternative",
   },
 }
 
-const switchReasons = [
+const layers = [
   {
-    title: "Your reviews still load via JavaScript",
-    description: "REVIEWS.io displays reviews through a client-side widget that fetches content from their servers after the page loads. That adds network round-trips, causes layout shift, and hurts your Core Web Vitals. Our reviews render in Liquid - server-side, in your HTML from the first byte.",
+    label: "Collect",
+    items: [
+      { name: "REVIEWS.io", highlight: true, logo: "/review-apps/logo-reviewsio.jpg" },
+      { name: "…or FiveOh" },
+    ],
   },
   {
-    title: "Review data lives on their servers, not in Shopify",
-    description: "REVIEWS.io lets you export your data, which is good. But the data still lives on their infrastructure - not inside Shopify. That means it can't render server-side in Liquid, can't be queried natively in your theme, and depends on their uptime to show up on your store.",
+    label: "Sync",
+    items: [
+      { name: "metaobjects", highlight: true },
+      { name: "metafields", highlight: true },
+    ],
   },
   {
-    title: "Google can't index what loads via JavaScript",
-    description: "Structured data injected by a JavaScript widget is unreliable for crawlers. Our reviews output JSON-LD and star ratings in your HTML from the first byte - the kind of markup search engines use for rich snippets and product ratings in results.",
-  },
-  {
-    title: "Your review texts are hidden from Google, ChatGPT, and Perplexity",
-    description: "REVIEWS.io loads reviews via a JavaScript widget after the page loads. Google, ChatGPT, and Perplexity all read page HTML - none of them execute that widget. The full review texts are simply not there. With us, the content is in your HTML from the first byte - indexed by Google, ranking for long-tail searches, and readable by AI tools answering specific questions about your products.",
-  },
-  {
-    title: "Pricing jumps fast at every tier",
-    description: "REVIEWS.io goes from $29/mo (300 invites) to $99/mo (1,500 invites) to $299/mo (5,000 invites) to $499/mo (10,000 invites). Features like auto-translate are locked behind the Plus plan at $499/mo. We stay flat from the start.",
+    label: "Display",
+    items: [
+      { name: "FiveOh app blocks", highlight: true, logo: FIVEOH_LOGO },
+      { name: "Custom Liquid" },
+    ],
   },
 ]
 
-const comparisonRows = [
-  { feature: "Reviews render server-side (no JS widget)", us: true, them: false },
-  { feature: "Review data stored in your Shopify store", us: true, them: false },
-  { feature: "Data survives app uninstall", us: true, them: false },
-  { feature: "Auto-translate into store languages (all plans)", us: true, them: false, competitorNote: "Plus plan only ($499+/mo)" },
-  { feature: "Photo & video reviews", us: true, them: true },
-  { feature: "Post-purchase email review requests", us: true, them: true },
-  { feature: "On-store review submission form", us: true, them: true },
-  { feature: "Variant-specific reviews", us: true, them: false },
-  { feature: "Continuous sync from REVIEWS.io", us: true, them: null },
-  { feature: "Free plan included", us: true, them: true, competitorNote: "25 invites/mo only" },
-  { feature: "Works with any OS 2.0 theme", us: true, them: true },
+const additions = [
+  {
+    title: "Styled like the rest of your theme",
+    description: "No iframe, no shadow DOM. Because reviews are metaobjects, you render them with your own markup and classes — matched to your design, not patched around REVIEWS.io's widget.",
+  },
+  {
+    title: "Readable by Google and AI",
+    description: "Google, ChatGPT and Perplexity read HTML, not widgets. With reviews server-rendered, your full review text and AggregateRating are in the page — indexed for rich snippets and citable by AI tools.",
+  },
+  {
+    title: "Reviews render server-side",
+    description: "REVIEWS.io displays reviews through a client-side widget that fetches content after your page loads — adding round-trips and layout shift. FiveOh renders the same reviews in Liquid, in your HTML from the first byte. Faster pages, cleaner Core Web Vitals.",
+  },
+  {
+    title: "Auto-translate on every plan",
+    description: "REVIEWS.io locks auto-translation behind its Plus plan. FiveOh translates review titles and bodies into your store's languages on every paid plan — stored in the metaobjects and shown by shopper locale.",
+  },
 ]
 
-const migrationSteps = [
+const steps = [
   {
-    title: "Install the app and connect REVIEWS.io",
-    description: "Install from the Shopify App Store and connect your REVIEWS.io account. Your existing reviews sync across automatically - no CSV exports, no manual uploads.",
+    title: "Keep collecting in REVIEWS.io",
+    description: "Nothing changes about how you gather reviews. Invites, post-purchase emails, on-site forms — REVIEWS.io does exactly what it does today.",
   },
   {
-    title: "Add the display blocks to your theme",
-    description: "Drop our ready-made app blocks into your theme editor. No coding required for a standard setup.",
+    title: "FiveOh syncs them into Shopify",
+    description: "Connect your REVIEWS.io account and your reviews sync into Shopify's native metaobjects — continuously, with no CSV exports and no manual uploads.",
   },
   {
-    title: "Cancel REVIEWS.io whenever you're ready",
-    description: "Once everything looks good, cancel REVIEWS.io. Your reviews stay in your Shopify store permanently - they're not going anywhere.",
+    title: "Display natively in your theme",
+    description: "Drop in the ready-made app blocks, or build your own sections in Liquid. Reviews now render server-side, right in your HTML.",
   },
 ]
 
 const faqs = [
   {
-    question: "Will I lose my reviews when I switch from REVIEWS.io?",
-    answer: "No. Connect your REVIEWS.io account and your existing reviews sync across automatically. All reviews, ratings, and media are preserved - no exports, no uploads.",
+    question: "Do I have to leave REVIEWS.io?",
+    answer: "No — that's the whole point. REVIEWS.io keeps collecting your reviews; FiveOh syncs them into Shopify and takes over the display. Keep REVIEWS.io on the tier that suits you, or move collection to FiveOh later — your choice.",
   },
   {
-    question: "REVIEWS.io says I own my data. Why should I switch?",
-    answer: "Owning your data and having your data in Shopify are two different things. REVIEWS.io lets you export - that's good. But your reviews still live on their servers, which means they can't render server-side in Liquid, depend on their infrastructure to display, and don't benefit from Shopify's native structured data output. With us, your reviews are stored in Shopify's standard metaobjects - no external dependency, ever.",
+    question: "Will I lose my existing REVIEWS.io reviews?",
+    answer: "No. Connect your REVIEWS.io account and your existing reviews — ratings, text and media — sync into Shopify automatically. No exports, no uploads.",
   },
   {
-    question: "Why does it matter that reviews render server-side?",
-    answer: "Client-side widgets fetch and render review content after the page loads. This delays your Largest Contentful Paint (LCP), causes layout shift, and prevents search engines from indexing your reviews at crawl time. Server-side rendering via Shopify Metaobjects means reviews are in your HTML from the first byte - faster for visitors, better for rankings.",
+    question: "Why render server-side instead of using the REVIEWS.io widget?",
+    answer: "A client-side widget fetches reviews after the page loads, delaying LCP, causing layout shift, and hiding the content from crawlers. Server-side rendering via Shopify metaobjects puts reviews in your HTML from the first byte — faster for shoppers, visible to Google and AI.",
   },
   {
-    question: "Do I need to pay for both apps during the switch?",
-    answer: "Only briefly. Connect REVIEWS.io, let the sync run, add the display blocks - then cancel REVIEWS.io. The whole process takes under an hour.",
+    question: "Where do the reviews live once synced?",
+    answer: "In Shopify's standard product review metaobjects — a native data type in every Shopify store. They're your data, queryable in Liquid, and they stay in your store even if you uninstall FiveOh.",
   },
   {
-    question: "What happens to my reviews if I later cancel your app?",
-    answer: "Nothing changes. Your reviews are stored in Shopify's standard product review metaobjects - a data type built into every Shopify store. They stay there after uninstalling our app. You can access them with any compatible tool or your own Liquid code.",
+    question: "Do I get auto-translation without REVIEWS.io's Plus plan?",
+    answer: "Yes. FiveOh auto-translates review titles and bodies into your store's published languages on every paid plan — no need to reach REVIEWS.io's top tier for it. Translations are stored in the metaobjects and shown by shopper locale.",
   },
   {
-    question: "Is switching technical?",
-    answer: "No. Connect REVIEWS.io in the app, wait for the sync, add the display blocks in the theme editor. Our support team helps if you get stuck.",
+    question: "Is it technical to set up?",
+    answer: "No. Connect REVIEWS.io, let the sync run, add the app blocks in the theme editor. During onboarding the founder sets it all up for you, free of charge.",
   },
 ]
 
-function CheckIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-green-600 shrink-0">
-      <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clipRule="evenodd" />
-    </svg>
-  )
-}
-
-function CrossIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-gray-300 shrink-0">
-      <path d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" />
-    </svg>
-  )
-}
-
-function NaIcon() {
-  return (
-    <span className="text-gray-500 text-sm">-</span>
-  )
-}
-
 export default function ReviewsIoAlternativePage() {
-  return <>
-    <main className="bg-white min-h-screen text-gray-900">
+  return <main className="bg-white min-h-screen text-gray-900">
 
-      {/* Hero */}
-      <section className="py-12 sm:py-24 relative">
-        <div className="absolute inset-4 rounded-4xl overflow-hidden">
-          <AnimatedBackground />
+    {/* Hero */}
+    <section className="px-6 py-20 sm:py-28">
+      <div className="mx-auto max-w-3xl text-center">
+        <div className="flex justify-center">
+          <Eyebrow>Works with REVIEWS.io</Eyebrow>
         </div>
-        <div className="px-8 py-4 text-center relative z-10">
-          <p className="h4">The REVIEWS.io alternative built on Shopify itself</p>
-          <h1 className="h1 mt-4 mb-8 max-w-5xl mx-auto">Faster reviews. Better SEO. Your data lives in your store.</h1>
-          <div className="max-w-2xl mx-auto">
-            <p className="mb-8 text-lg">
-              REVIEWS.io is a capable platform. But it stores your reviews on their servers and loads them via JavaScript - hurting page speed, weakening SEO, and making you dependent on their uptime. There's a better way.
-            </p>
-          </div>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8 relative mt-4">
-            <div className="relative sm:order-2">
-              <ListingCta className="btn btn-primary">Switch from REVIEWS.io today</ListingCta>
-              <p className="text-sm text-gray-600 mt-2">14-day free trial on all paid plans</p>
-            </div>
-            <div className="relative sm:order-1">
-              <a href="https://reviewsonmetaobjects.myshopify.com/products/the-collection-snowboard-oxygen" target="_blank" rel="noopener" className="btn btn-inverted">See demo store</a>
-              <div className="text-right absolute -right-6 -top-2 z-10">
-                <img src="/shopify_glyph.svg" alt="Shopify Logo" className="h-14" width="49" height="56" />
-              </div>
-              <p className="text-sm text-gray-600 mt-2">password: demo</p>
-            </div>
-          </div>
+        <h1 className="h1 mt-5 mb-6">
+          Keep REVIEWS.io. Render its reviews <span className="mark-hl">natively</span>.
+        </h1>
+        <p className="copy mx-auto max-w-2xl">
+          REVIEWS.io is a capable, enterprise-grade collector. But its reviews load through a JavaScript widget, from
+          their servers &mdash; slow, invisible to Google and AI, and dependent on their uptime. FiveOh keeps
+          REVIEWS.io collecting and takes over the display, syncing your reviews into Shopify&rsquo;s native
+          metaobjects so they render server-side, in your theme.
+        </p>
+        <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a href={LISTING_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Install on Shopify</a>
+          <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-inverted">See demo store</a>
         </div>
-      </section>
+        <p className="footnote mt-3">14-day free trial &middot; keep REVIEWS.io for collection &middot; demo password: demo</p>
+      </div>
+    </section>
 
-      {/* Why switch from REVIEWS.io */}
-      <section className="bg-white pt-16 sm:pt-32 px-4">
-        <div className="relative max-w-7xl mx-auto">
-          <h2 className="h2 mb-4 text-gray-900 text-center">Why merchants switch from REVIEWS.io</h2>
-          <p className="text-center text-gray-500 mb-8 max-w-2xl mx-auto">REVIEWS.io works well for many stores. But there are reasons Shopify merchants outgrow it.</p>
-          <div className="relative p-6 sm:p-16 rounded-4xl overflow-hidden">
-            <AnimatedBackground baseColor="oklch(21% 0.034 264.665)"/>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 relative">
-              {switchReasons.map((reason, index) => <div key={index} className="bg-white rounded-xl p-6 text-gray-800">
-                <h3 className="font-bold text-lg mb-2">{reason.title}</h3>
-                <p>{reason.description}</p>
-              </div>)}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Comparison table */}
-      <section className="bg-white py-16 sm:py-32 px-4">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="h2 text-center mb-12">Feature by feature</h2>
-          <div className="rounded-2xl border border-gray-200 overflow-hidden">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-gray-200 bg-gray-50">
-                  <th className="text-left p-4 font-semibold text-gray-700 w-full">Feature</th>
-                  <th className="p-4 font-semibold text-gray-900 text-center whitespace-nowrap">{process.env.NEXT_PUBLIC_APP_NAME}</th>
-                  <th className="p-4 font-semibold text-gray-500 text-center whitespace-nowrap">REVIEWS.io</th>
-                </tr>
-              </thead>
-              <tbody>
-                {comparisonRows.map((row, index) => <tr key={index} className={`border-b border-gray-100 last:border-0 ${index % 2 === 0 ? "" : "bg-gray-50/50"}`}>
-                  <td className="p-4 text-gray-700">{row.feature}</td>
-                  <td className="p-4 text-center">
-                    <div className="flex justify-center">
-                      {row.us ? <CheckIcon /> : <CrossIcon />}
-                    </div>
-                  </td>
-                  <td className="p-4 text-center">
-                    <div className="flex justify-center flex-col items-center gap-1">
-                      {row.them === true && <CheckIcon />}
-                      {row.them === false && <CrossIcon />}
-                      {row.them === null && <NaIcon />}
-                      {row.competitorNote && <span className="text-xs text-gray-500 leading-tight">{row.competitorNote}</span>}
-                    </div>
-                  </td>
-                </tr>)}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-16 sm:py-32 px-4">
-        <DemoStore />
-      </section>
-
-      {/* Pricing */}
-      <section className="bg-white py-16 sm:py-32 px-4">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="h2 mb-4">Transparent pricing. No invite caps.</h2>
-          <p className="text-gray-500 mb-12">REVIEWS.io goes from $29/mo to $99/mo to $299/mo as your order volume grows. Auto-translate is locked behind their $499/mo Plus plan. We charge per total reviews stored - one flat rate, no surprises.</p>
-          <Pricing />
-          <PricingCalculator />
-          <div className="mt-12">
-            <ListingCta className="btn btn-primary inline-flex">Sync your REVIEWS.io reviews</ListingCta>
-          </div>
-        </div>
-      </section>
-
-      {/* Migration steps */}
-      <section className="bg-white py-16 sm:py-32 px-4">
-        <div className="relative max-w-2xl mx-auto">
-          <h2 className="h2 mb-4 text-gray-900 text-center">Switch from REVIEWS.io in minutes</h2>
-          <p className="text-black/80 text-center relative z-10 mb-8">No downtime. No data loss. No developer needed.</p>
-          <div className="grid grid-cols-1 gap-4 relative">
-            {migrationSteps.map((migrationStep, index) => (
-              <div key={index} className="text-gray-800 border border-gray-200 rounded-xl p-4">
-                <h3 className="font-bold">{index + 1}. {migrationStep.title}</h3>
-                <p className="mt-1">{migrationStep.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <FinalCta title="Ready to move your reviews into Shopify?" subtitle="Connect REVIEWS.io, sync your reviews, add the blocks. Done." ctaLabel="Move your reviews to Shopify" />
-
-      {/* FAQ */}
-      <section className="py-16 sm:py-32 relative">
-        <AnimatedBackground baseColor="oklch(92.8% 0.006 264.531)" />
-        <div className="container max-w-6xl mx-auto px-4 sm:px-8 relative z-10">
-          <h2 className="h2 text-right">What. The. FAQ?</h2>
-          <Faqs faqs={faqs} pageUrl={`${process.env.NEXT_PUBLIC_SITE_URL}/reviews-io-alternative`} />
-          <p className="text-right mt-8 text-sm text-gray-500">
-            <a href="/" className="underline underline-offset-2 hover:text-gray-900 transition-colors">More information about {process.env.NEXT_PUBLIC_APP_NAME} →</a>
+    {/* Companion model */}
+    <section className="bg-slate-950 bg-linear-to-t to-slate-800 text-white">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-24 lg:grid-cols-2">
+        <div>
+          <Eyebrow>The companion model</Eyebrow>
+          <h2 className="h2 mt-5">REVIEWS.io collects. FiveOh displays.</h2>
+          <p className="copy mt-4 text-gray-400">
+            You don&rsquo;t replace anything. REVIEWS.io keeps collecting reviews exactly as it does today. FiveOh
+            syncs them into your store as native Shopify data and renders them server-side &mdash; in your
+            theme&rsquo;s Liquid, in your HTML, readable by Google and AI.
           </p>
         </div>
-      </section>
 
-    </main>
-  </>
+        <div className="flex flex-col gap-3 pt-6">
+          {layers.map((layer, index) => <div key={layer.label} className="-mt-6">
+            <div className="mb-2 font-mono text-xs font-semibold uppercase tracking-widest text-gray-500">
+              {layer.label}
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+              <div className="flex flex-wrap justify-center gap-2.5">
+                {layer.items.map((item) => <span key={item.name} className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold ${item.highlight ? "border-[#fde047]/60 text-[#fde047]" : "border-white/10 bg-white/5 text-gray-200"}`}>
+                  {item.logo && <img src={item.logo} alt="" className="h-4 w-4 rounded" />}
+                  {item.name}
+                </span>)}
+              </div>
+            </div>
+            {index < layers.length - 1 && <div className="py-1 text-center text-lg text-gray-600">&darr;</div>}
+          </div>)}
+        </div>
+      </div>
+    </section>
+
+    {/* What FiveOh adds */}
+    <section className="px-6 py-24">
+      <div className="mx-auto max-w-7xl">
+        <Eyebrow>On top of REVIEWS.io</Eyebrow>
+        <h2 className="h2 mt-5">What FiveOh adds to your REVIEWS.io reviews.</h2>
+        <p className="copy mt-4 max-w-2xl">
+          REVIEWS.io stays your collection tool. FiveOh gives those reviews a native home &mdash; and everything that
+          comes with it.
+        </p>
+        <div className="mt-10 grid gap-4 sm:grid-cols-2">
+          {additions.map((item) => <div key={item.title} className="rounded-2xl border border-gray-200 bg-white p-6">
+            <h3 className="text-lg font-bold tracking-tight">{item.title}</h3>
+            <p className="mt-2 text-gray-600">{item.description}</p>
+          </div>)}
+        </div>
+      </div>
+    </section>
+
+    {/* How it works */}
+    <section className="bg-gray-50 px-6 py-24">
+      <div className="mx-auto max-w-3xl">
+        <Eyebrow>How it works</Eyebrow>
+        <h2 className="h2 mt-5">Add the display layer in minutes.</h2>
+        <p className="copy mt-4">No migration. No downtime. No cancelling REVIEWS.io.</p>
+        <div className="mt-10 flex flex-col gap-4">
+          {steps.map((step, index) => <div key={step.title} className="flex gap-4 rounded-2xl border border-gray-200 bg-white p-6">
+            <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-[#fde047] font-bold text-gray-900">{index + 1}</span>
+            <div>
+              <h3 className="font-bold tracking-tight">{step.title}</h3>
+              <p className="mt-1 text-gray-600">{step.description}</p>
+            </div>
+          </div>)}
+        </div>
+      </div>
+    </section>
+
+    {/* Demo store */}
+    <section className="px-4 py-24">
+      <DemoStore />
+    </section>
+
+    {/* Pricing */}
+    <PricingSection />
+
+    {/* FAQ */}
+    <section className="px-6 py-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          url: `${process.env.NEXT_PUBLIC_SITE_URL}/reviews-io-alternative`,
+          mainEntity: faqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: { "@type": "Answer", text: faq.answer },
+          })),
+        }) }}
+      />
+      <div className="mx-auto max-w-3xl">
+        <Eyebrow>FAQ</Eyebrow>
+        <h2 className="h2 mt-5">Keeping REVIEWS.io, answered.</h2>
+        <div className="mt-10 border-t border-gray-200">
+          {faqs.map((faq) => <details key={faq.question} className="group border-b border-gray-200 py-5">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold [&::-webkit-details-marker]:hidden">
+              {faq.question}
+              <span className="text-xl text-gray-400 transition group-open:rotate-45">+</span>
+            </summary>
+            <p className="mt-3 text-gray-600">{faq.answer}</p>
+          </details>)}
+        </div>
+      </div>
+    </section>
+
+    <CtaBand />
+
+  </main>
 }
