@@ -1,0 +1,33 @@
+---
+title: Additional attributes
+description: Collect extra rating dimensions like fit or quality on your reviews.
+---
+
+# Additional attributes
+
+Beyond the overall star rating, you can collect extra **slider ratings** — dimensions like fit, quality or comfort — configured on the **Additional attributes** page in the app.
+
+## Defining an attribute
+
+Each attribute is a slider with:
+
+- **Question** — what the customer answers on the review form (e.g. "How was the fit?").
+- **Label** — a short label shown in review lists (e.g. "Fit").
+- **Left / Center / Right labels** — the slider's endpoints and midpoint (e.g. Runs small · True to size · Runs large).
+- **Scale min / max** — the numeric range of the slider.
+
+Attributes are scoped to products.
+
+## Collection & display
+
+- The **question** appears as a slider input on the [Review Form](/docs/displaying-reviews/review-form) and [Post Purchase Form](/docs/displaying-reviews/post-purchase-form).
+- Submitted values render on each review as a labelled slider, and aggregate across the [Review List](/docs/displaying-reviews/review-list).
+
+## Troubleshooting
+
+- If an attribute is not asked on the form, confirm it is saved and scoped to products.
+- If older reviews show no value, they predate the attribute — only reviews collected afterwards carry it.
+
+## Quick links
+
+<a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}/additional-attributes`} target="_blank" rel="noopener">Open Additional attributes in app</a>

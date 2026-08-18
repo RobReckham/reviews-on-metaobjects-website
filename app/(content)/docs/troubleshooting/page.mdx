@@ -1,38 +1,55 @@
 ---
 title: Troubleshooting
-description: Common issues and fixes.
+description: Common issues and fixes across collecting, managing and displaying reviews.
 ---
 
 # Troubleshooting
 
-## Changes not visible after setup
+## Fast triage
 
-- Save changes in both app settings and Theme Editor.
-- Refresh preview and storefront with a hard reload.
-- Wait for background sync/import jobs to complete before retesting.
+1. Confirm you're on the right **theme** and **shop** across every step.
+2. Confirm the latest changes were **saved** — in both app settings and the Theme Editor.
+3. Run one fresh sync/import from <a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}`} target="_blank" rel="noopener">the app dashboard</a>, then hard-reload the storefront.
+4. Test with one minimal, known-good sample.
+5. Use the section-specific notes below.
 
-## Environment mismatch issues
+## Changes not visible on the storefront
 
-- Confirm you are editing and previewing the same theme.
-- Confirm the same shop/store is used across all setup steps.
-- Re-check app proxy/domain context if links route unexpectedly.
+- Save in both app settings **and** the Theme Editor, then hard-reload.
+- Confirm the block is enabled and placed in the correct template/section.
+- Wait for background sync/import jobs to finish before retesting.
 
-## Data consistency issues
+## A block is blank or missing
 
-- Keep one identifier strategy per source.
-- Avoid mixed date, locale, and formatting conventions in imported data.
-- Use small test batches before large migrations.
+- **Purchase-signal blocks** ([Bestseller](/docs/displaying-reviews/bestseller), [Sold Count](/docs/displaying-reviews/sold-count), [Last Purchased](/docs/displaying-reviews/last-purchased), [Returning Customers](/docs/displaying-reviews/returning-customers), [Rating Share](/docs/displaying-reviews/rating-share)) **hide themselves on purpose** when they fall below their thresholds (minimum count/percent, maximum rank/age) or when there's no order data for the chosen period. Check those settings first.
+- Rating and review blocks need review data for the product — or the chosen scope, on the [Rating Bar](/docs/displaying-reviews/rating-bar).
+- Confirm the [FiveOh Core](/docs/displaying-reviews/core) app embed is enabled.
 
-## Access and permission issues
+## A placeholder shows as literal text
 
-- Verify app installation is healthy and permissions are up to date.
-- Reinstall/reconnect integration sources when authentication expires.
+Only a block's supported tokens are replaced — an unknown or misspelled token is left in the output as-is. Check names against the [token reference](/docs/displaying-reviews/customising-app-blocks). Common slips: use `{rating}` (not `{rating_value}`), `{count}` (not `{count_text}`), and `{submit_all}` / `{submit_button}` (not `{submit}`).
+
+## Reviews imported but not linked to products
+
+Almost always a **product identifier mismatch** (SKU / Barcode / Shopify GID / Numeric ID). Keep one identifier strategy per source, pick the one matching how the reviews were originally collected, and re-sync after changing it. See the source pages under [Collecting reviews](/docs/collecting-reviews).
+
+## New reviews not arriving
+
+- For on-demand sources, run a **Full sync** or **Incremental sync** from the platform card.
+- [Reviews.io](/docs/collecting-reviews/reviews-io): confirm **webhooks are registered**. [Trustpilot](/docs/collecting-reviews/trustpilot): confirm the **Webhook URL** is subscribed for the right review type (Service / Product).
+- Re-check credentials (API key/secret, Store ID, Business Unit ID) and reconnect a source when authentication expires.
+
+## Reviews not translated into a language
+
+Auto-[translation](/docs/managing-reviews/translations) targets your store's **published** locales — confirm the language is published in Shopify's markets/languages settings. Translations apply going forward; re-sync a source to reprocess older reviews.
+
+## Stars not showing in Google
+
+- Confirm a review block is placed and rendering: view page source and check the review HTML and JSON-LD are present (they're server-side, so they appear without running JavaScript).
+- Rich results take time — allow Google to recrawl after placement.
+
+## Access and permissions
+
+- Verify the app install is healthy and permissions are current.
+- Reconnect integration sources when authentication expires.
 - Check admin-level restrictions that can block settings or theme writes.
-
-## Fast triage checklist
-
-1. Confirm route and environment are correct.
-2. Confirm latest changes were saved.
-3. Run one fresh sync/import from <a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}`} target="_blank" rel="noopener">the app dashboard</a>.
-4. Test with a minimal known-good sample.
-5. Then use the page-specific troubleshooting guidance for that app block/integration.

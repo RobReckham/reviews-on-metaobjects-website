@@ -1,0 +1,26 @@
+---
+title: Bestseller
+description: Show a product's best-selling rank as a live purchase signal.
+---
+
+# Bestseller
+
+Displays the current product's best-selling rank for a chosen period, e.g. *"#2 best-selling in the last 30 days"*.
+
+## When to use
+
+Place it near the product title or add-to-cart to reinforce demand on popular products.
+
+## Settings
+
+- **Period** — Last 24 hours / 7 days / 30 days / All time.
+- **Text** — your copy, using the `{sold_rank}` variable. Default: `#{sold_rank} best-selling in the last 30 days`.
+- **Maximum rank to show** — hide the block when the rank is above this value (show only the top N).
+- **Custom CSS** — under advanced settings.
+
+Update the text when you change the period, so the wording matches the window.
+
+## Troubleshooting
+
+- If nothing renders, the product's rank is outside **Maximum rank to show**, or there is no order data for the period.
+- If the copy reads wrong after a change, re-check the period against your text.

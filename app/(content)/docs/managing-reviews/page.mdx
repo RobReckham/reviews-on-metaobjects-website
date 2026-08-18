@@ -1,0 +1,30 @@
+---
+title: Overview
+description: Moderate, curate and enrich your reviews from the app dashboard.
+---
+
+# Managing reviews
+
+Once reviews are in your store, you manage them from the reviews table in the app dashboard. Each row is a review metaobject you can moderate and enrich.
+
+## What you can do
+
+- **[Moderate](#moderation)** — approve or hide reviews and control what shows on the storefront.
+- **[Reply](/docs/managing-reviews/replies)** — publish a merchant response under a review.
+- **[Feature](/docs/managing-reviews/featured-reviews)** — pin your best reviews to the top.
+- **[Verified badge](/docs/managing-reviews/verified-badge)** — mark reviews backed by a real order.
+- **[Additional attributes](/docs/managing-reviews/additional-attributes)** — collect extra rating dimensions like fit or quality.
+- **[Translations](/docs/managing-reviews/translations)** — auto-translate reviews into your store languages.
+
+## Moderation
+
+Each review has a status that controls storefront visibility. Change a review's status from the reviews table to publish or hide it. The status also drives the `{status}` placeholder rendered on each review — see [Customising app blocks](/docs/displaying-reviews/customising-app-blocks).
+
+## Quick links
+
+<a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}`} target="_blank" rel="noopener">Open app dashboard</a>
+
+## Troubleshooting
+
+- If a change is not visible on the storefront, wait for sync to complete, then reload the page.
+- If a review will not publish, check its status and that its product link resolved.

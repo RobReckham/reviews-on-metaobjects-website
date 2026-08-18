@@ -2,9 +2,10 @@ import { getPageMap } from "nextra/page-map";
 import Layout from "../../components/layout";
 
 const ORDER = {
-  "/docs": ["index", "collecting-reviews", "app-blocks", "troubleshooting"],
-  "/docs/collecting-reviews": ["index", "post-purchase-email", "storefront", "file-import", "judgeme", "loox", "reviews-io"],
-  "/docs/app-blocks": ["index", "customising-app-blocks", "core", "product-rating", "review-list", "reviews-slider", "review-form", "product-card-ratings", "post-purchase-form"],
+  "/docs": ["index", "collecting-reviews", "managing-reviews", "displaying-reviews", "troubleshooting"],
+  "/docs/collecting-reviews": ["index", "post-purchase-email", "storefront", "file-import", "judgeme", "loox", "reviews-io", "trustpilot", "shop-app"],
+  "/docs/managing-reviews": ["index", "replies", "featured-reviews", "verified-badge", "additional-attributes", "translations"],
+  "/docs/displaying-reviews": ["index", "customising-app-blocks", "core", "product-rating", "product-card-ratings", "rating-bar", "review-list", "reviews-slider", "review-form", "post-purchase-form", "bestseller", "sold-count", "last-purchased", "returning-customers", "rating-share", "floating-badge"],
 };
 
 const reorderPageMap = (nodes, route = "/docs") => {

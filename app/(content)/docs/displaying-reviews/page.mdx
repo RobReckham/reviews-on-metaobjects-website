@@ -1,0 +1,54 @@
+---
+title: Overview
+description: Place and customise the storefront app blocks that render your reviews.
+---
+
+# Displaying reviews
+
+App blocks control how reviews appear across your storefront. Every block renders server-side in Liquid — no JavaScript widget — and reads from your review metaobjects.
+
+## Placement from the app
+
+In Shopify admin, open **App blocks** in the app and use **Open in Theme Editor** for the block you want to place.
+
+## Recommended setup order
+
+1. Enable the [FiveOh Core](/docs/displaying-reviews/core) app embed.
+2. Add [Product Rating](/docs/displaying-reviews/product-rating) and [Review List](/docs/displaying-reviews/review-list) on product pages.
+3. Add [Review Form](/docs/displaying-reviews/review-form) where customers can submit feedback.
+4. Enable [Product Card Ratings](/docs/displaying-reviews/product-card-ratings) for rating hints on listing pages.
+5. Add a [Rating Bar](/docs/displaying-reviews/rating-bar) or [Reviews Slider](/docs/displaying-reviews/reviews-slider) for homepage and landing-page trust.
+
+## The blocks
+
+**Ratings & summary**
+- [Product Rating](/docs/displaying-reviews/product-rating) — average stars and count for a product
+- [Product Card Ratings](/docs/displaying-reviews/product-card-ratings) — compact stars for collection/listing cards
+- [Rating Bar](/docs/displaying-reviews/rating-bar) — store- or product-level rating bar with logo
+
+**Review display**
+- [Review List](/docs/displaying-reviews/review-list) — the full list with search, sort, filters and pagination
+- [Reviews Slider](/docs/displaying-reviews/reviews-slider) — featured reviews in a carousel
+
+**Collection forms** *(placed as blocks; see [Collecting reviews](/docs/collecting-reviews))*
+- [Review Form](/docs/displaying-reviews/review-form) — on-store submission form
+- [Post Purchase Form](/docs/displaying-reviews/post-purchase-form) — hosted form for email/link submissions
+
+**Purchase signals**
+- [Bestseller](/docs/displaying-reviews/bestseller) · [Sold Count](/docs/displaying-reviews/sold-count) · [Last Purchased](/docs/displaying-reviews/last-purchased) · [Returning Customers](/docs/displaying-reviews/returning-customers) · [Rating Share](/docs/displaying-reviews/rating-share) · [Floating Badge](/docs/displaying-reviews/floating-badge)
+
+## Customising output
+
+Every block builds its markup from a **structure** template with `{placeholder}` tokens, plus scoped `custom_css`. See [Customising app blocks](/docs/displaying-reviews/customising-app-blocks) for the complete token reference.
+
+## Quick links
+
+<a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}/app-blocks`} target="_blank" rel="noopener">Open app blocks page in app</a>  
+<a href="https://www.shopify.com/admin/themes/current/editor?context=apps" target="_blank" rel="noopener">Open theme editor app embeds</a>  
+<a href="https://reviewsonmetaobjects.myshopify.com/products/the-complete-snowboard" target="_blank" rel="noopener">Demo store product page</a> (password: demo)
+
+## Troubleshooting
+
+- If a block does not render, confirm it is enabled and saved in Theme Editor.
+- If layout looks wrong, verify placement in the correct template and section.
+- For card, form and purchase-signal blocks, check their dedicated pages for required data or integration steps.

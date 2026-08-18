@@ -1,0 +1,26 @@
+---
+title: Last Purchased
+description: Show how recently a product was last bought as a live purchase signal.
+---
+
+# Last Purchased
+
+Displays how recently the product was last purchased, e.g. *"Last purchased 6 hours ago"*.
+
+## When to use
+
+Place it near the product title or add-to-cart to add recency-based urgency.
+
+## Settings
+
+- **Text** — your copy, using any of:
+  - `{last_purchased_at}` / `{last_purchased_at_relative}` — product's last purchase (absolute / relative). Off a product page, this falls back to the store's last purchase.
+  - `{variant_last_purchased_at}` / `{variant_last_purchased_at_relative}` — the selected variant's last purchase.
+  - Default: `Last purchased {last_purchased_at_relative}`.
+- **Maximum age to show** — Always show / 1 hour / 24 hours / 3 / 7 / 30 days. Hides the block when the timestamps in your text are older than this.
+- **Custom CSS** — under advanced settings.
+
+## Troubleshooting
+
+- If nothing renders, the last purchase is older than **Maximum age to show**, or there is no purchase data yet.
+- If you use a `{variant_*}` variable, confirm the block sits on a product page with a selected variant.

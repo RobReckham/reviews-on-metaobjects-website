@@ -1,0 +1,117 @@
+---
+title: Customising app blocks
+description: The complete placeholder token reference for structure and custom CSS.
+---
+
+# Customising app blocks
+
+Most blocks are customised without editing theme code, using two settings:
+
+- **`structure`** — an HTML template with `{placeholder}` tokens. The block builds each fragment (stars, title, body, …) in Liquid and swaps it in for its token.
+- **`custom_css`** — CSS scoped to that block instance (injected inside the block's uniquely-ID'd wrapper, so it never leaks into the rest of the theme).
+
+Form blocks also expose a per-row **`form_item_structure`** (and purchase-signal blocks use a plain **`text`** template — see the bottom of this page).
+
+> Only the tokens listed for a block are replaced. An unknown token is left in the output as literal text, so check spelling against the tables below.
+
+## Rating blocks
+
+**Product Rating** — `{stars}` `{rating}` `{max}` `{count}` `{pluralised_reviews}`
+**Product Card Ratings** — `{star}` `{rating}` `{max}` `{count}`
+**Rating Bar** — `{stars}` `{rating}` `{count}` `{pluralised_reviews}` `{logo}`
+**Floating Badge** — `{stars}` `{rating_decimal}` `{max}` `{count}` `{pluralised_reviews}` `{image}`
+
+| Token | Renders |
+|---|---|
+| `{stars}` | Star icons for the average rating |
+| `{star}` | Single star icon (compact card variant) |
+| `{rating}` | Average rating value |
+| `{rating_decimal}` | Average rating, forced to one decimal |
+| `{max}` | Maximum rating (usually 5) |
+| `{count}` | Number of reviews |
+| `{pluralised_reviews}` | The word "review"/"reviews", pluralised for `{count}` |
+| `{logo}` | Store logo (Rating Bar setting) |
+| `{image}` | Badge image (Floating Badge setting) |
+
+## Review List
+
+Block-level structure — `{heading}` `{heading_tag}` `{stars}` `{rating}` `{max}` `{count}` `{pluralised_reviews}` `{ai_summary_short}` `{distribution}` `{search}` `{sort}` `{filters}` `{featured_reviews}` `{reviews}` `{pagination}`
+
+| Token | Renders |
+|---|---|
+| `{heading}` / `{heading_tag}` | Section heading text / its wrapping tag |
+| `{ai_summary_short}` | AI-generated summary of the reviews |
+| `{distribution}` | Rating breakdown bars (5★ → 1★) |
+| `{search}` `{sort}` `{filters}` | Review search box, sort control, filter control |
+| `{featured_reviews}` | The pinned/featured reviews region |
+| `{reviews}` | The list of individual review items |
+| `{pagination}` | Pager controls |
+
+### Review item (each review inside the list)
+
+`{stars}` `{rating}` `{max}` `{title}` `{body}` `{media}` `{author}` `{date}` `{status}` `{featured_badge}` `{product}` `{variant}` `{reply}`
+
+| Token | Renders |
+|---|---|
+| `{title}` / `{body}` | Review title / body text |
+| `{media}` | Review photos and videos |
+| `{author}` | Author display name |
+| `{date}` | Submission date |
+| `{status}` | Status line, including the verified badge |
+| `{featured_badge}` | "Featured"/"Pinned" badge when the review is featured |
+| `{product}` / `{variant}` | Reviewed product / variant label |
+| `{reply}` | Your merchant reply, when present |
+
+## Reviews Slider
+
+Block-level — `{heading}` `{heading_tag}` `{summary_heading}` `{stars}` `{count}` `{pluralised_reviews}` `{logo}` `{featured_reviews}` `{reviews}` `{slider_buttons}`
+Slider item — `{stars}` `{title}` `{body}` `{author}` `{date}` `{status}` `{featured_badge}`
+
+| Token | Renders |
+|---|---|
+| `{summary_heading}` | Secondary heading above the slider |
+| `{slider_buttons}` | Previous/next controls |
+
+## Forms
+
+**Review Form** & **Post Purchase Form** (block-level) — `{heading}` `{heading_tag}` `{message}` `{items}` `{author_field}` `{submit_all}` (Review Form also: `{eligible_audience}`)
+
+**Form item** (`form_item_structure`, one per product) — `{item_name}` `{item_image}` `{rating_field}` `{title_field}` `{body_field}` `{media_field}` `{message}` `{progress}` `{submit_button}`
+
+| Token | Renders |
+|---|---|
+| `{items}` | The set of per-product form rows |
+| `{author_field}` | Name/author input |
+| `{rating_field}` `{title_field}` `{body_field}` `{media_field}` | Review inputs (rating, title, body, photo/video upload) |
+| `{message}` | Validation / status message region |
+| `{progress}` | Multi-item progress indicator |
+| `{submit_all}` / `{submit_button}` | Submit-everything button / per-item submit button |
+| `{eligible_audience}` | Notice shown when submission is gated to eligible customers |
+| `{item_name}` / `{item_image}` | Product name / image on the form row |
+
+> Keep `{items}` and a submit token (`{submit_all}` or `{submit_button}`) in form structures, or submission breaks.
+
+## Purchase-signal text
+
+Bestseller, Sold Count, Last Purchased, Returning Customers and Rating Share don't use a structure template — you write their copy in a **`text`** setting with inline variables:
+
+| Block | Variables |
+|---|---|
+| Bestseller | `{sold_rank}` |
+| Sold Count | `{sold_count}`, `{sold_count_compact}` (e.g. `12.9k`) |
+| Last Purchased | `{last_purchased_at}`, `{last_purchased_at_relative}`, `{variant_last_purchased_at}`, `{variant_last_purchased_at_relative}` |
+| Returning Customers | `{return_rate}`, `{return_count}` |
+| Rating Share | `{share_percent}`, `{share_count}` |
+
+Update the copy when you change a block's period or share type — the numbers change but your wording won't.
+
+## Custom CSS
+
+`custom_css` is injected inside each block's uniquely-ID'd wrapper. Styles are scoped to that instance, so you can restyle internal classes safely and give two instances different looks.
+
+## Workflow
+
+1. Start from the default structure.
+2. Change one token block at a time and test on a real storefront page.
+3. Add minimal CSS; keep semantic markup and readable order.
+4. If a block stops rendering, revert to the default structure, then re-apply changes incrementally.

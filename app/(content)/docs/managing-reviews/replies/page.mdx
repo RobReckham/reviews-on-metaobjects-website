@@ -1,0 +1,22 @@
+---
+title: Replies
+description: Publish a merchant response under a review.
+---
+
+# Replies
+
+Respond to a review publicly with a merchant reply — useful for thanking customers or addressing a concern.
+
+## How it works
+
+- Add or edit a reply on a review from the app dashboard.
+- The reply is stored on the review and syncs to its Shopify metaobject.
+- It renders through the `{reply}` placeholder wherever the review appears.
+
+## Displaying it
+
+Keep `{reply}` in your review-item structure. When a review has no reply, the token renders nothing. See [Customising app blocks](/docs/displaying-reviews/customising-app-blocks#review-item-each-review-inside-the-list).
+
+## Troubleshooting
+
+- If a reply does not show, confirm it saved and that `{reply}` is present in the review-item structure.

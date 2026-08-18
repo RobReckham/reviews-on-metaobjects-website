@@ -1,0 +1,22 @@
+---
+title: Verified badge
+description: Mark reviews backed by a real order as verified.
+---
+
+# Verified badge
+
+A verified badge signals that a review comes from a genuine purchase.
+
+## How it works
+
+- Each review carries a verification status.
+- Reviews collected through the post-purchase flow are verified — a review submitted through a public form is not.
+- The badge renders as part of the `{status}` placeholder on each review item.
+
+## Displaying it
+
+Keep `{status}` in your review-item structure to render the verification badge. See [Customising app blocks](/docs/displaying-reviews/customising-app-blocks#review-item-each-review-inside-the-list).
+
+## Troubleshooting
+
+- If a review is unexpectedly unverified, check how it was collected — only order-backed submissions are marked verified.

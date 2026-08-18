@@ -50,6 +50,20 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: "/docs/app-blocks/:path*",
+        destination: "/docs/displaying-reviews/:path*",
+        permanent: true,
+      },
+      {
+        source: "/docs/app-blocks",
+        destination: "/docs/displaying-reviews",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default withNextra(nextConfig);
