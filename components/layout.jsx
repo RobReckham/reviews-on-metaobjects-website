@@ -33,19 +33,19 @@ const footerLinks = [
         href: "/",
       },
       {
-        label: "Compare to Judge.me",
+        label: "Works with Judge.me",
         href: "/judge-me-alternative",
       },
       {
-        label: "Compare to Loox",
+        label: "Works with Loox",
         href: "/loox-alternative",
       },
       {
-        label: "Compare to Reviews.io",
+        label: "Works with Reviews.io",
         href: "/reviews-io-alternative",
       },
       {
-        label: "Compare to Trustpilot",
+        label: "Works with Trustpilot",
         href: "/trustpilot-alternative",
       },
     ],
