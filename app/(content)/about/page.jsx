@@ -1,6 +1,8 @@
-import AnimatedBackground from "../../../components/animated-background"
 import ListingCta from "../../../components/listing-cta"
 import DemoStore from "../../../components/demo-store"
+import Eyebrow from "../../../components/eyebrow"
+
+const LISTING_URL = process.env.NEXT_PUBLIC_LISTING_URL || "https://apps.shopify.com/reviews-on-metaobjects"
 
 export const metadata = {
   title: `Marius Korbmacher - Shopify Developer Behind ${process.env.NEXT_PUBLIC_APP_NAME}`,
@@ -38,14 +40,13 @@ export default function AboutPage() {
     <main className="bg-white min-h-screen text-gray-900">
 
       {/* Hero */}
-      <section className="py-12 sm:py-24 relative">
-        <div className="absolute inset-4 rounded-4xl overflow-hidden">
-          <AnimatedBackground />
-        </div>
-        <div className="px-8 py-4 text-center relative z-10 max-w-3xl mx-auto">
-          <p className="h4">The developer behind {process.env.NEXT_PUBLIC_APP_NAME}</p>
-          <h1 className="h1 mt-4 mb-6">Hi, I'm Marius</h1>
-          <p className="text-lg">
+      <section className="px-6 py-20 sm:py-28">
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="flex justify-center">
+            <Eyebrow>The developer behind {process.env.NEXT_PUBLIC_APP_NAME}</Eyebrow>
+          </div>
+          <h1 className="h1 mt-5 mb-6">Hi, I'm Marius</h1>
+          <p className="copy mx-auto max-w-2xl">
             Fullstack developer from Germany. Ten years writing software, the last five spent almost exclusively inside the Shopify ecosystem. This app is the thing I built because I couldn't find a version of it that was done right.
           </p>
         </div>
@@ -89,7 +90,7 @@ export default function AboutPage() {
       {/* Brands */}
       <section className="bg-white pb-16 sm:pb-32 px-4">
         <div className="max-w-2xl mx-auto">
-          <p className="text-sm text-gray-500 uppercase tracking-widest mb-6">Stores I've worked on</p>
+          <div className="mb-6"><Eyebrow>Stores I've worked on</Eyebrow></div>
           <div className="flex flex-wrap gap-3">
             {brands.map((brand) => (
               <span key={brand} className="bg-gray-100 text-gray-700 rounded-lg px-4 py-2 text-sm font-medium">{brand}</span>
@@ -101,24 +102,18 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="bg-white pb-16 sm:pb-32 px-4">
         <div className="max-w-5xl mx-auto">
-          <div className="relative p-8 sm:p-16 rounded-4xl overflow-hidden">
-            <AnimatedBackground baseColor="oklch(27.8% 0.033 256.848)" />
-            <div className="relative z-10 text-center">
-              <h2 className="h2 text-white text-shadow-sm mb-4">Want to talk through your store?</h2>
-              <p className="text-white/80 mb-8">
-                I'm still onboarding stores hands-on during early access. Book a quick call and I'll tell you exactly what impact switching would have on your specific setup.
-              </p>
-              <div className="flex flex-col items-center gap-2">
-                <ListingCta href={process.env.NEXT_PUBLIC_CALENDLY_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-inverted opacity-100!">Book a free call</ListingCta>
-                <a href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL}`} className="text-white/70 underline text-sm">...or send me an email</a>
-              </div>
+          <div className="overflow-hidden rounded-4xl bg-slate-950 bg-linear-to-t to-slate-800 p-8 text-center sm:p-16">
+            <h2 className="h2 text-white mb-4">Want to talk through your store?</h2>
+            <p className="mx-auto max-w-xl text-gray-400 mb-8">
+              I onboard stores hands-on. Book a quick call and I'll tell you exactly what impact switching would have on your specific setup.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href={LISTING_URL} target="_blank" rel="noopener noreferrer" className="btn border-white bg-white text-gray-950 hover:bg-gray-100">Install on Shopify</a>
+              <ListingCta href={process.env.NEXT_PUBLIC_CALENDLY_LINK} className="btn border-white/25 bg-transparent text-white hover:bg-white/10">Book a free call</ListingCta>
             </div>
+            <a href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL}`} className="mt-4 inline-block text-sm text-gray-400 underline hover:text-white">...or send me an email</a>
           </div>
         </div>
-      </section>
-
-      <section className="bg-white pb-16 sm:pb-32 px-4">
-        <DemoStore />
       </section>
     </main>
   )
