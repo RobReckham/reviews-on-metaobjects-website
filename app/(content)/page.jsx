@@ -1,350 +1,40 @@
-import Faqs from "../../components/faqs"
-import FinalCta from "../../components/final-cta"
-import Pricing from "../../components/pricing"
-import ListingCta from "../../components/listing-cta"
 import plans from "../../utils/plans"
-import AnimatedBackground from "../../components/animated-background"
-import SkelletonReview from "../../components/skelleton-review"
-import Image from "next/image"
-import FounderSection from "../../components/founder-section"
-import DemoStore from "../../components/demo-store"
+import Hero from "../../components/hero"
+import Problems from "../../components/problems"
+import Architecture from "../../components/architecture"
+import WorksWith from "../../components/works-with"
+import DesignFreedom from "../../components/design-freedom"
+import Blocks from "../../components/blocks"
+import AiReadable from "../../components/ai-readable"
+import Performance from "../../components/performance"
+import RealData from "../../components/real-data"
+import Workflow from "../../components/workflow"
+import CaseStudy from "../../components/case-study"
+import WhiteGlove from "../../components/white-glove"
+import PricingSection from "../../components/pricing-section"
+import FaqSection from "../../components/faq-section"
+import CtaBand from "../../components/cta-band"
+import LegacyMoreInfo from "../../components/legacy-more-info"
+import LegacyBenefits from "../../components/legacy-benefits"
+import LegacyLandingImage from "../../components/legacy-landing-image"
+import LegacyTagline from "../../components/legacy-tagline"
+import LegacyCollect from "../../components/legacy-collect"
+import LegacyManage from "../../components/legacy-manage"
+import LegacyDisplay from "../../components/legacy-display"
+import LegacyDemoStore from "../../components/legacy-demo-store"
+import LegacyHowItWorks from "../../components/legacy-how-it-works"
+import LegacyFounder from "../../components/legacy-founder"
+import LegacyPricing from "../../components/legacy-pricing"
+import LegacyFinalCta from "../../components/legacy-final-cta"
+import LegacyFaqs from "../../components/legacy-faqs"
 
 export const metadata = {
-  title: `Shopify Product Reviews via Metaobjects - Own Your Data, Improve SEO & Speed | ${process.env.NEXT_PUBLIC_APP_NAME}`,
-  description: "The only Shopify review app that stores reviews natively as Metaobjects. Review texts live in your HTML - indexed by Google, ranking for long-tail searches, readable by ChatGPT and Perplexity. No vendor lock-in, faster pages, a fraction of the cost of Loox or Reviews.io.",
+  title: `Shopify reviews on native metaobjects - pixel-perfect & AI-readable | ${process.env.NEXT_PUBLIC_APP_NAME}`,
+  description: "The Shopify-native display layer for product reviews. Keep your review app or collect natively - reviews render server-side in Liquid: pixel-perfect, faster pages, and readable by Google and AI. Native metaobjects, no iframe, no lock-in.",
   alternates: {
     canonical: "/",
   },
 };
-
-const hero = {
-  title: "Your review app is killing your PageSpeed, SEO and sales",
-  subtitle: "Built on Shopify’s standard product review metaobjects",
-  paragraph: "Reviews stored right in Shopify - no vendor lock-in, no data held hostage, fully renderable in Liquid. Visible to search and AI, faster pages, and a fraction of the cost of most review apps.",
-  bullets: ["Own your data", "No lock-in", "Better SEO", "Design freedom", "Fair pricing"],
-  ctaText: "Claim early access!",
-}
-
-const oneLiners = [
-  <>Every other review app stores your data on their servers. We store it directly in yours.</>,
-  <>Faster pages convert better. Star ratings in Google bring more clicks. Same store, more sales.</>,
-  <>Reviews that load instantly - because they belong in Shopify.</>,
-  <>Your shop, your data, your reviews. You are not locked in with us. Use a different service for the same data at any time.</>,
-  <>From collection to display - all inside Shopify. Your shop, your data, your reviews.</>,
-  'Stop slowing down your store with heavy review widgets.',
-  'Native reviews. No JavaScript. No compromises.',
-  'Your reviews. Your data. Your rules.',
-  'Faster pages. Better SEO. Real control.',
-  'Render reviews server-side. Convert more customers.',
-  'Own your reviews instead of renting them.',
-  'No more external scripts killing your speed.',
-  'The fastest, cleanest way to show authentic reviews.',
-  'Ditch the widgets. Embrace native performance.',
-  'Translation included. Performance guaranteed.',
-  'Built for speed. Designed for trust.',
-  'Finally, reviews that don’t hurt your store.',
-]
-
-const benefits = {
-  title: "Why reviews should live directly in Shopify",
-  subtitle: "Third-party review apps slow your store and lock you in. There’s a better way.",
-  baseColor: "oklch(88.2% 0.059 254.128)",
-  baseColor: "oklch(21% 0.034 264.665)",
-  items: [
-    {
-      title: "Faster pages",
-      Icon: function Icon({ className }) { return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
-        <path fillRule="evenodd" d="M14.615 1.595a.75.75 0 0 1 .359.852L12.982 9.75h7.268a.75.75 0 0 1 .548 1.262l-10.5 11.25a.75.75 0 0 1-1.272-.71l1.992-7.302H3.75a.75.75 0 0 1-.548-1.262l10.5-11.25a.75.75 0 0 1 .913-.143Z" clipRule="evenodd" />
-      </svg>},
-      description: "Other apps load reviews with JavaScript after the page is already painted. We render them server-side in Liquid - so they appear with the rest of the page. Better Core Web Vitals, social proof visible from the first frame.",
-    },
-    {
-      title: "Better SEO",
-      Icon: function Icon({ className }) { return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
-        <path fillRule="evenodd" d="M5.166 2.621v.858c-1.035.148-2.059.33-3.071.543a.75.75 0 0 0-.584.859 6.753 6.753 0 0 0 6.138 5.6 6.73 6.73 0 0 0 2.743 1.346A6.707 6.707 0 0 1 9.279 15H8.54c-1.036 0-1.875.84-1.875 1.875V19.5h-.75a2.25 2.25 0 0 0-2.25 2.25c0 .414.336.75.75.75h15a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-2.25-2.25h-.75v-2.625c0-1.036-.84-1.875-1.875-1.875h-.739a6.706 6.706 0 0 1-1.112-3.173 6.73 6.73 0 0 0 2.743-1.347 6.753 6.753 0 0 0 6.139-5.6.75.75 0 0 0-.585-.858 47.077 47.077 0 0 0-3.07-.543V2.62a.75.75 0 0 0-.658-.744 49.22 49.22 0 0 0-6.093-.377c-2.063 0-4.096.128-6.093.377a.75.75 0 0 0-.657.744Zm0 2.629c0 1.196.312 2.32.857 3.294A5.266 5.266 0 0 1 3.16 5.337a45.6 45.6 0 0 1 2.006-.343v.256Zm13.5 0v-.256c.674.1 1.343.214 2.006.343a5.265 5.265 0 0 1-2.863 3.207 6.72 6.72 0 0 0 .857-3.294Z" clipRule="evenodd" />
-      </svg>},
-      description: "Other apps hide review texts from Google, ChatGPT, and Perplexity. We expose the full content - so your reviews get indexed, rank for long-tail searches, and help AI tools answer specific questions about your products.",
-    },
-    {
-      title: "Full design freedom",
-      Icon: function Icon({ className }) { return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
-        <path fillRule="evenodd" d="M20.599 1.5c-.376 0-.743.111-1.055.32l-5.08 3.385a18.747 18.747 0 0 0-3.471 2.987 10.04 10.04 0 0 1 4.815 4.815 18.748 18.748 0 0 0 2.987-3.472l3.386-5.079A1.902 1.902 0 0 0 20.599 1.5Zm-8.3 14.025a18.76 18.76 0 0 0 1.896-1.207 8.026 8.026 0 0 0-4.513-4.513A18.75 18.75 0 0 0 8.475 11.7l-.278.5a5.26 5.26 0 0 1 3.601 3.602l.502-.278ZM6.75 13.5A3.75 3.75 0 0 0 3 17.25a1.5 1.5 0 0 1-1.601 1.497.75.75 0 0 0-.7 1.143 5.25 5.25 0 0 0 9.8-2.62 3.75 3.75 0 0 0-3.75-3.75Z" clipRule="evenodd" />
-      </svg>},
-      description: "No iframes, no locked-down widget. Reviews are plain Shopify data - access them directly in Liquid and build exactly what your brand needs. Use the ready-made app blocks or write your own sections from scratch.",
-    },
-    {
-      title: "Complete control",
-      Icon: function Icon({ className }) { return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
-        <path d="M18 1.5c2.9 0 5.25 2.35 5.25 5.25v3.75a.75.75 0 0 1-1.5 0V6.75a3.75 3.75 0 1 0-7.5 0v3a3 3 0 0 1 3 3v6.75a3 3 0 0 1-3 3H3.75a3 3 0 0 1-3-3v-6.75a3 3 0 0 1 3-3h9v-3c0-2.9 2.35-5.25 5.25-5.25Z" />
-      </svg>},
-      description: "Your reviews live in Shopify. No vendor lock-in. Keep them even after uninstalling our app. Import, export, customize! Syncs automatically to the Shop app.",
-    },
-    // {
-    //   title: "Fair pricing",
-    //   Icon: function Icon({ className }) { return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
-    //     <path d="M12 7.5a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z" />
-    //     <path fillRule="evenodd" d="M1.5 4.875C1.5 3.839 2.34 3 3.375 3h17.25c1.035 0 1.875.84 1.875 1.875v9.75c0 1.036-.84 1.875-1.875 1.875H3.375A1.875 1.875 0 0 1 1.5 14.625v-9.75ZM8.25 9.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM18.75 9a.75.75 0 0 0-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 0 0 .75-.75V9.75a.75.75 0 0 0-.75-.75h-.008ZM4.5 9.75A.75.75 0 0 1 5.25 9h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75H5.25a.75.75 0 0 1-.75-.75V9.75Z" clipRule="evenodd" />
-    //     <path d="M2.25 18a.75.75 0 0 0 0 1.5c5.4 0 10.63.722 15.6 2.075 1.19.324 2.4-.558 2.4-1.82V18.75a.75.75 0 0 0-.75-.75H2.25Z" />
-    //   </svg>},
-    //   description: "We leverage Shopify’s infrastructure, so we can offer a free plan and low-cost paid tiers especially for larger stores.",
-    // },
-  ],
-}
-
-const feature1 = {
-  title: "Collect reviews intelligently",
-  baseColor: "oklch(84.5% 0.143 164.978)",
-  baseColor: "oklch(90.5% 0.093 164.15)",
-  baseColor: "oklch(82.7% 0.119 306.383)",
-  baseColor: "oklch(21% 0.034 264.665)",
-  items: [
-    {
-      title: "Forms on product pages",
-      description: "Let anyone leave reviews quickly.",
-    },
-    {
-      title: "Post-purchase emails",
-      description: "Automatically request reviews after purchase. Reward reviewers with a discount code - percentage or fixed - sent automatically once the review is submitted.",
-    },
-    {
-      title: "Import & sync",
-      description: "Migrate from other review services like Judge.me, reviews.io and more.",
-    },
-    {
-      title: "Media support",
-      description: "Allow images and videos to make reviews more engaging.",
-    },
-    {
-      title: "Variant-specific reviews",
-      description: "Show relevant reviews for the selected size, color or option.",
-    },
-    {
-      title: "Automatic deduplication",
-      description: "Prevents abuse and accidental imports.",
-    },
-  ]
-}
-
-const feature2 = {
-  title: "Manage reviews easily",
-  baseColor: "oklch(82.7% 0.119 306.383)",
-  baseColor: "oklch(21% 0.034 264.665)",
-  items: [
-    {
-      title: "Approve or auto-publish",
-      description: "Filter reviews by rating, content, or media attachments.",
-    },
-    {
-      title: "Reply quickly",
-      description: "Respond to reviews to build trust and improve customer satisfaction.",
-    },
-    {
-      title: "Auto-translate",
-      description: "All reviews are translated into your storefront’s languages automatically.",
-    },
-    {
-      title: "Bulk actions",
-      description: "Publish, unpublish, or delete multiple reviews at once from the dashboard.",
-    },
-  ]
-}
-
-const feature3 = {
-  title: "Display reviews confidently",
-  baseColor: "oklch(81% 0.117 11.638)",
-  baseColor: "oklch(82.7% 0.119 306.383)",
-  baseColor: "oklch(21% 0.034 264.665)",
-  items: [
-    {
-      title: "Flexible placement",
-      description: "Product ratings on product & collection pages, full review lists anywhere.",
-    },
-    {
-      title: "Advanced filtering & search",
-      description: "Let customers find the most relevant reviews easily.",
-    },
-    {
-      title: "Language-aware",
-      description: "Display reviews in the visitor’s language automatically.",
-    },
-    {
-      title: "Fully customizable blocks",
-      description: "Pre-built customizable app blocks work out of the box, but you can also build your own using the Metaobjects data directly.",
-    },
-  ]
-}
-
-const howItWorks = {
-  title: "How it works",
-  baseColor: "oklch(81.1% 0.111 293.571)",
-  baseColor: "oklch(90.5% 0.093 164.15)",
-  baseColor: "oklch(88.2% 0.059 254.128)",
-  steps: [
-    "1. Install the app from the Shopify App Store.",
-    "Optional: Import or sync existing reviews from existing services like Judge.me, Loox, reviews.io, or a CSV.",
-    "2. Add ready-made sections to your storefront to collect and display reviews.",
-    "3. Your data stays yours, your rankings climb, your pages load faster, and your conversions follow.",
-  ]
-}
-
-const finalCta = {
-  title: "Ready for faster, native reviews?",
-  baseColor: "oklch(27.8% 0.033 256.848)",
-  description: "No more slow, third-party review apps. Take control of your reviews today.",
-  ctaText: "Claim early access!",
-}
-
-const faqs = [
-  {
-    question: "How to see it in action?",
-    answer: <>
-      <p>We have a demo store with all app blocks installed! Just visit our <a href="https://reviewsonmetaobjects.myshopify.com/products/the-collection-snowboard-oxygen" target="_blank" rel="noopener" className="underline">demo store</a>. It is password-protected: enter <strong>demo</strong>. After that you can click through products and collections the same way a customer would. Feel free to run speed and SEO audits on it.</p>
-    </>,
-  },
-  {
-    question: 'What is the standard product review metaobject?',
-    answer: <>
-      <p>Shopify's standard product review metaobject is the official, built-in way to store product reviews. It powers syndication to the Shop app, Google Shopping, and Meta shops, and allows native server-side display in your theme using Liquid.</p>
-    </>,
-  },
-  {
-    question: 'What is a metaobject?',
-    answer: <>
-      <p>Metaobjects allow you to store data in a structured way right in Shopify. It is a way to store data in a way that is easy and fast to query in Shopify's markup language Liquid. It is thus a native and efficient way to store data and display reviews in your theme.</p>
-    </>,
-  },
-  {
-    question: 'Why does it matter that my reviews are stored in Shopify instead of a third-party database?',
-    answer: <>
-      <p>When reviews are stored on a third-party server, your browser has to fetch them via JavaScript after your page loads. This delays rendering, increases your Largest Contentful Paint (LCP), and prevents search engines from indexing your review content and structured data.</p>
-      <p>Metaobjects are queried server-side during Liquid rendering - just like product titles or prices. The reviews are part of your HTML from the first byte. No extra round-trip, no layout shift, no dependency on an external service staying online.</p>
-    </>,
-  },
-  {
-    question: 'How do I get started?',
-    answer: <>
-      <p>Install the app from the Shopify App Store. The free tier activates immediately (up to 100 reviews). Connect your review source, import by uploading a CSV file or start collecting via forms and emails. Add some ready-made app blocks to your store - no coding required for basic setup.</p>
-    </>,
-  },
-  {
-    question: 'How does the app collect new reviews?',
-    answer: <>
-      <p>New reviews are collected automatically through post-purchase emails and customizable on-store submission forms. All collected reviews are stored directly in Shopify's standard product review metaobjects for native display.</p>
-    </>,
-  },
-  {
-    question: 'Can I import reviews from other providers?',
-    answer: <>
-      <p>Yes. The app supports importing existing reviews from providers such as Judge.me, reviews.io, and other sources (CSV file import) into the standard product review metaobjects.</p>
-    </>,
-  },
-  {
-    question: 'What providers are supported for import?',
-    answer: <>
-      <p>The app supports importing and syncing reviews from Judge.me, reviews.io and more. You can also import reviews from other sources by uploading a CSV file. More providers are added regularly to the sync feature based on demand.</p>
-    </>,
-  },
-  {
-    question: 'Can I keep trust badges from other services?',
-    answer: <>
-      <p>Yes. Many of our merchants continue using other services for their trust badges while switching the actual product review display to our native metaobject solution. You can often downgrade your existing review app to their cheapest plan (or even free tier in some cases) and still keep the badge rights. This frequently results in significant cost savings while dramatically improving your store's speed and SEO.</p>
-    </>,
-  },
-  {
-    question: 'Does the app require JavaScript Snippets to display reviews?',
-    answer: <>
-      <p>No. Reviews render natively with Liquid in your theme - fully server-side. This eliminates JavaScript widgets, improves page speed, Core Web Vitals, and supports better SEO through native structured data.</p>
-    </>,
-  },
-  {
-    question: 'How does automatic translation work?',
-    answer: <>
-      <p>The app automatically translates review title and body into your store's published languages. Translations are stored in the metaobjects and displayed correctly based on the shopper's locale.</p>
-    </>,
-  },
-  {
-    question: 'Is variant-specific review display supported?',
-    answer: <>
-      <p>Yes. When reviews contain variant information, the app filters and displays them for the currently selected product variant on the product page.</p>
-    </>,
-  },
-  {
-    question: 'What happens to my product rating aggregates?',
-    answer: <>
-      <p>The app automatically maintains accurate rating aggregates (average rating and review count) in Shopify metafields. These are updated in real time and can be used on collection pages and search results.</p>
-    </>,
-  },
-  {
-    question: 'How many reviews can I store and display?',
-    answer: <>
-      <p>Shopify itself supports up to 1,000,000 product review metaobjects per store.</p>
-      <p>Our app supports unlimited reviews depending on {process.env.NEXT_PUBLIC_LISTING_URL ? <a href={process.env.NEXT_PUBLIC_LISTING_URL} target="_blank" rel="noopener noreferrer" className="underline">the plan you choose</a> : <span>the plan you choose</span>}.</p>
-    </>,
-  },
-  {
-    question: 'How does it compare to traditional review widgets?',
-    answer: <>
-      <p>Traditional widgets load reviews with JavaScript, which slows down your store. This app uses native metaobjects for server-side rendering, resulting in faster pages, better SEO, and improved Core Web Vitals while still supporting photo/video reviews.</p>
-    </>,
-  },
-  {
-    question: 'Are my full review texts visible to Google, ChatGPT, and Perplexity?',
-    answer: <>
-      <p>Other apps load reviews via a JavaScript widget after the page loads. Google, ChatGPT, and Perplexity all read page HTML - none of them execute that widget. They see your product page, but the review texts are simply not there.</p>
-      <p>With us, the full review content is in your HTML from the first byte. That means your reviews get indexed, rank for the long-tail searches your customers are actually typing, and give AI tools the content they need to answer specific questions about your products.</p>
-    </>,
-  },
-  {
-    question: "Does the app affect my store's performance?",
-    answer: <>
-      <p>Yes, but most likely in a good way. Native Liquid rendering from metaobjects is server-side and usually improves page speed compared to JavaScript-based widgets, which depend on external requests and third-party scripts.</p>
-      <p>This improves Core Web Vitals like Largest Contentful Paint (LCP) and Cumulative Layout Shift (CLS), which are important for SEO and user experience.</p>
-    </>,
-  },
-  // {
-  //   question: 'Is the app GDPR compliant?',
-  //   answer: <>
-  //     <p>Yes. The app follows Shopify's privacy and data protection standards. No personal data is stored outside Shopify, and all processing complies with GDPR requirements.</p>
-  //   </>,
-  // },
-  {
-    question: 'Do I need to change my theme?',
-    answer: <>
-      <p>No major changes required. Just add the ready-made display block to your product or collection pages in the theme editor. It works with all Online Store 2.0 themes.</p>
-    </>,
-  },
-  // {
-  //   question: 'Are photo and video reviews supported?',
-  //   answer: <>
-  //     <p>Yes. Photo and video URLs from imported or collected reviews are stored in the metaobjects and displayed natively in your theme.</p>
-  //   </>,
-  // },
-  {
-    question: 'What kind of support do you offer?',
-    answer: <>
-      <p>Free tier: community support.</p>
-      <p>Paid plans: email support with response times under 24 hours.</p>
-    </>,
-  },
-  {
-    question: 'Is there a free trial for paid plans?',
-    answer: <>
-      <p>Yes - all paid plans include a 14-day free trial. The free plan also stays available with up to 100 reviews for as long as you need it.</p>
-    </>,
-  },
-  {
-    question: 'Can I cancel anytime?',
-    answer: <>
-      <p>Yes. All plans have a monthly subscription. Cancel anytime from your Shopify admin. Your review data remains in your Shopify metaobjects after uninstall.</p>
-    </>,
-  },
-  {
-    question: 'What happens when I uninstall the app?',
-    answer: <>
-      <p>The app removes its own data like app blocks cleanly. Your reviews remain in Shopify's standard product review metaobjects, and you can continue using them with any other tool or your own Liquid blocks.</p>
-    </>,
-  },
-]
 
 export default function HomePage() {
   return <>
@@ -370,170 +60,34 @@ export default function HomePage() {
       }) }}
     />
     <main className="bg-white min-h-screen text-gray-900">
-      <section className="pt-8 sm:pt-24 pb-48 mb-24 relative">
-        <div className="absolute inset-4 rounded-4xl overflow-hidden">
-          <AnimatedBackground />
-        </div>
-        <div className="px-8 sm:px-8 py-4 text-center relative z-10">
-          <p className="h4">{hero.subtitle}</p>
-          <h1 className="h1 mt-4 mb-8 max-w-6xl mx-auto">{hero.title}</h1>
-          <div className="max-w-4xl mx-auto p">
-            {false && <p className="mb-4 leading-relaxed flex flex-wrap justify-center gap-1">
-              {hero.bullets.map((benefit, index) => <span className={`rounded-full px-3 text-sm bg-white/60 py-1 whitespace-nowrap`} key={index}>{benefit}</span>)}
-            </p>}
-            <p className="mb-4">{hero.paragraph}</p>
-          </div>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8 relative mt-4">
-            <div className="relative sm:order-2">
-              <ListingCta className="btn btn-primary">{hero.ctaText}</ListingCta>
-              <p className="text-sm text-gray-600 mt-2">14-day free trial on all paid plans</p>
-            </div>
-            <div className="relative sm:order-1">
-              <a href="https://reviewsonmetaobjects.myshopify.com/products/the-collection-snowboard-oxygen" target="_blank" rel="noopener" className="btn btn-inverted">See demo store</a>
-              <div className="text-right absolute -right-6 -top-2 z-10">
-                <img src="/shopify_glyph.svg" alt="Shopify Logo" className="h-14" width="49" height="56" />
-              </div>
-              <p className="text-sm text-gray-600 mt-2">password: demo</p>
-            </div>
-          </div>
-        </div>
-        <div className="relative -mb-64 w-full py-8 overflow-hidden">
-          <div className="flex w-max animate-[skelletonReviewsScroll_42s_linear_infinite]">
-            {[0, 1].map((duplicateGroupIndex) => <div key={duplicateGroupIndex} className="flex gap-8 px-4">
-              {Array.from({ length: 8 }, (_, index) => index).map((skelletonReviewIndex) => <div className="shrink-0 self-end" key={`${duplicateGroupIndex}-${skelletonReviewIndex}`}>
-                <SkelletonReview index={skelletonReviewIndex} />
-              </div>)}
-            </div>)}
-          </div>
-        </div>
-      </section>
-      <section className="bg-white py-16 sm:py-32" id="more-info">
-        <div className="container max-w-4xl mx-auto px-4 sm:px-8 text-center">
-          <h2 className="h2 mb-6">{oneLiners[0]}</h2>
-          <p className="text-gray-600 text-lg">Shopify has its own native data type for product reviews - the standard product review metaobject. Most review apps ignore it and run their own database. We built our entire product around it. Your reviews render in your theme the same way product titles do, with no external scripts and no API calls at page load. And they stay in your store forever, even after you uninstall the app.</p>
-        </div>
-      </section>
-      <section className="bg-white pt-16 sm:pt-32 px-4">
-        <div className="relative max-w-7xl mx-auto">
-          <div className="relative p-6 sm:p-16 rounded-4xl overflow-hidden">
-            <AnimatedBackground baseColor={benefits.baseColor} />
-            <h2 className="h2 text-white text-shadow-sm mb-4 text-center relative sm:mb-8">{benefits.title}</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 relative">
-              {benefits.items.map((benefit, index) => <div key={index} className={`bg-white/10 rounded-2xl p-6 border border-white/20`}>
-                <div className="flex justify-between items-center gap-1 text-white">
-                  <h3 className="font-bold">{benefit.title}</h3>
-                  {benefit.Icon && <benefit.Icon className="w-5 h-5" />}
-                </div>
-                <p className="mt-2 text-white/80">{benefit.description}</p>
-              </div>)}
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="px-10 mt-4 sm:-mt-8 z-10 relative">
-        <div className="bg-white rounded-xl overflow-hidden text-white mx-auto max-w-3xl">
-          <Image
-            src="https://assets.reviewsonmetaobjects.com/landing-01.jpg"
-            alt="Reviews built on Shopify Metaobjects"
-            className="h-auto w-full"
-            width={1600}
-            height={700}
-            priority
-            sizes="(max-width: 1024px) 100vw, 1024px"
-          />
-        </div>
-      </section>
-      <section className="bg-white pb-16 pt-32 sm:pb-32 sm:pt-48">
-        <div className="container max-w-6xl mx-auto px-4 sm:px-8 text-center">
-          <h2 className="h2">{oneLiners[1]}</h2>
-        </div>
-      </section>
-      <section className="bg-white py-8 sm:py-16 px-4">
-        <div className="relative max-w-7xl mx-auto">
-          <h2 className="h2 mb-4 text-gray-900 text-center">{feature1.title}</h2>
-          <div className="relative p-6 sm:p-16 rounded-4xl overflow-hidden">
-            <AnimatedBackground baseColor={feature1.baseColor} />
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 relative">
-              {feature1.items.map((feature, index) => <div key={index} className={`bg-white backdrop-blur-sm rounded-xl p-6 text-gray-800`}>
-                <h3 className="font-bold">{feature.title}</h3>
-                <p className="mt-2">{feature.description}</p>
-              </div>)}
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="bg-white py-8 sm:py-16 px-4">
-        <div className="relative max-w-7xl mx-auto">
-          <h2 className="h2 mb-4 text-gray-900 text-center">{feature2.title}</h2>
-          <div className="relative p-6 sm:p-16 rounded-4xl overflow-hidden">
-            <AnimatedBackground baseColor={feature2.baseColor} />
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 relative">
-              {feature2.items.map((feature, index) => <div key={index} className={`bg-white backdrop-blur-sm rounded-xl p-6 text-gray-800`}>
-                <h3 className="font-bold">{feature.title}</h3>
-                <p className="mt-2">{feature.description}</p>
-              </div>)}
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="bg-white py-8 sm:py-16 px-4">
-        <div className="relative max-w-7xl mx-auto">
-          <h2 className="h2 mb-4 text-gray-900 text-center">{feature3.title}</h2>
-          <div className="relative p-6 sm:p-16 rounded-4xl overflow-hidden">
-            <AnimatedBackground baseColor={feature3.baseColor} />
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 relative">
-              {feature3.items.map((feature, index) => <div key={index} className={`bg-white backdrop-blur-sm rounded-xl p-6 text-gray-800`}>
-                <h3 className="font-bold">{feature.title}</h3>
-                <p className="mt-2">{feature.description}</p>
-              </div>)}
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="bg-white py-16 sm:py-32 px-4">
-        <DemoStore />
-      </section>
-      <section className="bg-white py-16 sm:py-32 px-4">
-        <div className="relative max-w-2xl mx-auto">
-          <h2 className="h2 mb-4 text-gray-900 text-center">{howItWorks.title}</h2>
-          <div className="grid grid-cols-1 gap-4 relative">
-            {howItWorks.steps.map((step, index) => (
-              <div key={index} className="text-gray-800 border border-gray-200 rounded-xl p-4">
-                <h3 className="font-bold text-lg">{step}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      <FounderSection />
-      <section className="bg-white py-16 sm:py-32 px-4" id="pricing">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="h2 mb-4">Pricing that doesn't punish growth</h2>
-          <p className="text-gray-500 mb-12">Start free with up to 100 reviews. Paid plans are flat with a hard cap - no per-order fees, no volume tiers, no surprise bills as your store scales. We can keep it this low because reviews live in Shopify's infrastructure, not ours. Switching from a usage-based competitor often saves you a few thousand dollars a year.</p>
-          <Pricing />
-          <div className="inline-flex justify-center items-center gap-8 relative mt-12">
-            <div className="relative">
-              <a href="https://reviewsonmetaobjects.myshopify.com/products/the-collection-snowboard-oxygen" target="_blank" rel="noopener" className="btn btn-inverted">See demo store</a>
-              <div className="text-right absolute -right-6 -top-2 z-10">
-                <img src="/shopify_glyph.svg" alt="Shopify Logo" className="h-14" width="49" height="56" />
-              </div>
-              <p className="text-sm text-gray-600 mt-2">password: demo</p>
-            </div>
-            <div className="relative">
-              <ListingCta className="btn btn-primary">{hero.ctaText}</ListingCta>
-              <p className="text-sm text-gray-600 mt-2">14-day free trial on all paid plans</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <FinalCta title={finalCta.title} subtitle={finalCta.description} ctaLabel={finalCta.ctaText} />
-      <section className="py-16 sm:py-32 relative">
-        <AnimatedBackground baseColor="oklch(92.8% 0.006 264.531)" />
-        <div className="container max-w-6xl mx-auto px-4 sm:px-8 relative z-10">
-          <h2 className="h2 text-right">What. The. FAQ?</h2>
-          <Faqs faqs={faqs} pageUrl={`${process.env.NEXT_PUBLIC_SITE_URL}/`} />
-        </div>
-      </section>
+      <Hero />
+      {true && <WorksWith />}
+      {false && <Problems />}
+      <Architecture />
+      <Blocks />
+      <DesignFreedom />
+      <AiReadable />
+      <Performance />
+      {false && <RealData />}
+      <Workflow />
+      <CaseStudy />
+      <WhiteGlove />
+      {false && <LegacyMoreInfo />}
+      {false && <LegacyBenefits />}
+      {false && <LegacyLandingImage />}
+      {false && <LegacyTagline />}
+      {false && <LegacyCollect />}
+      {false && <LegacyManage />}
+      {false && <LegacyDisplay />}
+      {false && <LegacyDemoStore />}
+      {false && <LegacyHowItWorks />}
+      {false && <LegacyFounder />}
+      {false && <LegacyPricing />}
+      {false && <LegacyFinalCta />}
+      {false && <LegacyFaqs />}
+      <PricingSection />
+      <FaqSection />
+      <CtaBand />
     </main>
   </>
 }

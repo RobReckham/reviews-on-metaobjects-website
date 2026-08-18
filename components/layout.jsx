@@ -1,11 +1,9 @@
+"use client";
+
 import { Footer as NextraFooter, Layout as NextraLayout, Navbar as NextraNavbar } from "nextra-theme-docs";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import NavbarLinks from "./navbar-links";
-import { metadata as post1 } from "../app/(content)/blog/shopify-native-product-reviews/page"
-import { metadata as post2 } from "../app/(content)/blog/real-cost-shopify-review-apps/page"
-import { metadata as post3 } from "../app/(content)/blog/shopify-review-stars-not-showing-google/page"
-import { metadata as post4 } from "../app/(content)/blog/review-app-slowing-shopify-store/page"
-import { metadata as post5 } from "../app/(content)/blog/how-shopify-product-reviews-work/page"
 
 const Logo = (
   <div className="flex items-center gap-2 font-bold leading-tight">
@@ -35,10 +33,6 @@ const footerLinks = [
         href: "/",
       },
       {
-        label: "For agencies",
-        href: "/for-shopify-agencies",
-      },
-      {
         label: "Compare to Judge.me",
         href: "/judge-me-alternative",
       },
@@ -57,24 +51,24 @@ const footerLinks = [
     href: "/blog",
     items: [
       {
-        label: post1.shortTitle,
-        href: `/blog/${post1.slug}`,
+        label: "Shopify native product reviews",
+        href: "/blog/shopify-native-product-reviews",
       },
       {
-        label: post2.shortTitle,
-        href: `/blog/${post2.slug}`,
+        label: "The hidden cost of Shopify review apps",
+        href: "/blog/real-cost-shopify-review-apps",
       },
       {
-        label: post3.shortTitle,
-        href: `/blog/${post3.slug}`,
+        label: "Shopify review stars not showing in Google",
+        href: "/blog/shopify-review-stars-not-showing-google",
       },
       {
-        label: post4.shortTitle,
-        href: `/blog/${post4.slug}`,
+        label: "Review app slowing down Shopify store",
+        href: "/blog/review-app-slowing-shopify-store",
       },
       {
-        label: post5.shortTitle,
-        href: `/blog/${post5.slug}`,
+        label: "How Shopify product reviews work",
+        href: "/blog/how-shopify-product-reviews-work",
       },
     ],
   },
@@ -154,10 +148,14 @@ const Navbar = (
 );
 
 export default function Layout({ children, pageMap, showHeader = true, showFooter = true }) {
+  const pathname = usePathname();
   return (
     <NextraLayout
       navbar={showHeader ? Navbar : null}
       pageMap={pageMap}
+      search={showHeader && /^\/docs(?:\/|$)/.test(pathname) ? undefined : null}
+      darkMode={false}
+      nextThemes={{ forcedTheme: "light" }}
       editLink={null}
       feedback={{ content: null }}
       footer={showFooter ? <Footer /> : null}

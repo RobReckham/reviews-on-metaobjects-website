@@ -5,25 +5,22 @@ import { usePathname } from "next/navigation";
 
 export default function NavbarLinks() {
   const pathname = usePathname();
-  const linkClasses = 'text-sm whitespace-nowrap text-gray-600 hover:text-black dark:text-gray-500 dark:hover:text-gray-200 transition-colors';
+  const base = "text-sm whitespace-nowrap text-gray-600 hover:text-black dark:text-gray-500 dark:hover:text-gray-200 transition-colors";
+  const active = "font-bold text-black! dark:text-white!";
 
   return (
-    <div className="site-nav-items flex gap-4">
-      <Link
-        href="/for-shopify-agencies"
-        className={`${linkClasses} ${pathname === "/for-shopify-agencies" ? "font-bold text-black! dark:text-white!" : ""}`}
-      >For agencies</Link>
+    <div className="site-nav-items flex items-center gap-4 sm:gap-5">
       <Link
         href="/blog"
-        className={`${linkClasses} ${pathname.startsWith("/blog") ? "font-bold text-black! dark:text-white!" : ""}`}
+        className={`${base} ${pathname.startsWith("/blog") ? active : ""}`}
       >Blog</Link>
       <Link
         href="/about"
-        className={`${linkClasses} hidden sm:block ${pathname === "/about" ? "font-bold text-black! dark:text-white!" : ""}`}
+        className={`${base} hidden sm:block ${pathname === "/about" ? active : ""}`}
       >Story</Link>
       <Link
         href="/docs"
-        className={`${linkClasses} hidden sm:block ${/^\/docs(?:\/|$)/.test(pathname) ? "font-bold text-black! dark:text-white!" : ""}`}
+        className={`${base} ${/^\/docs(?:\/|$)/.test(pathname) ? active : ""}`}
       >Docs</Link>
     </div>
   );
