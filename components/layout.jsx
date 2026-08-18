@@ -44,6 +44,10 @@ const footerLinks = [
         label: "Compare to Reviews.io",
         href: "/reviews-io-alternative",
       },
+      {
+        label: "Compare to Trustpilot",
+        href: "/trustpilot-alternative",
+      },
     ],
   },
   {
