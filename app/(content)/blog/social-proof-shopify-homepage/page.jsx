@@ -304,9 +304,9 @@ export default function SocialProofShopifyHomepagePage() {
         </div>
       </Section>
 
-      <BlogFaqs faqs={faqs} />
-
       <BlogCta />
+
+      <BlogFaqs faqs={faqs} />
     </main>
   )
 }

@@ -322,9 +322,9 @@ export default function RealCostShopifyReviewAppsPage() {
         </div>
       </Section>
 
-      <BlogFaqs faqs={faqs} />
-
       <BlogCta />
+
+      <BlogFaqs faqs={faqs} />
     </main>
   )
 }

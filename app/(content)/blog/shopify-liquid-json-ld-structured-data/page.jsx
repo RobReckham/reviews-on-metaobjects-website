@@ -404,9 +404,9 @@ export default function ShopifyLiquidJsonLdStructuredDataPage() {
         </div>
       </Section>
 
-      <BlogFaqs faqs={faqs} />
-
       <BlogCta />
+
+      <BlogFaqs faqs={faqs} />
     </main>
   )
 }

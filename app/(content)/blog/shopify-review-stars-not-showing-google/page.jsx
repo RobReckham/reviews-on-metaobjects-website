@@ -431,9 +431,9 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
         </div>
       </Section>
 
-      <BlogFaqs faqs={faqs} />
-
       <BlogCta />
+
+      <BlogFaqs faqs={faqs} />
     </main>
   )
 }

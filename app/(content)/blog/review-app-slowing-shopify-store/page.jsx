@@ -281,9 +281,9 @@ export default function ReviewAppSlowingShopifyStorePage() {
         </div>
       </Section>
 
-      <BlogFaqs faqs={faqs} />
-
       <BlogCta />
+
+      <BlogFaqs faqs={faqs} />
     </main>
   )
 }

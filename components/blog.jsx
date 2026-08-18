@@ -256,19 +256,18 @@ export function BlogFaqs({ faqs }) {
   }
 
   return (
-    <Section className="bg-gray-50">
+    <Section>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-gray-900 mb-8">Frequently asked questions</h2>
-      <div className="space-y-3">
+      <Eyebrow>FAQ</Eyebrow>
+      <h2 className="h2 mt-5">Frequently asked questions</h2>
+      <div className="mt-10 border-t border-gray-200">
         {faqs.map(({ question, answer }) => (
-          <details key={question} className="group bg-white rounded-xl overflow-hidden">
-            <summary className="flex justify-between items-center gap-4 p-6 cursor-pointer list-none font-semibold text-gray-900 [&::-webkit-details-marker]:hidden">
+          <details key={question} className="group border-b border-gray-200 py-5">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold [&::-webkit-details-marker]:hidden">
               {question}
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 shrink-0 transition-transform group-open:rotate-180">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-              </svg>
+              <span className="text-xl text-gray-400 transition group-open:rotate-45">+</span>
             </summary>
-            <p className="px-6 pb-6 text-gray-600 leading-relaxed">{answer}</p>
+            <p className="mt-3 text-gray-600">{answer}</p>
           </details>
         ))}
       </div>
