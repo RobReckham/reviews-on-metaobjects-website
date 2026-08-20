@@ -1,32 +1,34 @@
 ---
 title: Post Purchase Form
-description: Add the post-purchase review form block to the review_request metaobject template.
+description: Add the post-purchase review form block to the Post-purchase review request metaobject template.
 ---
 
 # Post Purchase Form
 
-The post-purchase review form is served as a native Shopify metaobject page - fully rendered server-side in Liquid, no app proxy involved.
+The post-purchase review form is served as a single native Shopify metaobject page. Email links add `?id=` so the form can load that order's items.
 
 ## How it works
 
-When the app sends a review request email, the link points to a Shopify page at:
+When the app sends a review request email, the link points to:
 
 ```
-https://{your-store}/pages/fo-review-request/{handle}
+https://{your-store}/pages/post-purchase-review-request/submit?id={handle}
 ```
 
-Each link is unique to a specific order and customer. Shopify renders that URL using your theme's metaobject template for `review_request` objects, where the **FiveOh Post Purchase Form** block must be present.
+Every customer lands on the same page. The `id` query param identifies the order. Shopify renders that URL with your theme's **Post-purchase review request** metaobject template, where the **FiveOh Post Purchase Form** block must be present.
 
-The form reads order and customer context directly from the metaobject (customer name, ordered items, product images). On submission the metaobject handle is passed as the identifier so the app can resolve the original request and mark the review as verified.
+The form then loads customer name and ordered items through the app (Liquid cannot read query params). On submission the same `id` is sent back so the app can resolve the original request and mark the review as verified.
+
+Per-order review-request data is stored separately and is not a public storefront page.
 
 ## Setup
 
-1. Open the Theme Editor.
-2. Navigate to **Templates → metaobject.review_request** (create it if it doesn't exist yet).
+1. Open the Theme Editor from **App blocks** in the app (**Open in Theme Editor** on Post Purchase Form).
+2. Confirm you are on the **Post-purchase review request** metaobject template.
 3. Add the **FiveOh Post Purchase Form** section block to that template.
 4. Save.
 
-Once the block is on the template, any review request link the app sends will render your themed form server-side.
+Once the block is on the template, any `{review_link}` the app sends will render your themed form.
 
 ## What you can customize
 
@@ -40,16 +42,17 @@ All content and layout is controlled through the block settings in the Theme Edi
 
 ## Notes
 
-- The block only renders when the page metaobject is of type `review_request`. It is safe to add to the template without side effects on other metaobject types.
-- The FiveOh Core app embed's **noindex** setting also applies to these pages, keeping them out of search results.
+- Place this block only on the **Post-purchase review request** metaobject template.
+- The FiveOh Core app embed's **noindex** setting also applies to this page, keeping it out of search results.
 - Review link generation is handled automatically by the post-purchase email feature - no manual URL construction needed.
 
 ## Quick links
 
+<a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}/app-blocks`} target="_blank" rel="noopener">Open app blocks page in app</a>  
 <a href="https://reviewsonmetaobjects.myshopify.com/pages/post-purchase-review-request/submit" target="_blank" rel="noopener">Demo store</a> (password: demo)
 
 ## Troubleshooting
 
-- If the page is blank, confirm the block is added to the `metaobject.review_request` template and saved.
-- If the form renders but context is missing (no product names/images), verify the review request metaobject was created correctly for the order.
-- If customers report broken links, check that the review request email feature is enabled and that a metaobject was created for the relevant order.
+- If the page is blank, confirm the block is added to the **Post-purchase review request** template and saved.
+- If the form renders but context is missing (no product names/images), the `id` query param is missing or invalid, or no review request was created for that order.
+- If customers report broken links, check that the review request email feature is enabled, `{review_link}` is in the template, and a review request was created for the relevant order.
