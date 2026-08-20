@@ -5,7 +5,7 @@ const faqs = [
   {
     question: "How to see it in action?",
     answer: <>
-      <p>We have a demo store with all app blocks installed! Just visit our <a href="https://reviewsonmetaobjects.myshopify.com/products/the-collection-snowboard-oxygen" target="_blank" rel="noopener" className="underline">demo store</a>. It is password-protected: enter <strong>demo</strong>. After that you can click through products and collections the same way a customer would. Feel free to run speed and SEO audits on it.</p>
+      <p>We have a demo store with all app blocks installed! Just visit our <a href="https://reviewsonmetaobjects.myshopify.com/products/chambray-work-shirt" target="_blank" rel="noopener" className="underline">demo store</a>. It is password-protected: enter <strong>demo</strong>. After that you can click through products and collections the same way a customer would. Feel free to run speed and SEO audits on it.</p>
     </>,
   },
   {

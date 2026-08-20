@@ -24,8 +24,8 @@ const footerLinks = [
     label: "Product",
     items: [
       {
-        label: "Demo store",
-        href: "https://reviewsonmetaobjects.myshopify.com/products/the-collection-snowboard-oxygen",
+        label: "Demo store (password: demo)",
+        href: "https://reviewsonmetaobjects.myshopify.com/products/chambray-work-shirt",
         target: "_blank",
       },
       {

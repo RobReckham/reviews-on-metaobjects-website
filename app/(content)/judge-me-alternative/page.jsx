@@ -4,7 +4,7 @@ import DemoStore from "../../../components/demo-store"
 import Eyebrow from "../../../components/eyebrow"
 
 const LISTING_URL = process.env.NEXT_PUBLIC_LISTING_URL || "https://apps.shopify.com/reviews-on-metaobjects"
-const DEMO_URL = "https://reviewsonmetaobjects.myshopify.com/products/the-collection-snowboard-oxygen"
+const DEMO_URL = "https://reviewsonmetaobjects.myshopify.com/products/chambray-work-shirt"
 const FIVEOH_LOGO = "https://assets.reviewsonmetaobjects.com/logo-300.jpg"
 
 export const metadata = {
