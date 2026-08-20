@@ -6,7 +6,7 @@ import { getPageMap } from "nextra/page-map";
 
 const title = `Shopify reviews powering metaobjects | ${process.env.NEXT_PUBLIC_APP_NAME}`;
 const description = "Shopify product reviews stored natively as Metaobjects. Collect, manage, and display reviews server-side in Liquid - no JavaScript widget, better Core Web Vitals, star ratings in Google search.";
-const ogImage = "https://assets.reviewsonmetaobjects.com/landing-01.jpg";
+const ogImage = "https://assets.reviewsonmetaobjects.com/fiveoh-og-01.jpg";
 
 export const viewport = {
   width: "device-width",
@@ -38,7 +38,9 @@ export const metadata = {
     images: [
       {
         url: ogImage,
-        alt: "Reviews built on Shopify Metaobjects",
+        width: 1200,
+        height: 630,
+        alt: "FiveOh Reviews on Metaobjects",
       },
     ],
   },
