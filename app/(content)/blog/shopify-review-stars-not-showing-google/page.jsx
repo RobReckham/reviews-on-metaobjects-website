@@ -211,7 +211,7 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
         </P>
         <P>
           To see what a passing result looks like, run the test against a product page on the{" "}
-          <ExternalLink href="https://reviewsonmetaobjects.myshopify.com/products/chambray-work-shirt">
+          <ExternalLink href="https://demo.reviewsonmetaobjects.com/products/chambray-work-shirt">
             demo store
           </ExternalLink>{" "}
           (password: demo) - it outputs both <code className="bg-gray-200 px-1 rounded text-sm">aggregateRating</code> and individual{" "}
@@ -425,7 +425,7 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
             <div><InternalLink href="/blog/shopify-social-proof-best-practices">Shopify social proof best practices →</InternalLink></div>
             <div><InternalLink href="/blog/social-proof-shopify-product-pages">Social proof on Shopify product pages →</InternalLink></div>
             <div><InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink></div>
-            <div><ExternalLink href="https://reviewsonmetaobjects.myshopify.com/products/chambray-work-shirt">Demo store - test structured data live (password: demo) →</ExternalLink></div>
+            <div><ExternalLink href="https://demo.reviewsonmetaobjects.com/products/chambray-work-shirt">Demo store - test structured data live (password: demo) →</ExternalLink></div>
           </div>
           <BlogNav className="mt-6" />
         </div>

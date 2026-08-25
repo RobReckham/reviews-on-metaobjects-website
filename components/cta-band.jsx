@@ -1,7 +1,7 @@
 import ListingCta from "./listing-cta"
 
 const LISTING_URL = process.env.NEXT_PUBLIC_LISTING_URL || "https://apps.shopify.com/reviews-on-metaobjects";
-const DEMO_URL = "https://reviewsonmetaobjects.myshopify.com/products/chambray-work-shirt";
+const DEMO_URL = "https://demo.reviewsonmetaobjects.com/products/chambray-work-shirt";
 
 export default function CtaBand() {
   return <div id="cta" className="sticky bottom-0 z-40 border-t border-white/10 bg-slate-900 py-4 text-white">

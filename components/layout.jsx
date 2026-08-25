@@ -25,7 +25,7 @@ const footerLinks = [
     items: [
       {
         label: "Demo store (password: demo)",
-        href: "https://reviewsonmetaobjects.myshopify.com/products/chambray-work-shirt",
+        href: "https://demo.reviewsonmetaobjects.com/products/chambray-work-shirt",
         target: "_blank",
       },
       {

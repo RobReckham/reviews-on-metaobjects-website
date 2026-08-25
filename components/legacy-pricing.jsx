@@ -9,7 +9,7 @@ export default function LegacyPricing() {
       <Pricing />
       <div className="inline-flex justify-center items-center gap-8 relative mt-12">
         <div className="relative">
-          <a href="https://reviewsonmetaobjects.myshopify.com/products/chambray-work-shirt" target="_blank" rel="noopener" className="btn btn-inverted">See demo store</a>
+          <a href="https://demo.reviewsonmetaobjects.com/products/chambray-work-shirt" target="_blank" rel="noopener" className="btn btn-inverted">See demo store</a>
           <div className="text-right absolute -right-6 -top-2 z-10">
             <img src="/shopify_glyph.svg" alt="Shopify Logo" className="h-14" width="49" height="56" />
           </div>
