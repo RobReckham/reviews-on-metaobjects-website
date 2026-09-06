@@ -14,9 +14,9 @@ export default function WhiteGlove() {
         <Eyebrow>Done for you</Eyebrow>
         <h2 className="h2 mt-5">The founder sets it up for you.</h2>
         <p className="copy mt-4 max-w-xl text-gray-400">
-          FiveOh is deliberately deep &mdash; the kind of tool a developer configures, not a wizard. So we
-          include the developer: import, sync, configuration and theme-matched styling, done by a senior
-          Shopify dev. Free for a limited number of stores.
+          FiveOh is deliberately deep - the kind of tool a developer configures, not a wizard. You can
+          set it up yourself from the App Store, or book a call if you want a senior Shopify developer
+          to handle import, sync, configuration and theme-matched styling. We quote the work on the call.
         </p>
 
         <div className="mt-8 flex items-center gap-4">

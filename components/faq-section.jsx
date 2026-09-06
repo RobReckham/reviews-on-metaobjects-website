@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     question: "Who sets it up?",
-    answer: "During onboarding the founder sets it up for you, free of charge — import, configuration, sync and theme-matched styling. Prefer to DIY? Install from the App Store, connect your source or import a CSV, and drop in the app blocks. No code needed for a basic setup.",
+    answer: "Install from the App Store, connect your source or import a CSV, and drop in the app blocks. No code needed for a basic setup. Want a developer to do import, configuration, sync and theme-matched styling? Book a call and we'll quote it.",
   },
   {
     question: "Does it use a JavaScript widget on my storefront?",
@@ -63,7 +63,7 @@ const faqs = [
   },
   {
     question: "What support do you get?",
-    answer: "Free plan: community support. Paid plans: email support, typically answered within 24 hours — plus founder-led setup during onboarding.",
+    answer: "Free plan: community support. Paid plans: email support, typically answered within 24 hours.",
   },
   {
     question: "Can I see it on a live store?",

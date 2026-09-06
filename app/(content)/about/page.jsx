@@ -105,7 +105,7 @@ export default function AboutPage() {
           <div className="overflow-hidden rounded-4xl bg-slate-950 bg-linear-to-t to-slate-800 p-8 text-center sm:p-16">
             <h2 className="h2 text-white mb-4">Want to talk through your store?</h2>
             <p className="mx-auto max-w-xl text-gray-400 mb-8">
-              I onboard stores hands-on. Book a quick call and I'll tell you exactly what impact switching would have on your specific setup.
+              Book a quick call and I'll tell you exactly what impact switching would have on your specific setup. Hands-on implementation is available if you want it.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a href={LISTING_URL} target="_blank" rel="noopener noreferrer" className="btn border-white bg-white text-gray-950 hover:bg-gray-100">Install on Shopify</a>

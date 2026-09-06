@@ -8,7 +8,7 @@ export default function CtaBand() {
     <div className="mx-auto flex max-w-7xl px-6 flex-wrap justify-between gap-3">
       <div className="">
         <div className="font-bold tracking-tight">Ready when your store is.</div>
-        <div className="text-sm text-gray-400">Free plan · 14-day trial · we set it up for you, free — limited spots.</div>
+        <div className="text-sm text-gray-400">Free plan · 14-day trial · optional developer setup</div>
       </div>
       <div className="flex flex-wrap items-center justify-center gap-4">
         <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="hidden sm:block text-sm font-semibold text-gray-300 hover:text-white">

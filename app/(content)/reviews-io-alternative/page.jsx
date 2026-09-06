@@ -96,7 +96,7 @@ const faqs = [
   },
   {
     question: "Is it technical to set up?",
-    answer: "No. Connect REVIEWS.io, let the sync run, add the app blocks in the theme editor. During onboarding the founder sets it all up for you, free of charge.",
+    answer: "No. Connect REVIEWS.io, let the sync run, add the app blocks in the theme editor. Want a developer to do it? Book a call and we'll quote the work.",
   },
 ]
 
