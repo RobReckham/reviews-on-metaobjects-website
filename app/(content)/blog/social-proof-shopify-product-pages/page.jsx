@@ -1,7 +1,7 @@
 import { Section, ExternalLink, InternalLink, Callout, H2, H3, P, Ul, Ol, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor, BlogFaqs } from "../../../../components/blog"
 
 export const metadata = {
-  title: "Social Proof on Shopify Product Pages: Placement Guide (A/B Test Data)",
+  title: "Social Proof on Shopify Product Pages | Placement Guide (A/B Test Data)",
   shortTitle: "Social proof on Shopify product pages",
   description: "Based on A/B tests on large Shopify stores: where to place star ratings, review counts, and live signals on product pages, including structured data Google can read.",
   alternates: { canonical: "/blog/social-proof-shopify-product-pages" },

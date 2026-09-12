@@ -8,7 +8,7 @@ const DEMO_URL = "https://demo.reviewsonmetaobjects.com/products/chambray-work-s
 const FIVEOH_LOGO = "https://assets.reviewsonmetaobjects.com/logo-300.jpg"
 
 export const metadata = {
-  title: "Trustpilot Alternative for Shopify: Keep Trustpilot, Own the Display",
+  title: "Trustpilot Alternative for Shopify | Keep Trustpilot, Own the Display",
   description: `You don't have to leave Trustpilot. ${process.env.NEXT_PUBLIC_APP_NAME} syncs your Trustpilot reviews into Shopify's native metaobjects and renders them server-side in Liquid: pixel-perfect, faster pages, and indexed under your own domain. Keep the badge; own the on-store display.`,
   alternates: {
     canonical: "/trustpilot-alternative",

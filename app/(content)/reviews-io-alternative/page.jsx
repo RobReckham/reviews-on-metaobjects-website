@@ -8,7 +8,7 @@ const DEMO_URL = "https://demo.reviewsonmetaobjects.com/products/chambray-work-s
 const FIVEOH_LOGO = "https://assets.reviewsonmetaobjects.com/logo-300.jpg"
 
 export const metadata = {
-  title: "REVIEWS.io Alternative for Shopify: Keep REVIEWS.io, Own the Display",
+  title: "REVIEWS.io Alternative for Shopify | Keep REVIEWS.io, Own the Display",
   description: `You don't have to leave REVIEWS.io. ${process.env.NEXT_PUBLIC_APP_NAME} syncs your REVIEWS.io reviews into Shopify's native metaobjects and renders them server-side in Liquid: pixel-perfect, faster pages, and readable by Google and AI. Keep collecting in REVIEWS.io; own the display.`,
   alternates: {
     canonical: "/reviews-io-alternative",

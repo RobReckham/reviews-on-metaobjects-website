@@ -8,7 +8,7 @@ const DEMO_URL = "https://demo.reviewsonmetaobjects.com/products/chambray-work-s
 const FIVEOH_LOGO = "https://assets.reviewsonmetaobjects.com/logo-300.jpg"
 
 export const metadata = {
-  title: "Judge.me Alternative for Shopify: Keep Judge.me, Own the Display",
+  title: "Judge.me Alternative for Shopify | Keep Judge.me, Own the Display",
   description: `You don't have to leave Judge.me. ${process.env.NEXT_PUBLIC_APP_NAME} syncs your Judge.me reviews into Shopify's native metaobjects and renders them server-side in Liquid: pixel-perfect, faster pages, and readable by Google and AI. Keep collecting in Judge.me; own the display.`,
   alternates: {
     canonical: "/judge-me-alternative",

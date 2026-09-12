@@ -8,7 +8,7 @@ const DEMO_URL = "https://demo.reviewsonmetaobjects.com/products/chambray-work-s
 const FIVEOH_LOGO = "https://assets.reviewsonmetaobjects.com/logo-300.jpg"
 
 export const metadata = {
-  title: "Loox Alternative for Shopify: Keep Loox, Own the Display",
+  title: "Loox Alternative for Shopify | Keep Loox, Own the Display",
   description: `You don't have to leave Loox. ${process.env.NEXT_PUBLIC_APP_NAME} syncs your Loox reviews, photos included, into Shopify's native metaobjects and renders them server-side in Liquid: pixel-perfect, faster pages, and readable by Google and AI. Keep collecting in Loox; own the display.`,
   alternates: {
     canonical: "/loox-alternative",

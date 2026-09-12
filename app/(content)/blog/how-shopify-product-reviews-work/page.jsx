@@ -1,7 +1,7 @@
 import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor, BlogFaqs } from "../../../../components/blog"
 
 export const metadata = {
-  title: "How Shopify Product Reviews Work: Metaobjects, Liquid Rendering, and SEO",
+  title: "How Shopify Product Reviews Work | Metaobjects, Liquid Rendering, and SEO",
   shortTitle: "How Shopify product reviews work",
   description: "Most review apps load via JavaScript, slowing your store and hiding reviews from Google. Here's how Shopify's Metaobject architecture solves both.",
   alternates: { canonical: "/blog/how-shopify-product-reviews-work" },

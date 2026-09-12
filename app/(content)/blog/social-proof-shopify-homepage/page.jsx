@@ -1,7 +1,7 @@
 import { Section, ExternalLink, InternalLink, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor, BlogFaqs } from "../../../../components/blog"
 
 export const metadata = {
-  title: "Social Proof on the Shopify Homepage: What to Show and Where",
+  title: "Social Proof on the Shopify Homepage | What to Show and Where",
   shortTitle: "Social proof on the Shopify homepage",
   description: "Your homepage has seconds to build trust. Here's which social proof elements (review highlights, trust bars, testimonials) work above the fold without hurting load time.",
   alternates: { canonical: "/blog/social-proof-shopify-homepage" },

@@ -1,7 +1,7 @@
 import { Section, ExternalLink, InternalLink, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor, BlogFaqs } from "../../../../components/blog"
 
 export const metadata = {
-  title: "Social Proof on Shopify Collection Pages: Star Ratings That Convert",
+  title: "Social Proof on Shopify Collection Pages | Star Ratings That Convert",
   shortTitle: "Social proof on Shopify collection pages",
   description: "Star ratings on product cards increase collection-page clicks. Here's where to place them, how to aggregate scores across variants, and how to keep pages fast.",
   alternates: { canonical: "/blog/social-proof-shopify-collection-pages" },

@@ -1,7 +1,7 @@
 import { Section, ExternalLink, InternalLink, Callout, H2, H3, P, Ul, TableOfContents, BlogNav, BlogCta, ArticleJsonLd, InlineCta, ArticleAuthor, BlogFaqs } from "../../../../components/blog"
 
 export const metadata = {
-  title: "Shopify Social Proof Best Practices: The Complete Guide",
+  title: "Shopify Social Proof Best Practices | The Complete Guide",
   shortTitle: "Shopify social proof best practices",
   description: "Which social proof elements work on product pages, collection pages, homepage, and landing pages: how to implement each server-side without JavaScript slowing your store.",
   alternates: { canonical: "/blog/shopify-social-proof-best-practices" },

@@ -29,7 +29,7 @@ import LegacyFinalCta from "../../components/legacy-final-cta"
 import LegacyFaqs from "../../components/legacy-faqs"
 
 export const metadata = {
-  title: `Shopify reviews on native metaobjects: pixel-perfect & AI-readable | ${process.env.NEXT_PUBLIC_APP_NAME}`,
+  title: `Shopify reviews on native metaobjects | pixel-perfect & AI-readable | ${process.env.NEXT_PUBLIC_APP_NAME}`,
   description: "The Shopify-native display layer for product reviews. Keep your review app or collect natively. Reviews render server-side in Liquid: pixel-perfect, faster pages, and readable by Google and AI. Native metaobjects, no iframe, no lock-in.",
   alternates: {
     canonical: "/",
