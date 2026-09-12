@@ -14,7 +14,7 @@ import { metadata as post11 } from "./social-proof-shopify-product-pages/page"
 import { metadata as post12 } from "./shopify-social-proof-best-practices/page"
 
 export const metadata = {
-  title: "Blog - Shopify Reviews, Performance & SEO",
+  title: "Blog: Shopify Reviews, Performance & SEO",
   description: "Technical articles about Shopify product reviews, Core Web Vitals, structured data, Metaobjects, and store performance.",
   alternates: {
     canonical: "/blog",

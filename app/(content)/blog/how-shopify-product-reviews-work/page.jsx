@@ -3,7 +3,7 @@ import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul,
 export const metadata = {
   title: "How Shopify Product Reviews Work: Metaobjects, Liquid Rendering, and SEO",
   shortTitle: "How Shopify product reviews work",
-  description: "Most review apps load via JavaScript - slowing your store and hiding reviews from Google. Here's how Shopify's Metaobject architecture solves both.",
+  description: "Most review apps load via JavaScript, slowing your store and hiding reviews from Google. Here's how Shopify's Metaobject architecture solves both.",
   alternates: { canonical: "/blog/how-shopify-product-reviews-work" },
   openGraph: { type: "article", publishedTime: "2026-05-01", images: ["https://assets.reviewsonmetaobjects.com/the-shopify-reviews-blog.jpg"] },
   slug: "how-shopify-product-reviews-work",
@@ -25,7 +25,7 @@ const tocItems = [
 const faqs = [
   {
     question: "How do Shopify product reviews work technically?",
-    answer: "Reviews written to Shopify's standard Metaobject definition are stored as structured data entries inside your Shopify store. Your Liquid theme reads them directly using standard Metafield syntax - no API calls, no external requests. The review content renders server-side as part of your HTML.",
+    answer: "Reviews written to Shopify's standard Metaobject definition are stored as structured data entries inside your Shopify store. Your Liquid theme reads them directly using standard Metafield syntax: no API calls, no external requests. The review content renders server-side as part of your HTML.",
   },
   {
     question: "Why do most review apps use JavaScript widgets?",
@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     question: "Do JavaScript review widgets hurt Core Web Vitals?",
-    answer: "Yes, in most cases. A JavaScript widget that fetches and renders review content after the initial page load typically delays Largest Contentful Paint (LCP) and causes Cumulative Layout Shift (CLS) - both Core Web Vitals metrics Google uses as ranking signals. Server-side rendering eliminates both problems.",
+    answer: "Yes, in most cases. A JavaScript widget that fetches and renders review content after the initial page load typically delays Largest Contentful Paint (LCP) and causes Cumulative Layout Shift (CLS), both Core Web Vitals metrics Google uses as ranking signals. Server-side rendering eliminates both problems.",
   },
   {
     question: "Can Google index reviews that load via JavaScript?",
@@ -41,15 +41,15 @@ const faqs = [
   },
   {
     question: "What fields does the standard product review Metaobject have?",
-    answer: "The standard product_review Metaobject definition includes: rating (a number 1 to 5), body (the review text), author (display name), date created, and a product reference. Shopify automatically computes aggregate values - reviews.rating and reviews.rating_count - as standard Metafields on the product, derived from the individual Metaobject entries.",
+    answer: "The standard product_review Metaobject definition includes: rating (a number 1 to 5), body (the review text), author (display name), date created, and a product reference. Shopify automatically computes aggregate values (reviews.rating and reviews.rating_count) as standard Metafields on the product, derived from the individual Metaobject entries.",
   },
   {
     question: "What is the difference between reviews.rating and individual review Metaobjects?",
-    answer: "reviews.rating is a computed Metafield on the product object - it stores the average star score and is updated automatically as reviews are added. Individual reviews are stored as separate Metaobject entries, each with full detail including review text, author, and date. Liquid templates use reviews.rating for displaying a summary score and loop over the individual Metaobjects to display the full review list.",
+    answer: "reviews.rating is a computed Metafield on the product object. It stores the average star score and is updated automatically as reviews are added. Individual reviews are stored as separate Metaobject entries, each with full detail including review text, author, and date. Liquid templates use reviews.rating for displaying a summary score and loop over the individual Metaobjects to display the full review list.",
   },
   {
     question: "Does server-side review rendering help with Google AI Overviews and AI search engines?",
-    answer: "Yes, significantly. AI search engines like Google AI Overviews, Perplexity, and ChatGPT Browse read HTML content at crawl time with limited JavaScript execution. Reviews rendered server-side in your HTML are fully readable by these crawlers - they can extract review content, ratings, and structured data to inform AI-generated answers about your products. JavaScript-loaded reviews are largely invisible to them.",
+    answer: "Yes, significantly. AI search engines like Google AI Overviews, Perplexity, and ChatGPT Browse read HTML content at crawl time with limited JavaScript execution. Reviews rendered server-side in your HTML are fully readable by these crawlers. They can extract review content, ratings, and structured data to inform AI-generated answers about your products. JavaScript-loaded reviews are largely invisible to them.",
   },
 ]
 
@@ -66,7 +66,7 @@ export default function HowShopifyProductReviewsWorkPage() {
           </h1>
           <P>
             Most review apps store your data on their own servers and inject it back into your storefront via a JavaScript
-            widget. This architectural choice - convenient for the vendor - has measurable consequences for your page
+            widget. This architectural choice (convenient for the vendor) has measurable consequences for your page
             speed, your search rankings, and your ability to own your own content. This article explains exactly what
             Shopify's standard product review Metaobject is, how it works under the hood, and why it is the technically
             superior approach for any store that cares about performance and SEO.
@@ -105,7 +105,7 @@ Browser requests your product page
           directly.
         </P>
         <Callout>
-          <strong>The core problem is not the JavaScript itself - it is the external data dependency.</strong> Even with
+          <strong>The core problem is not the JavaScript itself. It is the external data dependency.</strong> Even with
           a perfectly optimised JS bundle, you cannot render review content until the vendor's API has responded. That
           server is not Shopify. You have no control over its latency, availability, or caching behaviour.
         </Callout>
@@ -120,7 +120,7 @@ Browser requests your product page
           </ExternalLink>{" "}
           for the full technical definition of LCP.
         </P>
-        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} stores your reviews directly in Shopify - no external API call, no JavaScript widget injecting content after page load.`} />
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} stores your reviews directly in Shopify: no external API call, no JavaScript widget injecting content after page load.`} />
       </Section>
 
       {/* 2. What are metaobjects */}
@@ -130,8 +130,8 @@ Browser requests your product page
           <ExternalLink href="https://shopify.dev/docs/apps/build/custom-data/metaobjects">
             Metaobjects
           </ExternalLink>{" "}
-          are Shopify's native structured custom data layer. They let you define your own object types - with typed
-          fields - and store instances of those types directly inside your Shopify store. Think of them as
+          are Shopify's native structured custom data layer. They let you define your own object types (with typed
+          fields) and store instances of those types directly inside your Shopify store. Think of them as
           lightweight, schema-validated database records that live inside Shopify's infrastructure, not on a
           third-party server.
         </P>
@@ -151,7 +151,7 @@ Browser requests your product page
           <ExternalLink href="https://shopify.dev/docs/api/storefront/latest/objects/Metaobject">
             Storefront GraphQL API
           </ExternalLink>
-          , and - most importantly for server-side theme rendering -{" "}
+          , and (most importantly for server-side theme rendering){" "}
           <strong>directly in Liquid</strong> via the{" "}
           <ExternalLink href="https://shopify.dev/docs/api/liquid/objects/metaobject">
             <code>metaobject</code> Liquid object
@@ -169,7 +169,7 @@ Browser requests your product page
           <ExternalLink href="https://changelog.shopify.com/posts/metaobjects-ga">
             released as generally available in 2023
           </ExternalLink>{" "}
-          and are now a first-class feature of Online Store 2.0. They are not an app-specific data layer - they are
+          and are now a first-class feature of Online Store 2.0. They are not an app-specific data layer. They are
           part of the Shopify platform itself.
         </Callout>
       </Section>
@@ -220,11 +220,11 @@ Browser requests your product page
         </P>
         <Ul>
           <li>
-            <code className="bg-gray-200 px-1 rounded text-sm">reviews.rating</code> - a <code className="bg-gray-200 px-1 rounded text-sm">rating</code>-type
+            <code className="bg-gray-200 px-1 rounded text-sm">reviews.rating</code>: a <code className="bg-gray-200 px-1 rounded text-sm">rating</code>-type
             Metafield storing the pre-computed aggregate star rating
           </li>
           <li>
-            <code className="bg-gray-200 px-1 rounded text-sm">reviews.rating_count</code> - an integer Metafield
+            <code className="bg-gray-200 px-1 rounded text-sm">reviews.rating_count</code>: an integer Metafield
             storing the total number of reviews
           </li>
         </Ul>
@@ -257,13 +257,13 @@ Browser requests your product page
           (many review cards) to outweigh the product image.
         </P>
         <P>
-          With a JS widget, the LCP element is not in the initial HTML - it is injected after the script fetches data
+          With a JS widget, the LCP element is not in the initial HTML. It is injected after the script fetches data
           from an external server. The browser cannot paint it until both the JS bundle and the API response have
           arrived. This typically delays LCP by 1–4 seconds on real-world connections.
         </P>
         <P>
           With Liquid/Metaobject rendering, review content is in the HTML on the first byte. LCP can be resolved as
-          soon as the browser parses and paints that HTML - no script execution required.
+          soon as the browser parses and paints that HTML. No script execution is required.
         </P>
 
         <H3>Cumulative Layout Shift (CLS)</H3>
@@ -300,7 +300,7 @@ Browser requests your product page
       <Section id="seo-structured-data">
         <H2 id="seo-structured-data">5. SEO and structured data</H2>
         <P>
-          Product rich snippets in Google Search - the star ratings that appear directly in organic results - require{" "}
+          Product rich snippets in Google Search (the star ratings that appear directly in organic results) require{" "}
           <ExternalLink href="https://schema.org/AggregateRating">
             <code>schema.org/AggregateRating</code>
           </ExternalLink>{" "}
@@ -321,7 +321,7 @@ Browser requests your product page
         </P>
         <Ul>
           <li>
-            Googlebot queues JavaScript rendering separately from HTML crawling - often with a delay of days.
+            Googlebot queues JavaScript rendering separately from HTML crawling, often with a delay of days.
           </li>
           <li>
             Structured data injected by JavaScript is processed in a second rendering wave, meaning there is a window
@@ -359,7 +359,7 @@ Browser requests your product page
 {%- endif -%}
         `}</CodeBlock>
         <P>
-          This JSON-LD block is part of the initial HTML response - Googlebot reads it on the first crawl, in the
+          This JSON-LD block is part of the initial HTML response. Googlebot reads it on the first crawl, in the
           same rendering pass as product title and price. No JavaScript execution required.
         </P>
         <P>
@@ -379,7 +379,7 @@ Browser requests your product page
           markup. Iterating over Metaobject review references in Liquid and outputting per-review JSON-LD is
           straightforward and produces HTML-embedded structured data that Google indexes immediately on first crawl.
         </P>
-        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} outputs AggregateRating and Review JSON-LD server-side on every product page - Googlebot reads it on first crawl, no JavaScript required.`} />
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} outputs AggregateRating and Review JSON-LD server-side on every product page. Googlebot reads it on first crawl, with no JavaScript required.`} />
       </Section>
 
       {/* 6. Liquid rendering */}
@@ -396,7 +396,7 @@ Browser requests your product page
           <ExternalLink href="https://shopify.dev/docs/api/liquid/objects/metafield">
             Metafield references
           </ExternalLink>
-          . No API call, no async fetch - the data is resolved as part of the synchronous Liquid render on Shopify's
+          . No API call, no async fetch. The data is resolved as part of the synchronous Liquid render on Shopify's
           servers.
         </P>
 
@@ -439,7 +439,7 @@ Browser requests your product page
         `}</CodeBlock>
         <P>
           All of this executes on Shopify's edge infrastructure during the initial page render. The browser receives
-          fully-formed HTML - no JS execution, no external fetch, no waiting.
+          fully-formed HTML: no JS execution, no external fetch, no waiting.
         </P>
 
         <H3>App Blocks vs. custom Liquid sections</H3>
@@ -449,14 +449,14 @@ Browser requests your product page
             App Blocks
           </ExternalLink>{" "}
           allow apps to inject Liquid sections into Online Store 2.0 themes through the theme editor without modifying
-          theme files. This is the recommended approach for most stores - it means review display sections are
+          theme files. This is the recommended approach for most stores. It means review display sections are
           merchant-configurable, no-code, and follow the theme's existing design tokens.
         </P>
         <P>
           For developers who want full control, the review data is directly accessible in custom Liquid sections, since
           it lives in the same Shopify store. You are not locked into using any app's rendering layer.
         </P>
-        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} ships ready-made App Blocks for product pages - drop-in review display, star ratings, and submission forms that work with any Online Store 2.0 theme, no code required.`} />
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} ships ready-made App Blocks for product pages: drop-in review display, star ratings, and submission forms that work with any Online Store 2.0 theme, no code required.`} />
       </Section>
 
       {/* 7. Data ownership */}
@@ -480,7 +480,7 @@ Browser requests your product page
         <H3>Programmatic access</H3>
         <P>You can query your review Metaobjects directly with any GraphQL client:</P>
         <CodeBlock>{`
-# Admin GraphQL - list product reviews
+# Admin GraphQL: list product reviews
 query {
   metaobjects(type: "product_review", first: 50) {
     edges {
@@ -497,7 +497,7 @@ query {
         `}</CodeBlock>
         <P>
           This means your review data is accessible for analytics pipelines, data warehousing, headless storefronts,
-          custom dashboards, and migrations - without any dependency on a specific app vendor's API.
+          custom dashboards, and migrations, without any dependency on a specific app vendor's API.
         </P>
         <P>
           See the{" "}
@@ -506,7 +506,7 @@ query {
           </ExternalLink>{" "}
           for the full query spec.
         </P>
-        <InlineCta message={`With ${process.env.NEXT_PUBLIC_APP_NAME}, your reviews live in Shopify's Metaobjects - fully accessible via GraphQL and Liquid, yours to keep even after uninstalling.`} />
+        <InlineCta message={`With ${process.env.NEXT_PUBLIC_APP_NAME}, your reviews live in Shopify's Metaobjects, fully accessible via GraphQL and Liquid, yours to keep even after uninstalling.`} />
       </Section>
 
       {/* 8. Syndication */}
@@ -534,7 +534,7 @@ query {
             Google &amp; YouTube channel
           </ExternalLink>{" "}
           can syndicate product reviews to Google Merchant Center when they are stored in the standard Metaobject
-          format. This enables seller ratings and product review snippets in Google Shopping - without requiring a
+          format. This enables seller ratings and product review snippets in Google Shopping, without requiring a
           separate review syndication feed or a Google-approved review aggregator integration.
         </P>
 
@@ -601,7 +601,7 @@ query {
         <P>
           If you are building or maintaining a Shopify store and care about Lighthouse scores, search visibility, or
           long-term data independence, the architecture matters. Storing reviews as standard Metaobjects eliminates the
-          external dependency entirely - reviews render at the same time as your product title and price, output
+          external dependency entirely. Reviews render at the same time as your product title and price, output
           structured data on the first byte, and remain in your store regardless of which tooling you use to manage
           them.
         </P>
@@ -612,7 +612,7 @@ query {
           <div className="space-y-1.5 text-sm">
             <div><ExternalLink href="https://shopify.dev/docs/apps/build/custom-data/metaobjects">Shopify Metaobjects developer docs</ExternalLink></div>
             <div><ExternalLink href="https://shopify.dev/docs/storefronts/themes/product-merchandising/product-reviews">Product reviews in Shopify themes</ExternalLink></div>
-            <div><ExternalLink href="https://web.dev/articles/vitals">Core Web Vitals - web.dev</ExternalLink></div>
+            <div><ExternalLink href="https://web.dev/articles/vitals">Core Web Vitals (web.dev)</ExternalLink></div>
             <div><ExternalLink href="https://developers.google.com/search/docs/appearance/structured-data/product">Google Product structured data spec</ExternalLink></div>
             <div><ExternalLink href="https://schema.org/AggregateRating">schema.org/AggregateRating</ExternalLink></div>
             <div><ExternalLink href="https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics">Google JavaScript SEO basics</ExternalLink></div>
@@ -623,7 +623,7 @@ query {
             <div><InternalLink href="/blog/shopify-social-proof-best-practices">Shopify social proof best practices →</InternalLink></div>
             <div><InternalLink href="/blog/social-proof-shopify-product-pages">Social proof on Shopify product pages →</InternalLink></div>
             <div><InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink></div>
-            <div><ExternalLink href="https://demo.reviewsonmetaobjects.com/products/chambray-work-shirt">Demo store - see it live (password: demo) →</ExternalLink></div>
+            <div><ExternalLink href="https://demo.reviewsonmetaobjects.com/products/chambray-work-shirt">Demo store: see it live (password: demo) →</ExternalLink></div>
           </div>
           <BlogNav className="mt-6" />
         </div>

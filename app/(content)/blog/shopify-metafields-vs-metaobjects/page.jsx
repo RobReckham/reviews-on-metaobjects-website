@@ -3,7 +3,7 @@ import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul,
 export const metadata = {
   title: "Shopify Metafields vs. Metaobjects: What's the Difference?",
   shortTitle: "Shopify metafields vs. metaobjects",
-  description: "Metafields attach data to existing resources. Metaobjects create standalone entries - like product reviews. Real Liquid and GraphQL code examples for both.",
+  description: "Metafields attach data to existing resources. Metaobjects create standalone entries, like product reviews. Real Liquid and GraphQL code examples for both.",
   alternates: { canonical: "/blog/shopify-metafields-vs-metaobjects" },
   openGraph: { type: "article", publishedTime: "2026-04-28", images: ["https://assets.reviewsonmetaobjects.com/the-shopify-reviews-blog.jpg"] },
   slug: "shopify-metafields-vs-metaobjects",
@@ -24,19 +24,19 @@ const tocItems = [
 const faqs = [
   {
     question: "What is the difference between Shopify Metafields and Metaobjects?",
-    answer: "Metafields attach extra data to existing Shopify resources - a product, variant, customer, or order. Metaobjects are standalone data entries that exist independently of any specific resource. A product's average star rating is a Metafield. A product review with its body, author, date, and product reference is a Metaobject.",
+    answer: "Metafields attach extra data to existing Shopify resources: a product, variant, customer, or order. Metaobjects are standalone data entries that exist independently of any specific resource. A product's average star rating is a Metafield. A product review with its body, author, date, and product reference is a Metaobject.",
   },
   {
     question: "When should I use a Metafield vs. a Metaobject in Shopify?",
-    answer: "Use Metafields when you need to extend an existing resource with additional data - like adding a material field to products or a loyalty tier to customers. Use Metaobjects when you need to model something standalone - like a review, a team member, a FAQ entry, or a size guide that multiple products reference.",
+    answer: "Use Metafields when you need to extend an existing resource with additional data, like adding a material field to products or a loyalty tier to customers. Use Metaobjects when you need to model something standalone, like a review, a team member, a FAQ entry, or a size guide that multiple products reference.",
   },
   {
     question: "Can I access Shopify Metaobjects in Liquid?",
-    answer: "Yes. Metaobjects are accessible in Liquid via metafield references on resources. For product reviews stored as standard Metaobjects, you access them via product.metafields.reviews.product_reviews in Liquid templates - no API call or JavaScript required.",
+    answer: "Yes. Metaobjects are accessible in Liquid via metafield references on resources. For product reviews stored as standard Metaobjects, you access them via product.metafields.reviews.product_reviews in Liquid templates. No API call or JavaScript is required.",
   },
   {
     question: "Are Shopify product reviews stored as Metafields or Metaobjects?",
-    answer: "Individual reviews are stored as Metaobjects - each review is a standalone entry with fields for rating, body, author, and a reference back to the product. The aggregate rating (average score and review count) is stored as a Metafield on the product, automatically computed by Shopify from the individual review Metaobjects.",
+    answer: "Individual reviews are stored as Metaobjects: each review is a standalone entry with fields for rating, body, author, and a reference back to the product. The aggregate rating (average score and review count) is stored as a Metafield on the product, automatically computed by Shopify from the individual review Metaobjects.",
   },
   {
     question: "Are Shopify Metaobjects available on all plans?",
@@ -48,7 +48,7 @@ const faqs = [
   },
   {
     question: "Can AI search engines like Perplexity understand Shopify Metaobject data?",
-    answer: "AI search engines read the rendered HTML of your pages, not Shopify's internal data layer. What matters is how your Liquid theme outputs Metaobject data - if reviews render as readable text and structured JSON-LD in the HTML, AI crawlers can read and cite them. Metaobject-based reviews rendered server-side in Liquid are fully accessible to AI search engines like Perplexity, ChatGPT Browse, and Google AI Overviews.",
+    answer: "AI search engines read the rendered HTML of your pages, not Shopify's internal data layer. What matters is how your Liquid theme outputs Metaobject data. If reviews render as readable text and structured JSON-LD in the HTML, AI crawlers can read and cite them. Metaobject-based reviews rendered server-side in Liquid are fully accessible to AI search engines like Perplexity, ChatGPT Browse, and Google AI Overviews.",
   },
 ]
 
@@ -67,7 +67,7 @@ export default function ShopifyMetafieldsVsMetaobjectsPage() {
           <P>
             Metafields and Metaobjects are both part of Shopify's custom data layer, but they serve different
             purposes and are often confused with each other. This article explains what each one is, how they
-            differ architecturally, and when to reach for one versus the other - with Liquid and GraphQL examples
+            differ architecturally, and when to reach for one versus the other, with Liquid and GraphQL examples
             for both.
           </P>
           <P className="text-gray-500 text-sm sm:text-base">
@@ -83,8 +83,8 @@ export default function ShopifyMetafieldsVsMetaobjectsPage() {
           <ExternalLink href="https://shopify.dev/docs/apps/build/custom-data/metafields">
             Metafields
           </ExternalLink>{" "}
-          extend existing Shopify resource types - products, variants, collections, customers, orders, pages, and
-          more - with additional custom properties. They are key/value pairs attached to a specific resource
+          extend existing Shopify resource types (products, variants, collections, customers, orders, pages, and
+          more) with additional custom properties. They are key/value pairs attached to a specific resource
           instance.
         </P>
         <P>For example:</P>
@@ -96,8 +96,8 @@ export default function ShopifyMetafieldsVsMetaobjectsPage() {
         <P>
           Metafields are namespaced: each one belongs to a <code className="bg-gray-200 px-1 rounded text-sm">namespace</code> and has a{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">key</code>. The full address of a Metafield on a product is{" "}
-          <code className="bg-gray-200 px-1 rounded text-sm">product.metafields.namespace.key</code>. They extend an existing thing -
-          they do not create new things.
+          <code className="bg-gray-200 px-1 rounded text-sm">product.metafields.namespace.key</code>. They extend an existing thing.
+          They do not create new things.
         </P>
       </Section>
 
@@ -108,7 +108,7 @@ export default function ShopifyMetafieldsVsMetaobjectsPage() {
             Metaobjects
           </ExternalLink>{" "}
           are standalone custom data types that you define and instantiate independently of Shopify's built-in
-          resource types. They are not attached to a product or customer - they exist as their own entities in your
+          resource types. They are not attached to a product or customer. They exist as their own entities in your
           store.
         </P>
         <P>
@@ -125,7 +125,7 @@ export default function ShopifyMetafieldsVsMetaobjectsPage() {
           <li>Store locations (name, address, hours)</li>
         </Ul>
         <P>
-          Metaobjects are queried globally - not as properties of a specific resource. They have their own
+          Metaobjects are queried globally, not as properties of a specific resource. They have their own
           API endpoints and their own Liquid access patterns.
         </P>
       </Section>
@@ -162,7 +162,7 @@ export default function ShopifyMetafieldsVsMetaobjectsPage() {
             </thead>
             <tbody className="divide-y divide-gray-100">
               {[
-                ["Attached to", "An existing resource (product, customer, etc.)", "Nothing - standalone record"],
+                ["Attached to", "An existing resource (product, customer, etc.)", "Nothing: standalone record"],
                 ["Cardinality", "One value per key per resource", "Many instances per definition"],
                 ["Identity", "namespace + key + owner resource", "type + handle"],
                 ["Primary use", "Extend a resource with extra properties", "Create new data entities"],
@@ -178,7 +178,7 @@ export default function ShopifyMetafieldsVsMetaobjectsPage() {
             </tbody>
           </table>
         </div>
-        <InlineCta message={`Product reviews are a textbook Metaobject use case - ${process.env.NEXT_PUBLIC_APP_NAME} uses Shopify's standard product_review definition so your data is portable and queryable.`} />
+        <InlineCta message={`Product reviews are a textbook Metaobject use case. ${process.env.NEXT_PUBLIC_APP_NAME} uses Shopify's standard product_review definition so your data is portable and queryable.`} />
       </Section>
 
       <Section id="field-types">
@@ -202,7 +202,7 @@ export default function ShopifyMetafieldsVsMetaobjectsPage() {
         </Ul>
         <P>
           The <code className="bg-gray-200 px-1 rounded text-sm">metaobject_reference</code> type is particularly powerful: a Metafield of this
-          type on a product can point to one or many Metaobject instances - which is exactly how a product's list
+          type on a product can point to one or many Metaobject instances, which is exactly how a product's list
           of reviews is modelled.
         </P>
       </Section>
@@ -231,12 +231,12 @@ export default function ShopifyMetafieldsVsMetaobjectsPage() {
         <CodeBlock>{`
 {% comment %}
   product.metafields.reviews.product_reviews is a
-  list.metaobject_reference Metafield - it returns
+  list.metaobject_reference Metafield. It returns
   a list of product_review Metaobject instances.
 {% endcomment %}
 {% assign reviews = product.metafields.reviews.product_reviews.value %}
 {% for review in reviews %}
-  <p>{{ review.fields.author.value }} - {{ review.fields.rating.value }}/5</p>
+  <p>{{ review.fields.author.value }}: {{ review.fields.rating.value }}/5</p>
   <p>{{ review.fields.body.value }}</p>
 {% endfor %}
         `}</CodeBlock>
@@ -286,7 +286,7 @@ query {
           <ExternalLink href="https://shopify.dev/docs/api/storefront">Storefront GraphQL API</ExternalLink> (the
           Storefront API requires the fields to be marked as storefront-accessible in the definition).
         </P>
-        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} writes reviews as standard Shopify Metaobjects - query them with GraphQL, render them in Liquid, or export them any time you want.`} />
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} writes reviews as standard Shopify Metaobjects. Query them with GraphQL, render them in Liquid, or export them any time you want.`} />
       </Section>
 
       <Section className="bg-gray-50" id="when-to-use-which">
@@ -295,7 +295,7 @@ query {
         <Ul>
           <li>
             <strong>Use a Metafield</strong> when you need to add one (or a short list) of extra properties to an
-            existing Shopify resource - a product, variant, customer, order, etc. Examples: care label, sizing
+            existing Shopify resource: a product, variant, customer, order, etc. Examples: care label, sizing
             guide URL, custom badge text, loyalty points balance.
           </li>
           <li>
@@ -314,8 +314,8 @@ query {
           <ExternalLink href="https://shopify.dev/docs/apps/build/custom-data/metafields/list-of-standard-definitions">
             standard definitions
           </ExternalLink>{" "}
-          - official Metafield and Metaobject types that Shopify's own platform features and integrations (the Shop
-          app, Google Shopping, Meta Shops) recognise. Using a standard definition where one exists is always
+          (official Metafield and Metaobject types that Shopify's own platform features and integrations, including the Shop
+          app, Google Shopping, and Meta Shops, recognise). Using a standard definition where one exists is always
           preferable to creating a custom one.
         </Callout>
       </Section>
@@ -334,7 +334,7 @@ query {
           <li>
             The aggregate rating (average stars) is a <strong>Metafield</strong> of type{" "}
             <code className="bg-gray-200 px-1 rounded text-sm">rating</code> at{" "}
-            <code className="bg-gray-200 px-1 rounded text-sm">product.metafields.reviews.rating</code> - a summary value stored directly
+            <code className="bg-gray-200 px-1 rounded text-sm">product.metafields.reviews.rating</code>: a summary value stored directly
             on the product for fast access.
           </li>
           <li>
@@ -370,7 +370,7 @@ query {
             <div><InternalLink href="/blog/shopify-liquid-json-ld-structured-data">Adding JSON-LD structured data in Liquid →</InternalLink></div>
             <div><InternalLink href="/blog/shopify-social-proof-best-practices">Shopify social proof best practices →</InternalLink></div>
             <div><InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink></div>
-            <div><ExternalLink href="https://demo.reviewsonmetaobjects.com/products/chambray-work-shirt">Demo store - see it live (password: demo) →</ExternalLink></div>
+            <div><ExternalLink href="https://demo.reviewsonmetaobjects.com/products/chambray-work-shirt">Demo store: see it live (password: demo) →</ExternalLink></div>
           </div>
           <BlogNav className="mt-6" />
         </div>

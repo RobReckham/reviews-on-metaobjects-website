@@ -7,19 +7,19 @@ description: The complete placeholder token reference for structure and custom C
 
 Most blocks are customised without editing theme code, using two settings:
 
-- **`structure`** — an HTML template with `{placeholder}` tokens. The block builds each fragment (stars, title, body, …) in Liquid and swaps it in for its token.
-- **`custom_css`** — CSS scoped to that block instance (injected inside the block's uniquely-ID'd wrapper, so it never leaks into the rest of the theme).
+- **`structure`:** an HTML template with `{placeholder}` tokens. The block builds each fragment (stars, title, body, …) in Liquid and swaps it in for its token.
+- **`custom_css`:** CSS scoped to that block instance (injected inside the block's uniquely-ID'd wrapper, so it never leaks into the rest of the theme).
 
-Form blocks also expose a per-row **`form_item_structure`** (and purchase-signal blocks use a plain **`text`** template — see the bottom of this page).
+Form blocks also expose a per-row **`form_item_structure`**. Purchase-signal blocks use a plain **`text`** template (see the bottom of this page).
 
 > Only the tokens listed for a block are replaced. An unknown token is left in the output as literal text, so check spelling against the tables below.
 
 ## Rating blocks
 
-**Product Rating** — `{stars}` `{rating}` `{max}` `{count}` `{pluralised_reviews}`
-**Product Card Ratings** — `{star}` `{rating}` `{max}` `{count}`
-**Rating Bar** — `{stars}` `{rating}` `{count}` `{pluralised_reviews}` `{logo}`
-**Floating Badge** — `{stars}` `{rating_decimal}` `{max}` `{count}` `{pluralised_reviews}` `{image}`
+**Product Rating:** `{stars}` `{rating}` `{max}` `{count}` `{pluralised_reviews}`
+**Product Card Ratings:** `{star}` `{rating}` `{max}` `{count}`
+**Rating Bar:** `{stars}` `{rating}` `{count}` `{pluralised_reviews}` `{logo}`
+**Floating Badge:** `{stars}` `{rating_decimal}` `{max}` `{count}` `{pluralised_reviews}` `{image}`
 
 | Token | Renders |
 |---|---|
@@ -35,7 +35,7 @@ Form blocks also expose a per-row **`form_item_structure`** (and purchase-signal
 
 ## Review List
 
-Block-level structure — `{heading}` `{heading_tag}` `{stars}` `{rating}` `{max}` `{count}` `{pluralised_reviews}` `{ai_summary_short}` `{distribution}` `{search}` `{sort}` `{filters}` `{featured_reviews}` `{reviews}` `{pagination}`
+Block-level structure: `{heading}` `{heading_tag}` `{stars}` `{rating}` `{max}` `{count}` `{pluralised_reviews}` `{ai_summary_short}` `{distribution}` `{search}` `{sort}` `{filters}` `{featured_reviews}` `{reviews}` `{pagination}`
 
 | Token | Renders |
 |---|---|
@@ -64,8 +64,8 @@ Block-level structure — `{heading}` `{heading_tag}` `{stars}` `{rating}` `{max
 
 ## Reviews Slider
 
-Block-level — `{heading}` `{heading_tag}` `{summary_heading}` `{stars}` `{count}` `{pluralised_reviews}` `{logo}` `{featured_reviews}` `{reviews}` `{slider_buttons}`
-Slider item — `{stars}` `{title}` `{body}` `{author}` `{date}` `{status}` `{featured_badge}`
+Block-level: `{heading}` `{heading_tag}` `{summary_heading}` `{stars}` `{count}` `{pluralised_reviews}` `{logo}` `{featured_reviews}` `{reviews}` `{slider_buttons}`
+Slider item: `{stars}` `{title}` `{body}` `{author}` `{date}` `{status}` `{featured_badge}`
 
 | Token | Renders |
 |---|---|
@@ -74,9 +74,9 @@ Slider item — `{stars}` `{title}` `{body}` `{author}` `{date}` `{status}` `{fe
 
 ## Forms
 
-**Review Form** & **Post Purchase Form** (block-level) — `{heading}` `{heading_tag}` `{message}` `{items}` `{author_field}` `{submit_all}` (Review Form also: `{eligible_audience}`)
+**Review Form** & **Post Purchase Form** (block-level): `{heading}` `{heading_tag}` `{message}` `{items}` `{author_field}` `{submit_all}` (Review Form also: `{eligible_audience}`)
 
-**Form item** (`form_item_structure`, one per product) — `{item_name}` `{item_image}` `{rating_field}` `{title_field}` `{body_field}` `{media_field}` `{message}` `{progress}` `{submit_button}`
+**Form item** (`form_item_structure`, one per product): `{item_name}` `{item_image}` `{rating_field}` `{title_field}` `{body_field}` `{media_field}` `{message}` `{progress}` `{submit_button}`
 
 | Token | Renders |
 |---|---|
@@ -93,7 +93,7 @@ Slider item — `{stars}` `{title}` `{body}` `{author}` `{date}` `{status}` `{fe
 
 ## Purchase-signal text
 
-Bestseller, Sold Count, Last Purchased, Returning Customers and Rating Share don't use a structure template — you write their copy in a **`text`** setting with inline variables:
+Bestseller, Sold Count, Last Purchased, Returning Customers and Rating Share don't use a structure template. You write their copy in a **`text`** setting with inline variables:
 
 | Block | Variables |
 |---|---|
@@ -103,7 +103,7 @@ Bestseller, Sold Count, Last Purchased, Returning Customers and Rating Share don
 | Returning Customers | `{return_rate}`, `{return_count}` |
 | Rating Share | `{share_percent}`, `{share_count}` |
 
-Update the copy when you change a block's period or share type — the numbers change but your wording won't.
+Update the copy when you change a block's period or share type. The numbers change but your wording won't.
 
 ## Custom CSS
 

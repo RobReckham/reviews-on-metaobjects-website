@@ -20,7 +20,7 @@ export default function FounderSection() {
             </div>
           </div>
           <p className="text-gray-700">
-            After years of Shopify dev work I kept hitting the same two walls with review apps: third-party scripts quietly contributing to slower pages, and widgets rendered in iframes that your CSS can't reach - making it very hard and sometimes impossible to match a client's design. Shopify already has a native data type for reviews that sidesteps both. I built the tooling around it.
+            After years of Shopify dev work I kept hitting the same two walls with review apps: third-party scripts quietly contributing to slower pages, and widgets rendered in iframes that your CSS can't reach, making it very hard and sometimes impossible to match a client's design. Shopify already has a native data type for reviews that sidesteps both. I built the tooling around it.
           </p>
           <div className="flex flex-wrap items-center gap-4">
             <ListingCta href={process.env.NEXT_PUBLIC_CALENDLY_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Book a free call</ListingCta>

@@ -22,7 +22,7 @@ const tocItems = [
 const faqs = [
   {
     question: "Does Shopify have built-in product reviews?",
-    answer: "Shopify does not include a complete review collection and display system out of the box. What it provides is a standard Metaobject definition for storing review data - any compliant app writes to this format, and your Liquid theme can render it directly without external scripts.",
+    answer: "Shopify does not include a complete review collection and display system out of the box. What it provides is a standard Metaobject definition for storing review data. Any compliant app writes to this format, and your Liquid theme can render it directly without external scripts.",
   },
   {
     question: "What happened to Shopify's free Product Reviews app?",
@@ -30,11 +30,11 @@ const faqs = [
   },
   {
     question: "Can I collect reviews on Shopify without paying for an app?",
-    answer: "Not easily. The standard Metaobject infrastructure handles storage, but collection features - email review requests, submission forms, moderation, photo uploads - still require an app. The deprecated first-party app is technically still installable for some merchants but is unsupported.",
+    answer: "Not easily. The standard Metaobject infrastructure handles storage, but collection features (email review requests, submission forms, moderation, photo uploads) still require an app. The deprecated first-party app is technically still installable for some merchants but is unsupported.",
   },
   {
     question: "Do Shopify reviews stay in my store if I cancel my review app?",
-    answer: "It depends on how the app stores data. Apps that write to Shopify's standard product review Metaobjects store reviews inside your Shopify store permanently - they remain after uninstalling. Apps that store review data on their own servers take that data with them when you cancel.",
+    answer: "It depends on how the app stores data. Apps that write to Shopify's standard product review Metaobjects store reviews inside your Shopify store permanently. They remain after uninstalling. Apps that store review data on their own servers take that data with them when you cancel.",
   },
   {
     question: "What is the standard product review Metaobject definition?",
@@ -42,11 +42,11 @@ const faqs = [
   },
   {
     question: "Do reviews stored in Shopify Metaobjects appear in Google Shopping?",
-    answer: "Yes. Shopify's standard review Metaobjects integrate with Shopify's native channel connectors. Reviews stored in the standard format can be syndicated to Google Shopping and Meta Shops via Shopify's own channel integrations - without needing a separate product review feed from a third-party app.",
+    answer: "Yes. Shopify's standard review Metaobjects integrate with Shopify's native channel connectors. Reviews stored in the standard format can be syndicated to Google Shopping and Meta Shops via Shopify's own channel integrations, without needing a separate product review feed from a third-party app.",
   },
   {
     question: "Can AI search engines like Perplexity or Google AI Overviews read Shopify product reviews?",
-    answer: "AI search engines read your page content the same way Googlebot does - they process HTML and structured data, with limited JavaScript rendering. Reviews stored in Shopify Metaobjects render server-side in your HTML, making them fully accessible to AI crawlers. Reviews loaded by a JavaScript widget are frequently invisible to AI search engines, which means they cannot be cited when these tools answer questions about your products.",
+    answer: "AI search engines read your page content the same way Googlebot does: they process HTML and structured data, with limited JavaScript rendering. Reviews stored in Shopify Metaobjects render server-side in your HTML, making them fully accessible to AI crawlers. Reviews loaded by a JavaScript widget are frequently invisible to AI search engines, which means they cannot be cited when these tools answer questions about your products.",
   },
 ]
 
@@ -63,8 +63,8 @@ export default function ShopifyNativeProductReviewsPage() {
             Can Shopify display product reviews natively without a third-party app?
           </h1>
           <P>
-            Many merchants setting up a new Shopify store ask whether product reviews are built in - a reasonable
-            assumption given how central social proof is to e-commerce. The answer is nuanced and has changed
+            Many merchants setting up a new Shopify store ask whether product reviews are built in (a reasonable
+            assumption given how central social proof is to e-commerce). The answer is nuanced and has changed
             significantly since 2023. This article explains exactly what Shopify provides natively, what it
             deprecated, what still needs an app, and what "natively stored" actually means for your data.
           </P>
@@ -84,7 +84,7 @@ export default function ShopifyNativeProductReviewsPage() {
         </P>
         <P>
           For collection (email requests, submission forms, moderation, translation), you still need an app. But
-          the data those reviews are stored in - the Metaobjects - lives inside Shopify itself, not on the app
+          the data those reviews are stored in (the Metaobjects) lives inside Shopify itself, not on the app
           vendor's server.
         </P>
         <P>
@@ -96,8 +96,8 @@ export default function ShopifyNativeProductReviewsPage() {
       <Section className="bg-gray-50" id="the-old-product-reviews-app">
         <H2 id="the-old-product-reviews-app">2. Shopify's old Product Reviews app</H2>
         <P>
-          Until 2023, Shopify maintained a first-party app called "Product Reviews" - a free, simple app that
-          provided basic review collection via on-store forms and display via Liquid theme integration. It was
+          Until 2023, Shopify maintained a first-party app called "Product Reviews" (a free, simple app that
+          provided basic review collection via on-store forms and display via Liquid theme integration). It was
           minimal but functional: no email review requests, no moderation UI, no translation, but zero cost and
           no third-party dependency.
         </P>
@@ -110,7 +110,7 @@ export default function ShopifyNativeProductReviewsPage() {
           longer recommended and will eventually be retired.
         </P>
         <P>
-          The reason Shopify deprecated it was not that they abandoned reviews - it was that they replaced the
+          The reason Shopify deprecated it was not that they abandoned reviews. It was that they replaced the
           ad-hoc app approach with a more architectural solution: the standard product review Metaobject definition.
         </P>
         <Callout>
@@ -127,7 +127,7 @@ export default function ShopifyNativeProductReviewsPage() {
           <ExternalLink href="https://shopify.dev/docs/apps/build/metaobjects/standard-review-metaobject">
             standard product review Metaobject definition
           </ExternalLink>
-          . This is a standardised schema - a formal specification for how review data should be structured -
+          . This is a standardised schema (a formal specification for how review data should be structured)
           that is recognised platform-wide.
         </P>
         <P>Specifically, Shopify defines and maintains:</P>
@@ -137,11 +137,11 @@ export default function ShopifyNativeProductReviewsPage() {
             for rating, body text, author, date, and product reference
           </li>
           <li>
-            The <code className="bg-gray-200 px-1 rounded text-sm">reviews.rating</code> standard Metafield on products - a computed
+            The <code className="bg-gray-200 px-1 rounded text-sm">reviews.rating</code> standard Metafield on products: a computed
             aggregate rating, automatically maintained
           </li>
           <li>
-            The <code className="bg-gray-200 px-1 rounded text-sm">reviews.rating_count</code> standard Metafield - the total review
+            The <code className="bg-gray-200 px-1 rounded text-sm">reviews.rating_count</code> standard Metafield: the total review
             count per product
           </li>
         </Ul>
@@ -162,7 +162,7 @@ export default function ShopifyNativeProductReviewsPage() {
         </P>
         <Callout>
           If your theme already has a native review section, it will display reviews from any compliant app
-          automatically - because the data format is standardised. You are not required to use the app's own
+          automatically, because the data format is standardised. You are not required to use the app's own
           display blocks.
         </Callout>
       </Section>
@@ -175,7 +175,7 @@ export default function ShopifyNativeProductReviewsPage() {
         <Ul>
           <li>
             <strong>Post-purchase review request emails.</strong> Triggering an email to a customer after their
-            order is fulfilled, with a personalised review link, requires app infrastructure - email sending,
+            order is fulfilled, with a personalised review link, requires app infrastructure: email sending,
             template management, scheduling, and optionally discount code generation for incentives.
           </li>
           <li>
@@ -198,11 +198,11 @@ export default function ShopifyNativeProductReviewsPage() {
           </li>
         </Ul>
         <P>
-          In short: Shopify ships the data layer. An app provides the operational layer - collection, management,
+          In short: Shopify ships the data layer. An app provides the operational layer: collection, management,
           and optionally display. The two are now decoupled, which is an improvement over the old model where the
           app controlled both.
         </P>
-        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} is the operational layer built for this new model - it writes to Shopify's standard Metaobject definition, keeping your data fully within Shopify.`} />
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} is the operational layer built for this new model. It writes to Shopify's standard Metaobject definition, keeping your data fully within Shopify.`} />
       </Section>
 
       <Section id="what-native-really-means">
@@ -212,26 +212,26 @@ export default function ShopifyNativeProductReviewsPage() {
         </P>
         <Ul>
           <li>
-            <strong>"Without paying for an app"</strong> - the answer here is mostly no, unless your needs are
+            <strong>"Without paying for an app"</strong>: the answer here is mostly no, unless your needs are
             very basic (manually creating review Metaobjects via the Admin UI, which is technically possible but
             not practical for more than a handful of reviews).
           </li>
           <li>
-            <strong>"Without depending on a third-party server for my review data"</strong> - the answer here is
+            <strong>"Without depending on a third-party server for my review data"</strong>: the answer here is
             yes. This is what the standard Metaobject format enables. The data lives in Shopify. The app is a
             workflow tool, not a data custodian.
           </li>
         </Ul>
         <P>
           The second interpretation is the more important one from an architectural standpoint. A store whose
-          reviews are stored in Shopify's Metaobjects has native data - it renders server-side in Liquid, outputs
+          reviews are stored in Shopify's Metaobjects has native data: it renders server-side in Liquid, outputs
           structured data in the first HTML byte, and survives any change in which app is managing the workflow.
         </P>
         <P>
           A store whose reviews are stored on a third-party server does not have native data, regardless of how
           seamlessly the widget integrates visually.
         </P>
-        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} stores reviews in Shopify's native Metaobject layer - the data is in your store, not on an external server, making it truly native.`} />
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} stores reviews in Shopify's native Metaobject layer. The data is in your store, not on an external server, making it truly native.`} />
       </Section>
 
       <Section className="bg-gray-50" id="the-data-stays">
@@ -245,13 +245,13 @@ export default function ShopifyNativeProductReviewsPage() {
           In practice, this means:
         </P>
         <Ul>
-          <li>You can switch apps without losing reviews - install the new app, point it at the existing Metaobjects</li>
+          <li>You can switch apps without losing reviews: install the new app, point it at the existing Metaobjects</li>
           <li>You can uninstall an app during a pricing dispute without losing years of accumulated social proof</li>
           <li>You can write custom Liquid sections that read directly from the Metaobjects, bypassing any app's display layer entirely</li>
           <li>You can query your review data directly via the Shopify Admin GraphQL API for analytics or migrations</li>
         </Ul>
         <CodeBlock>{`
-# Query your reviews directly - no app API required
+# Query your reviews directly. No app API required
 query {
   metaobjects(type: "product_review", first: 50) {
     edges {
@@ -268,7 +268,7 @@ query {
         `}</CodeBlock>
         <P>
           This is the practical definition of "native" that matters for long-term store health: data that is yours
-          to keep, read, and move - independent of any specific vendor relationship.
+          to keep, read, and move, independent of any specific vendor relationship.
         </P>
 
         <ArticleAuthor />
@@ -287,7 +287,7 @@ query {
             <div><InternalLink href="/blog/shopify-metafields-vs-metaobjects">Metafields vs. Metaobjects explained →</InternalLink></div>
             <div><InternalLink href="/blog/shopify-social-proof-best-practices">Shopify social proof best practices →</InternalLink></div>
             <div><InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink></div>
-            <div><ExternalLink href="https://demo.reviewsonmetaobjects.com/products/chambray-work-shirt">Demo store - see it live (password: demo) →</ExternalLink></div>
+            <div><ExternalLink href="https://demo.reviewsonmetaobjects.com/products/chambray-work-shirt">Demo store: see it live (password: demo) →</ExternalLink></div>
           </div>
           <BlogNav className="mt-6" />
         </div>

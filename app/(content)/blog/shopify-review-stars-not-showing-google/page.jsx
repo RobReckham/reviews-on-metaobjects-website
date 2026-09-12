@@ -3,7 +3,7 @@ import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul,
 export const metadata = {
   title: "Shopify Review Stars Missing from Google? Causes and Fixes",
   shortTitle: "Shopify review stars not showing in Google",
-  description: "Missing star ratings in Google Search results? This guide explains exactly why review rich snippets fail on Shopify stores - and how to fix it with server-side structured data.",
+  description: "Missing star ratings in Google Search results? This guide explains exactly why review rich snippets fail on Shopify stores, and how to fix it with server-side structured data.",
   alternates: { canonical: "/blog/shopify-review-stars-not-showing-google" },
   openGraph: { type: "article", publishedTime: "2026-04-14", images: ["https://assets.reviewsonmetaobjects.com/the-shopify-reviews-blog.jpg"] },
   slug: "shopify-review-stars-not-showing-google",
@@ -32,19 +32,19 @@ const faqs = [
   },
   {
     question: "Does Shopify automatically add structured data for reviews?",
-    answer: "Not automatically. Some Shopify themes include basic Product schema, but AggregateRating markup - the specific structured data needed for star ratings in Google - must be added explicitly. Apps that store reviews in Shopify Metaobjects can output this data server-side via Liquid.",
+    answer: "Not automatically. Some Shopify themes include basic Product schema, but AggregateRating markup (the specific structured data needed for star ratings in Google) must be added explicitly. Apps that store reviews in Shopify Metaobjects can output this data server-side via Liquid.",
   },
   {
     question: "Will switching to a different review app fix my missing stars in Google?",
-    answer: "Only if the new app outputs AggregateRating structured data server-side in your HTML, not via a JavaScript widget. Check by viewing your page source and searching for 'aggregateRating' - if it is not in the raw HTML, Google cannot reliably read it at crawl time.",
+    answer: "Only if the new app outputs AggregateRating structured data server-side in your HTML, not via a JavaScript widget. Check by viewing your page source and searching for 'aggregateRating'. If it is not in the raw HTML, Google cannot reliably read it at crawl time.",
   },
   {
     question: "How do I validate my Shopify structured data for review stars?",
-    answer: "Use Google's Rich Results Test at search.google.com/test/rich-results - paste your product page URL and it will show whether your AggregateRating markup is detected and valid. If valid markup is detected but stars still do not appear in search, check Search Console's Rich Results report for manual actions or eligibility issues. Always test with a product that has at least one published review.",
+    answer: "Use Google's Rich Results Test at search.google.com/test/rich-results: paste your product page URL and it will show whether your AggregateRating markup is detected and valid. If valid markup is detected but stars still do not appear in search, check Search Console's Rich Results report for manual actions or eligibility issues. Always test with a product that has at least one published review.",
   },
   {
     question: "What is the difference between AggregateRating and Review schema for Shopify?",
-    answer: "AggregateRating is a summary - it tells Google the overall average score and total review count for a product. Review schema represents individual reviews, each with its own rating, author, and body text. Google requires AggregateRating for the star rating display in search results. Including individual Review schema as well strengthens the structured data signal and can improve rich result eligibility.",
+    answer: "AggregateRating is a summary: it tells Google the overall average score and total review count for a product. Review schema represents individual reviews, each with its own rating, author, and body text. Google requires AggregateRating for the star rating display in search results. Including individual Review schema as well strengthens the structured data signal and can improve rich result eligibility.",
   },
   {
     question: "Do Google AI Overviews show star ratings and review data from Shopify stores?",
@@ -69,7 +69,7 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
             Why your Shopify product review stars don't show in Google Search
           </h1>
           <P>
-            Star ratings in Google Search results - the yellow stars visible directly under a product listing -
+            Star ratings in Google Search results (the yellow stars visible directly under a product listing)
             dramatically increase click-through rates. If your store has reviews but no stars in Google, the problem
             is almost always in how your review data reaches (or fails to reach) Googlebot. This article walks
             through the exact failure modes and how to fix them.
@@ -88,14 +88,14 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
             Product rich results
           </ExternalLink>{" "}
           are enhanced search listings that show star ratings, review counts, price, and availability directly in the
-          SERP - before a user ever clicks your link. They are powered by{" "}
+          SERP, before a user ever clicks your link. They are powered by{" "}
           <ExternalLink href="https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data">
             structured data
           </ExternalLink>{" "}
           embedded in your page: a machine-readable description of your product and its aggregate review score.
         </P>
         <P>
-          Google does not invent this data. It reads it directly from your HTML - specifically from a{" "}
+          Google does not invent this data. It reads it directly from your HTML: specifically from a{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">&lt;script type="application/ld+json"&gt;</code> block
           containing{" "}
           <ExternalLink href="https://schema.org/Product">schema.org/Product</ExternalLink> markup with a nested{" "}
@@ -103,7 +103,7 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
           markup is absent, malformed, or not visible at crawl time, no stars appear.
         </P>
         <Callout>
-          Rich snippets are not guaranteed - Google decides whether to show them based on data quality, page trust,
+          Rich snippets are not guaranteed. Google decides whether to show them based on data quality, page trust,
           and policy eligibility. But having correct structured data is the prerequisite. Without it, they cannot
           appear at all.
         </Callout>
@@ -127,7 +127,7 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
             <code className="bg-gray-200 px-1 rounded text-sm">ratingCount</code>)
           </li>
           <li>The <code className="bg-gray-200 px-1 rounded text-sm">ratingValue</code> must be within the stated <code className="bg-gray-200 px-1 rounded text-sm">bestRating</code> / <code className="bg-gray-200 px-1 rounded text-sm">worstRating</code> range</li>
-          <li>The structured data is readable by Googlebot at crawl time - not injected by client-side JavaScript after the initial HTML is parsed</li>
+          <li>The structured data is readable by Googlebot at crawl time, not injected by client-side JavaScript after the initial HTML is parsed</li>
           <li>The page content visibly matches the structured data (Google cross-references both)</li>
         </Ul>
         <P>
@@ -142,7 +142,7 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
         <P>
           Many Shopify themes ship without any <code className="bg-gray-200 px-1 rounded text-sm">aggregateRating</code>{" "}
           markup. The theme renders a visual star rating on the page, but outputs no machine-readable equivalent. From
-          Google's perspective, the stars do not exist - it sees text or SVG icons, not data.
+          Google's perspective, the stars do not exist. It sees text or SVG icons, not data.
         </P>
         <P>
           This is common with themes that pre-date Online Store 2.0, or themes that have a built-in "review section"
@@ -152,13 +152,13 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
         <H3>Failure mode 2: Structured data rendered by JavaScript</H3>
         <P>
           Most established review apps (Loox, Judge.me, Stamped, Yotpo, reviews.io) do output{" "}
-          <code className="bg-gray-200 px-1 rounded text-sm">aggregateRating</code> structured data - so the data
+          <code className="bg-gray-200 px-1 rounded text-sm">aggregateRating</code> structured data, so the data
           is technically there. The problem is timing and reliability. These apps inject a JavaScript widget that
           fetches review data from an external server after the HTML has loaded. The structured data is generated and
           injected into the DOM by that JavaScript.
         </P>
         <P>
-          Googlebot does process JavaScript - but{" "}
+          Googlebot does process JavaScript, but{" "}
           <ExternalLink href="https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics">
             not always, not immediately, and not reliably for third-party origins.
           </ExternalLink>{" "}
@@ -176,8 +176,8 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
           This is the failure almost no one talks about. Google's Product schema supports not just{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">aggregateRating</code> but also a{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">review</code> array containing individual{" "}
-          <ExternalLink href="https://schema.org/Review">Review</ExternalLink> objects - each with author, date,
-          title, body, and individual star rating. Virtually no JS-based review app outputs this.
+          <ExternalLink href="https://schema.org/Review">Review</ExternalLink> objects (each with author, date,
+          title, body, and individual star rating). Virtually no JS-based review app outputs this.
         </P>
         <P>
           The reason is structural: the individual review data lives on the vendor's servers. Injecting dozens of
@@ -186,12 +186,12 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
         </P>
         <Callout>
           Google Search Console's URL Inspection tool will often show "Page cannot be rendered" or show the page
-          without review data in the rendered HTML - even when the review widget appears fine in a real browser. This
+          without review data in the rendered HTML, even when the review widget appears fine in a real browser. This
           is the tell for failure mode 2. For failure mode 3, the Rich Results Test will show a valid{" "}
           <code className="bg-gray-100 px-1 rounded text-sm">aggregateRating</code> but no{" "}
           <code className="bg-gray-100 px-1 rounded text-sm">review</code> array.
         </Callout>
-        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} renders structured data server-side in Liquid - your AggregateRating is in the initial HTML, not injected by JavaScript after page load.`} />
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} renders structured data server-side in Liquid. Your AggregateRating is in the initial HTML, not injected by JavaScript after page load.`} />
       </Section>
 
       <Section className="bg-gray-50" id="audit-your-store">
@@ -214,7 +214,7 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
           <ExternalLink href="https://demo.reviewsonmetaobjects.com/products/chambray-work-shirt">
             demo store
           </ExternalLink>{" "}
-          (password: demo) - it outputs both <code className="bg-gray-200 px-1 rounded text-sm">aggregateRating</code> and individual{" "}
+          (password: demo). It outputs both <code className="bg-gray-200 px-1 rounded text-sm">aggregateRating</code> and individual{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">Review</code> items server-side.
         </P>
         <P>
@@ -238,7 +238,7 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
         <H3>Step 3: View page source</H3>
         <P>
           In your browser, go to a product page and press <code className="bg-gray-200 px-1 rounded text-sm">Ctrl+U</code> (or{" "}
-          <code className="bg-gray-200 px-1 rounded text-sm">Cmd+U</code>) to view the raw HTML source - not the
+          <code className="bg-gray-200 px-1 rounded text-sm">Cmd+U</code>) to view the raw HTML source, not the
           DevTools DOM which reflects JavaScript execution. Search for{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">aggregateRating</code> and then for{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">"@type": "Review"</code>. If neither appears in the
@@ -252,8 +252,8 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
         <H2 id="the-fix">5. The fix: server-side structured data</H2>
         <P>
           The reliable fix is to output both <code className="bg-gray-200 px-1 rounded text-sm">aggregateRating</code>{" "}
-          and individual <code className="bg-gray-200 px-1 rounded text-sm">Review</code> items server-side -
-          directly in the HTML that Shopify sends on the first byte - rather than generating them in a JavaScript widget.
+          and individual <code className="bg-gray-200 px-1 rounded text-sm">Review</code> items server-side
+          (directly in the HTML that Shopify sends on the first byte) rather than generating them in a JavaScript widget.
         </P>
         <P>
           This is only possible when your review data is stored in Shopify itself, accessible to Liquid during
@@ -262,7 +262,7 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
           <code className="bg-gray-200 px-1 rounded text-sm">reviews.rating_count</code> Metafields feed{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">aggregateRating</code>, and the individual{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">product_review</code> Metaobjects can be looped over
-          to output each <code className="bg-gray-200 px-1 rounded text-sm">Review</code> item - all without any
+          to output each <code className="bg-gray-200 px-1 rounded text-sm">Review</code> item, all without any
           API call.
         </P>
         <P>
@@ -285,7 +285,7 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
           <li>
             <strong>Long-tail search visibility.</strong> Individual review bodies contain natural language that
             matches the way real buyers search. "Product name durable" or "Product name runs small" are phrases
-            that appear in review text - and if that text is in your structured data, Googlebot reads it on first
+            that appear in review text. If that text is in your structured data, Googlebot reads it on first
             crawl.
           </li>
           <li>
@@ -299,7 +299,7 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
               Google's Product structured data documentation
             </ExternalLink>{" "}
             explicitly supports nesting <code className="bg-gray-100 px-1 rounded text-sm">Review</code> items
-            alongside <code className="bg-gray-100 px-1 rounded text-sm">aggregateRating</code> - the individual
+            alongside <code className="bg-gray-100 px-1 rounded text-sm">aggregateRating</code>. The individual
             reviews add depth to the aggregate.
           </li>
         </Ul>
@@ -311,22 +311,22 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
         <P>
           This is where the Metaobject architecture has a structural advantage. Because individual review records
           live inside Shopify as standard <code className="bg-gray-200 px-1 rounded text-sm">product_review</code>{" "}
-          Metaobjects, Liquid can loop over them directly at render time - no external API call, no JavaScript
+          Metaobjects, Liquid can loop over them directly at render time: no external API call, no JavaScript
           injection. Each review's fields (<code className="bg-gray-200 px-1 rounded text-sm">title</code>,{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">body</code>,{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">rating</code>,{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">author_display_name</code>,{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">submitted_at</code>) are available server-side.
-          A JS-based app storing reviews externally cannot do this - the data simply is not accessible to Liquid.
+          A JS-based app storing reviews externally cannot do this. The data simply is not accessible to Liquid.
         </P>
-        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} outputs individual Review structured data for each product server-side - the markup most review apps skip entirely.`} />
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} outputs individual Review structured data for each product server-side (the markup most review apps skip entirely).`} />
       </Section>
 
       <Section id="liquid-implementation">
         <H2 id="liquid-implementation">7. What the structured data looks like</H2>
         <P>
           When review data is stored as Shopify Metaobjects, this is what Googlebot reads in the raw HTML of a
-          product page - no JavaScript execution, no external requests, present on the very first crawl:
+          product page. There is no JavaScript execution, no external requests, and it is present on the very first crawl:
         </P>
         <CodeBlock>{`
 {%- if product.metafields.reviews.rating.value != blank -%}
@@ -380,10 +380,10 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
           <code className="bg-gray-200 px-1 rounded text-sm">reviews.rating_count</code> product Metafields.
           The individual reviews are looped directly from the{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">product_review</code> Metaobjects linked to the
-          product - limited to 5 to keep the payload lean. Both are available to Liquid at render time because
+          product (limited to 5 to keep the payload lean). Both are available to Liquid at render time because
           they live inside Shopify, not on a third-party server.
         </P>
-        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} handles all of this automatically - aggregateRating, individual Review markup, Metaobject storage, and server-side rendering included out of the box.`} />
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} handles all of this automatically: aggregateRating, individual Review markup, Metaobject storage, and server-side rendering included out of the box.`} />
       </Section>
 
       <Section id="after-the-fix">
@@ -392,7 +392,7 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
           Once server-side structured data is in place, the timeline to seeing results typically looks like:
         </P>
         <Ul>
-          <li><strong>Days 1–3:</strong> Google re-crawls the page and picks up both <code className="bg-gray-200 px-1 rounded text-sm">aggregateRating</code> and individual <code className="bg-gray-200 px-1 rounded text-sm">Review</code> items in the first HTML pass - no rendering queue</li>
+          <li><strong>Days 1–3:</strong> Google re-crawls the page and picks up both <code className="bg-gray-200 px-1 rounded text-sm">aggregateRating</code> and individual <code className="bg-gray-200 px-1 rounded text-sm">Review</code> items in the first HTML pass (no rendering queue)</li>
           <li><strong>Days 3–14:</strong> Rich Results Test and Search Console URL Inspection start reporting the full Product schema as detected, including the review array</li>
           <li><strong>Weeks 2–6:</strong> Star ratings begin appearing in search results for pages that Google has re-indexed</li>
           <li><strong>Ongoing:</strong> Individual review content feeds long-tail query visibility as Google indexes the review text alongside your product pages</li>
@@ -403,7 +403,7 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
           Inspection tool to speed this up.
         </P>
         <P>
-          The star ratings are the visible win - typically a 10–30% increase in organic click-through rate on
+          The star ratings are the visible win: typically a 10–30% increase in organic click-through rate on
           product listings. The individual review markup works more quietly in the background, strengthening
           long-tail rankings for query patterns that match real customer language in your review text.
         </P>
@@ -425,7 +425,7 @@ export default function ShopifyReviewStarsNotShowingGooglePage() {
             <div><InternalLink href="/blog/shopify-social-proof-best-practices">Shopify social proof best practices →</InternalLink></div>
             <div><InternalLink href="/blog/social-proof-shopify-product-pages">Social proof on Shopify product pages →</InternalLink></div>
             <div><InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink></div>
-            <div><ExternalLink href="https://demo.reviewsonmetaobjects.com/products/chambray-work-shirt">Demo store - test structured data live (password: demo) →</ExternalLink></div>
+            <div><ExternalLink href="https://demo.reviewsonmetaobjects.com/products/chambray-work-shirt">Demo store: test structured data live (password: demo) →</ExternalLink></div>
           </div>
           <BlogNav className="mt-6" />
         </div>

@@ -11,11 +11,11 @@ Trustpilot imports through the Trustpilot API. Both **service reviews** (about y
 
 1. Open <a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}`} target="_blank" rel="noopener">the app dashboard</a> and add Trustpilot as a source.
 2. Enter your Trustpilot **API Key**, **API Secret**, and **Business Unit ID**.
-3. Select your **Product identifier** (product reviews) — controls how reviews link to Shopify products:
-   - **SKU** (default) — matches by variant SKU
-   - **Barcode** — matches by variant barcode
-   - **Shopify GID** — matches by Shopify global ID
-   - **Numeric ID** — matches by Shopify numeric product ID
+3. Select your **Product identifier** (product reviews). This controls how reviews link to Shopify products:
+   - **SKU** (default): matches by variant SKU
+   - **Barcode:** matches by variant barcode
+   - **Shopify GID:** matches by Shopify global ID
+   - **Numeric ID:** matches by Shopify numeric product ID
 4. Start an initial sync from the dashboard.
 
 Find your API credentials and Business Unit ID in your Trustpilot Business account.
@@ -37,7 +37,7 @@ New, updated and deleted reviews then flow in automatically.
 ## Notes
 
 - Service reviews carry no product link; they are stored as store-level reviews.
-- Keep your product identifier consistent — mixing types in one source leaves reviews unlinked.
+- Keep your product identifier consistent. Mixing types in one source leaves reviews unlinked.
 
 ## Troubleshooting
 

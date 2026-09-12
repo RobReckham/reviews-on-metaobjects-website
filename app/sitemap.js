@@ -40,7 +40,7 @@ function collectRoutes(dir, appRoot) {
         }).trim()
         if (out) lastModified = new Date(out)
       } catch {
-        // git not available (unlikely) — fall back to fs mtime
+        // git not available (unlikely); fall back to fs mtime
         try { lastModified = fs.statSync(full).mtime } catch {}
       }
 

@@ -3,15 +3,15 @@ import Eyebrow from "./eyebrow"
 const faqs = [
   {
     question: "Do I have to leave my current review app?",
-    answer: "No — most of our stores don't. Judge.me, Loox or REVIEWS.io keep collecting; FiveOh syncs their reviews into your Shopify and takes over the display. Many keep their old app on its cheapest (or free) tier just for the trust badge. You can also collect with FiveOh directly.",
+    answer: "No. Most of our stores don't. Judge.me, Loox or REVIEWS.io keep collecting; FiveOh syncs their reviews into your Shopify and takes over the display. Many keep their old app on its cheapest (or free) tier just for the trust badge. You can also collect with FiveOh directly.",
   },
   {
-    question: "What is a metaobject — and Shopify's standard product review metaobject?",
-    answer: "A metaobject is Shopify's native, structured way to store data, queryable in Liquid just like a product or a price. The standard product review metaobject is the official built-in type for reviews — it powers syndication to the Shop app, Google Shopping and Meta, and native server-side display in your theme.",
+    question: "What is a metaobject, and Shopify's standard product review metaobject?",
+    answer: "A metaobject is Shopify's native, structured way to store data, queryable in Liquid just like a product or a price. The standard product review metaobject is the official built-in type for reviews. It powers syndication to the Shop app, Google Shopping and Meta, and native server-side display in your theme.",
   },
   {
     question: "Why does it matter that reviews live in Shopify instead of a third-party database?",
-    answer: "Third-party reviews are fetched by JavaScript after your page loads — delaying rendering, raising your LCP, and hiding the content from search and AI. Metaobjects are read server-side during Liquid rendering, so reviews are in your HTML from the first byte: no round-trip, no layout shift, no dependency on an outside service staying online.",
+    answer: "Third-party reviews are fetched by JavaScript after your page loads, delaying rendering, raising your LCP, and hiding the content from search and AI. Metaobjects are read server-side during Liquid rendering, so reviews are in your HTML from the first byte: no round-trip, no layout shift, no dependency on an outside service staying online.",
   },
   {
     question: "Who sets it up?",
@@ -19,11 +19,11 @@ const faqs = [
   },
   {
     question: "Does it use a JavaScript widget on my storefront?",
-    answer: "No. Reviews render natively in Liquid, fully server-side — no widget, no external requests. That means faster pages, better Core Web Vitals, and native structured data for SEO, while still supporting photo and video reviews.",
+    answer: "No. Reviews render natively in Liquid, fully server-side. No widget, no external requests. That means faster pages, better Core Web Vitals, and native structured data for SEO, while still supporting photo and video reviews.",
   },
   {
     question: "Will my reviews show up in Google and AI?",
-    answer: "Yes. Your full review text plus AggregateRating and Review structured data are in the HTML from the first byte — so Google indexes them (star ratings included) and tools like ChatGPT and Perplexity can read and cite them. Widget reviews, loaded after the crawl, are invisible to all of them.",
+    answer: "Yes. Your full review text plus AggregateRating and Review structured data are in the HTML from the first byte, so Google indexes them (star ratings included) and tools like ChatGPT and Perplexity can read and cite them. Widget reviews, loaded after the crawl, are invisible to all of them.",
   },
   {
     question: "How does FiveOh collect new reviews?",
@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     question: "Can I import reviews from other providers?",
-    answer: "Yes — from Judge.me, REVIEWS.io and more, or from any source via CSV. More sync providers are added regularly based on demand.",
+    answer: "Yes. From Judge.me, REVIEWS.io and more, or from any source via CSV. More sync providers are added regularly based on demand.",
   },
   {
     question: "How does auto-translation work?",
@@ -43,11 +43,11 @@ const faqs = [
   },
   {
     question: "What happens to my product rating aggregates?",
-    answer: "FiveOh keeps the average rating and review count in Shopify metafields, updated in real time — ready for collection pages, search, and structured data.",
+    answer: "FiveOh keeps the average rating and review count in Shopify metafields, updated in real time, ready for collection pages, search, and structured data.",
   },
   {
     question: "What happens to my reviews if I uninstall?",
-    answer: "They stay. Reviews live in your Shopify as native metaobjects — your data, not ours. Cancel anytime from your Shopify admin; the app removes its own blocks cleanly and the reviews remain, usable with any tool or your own Liquid.",
+    answer: "They stay. Reviews live in your Shopify as native metaobjects. Your data, not ours. Cancel anytime from your Shopify admin; the app removes its own blocks cleanly and the reviews remain, usable with any tool or your own Liquid.",
   },
   {
     question: "Do I need to change my theme?",
@@ -67,7 +67,7 @@ const faqs = [
   },
   {
     question: "Can I see it on a live store?",
-    answer: "Yes — our demo store has every block installed. Open it (password: demo), run your own speed and SEO audits, or view source to see the reviews right in the HTML.",
+    answer: "Yes. Our demo store has every block installed. Open it (password: demo), run your own speed and SEO audits, or view source to see the reviews right in the HTML.",
   },
 ];
 

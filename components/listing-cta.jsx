@@ -21,7 +21,7 @@ export default function ListingCta({ href, className, children }) {
         <p>1. We scope import, sync, configuration and theme-matched styling</p>
         <p>2. Custom design? We'll build it to match your brand</p>
         <p>3. Doesn't work out? We revert everything. No lock-in</p>
-        <p>DIY is always an option - install, connect your source, drop in the app blocks.</p>
+        <p>DIY is always an option. Install, connect your source, drop in the app blocks.</p>
         <div className="flex justify-between gap-4 mt-4">
           <div className="flex items-center gap-2">
             <img

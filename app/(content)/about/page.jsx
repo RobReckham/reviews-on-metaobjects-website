@@ -5,7 +5,7 @@ import Eyebrow from "../../../components/eyebrow"
 const LISTING_URL = process.env.NEXT_PUBLIC_LISTING_URL || "https://apps.shopify.com/reviews-on-metaobjects"
 
 export const metadata = {
-  title: `Marius Korbmacher - Shopify Developer Behind ${process.env.NEXT_PUBLIC_APP_NAME}`,
+  title: `Marius Korbmacher, Shopify developer behind ${process.env.NEXT_PUBLIC_APP_NAME}`,
   description: `Shopify developer with 5+ years building high-traffic stores. Built ${process.env.NEXT_PUBLIC_APP_NAME} because no review app was doing it right.`,
   alternates: {
     canonical: "/about",
@@ -69,19 +69,19 @@ export default function AboutPage() {
               </p>
             </div>
             <p>
-              The same problem came up on almost every store I touched. The client would complain that their store felt slow. I'd run a Lighthouse audit. And there it was - a third-party review app, injecting a JavaScript widget that fired after page load, fetching reviews from some external server, causing layout shift, dragging down LCP. Every. Single. Time.
+              The same problem came up on almost every store I touched. The client would complain that their store felt slow. I'd run a Lighthouse audit. And there it was: a third-party review app, injecting a JavaScript widget that fired after page load, fetching reviews from some external server, causing layout shift, dragging down LCP. Every. Single. Time.
             </p>
             <p>
-              And when performance wasn't the immediate complaint, styling was. Review widgets are often rendered inside iframes or use shadow DOM - your CSS simply can't reach them. Matching a client's Figma design meant hours of patching around someone else's markup with workarounds that broke on the next app update. Sometimes it wasn't possible at all. You'd end up explaining to the client why their review section looks different from everything else on the page.
+              And when performance wasn't the immediate complaint, styling was. Review widgets are often rendered inside iframes or use shadow DOM, so your CSS simply can't reach them. Matching a client's Figma design meant hours of patching around someone else's markup with workarounds that broke on the next app update. Sometimes it wasn't possible at all. You'd end up explaining to the client why their review section looks different from everything else on the page.
             </p>
             <p>
-              The frustrating part is that Shopify already has a native, built-in data type for product reviews - the standard product review metaobject. It's been part of the platform for years. Reviews stored there render in Liquid the same way product titles do. No JavaScript. No external round-trip. No layout shift. Faster pages, structured data Google can actually index, star ratings in search results.
+              The frustrating part is that Shopify already has a native, built-in data type for product reviews: the standard product review metaobject. It's been part of the platform for years. Reviews stored there render in Liquid the same way product titles do. No JavaScript. No external round-trip. No layout shift. Faster pages, structured data Google can actually index, star ratings in search results.
             </p>
             <p>
-              The tools to manage that data properly just didn't exist. Most review apps ignore the standard entirely and run their own proprietary database - because it makes migration harder and lock-in stronger. So I built {process.env.NEXT_PUBLIC_APP_NAME}: an app that actually uses Shopify's own standard, does all the review collection and management work on top of it, and gets out of the way when it comes to rendering.
+              The tools to manage that data properly just didn't exist. Most review apps ignore the standard entirely and run their own proprietary database, because it makes migration harder and lock-in stronger. So I built {process.env.NEXT_PUBLIC_APP_NAME}: an app that actually uses Shopify's own standard, does all the review collection and management work on top of it, and gets out of the way when it comes to rendering.
             </p>
             <p>
-              The result: faster product pages, better Core Web Vitals, star ratings in Google, and reviews your client owns permanently - regardless of which app they're using to manage them.
+              The result: faster product pages, better Core Web Vitals, star ratings in Google, and reviews your client owns permanently, regardless of which app they're using to manage them.
             </p>
           </div>
         </div>

@@ -3,7 +3,7 @@ import ListingCta from "./listing-cta"
 
 const steps = [
   ["A 15-minute call", "We look at your store, your current review setup, and what you've always wanted it to do."],
-  ["We install and match your theme", "All in a draft copy of your theme — your live store isn't touched until you approve it. Import, sync, configuration and blocks styled to your design, by a senior Shopify developer."],
+  ["We install and match your theme", "All in a draft copy of your theme. Your live store isn't touched until you approve it. Import, sync, configuration and blocks styled to your design, by a senior Shopify developer."],
   ["Live in days, reversible in an hour", "If the before/after doesn't convince you, we revert everything. Your reviews stay in your Shopify either way."],
 ];
 
@@ -14,7 +14,7 @@ export default function WhiteGlove() {
         <Eyebrow>Done for you</Eyebrow>
         <h2 className="h2 mt-5">The founder sets it up for you.</h2>
         <p className="copy mt-4 max-w-xl text-gray-400">
-          FiveOh is deliberately deep - the kind of tool a developer configures, not a wizard. You can
+          FiveOh is deliberately deep: the kind of tool a developer configures, not a wizard. You can
           set it up yourself from the App Store, or book a call if you want a senior Shopify developer
           to handle import, sync, configuration and theme-matched styling. We quote the work on the call.
         </p>

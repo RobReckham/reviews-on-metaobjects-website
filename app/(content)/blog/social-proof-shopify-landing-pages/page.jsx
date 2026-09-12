@@ -42,15 +42,15 @@ const faqs = [
   },
   {
     question: "How do I choose which customer reviews to feature on a landing page?",
-    answer: "Select reviews that directly address the main objection your ad or landing page promise raises. If the ad promises a specific outcome, feature reviews that confirm it. If price is an objection, feature reviews that mention value for money. Avoid generic 'great product' reviews — they add noise rather than resolving specific hesitations. Longer, more specific reviews typically outperform short ones on landing pages.",
+    answer: "Select reviews that directly address the main objection your ad or landing page promise raises. If the ad promises a specific outcome, feature reviews that confirm it. If price is an objection, feature reviews that mention value for money. Avoid generic 'great product' reviews. They add noise rather than resolving specific hesitations. Longer, more specific reviews typically outperform short ones on landing pages.",
   },
   {
     question: "Should my landing page testimonials be different from my product page reviews?",
-    answer: "Ideally yes. Product page reviews serve self-selected buyers researching a specific product — they can be longer and more technical. Landing page testimonials serve paid traffic that may not have heard of you — they need to establish instant credibility and address the promise of the specific ad. Pull the best reviews from your product page as a starting point, then filter aggressively for specificity and outcome relevance.",
+    answer: "Ideally yes. Product page reviews serve self-selected buyers researching a specific product. They can be longer and more technical. Landing page testimonials serve paid traffic that may not have heard of you. They need to establish instant credibility and address the promise of the specific ad. Pull the best reviews from your product page as a starting point, then filter aggressively for specificity and outcome relevance.",
   },
   {
     question: "Can landing page social proof help my Shopify store appear in AI search results when people research my brand?",
-    answer: "Landing pages are typically crawled less frequently than main product and collection pages, and campaign-specific URLs are often noindexed. For AI search visibility, your main product pages and blog content matter more. However, if your landing pages are indexed, server-side rendered testimonials contribute to the overall picture AI search engines build of your brand sentiment — which can influence how your store is described in AI-generated brand comparisons.",
+    answer: "Landing pages are typically crawled less frequently than main product and collection pages, and campaign-specific URLs are often noindexed. For AI search visibility, your main product pages and blog content matter more. However, if your landing pages are indexed, server-side rendered testimonials contribute to the overall picture AI search engines build of your brand sentiment, which can influence how your store is described in AI-generated brand comparisons.",
   },
 ]
 
@@ -67,7 +67,7 @@ export default function SocialProofShopifyLandingPagesPage() {
             Social proof on Shopify landing pages: best practices for higher conversions
           </h1>
           <P>
-            Landing pages - campaign pages, editorial pages, advertorial content, and seasonal promotions -
+            Landing pages (campaign pages, editorial pages, advertorial content, and seasonal promotions)
             sit in a unique position in your Shopify store. They receive targeted traffic with specific intent,
             but that traffic is often cold: paid ads, email campaigns, or influencer links sending visitors
             who have never heard of your brand. We have run landing page tests where social proof above the
@@ -88,13 +88,13 @@ export default function SocialProofShopifyLandingPagesPage() {
         </P>
         <Ul>
           <li>Built with a custom or campaign-specific layout (not the standard product or collection template)</li>
-          <li>Designed to receive traffic from a specific source - paid ads, email, influencer links, QR codes</li>
-          <li>Optimised toward a single conversion goal - add to cart, sign up, or click-through to a product</li>
+          <li>Designed to receive traffic from a specific source: paid ads, email, influencer links, QR codes</li>
+          <li>Optimised toward a single conversion goal: add to cart, sign up, or click-through to a product</li>
         </Ul>
         <P>
           In Shopify, landing pages are typically built as custom pages using the{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">page</code> template or as custom sections
-          within Online Store 2.0 - sometimes using a page builder app (Shogun, Replo, Pagefly) or custom
+          within Online Store 2.0, sometimes using a page builder app (Shogun, Replo, Pagefly) or custom
           theme sections. The social proof principles in this guide apply regardless of which builder
           you use.
         </P>
@@ -112,12 +112,12 @@ export default function SocialProofShopifyLandingPagesPage() {
           of these visitor types have some prior context about your store.
         </P>
         <P>
-          Landing page visitors - especially from paid ads - frequently have no prior context at all. They
+          Landing page visitors (especially from paid ads) frequently have no prior context at all. They
           clicked an ad. They have never been to your store. They have never searched for your brand. They
           have zero accumulated trust.
         </P>
         <P>
-          For this visitor, social proof is not supplementary - it is foundational. Without credibility signals
+          For this visitor, social proof is not supplementary. It is foundational. Without credibility signals
           visible on the page, the default decision is to leave. You have paid to acquire this visitor; social
           proof is how you convert them.
         </P>
@@ -131,7 +131,7 @@ export default function SocialProofShopifyLandingPagesPage() {
       <Section id="above-fold-trust-signals">
         <H2 id="above-fold-trust-signals">3. Above-the-fold trust signals</H2>
         <P>
-          The first screen a landing page visitor sees - before they scroll - must contain at least one
+          The first screen a landing page visitor sees (before they scroll) must contain at least one
           immediate trust signal. The best options for above-the-fold placement:
         </P>
         <Ul>
@@ -153,14 +153,14 @@ export default function SocialProofShopifyLandingPagesPage() {
           bounces before scrolling has not seen any of your below-fold social proof. The trust signal that
           stops the bounce is the one that counts.
         </P>
-        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} keeps your store rating and review count current - use them to power trust bars on any landing page from the theme editor.`} />
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} keeps your store rating and review count current. Use them to power trust bars on any landing page from the theme editor.`} />
       </Section>
 
       <Section className="bg-gray-50" id="testimonials-near-cta">
         <H2 id="testimonials-near-cta">4. Testimonials placed near the CTA</H2>
         <P>
           The most precisely effective placement for testimonials on a landing page is directly adjacent
-          to - or immediately above - the primary call to action. We have tested this placement repeatedly:
+          to (or immediately above) the primary call to action. We have tested this placement repeatedly:
           testimonials near the CTA consistently beat the same testimonials placed higher on the page.
           This is where purchase hesitation peaks.
         </P>
@@ -173,7 +173,7 @@ export default function SocialProofShopifyLandingPagesPage() {
           </li>
           <li>
             <strong>Use a compact card format:</strong> star rating, quote (1–2 sentences), reviewer name.
-            Do not exceed three lines of text - the visitor is reading quickly.
+            Do not exceed three lines of text. The visitor is reading quickly.
           </li>
           <li>
             <strong>Show 1–2 testimonials near the CTA,</strong> not a full review section. The goal is
@@ -182,7 +182,7 @@ export default function SocialProofShopifyLandingPagesPage() {
         </Ul>
         <P>
           On Shopify, add a testimonial block from your review app near the CTA section. Pick 1-2 specific
-          reviews in the block settings - no code changes needed.
+          reviews in the block settings. No code changes needed.
         </P>
       </Section>
 
@@ -190,8 +190,8 @@ export default function SocialProofShopifyLandingPagesPage() {
         <H2 id="objection-resolving-reviews">5. Objection-resolving review quotes</H2>
         <P>
           Generic five-star reviews ("Love this product! Fast shipping!") provide weak social proof on a
-          landing page. Specific, objection-resolving reviews - ones that directly address a concern a cold
-          visitor is likely to have - provide much stronger persuasion.
+          landing page. Specific, objection-resolving reviews (ones that directly address a concern a cold
+          visitor is likely to have) provide much stronger persuasion.
         </P>
         <P>
           Before writing or selecting testimonials for your landing page, list the top 3–5 objections your
@@ -211,7 +211,7 @@ export default function SocialProofShopifyLandingPagesPage() {
         </P>
         <Callout>
           Review mining is a copywriting technique as much as a trust-building one. The language customers
-          use in their reviews - their exact words for the problems your product solves - is often more
+          use in their reviews (their exact words for the problems your product solves) is often more
           persuasive than any copy you write yourself.
         </Callout>
       </Section>
@@ -220,14 +220,14 @@ export default function SocialProofShopifyLandingPagesPage() {
         <H2 id="ugc-and-photo-proof">6. UGC and photo proof</H2>
         <P>
           For visually-driven product categories, customer photos on landing pages can have a conversion
-          impact comparable to professional photography - or greater, because of their authenticity. A grid
+          impact comparable to professional photography, or greater, because of their authenticity. A grid
           of real customers using, wearing, or benefiting from your product collapses the "what will this
           actually be like?" question before it arises.
         </P>
         <P>UGC on landing pages works best when:</P>
         <Ul>
           <li>
-            The photos show the product in context - worn, used, in a home - not held against a white
+            The photos show the product in context (worn, used, in a home), not held against a white
             background.
           </li>
           <li>
@@ -235,22 +235,22 @@ export default function SocialProofShopifyLandingPagesPage() {
             authorial voice.
           </li>
           <li>
-            The gallery is compact - 4–9 images in a grid, not a full scroll-length gallery. Landing pages
+            The gallery is compact: 4–9 images in a grid, not a full scroll-length gallery. Landing pages
             have a single conversion goal; an extensive gallery is a distraction.
           </li>
         </Ul>
         <P>
           All review photos stored as Shopify file references in the{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">product_review</code> Metaobject are served
-          via Shopify's CDN - no external image host required.
+          via Shopify's CDN. No external image host required.
         </P>
-        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} stores review photos in Shopify - use them in landing page UGC grids via App Blocks, no external CDN.`} />
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} stores review photos in Shopify. Use them in landing page UGC grids via App Blocks, no external CDN.`} />
       </Section>
 
       <Section id="review-count-and-rating-summary">
         <H2 id="review-count-and-rating-summary">7. Review count and rating summary</H2>
         <P>
-          A rating summary block - showing the distribution of star ratings alongside the aggregate - is
+          A rating summary block (showing the distribution of star ratings alongside the aggregate) is
           effective in the mid-section of longer landing pages (below the hero, above the CTA). It provides
           a data-dense trust signal that sophisticated buyers appreciate: not just "we have great reviews"
           but "here is the actual distribution."
@@ -258,7 +258,7 @@ export default function SocialProofShopifyLandingPagesPage() {
         <P>
           A rating breakdown showing mostly 5-star and 4-star reviews, with a small number of 3-star and
           below, reads as authentic. A perfect distribution (100% five stars) reads as curated or fake.
-          Showing the real data - including the minority of critical reviews - is more persuasive than
+          Showing the real data (including the minority of critical reviews) is more persuasive than
           an artificially perfect score.
         </P>
         <P>
@@ -278,12 +278,12 @@ export default function SocialProofShopifyLandingPagesPage() {
           </li>
           <li>
             <strong>Don't use pop-up notifications</strong> ("James just bought this!"). These are
-            widely recognised dark patterns and actively reduce trust with savvy shoppers - exactly the
+            widely recognised dark patterns and actively reduce trust with savvy shoppers, exactly the
             demographic most likely to be evaluating your brand critically on first visit.
           </li>
           <li>
-            <strong>Don't use fake or unverifiable testimonials.</strong> Fabricated testimonials - stock
-            photos with made-up names, or reviews from brand employees - are a serious legal risk in many
+            <strong>Don't use fake or unverifiable testimonials.</strong> Fabricated testimonials (stock
+            photos with made-up names, or reviews from brand employees) are a serious legal risk in many
             jurisdictions and destroy trust instantly if discovered.
           </li>
           <li>
@@ -301,15 +301,15 @@ export default function SocialProofShopifyLandingPagesPage() {
         </P>
         <Ul>
           <li>
-            <strong>Custom page templates</strong> in the theme editor - add App Blocks from your review app
+            <strong>Custom page templates</strong> in the theme editor: add App Blocks from your review app
             directly to the page layout.
           </li>
           <li>
-            <strong>Page builder apps</strong> (Replo, Shogun, Pagefly) - check whether your page builder
+            <strong>Page builder apps</strong> (Replo, Shogun, Pagefly): check whether your page builder
             supports your review app's blocks or embed options before planning social proof placement.
           </li>
           <li>
-            <strong>App Blocks</strong> on standard page templates - works when the landing page lives in
+            <strong>App Blocks</strong> on standard page templates: works when the landing page lives in
             your main theme.
           </li>
         </Ul>
@@ -319,10 +319,10 @@ export default function SocialProofShopifyLandingPagesPage() {
           <ExternalLink href="https://shopify.dev/docs/apps/build/metaobjects/standard-review-metaobject">
             Shopify Metaobjects
           </ExternalLink>{" "}
-          and syncs the aggregate back to product Metafields - most review apps do neither, so you end
+          and syncs the aggregate back to product Metafields. Most review apps do neither, so you end
           up copy-pasting quotes into static text fields that go stale.
         </P>
-        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} stores reviews as Shopify Metaobjects and syncs the aggregate back to product Metafields - testimonial and trust bar App Blocks let you pick reviews and publish from the theme editor.`} />
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} stores reviews as Shopify Metaobjects and syncs the aggregate back to product Metafields. Testimonial and trust bar App Blocks let you pick reviews and publish from the theme editor.`} />
       </Section>
 
       <Section className="bg-gray-50" id="performance">
@@ -330,7 +330,7 @@ export default function SocialProofShopifyLandingPagesPage() {
         <P>
           Landing pages receiving paid traffic are the pages where performance costs are most directly
           measurable. A 1-second delay in mobile LCP on a landing page correlates with a meaningful increase
-          in bounce rate - and you are paying for every visit that bounces.
+          in bounce rate, and you are paying for every visit that bounces.
         </P>
         <P>
           The same performance rules that apply to product pages apply here, but with greater urgency:
@@ -344,7 +344,7 @@ export default function SocialProofShopifyLandingPagesPage() {
             <strong>Lazy-load all review photos</strong> that are not in the initial viewport.
           </li>
           <li>
-            <strong>Avoid embedded third-party review platform iframes</strong> - these frequently add
+            <strong>Avoid embedded third-party review platform iframes</strong>. These frequently add
             500ms+ to page load time and cause significant CLS.
           </li>
           <li>
@@ -373,7 +373,7 @@ export default function SocialProofShopifyLandingPagesPage() {
             <div><ExternalLink href="https://shopify.dev/docs/apps/build/metaobjects/standard-review-metaobject">Shopify standard product review Metaobject</ExternalLink></div>
             <div><ExternalLink href="https://shopify.dev/docs/storefronts/themes/architecture/blocks/app-blocks">Shopify App Blocks documentation</ExternalLink></div>
             <div><ExternalLink href="https://pagespeed.web.dev">PageSpeed Insights</ExternalLink></div>
-            <div><ExternalLink href="https://web.dev/articles/lcp">Largest Contentful Paint - web.dev</ExternalLink></div>
+            <div><ExternalLink href="https://web.dev/articles/lcp">Largest Contentful Paint: web.dev</ExternalLink></div>
           </div>
           <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3 mt-5">Related articles</p>
           <div className="space-y-1.5 text-sm">

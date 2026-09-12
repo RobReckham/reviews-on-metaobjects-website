@@ -12,7 +12,7 @@ export default function CaseStudy() {
       </blockquote>
       <div className="mt-6 flex items-center justify-center gap-2 text-gray-500">
         <StarRating />
-        <span>&mdash; <a href="https://apps.shopify.com/reviews/2320875" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-900">TISSO Naturprodukte</a>, Germany</span>
+        <span><a href="https://apps.shopify.com/reviews/2320875" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-900">TISSO Naturprodukte</a>, Germany</span>
       </div>
     </div>
   </section>

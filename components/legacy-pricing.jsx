@@ -5,7 +5,7 @@ export default function LegacyPricing() {
   return <section className="bg-white py-16 sm:py-32 px-4" id="pricing">
     <div className="max-w-5xl mx-auto text-center">
       <h2 className="h2 mb-4">Pricing that doesn't punish growth</h2>
-      <p className="text-gray-500 mb-12">Start free with up to 100 reviews. Paid plans are flat with a hard cap - no per-order fees, no volume tiers, no surprise bills as your store scales. We can keep it this low because reviews live in Shopify's infrastructure, not ours. Switching from a usage-based competitor often saves you a few thousand dollars a year.</p>
+      <p className="text-gray-500 mb-12">Start free with up to 100 reviews. Paid plans are flat with a hard cap. No per-order fees, no volume tiers, no surprise bills as your store scales. We can keep it this low because reviews live in Shopify's infrastructure, not ours. Switching from a usage-based competitor often saves you a few thousand dollars a year.</p>
       <Pricing />
       <div className="inline-flex justify-center items-center gap-8 relative mt-12">
         <div className="relative">

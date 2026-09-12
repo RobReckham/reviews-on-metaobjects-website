@@ -3,7 +3,7 @@ import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul,
 export const metadata = {
   title: "The Hidden Cost of Shopify Review Apps: Speed, SEO, and Data You Don't Own",
   shortTitle: "The hidden cost of Shopify review apps",
-  description: "An honest analysis of what standard Shopify review apps cost beyond the monthly fee - page speed, SEO reliability, crawl budget, and what happens to your data when you leave.",
+  description: "An honest analysis of what standard Shopify review apps cost beyond the monthly fee: page speed, SEO reliability, crawl budget, and what happens to your data when you leave.",
   alternates: { canonical: "/blog/real-cost-shopify-review-apps" },
   openGraph: { type: "article", publishedTime: "2026-04-09", images: ["https://assets.reviewsonmetaobjects.com/the-shopify-reviews-blog.jpg"] },
   slug: "real-cost-shopify-review-apps",
@@ -30,7 +30,7 @@ const faqs = [
   },
   {
     question: "What happens to my reviews if I cancel a review app?",
-    answer: "It depends on where the app stores your data. Most review apps store review data on their own servers - cancelling ends your access. Apps that store reviews in Shopify's standard product review Metaobjects leave the data inside your store permanently, regardless of whether you keep the app.",
+    answer: "It depends on where the app stores your data. Most review apps store review data on their own servers. Cancelling ends your access. Apps that store reviews in Shopify's standard product review Metaobjects leave the data inside your store permanently, regardless of whether you keep the app."
   },
   {
     question: "Is there a free Shopify review app that stores data in Shopify?",
@@ -38,7 +38,7 @@ const faqs = [
   },
   {
     question: "What is vendor lock-in for Shopify review apps?",
-    answer: "Vendor lock-in occurs when your review data is stored on the app vendor's servers rather than inside Shopify. Leaving the app means losing access to your reviews unless the vendor provides export - which is often restricted to paid plans or may be blocked entirely on cancellation. The more reviews you have accumulated, the higher the switching cost, which is what keeps merchants on escalating pricing tiers.",
+    answer: "Vendor lock-in occurs when your review data is stored on the app vendor's servers rather than inside Shopify. Leaving the app means losing access to your reviews unless the vendor provides export, which is often restricted to paid plans or may be blocked entirely on cancellation. The more reviews you have accumulated, the higher the switching cost, which is what keeps merchants on escalating pricing tiers."
   },
   {
     question: "Is per-order pricing or flat-rate pricing better for Shopify review apps?",
@@ -46,7 +46,7 @@ const faqs = [
   },
   {
     question: "Do JavaScript review widgets affect visibility in AI search results like Perplexity?",
-    answer: "Yes. AI search engines such as Perplexity, Google AI Overviews, and ChatGPT Browse crawl pages similarly to Googlebot - reading HTML with limited JavaScript execution. If your review content and structured data are loaded by a JavaScript widget, AI crawlers cannot read them. This means your product reviews, star ratings, and review content cannot be cited in AI-generated answers, reducing your visibility as AI-driven search traffic grows.",
+    answer: "Yes. AI search engines such as Perplexity, Google AI Overviews, and ChatGPT Browse crawl pages similarly to Googlebot, reading HTML with limited JavaScript execution. If your review content and structured data are loaded by a JavaScript widget, AI crawlers cannot read them. This means your product reviews, star ratings, and review content cannot be cited in AI-generated answers, reducing your visibility as AI-driven search traffic grows."
   },
 ]
 
@@ -65,7 +65,7 @@ export default function RealCostShopifyReviewAppsPage() {
           <P>
             When evaluating a Shopify review app, most merchants look at the monthly fee and the feature list. Those
             are not the only costs. This article analyses what standard review apps cost in page performance, search
-            visibility, crawl budget, and long-term data ownership - costs that don't appear on an invoice but affect
+            visibility, crawl budget, and long-term data ownership: costs that don't appear on an invoice but affect
             your store's revenue nonetheless.
           </P>
           <P>
@@ -115,7 +115,7 @@ export default function RealCostShopifyReviewAppsPage() {
 
         <P>
           The pricing scales with your revenue, not with the complexity of what the app delivers. A store doing
-          5,000 orders per month does not receive 50x the value of a store doing 100 orders - they receive
+          5,000 orders per month does not receive 50x the value of a store doing 100 orders. They receive
           essentially the same feature set at significantly higher cost.
         </P>
         <P>
@@ -150,7 +150,7 @@ export default function RealCostShopifyReviewAppsPage() {
         <H3>Main thread blocking</H3>
         <P>
           JavaScript must be downloaded, parsed, and executed on the browser's main thread. During this execution,
-          user interactions - taps, scrolls, button clicks - are queued. On mobile devices with less CPU headroom,
+          user interactions (taps, scrolls, button clicks) are queued. On mobile devices with less CPU headroom,
           this creates measurable delays in responsiveness that Google's{" "}
           <ExternalLink href="https://web.dev/articles/inp">Interaction to Next Paint (INP)</ExternalLink> metric
           captures directly.
@@ -169,9 +169,9 @@ export default function RealCostShopifyReviewAppsPage() {
             Google uses Core Web Vitals as a ranking signal.
           </ExternalLink>{" "}
           LCP, CLS, and INP are all directly affected by review widget architecture. Performance costs are
-          not abstract - they affect your position in organic search.
+          not abstract. They affect your position in organic search.
         </Callout>
-        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} has zero JavaScript widget - reviews are rendered in Liquid with no external requests, keeping your LCP, CLS, and INP scores clean.`} />
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} has zero JavaScript widget. Reviews are rendered in Liquid with no external requests, keeping your LCP, CLS, and INP scores clean.`} />
       </Section>
 
       <Section id="the-seo-cost">
@@ -181,7 +181,7 @@ export default function RealCostShopifyReviewAppsPage() {
         <P>
           Star ratings in Google Search require <code className="bg-gray-200 px-1 rounded text-sm">AggregateRating</code> structured data to
           be present in the page's HTML at crawl time. When structured data is generated by a JavaScript widget,
-          Googlebot must execute that JavaScript to see it - and JavaScript rendering is queued separately from HTML
+          Googlebot must execute that JavaScript to see it. JavaScript rendering is queued separately from HTML
           crawling, often delayed by days.
         </P>
         <P>
@@ -204,10 +204,10 @@ export default function RealCostShopifyReviewAppsPage() {
         <P>
           Googlebot's JavaScript renderer may fail to load requests to third-party CDN domains that have
           rate-limiting or bot detection active. If the review widget's API endpoint blocks Googlebot's requests,
-          the structured data it would have generated never appears in the rendered output - and no stars are
+          the structured data it would have generated never appears in the rendered output, and no stars are
           indexed regardless of how many reviews your products have.
         </P>
-        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} outputs structured data directly in the initial HTML - Googlebot reads your AggregateRating on first crawl, no JavaScript rendering required.`} />
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} outputs structured data directly in the initial HTML. Googlebot reads your AggregateRating on first crawl, no JavaScript rendering required.`} />
       </Section>
 
       <Section className="bg-gray-50" id="the-data-cost">
@@ -227,7 +227,7 @@ export default function RealCostShopifyReviewAppsPage() {
             Either way, the data's accessibility is controlled by the vendor.
           </li>
           <li>
-            <strong>Terms of service.</strong> Your review data - including customer-written content -
+            <strong>Terms of service.</strong> Your review data (including customer-written content)
             is stored in the vendor's system under their terms of service. Those terms govern what they may do with
             it: anonymised benchmarking, training datasets, or aggregate analytics products sold to third parties.
             Most merchants have not read these terms.
@@ -235,7 +235,7 @@ export default function RealCostShopifyReviewAppsPage() {
           <li>
             <strong>Migration friction.</strong> Moving to a different review app requires export, format conversion,
             and re-import. If the old app restricts export, migration may mean losing years of accumulated reviews.
-            This lock-in is not accidental - it is a retention mechanism.
+            This lock-in is not accidental. It is a retention mechanism.
           </li>
         </Ul>
         <Callout>
@@ -243,7 +243,7 @@ export default function RealCostShopifyReviewAppsPage() {
           but significant amount as social proof. That value is what keeps merchants on expensive plans even when
           the per-feature value has long since declined.
         </Callout>
-        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} stores reviews as Shopify Metaobjects - they're yours forever, exportable via GraphQL, fully accessible even if you ever uninstall the app.`} buttonLabel="Get more information →" />
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} stores reviews as Shopify Metaobjects. They're yours forever, exportable via GraphQL, fully accessible even if you ever uninstall the app.`} buttonLabel="Get more information →" />
       </Section>
 
       <Section id="the-dependency-cost">
@@ -275,15 +275,15 @@ export default function RealCostShopifyReviewAppsPage() {
         <P>When review data is stored this way:</P>
         <Ul>
           <li>
-            Reviews render server-side in Liquid alongside product title and price - no JavaScript widget, no
+            Reviews render server-side in Liquid alongside product title and price: no JavaScript widget, no
             external request, no dependency on a third-party API
           </li>
           <li>
-            Structured data is output in the initial HTML response - Googlebot reads it on first crawl, immediately
+            Structured data is output in the initial HTML response. Googlebot reads it on first crawl, immediately
             and reliably
           </li>
           <li>
-            The data belongs to your store - it survives app uninstalls, is accessible via the Shopify Admin and
+            The data belongs to your store. It survives app uninstalls, is accessible via the Shopify Admin and
             Storefront GraphQL APIs, and is portable to any other tool that reads the standard definition
           </li>
           <li>
@@ -292,7 +292,7 @@ export default function RealCostShopifyReviewAppsPage() {
         </Ul>
         <P>
           This architecture requires a review app that writes to Shopify's standard Metaobject format rather than
-          its own database. The app then handles collection, moderation, email flows, and translation - while the
+          its own database. The app then handles collection, moderation, email flows, and translation, while the
           data storage and rendering happen entirely within Shopify.
         </P>
         <P>
@@ -304,7 +304,7 @@ export default function RealCostShopifyReviewAppsPage() {
         <div className="mt-6 border-t border-gray-200 pt-6">
           <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">Further reading</p>
           <div className="space-y-1.5 text-sm">
-            <div><ExternalLink href="https://web.dev/articles/vitals">Core Web Vitals - web.dev</ExternalLink></div>
+            <div><ExternalLink href="https://web.dev/articles/vitals">Core Web Vitals: web.dev</ExternalLink></div>
             <div><ExternalLink href="https://developers.google.com/search/docs/crawling-indexing/large-site-managing-crawl-budget">Google crawl budget documentation</ExternalLink></div>
             <div><ExternalLink href="https://shopify.dev/docs/apps/build/custom-data/metaobjects">Shopify Metaobjects docs</ExternalLink></div>
             <div><ExternalLink href="https://shopify.dev/docs/apps/build/metaobjects/standard-review-metaobject">Shopify standard product review Metaobject</ExternalLink></div>
@@ -316,7 +316,7 @@ export default function RealCostShopifyReviewAppsPage() {
             <div><InternalLink href="/blog/how-shopify-product-reviews-work">How Shopify Metaobject reviews work →</InternalLink></div>
             <div><InternalLink href="/blog/shopify-social-proof-best-practices">Shopify social proof best practices →</InternalLink></div>
             <div><InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink></div>
-            <div><ExternalLink href="https://demo.reviewsonmetaobjects.com/products/chambray-work-shirt">Demo store - see it live (password: demo) →</ExternalLink></div>
+            <div><ExternalLink href="https://demo.reviewsonmetaobjects.com/products/chambray-work-shirt">Demo store: see it live (password: demo) →</ExternalLink></div>
           </div>
           <BlogNav className="mt-6" />
         </div>

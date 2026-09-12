@@ -12,7 +12,7 @@ export default function Performance() {
       <Eyebrow>Performance</Eyebrow>
       <h2 className="h2 mt-5">Social proof without the speed cost.</h2>
       <p className="copy mx-auto mt-4 max-w-2xl">
-        Reviews render server-side in Liquid, so the browser gets finished HTML on first byte &mdash;{` `}
+        Reviews render server-side in Liquid, so the browser gets finished HTML on first byte:{` `}
         <b>no render-blocking script, no layout shift, no loading spinner.</b>
       </p>
 
@@ -30,7 +30,7 @@ export default function Performance() {
       </div>
 
       <p className="footnote mt-10">
-        Illustrative mobile Lighthouse example &mdash; results vary by theme and catalog.
+        Illustrative mobile Lighthouse example. Results vary by theme and catalog.
       </p>
     </div>
   </section>

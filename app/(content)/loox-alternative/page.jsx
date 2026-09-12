@@ -9,7 +9,7 @@ const FIVEOH_LOGO = "https://assets.reviewsonmetaobjects.com/logo-300.jpg"
 
 export const metadata = {
   title: "Loox Alternative for Shopify: Keep Loox, Own the Display",
-  description: `You don't have to leave Loox. ${process.env.NEXT_PUBLIC_APP_NAME} syncs your Loox reviews - photos included - into Shopify's native metaobjects and renders them server-side in Liquid: pixel-perfect, faster pages, and readable by Google and AI. Keep collecting in Loox; own the display.`,
+  description: `You don't have to leave Loox. ${process.env.NEXT_PUBLIC_APP_NAME} syncs your Loox reviews, photos included, into Shopify's native metaobjects and renders them server-side in Liquid: pixel-perfect, faster pages, and readable by Google and AI. Keep collecting in Loox; own the display.`,
   alternates: {
     canonical: "/loox-alternative",
   },
@@ -42,30 +42,30 @@ const layers = [
 const additions = [
   {
     title: "Styled like the rest of your theme",
-    description: "No iframe, no shadow DOM. Because reviews are metaobjects, you render galleries and star ratings with your own markup and classes — matched to your design, not patched around Loox's widget.",
+    description: "No iframe, no shadow DOM. Because reviews are metaobjects, you render galleries and star ratings with your own markup and classes, matched to your design, not patched around Loox's widget.",
   },
   {
     title: "Readable by Google and AI",
-    description: "Google, ChatGPT and Perplexity read HTML, not widgets. With reviews server-rendered, your full review text and AggregateRating are in the page — indexed for rich snippets and citable by AI tools.",
+    description: "Google, ChatGPT and Perplexity read HTML, not widgets. With reviews server-rendered, your full review text and AggregateRating are in the page, indexed for rich snippets and citable by AI tools.",
   },
   {
     title: "Reviews render server-side",
-    description: "Loox injects a client-side script that fetches and renders reviews after your page loads — adding round-trips and layout shift. FiveOh renders the same reviews in Liquid, in your HTML from the first byte. Faster pages, cleaner Core Web Vitals.",
+    description: "Loox injects a client-side script that fetches and renders reviews after your page loads, adding round-trips and layout shift. FiveOh renders the same reviews in Liquid, in your HTML from the first byte. Faster pages, cleaner Core Web Vitals.",
   },
   {
     title: "Your photos, in your store",
-    description: "Synced reviews — photo and video media included — are written to Shopify's standard product review metaobjects. Your data, on Shopify's CDN, queryable in Liquid and yours to keep for good.",
+    description: "Synced reviews, photo and video media included, are written to Shopify's standard product review metaobjects. Your data, on Shopify's CDN, queryable in Liquid and yours to keep for good.",
   },
 ]
 
 const steps = [
   {
     title: "Keep collecting in Loox",
-    description: "Nothing changes about how you gather reviews. Post-purchase emails, photo and video requests — Loox does exactly what it does today.",
+    description: "Nothing changes about how you gather reviews. Loox still handles post-purchase emails and photo and video requests exactly as it does today.",
   },
   {
     title: "FiveOh syncs them into Shopify",
-    description: "Connect your Loox account and your reviews — media included — sync into Shopify's native metaobjects, continuously, with no CSV exports and no manual uploads.",
+    description: "Connect your Loox account and your reviews, media included, sync into Shopify's native metaobjects, continuously, with no CSV exports and no manual uploads.",
   },
   {
     title: "Display natively in your theme",
@@ -76,23 +76,23 @@ const steps = [
 const faqs = [
   {
     question: "Do I have to leave Loox?",
-    answer: "No — that's the whole point. Loox keeps collecting your reviews; FiveOh syncs them into Shopify and takes over the display. Keep Loox on the tier that suits you, or move collection to FiveOh later — your choice.",
+    answer: "No. That's the whole point. Loox keeps collecting your reviews; FiveOh syncs them into Shopify and takes over the display. Keep Loox on the tier that suits you, or move collection to FiveOh later. Your choice.",
   },
   {
     question: "Will my Loox photos and videos come across?",
-    answer: "Yes. Connect your Loox account and your existing reviews — ratings, text, photos and videos — sync into Shopify automatically. Media is stored as Shopify file references and served from Shopify's CDN. No exports, no uploads.",
+    answer: "Yes. Connect your Loox account and your existing reviews (ratings, text, photos and videos) sync into Shopify automatically. Media is stored as Shopify file references and served from Shopify's CDN. No exports, no uploads.",
   },
   {
     question: "If I keep Loox, am I still paying its per-order fees?",
-    answer: "If you keep Loox for collection, yes — its pricing scales with your order volume. Many stores keep Loox for its photo-request flow and simply fix the display with FiveOh; others move collection to FiveOh entirely to drop the per-order fees. Either way, the display is native and the data is in your store.",
+    answer: "If you keep Loox for collection, yes. Its pricing scales with your order volume. Many stores keep Loox for its photo-request flow and simply fix the display with FiveOh; others move collection to FiveOh entirely to drop the per-order fees. Either way, the display is native and the data is in your store.",
   },
   {
     question: "Why render server-side instead of using Loox's widget?",
-    answer: "A client-side widget fetches reviews after the page loads, delaying LCP, causing layout shift, and hiding the content from crawlers. Server-side rendering via Shopify metaobjects puts reviews in your HTML from the first byte — faster for shoppers, visible to Google and AI.",
+    answer: "A client-side widget fetches reviews after the page loads, delaying LCP, causing layout shift, and hiding the content from crawlers. Server-side rendering via Shopify metaobjects puts reviews in your HTML from the first byte. Faster for shoppers, visible to Google and AI.",
   },
   {
     question: "Can I eventually collect with FiveOh too?",
-    answer: "Yes. FiveOh collects reviews natively through post-purchase emails and on-store forms — with photo and video support — writing straight into your metaobjects. Keep Loox, run both, or move collection over entirely.",
+    answer: "Yes. FiveOh collects reviews natively through post-purchase emails and on-store forms, with photo and video support, writing straight into your metaobjects. Keep Loox, run both, or move collection over entirely.",
   },
   {
     question: "Is it technical to set up?",
@@ -114,7 +114,7 @@ export default function LooxAlternativePage() {
         </h1>
         <p className="copy mx-auto max-w-2xl">
           Loox is loved for its photo and video reviews. But they load through a JavaScript widget, from Loox&rsquo;s
-          servers &mdash; slowing your pages and hiding the content from Google. FiveOh keeps Loox collecting and takes
+          servers, slowing your pages and hiding the content from Google. FiveOh keeps Loox collecting and takes
           over the display, syncing your reviews (photos included) into Shopify&rsquo;s native metaobjects so they
           render server-side, in your theme.
         </p>
@@ -134,7 +134,7 @@ export default function LooxAlternativePage() {
           <h2 className="h2 mt-5">Loox collects. FiveOh displays.</h2>
           <p className="copy mt-4 text-gray-400">
             You don&rsquo;t replace anything. Loox keeps collecting reviews exactly as it does today. FiveOh syncs
-            them &mdash; photos and all &mdash; into your store as native Shopify data and renders them server-side:
+            them, photos and all, into your store as native Shopify data and renders them server-side:
             in your theme&rsquo;s Liquid, in your HTML, readable by Google and AI.
           </p>
         </div>
@@ -164,7 +164,7 @@ export default function LooxAlternativePage() {
         <Eyebrow>On top of Loox</Eyebrow>
         <h2 className="h2 mt-5">What FiveOh adds to your Loox reviews.</h2>
         <p className="copy mt-4 max-w-2xl">
-          Loox stays your collection tool. FiveOh gives those reviews a native home &mdash; and everything that comes
+          Loox stays your collection tool. FiveOh gives those reviews a native home, and everything that comes
           with it.
         </p>
         <div className="mt-10 grid gap-4 sm:grid-cols-2">

@@ -117,7 +117,7 @@ export function BlogCta() {
           Reviews stored in Shopify. Rendered in Liquid. Yours to keep.
         </h2>
         <p className="text-gray-400 text-base sm:text-lg mb-8 max-w-xl mx-auto">
-          The review app that writes to Shopify&rsquo;s standard product review Metaobjects &mdash; server-side rendering, no JavaScript widget, no external dependency, no vendor lock-in.
+          The review app that writes to Shopify&rsquo;s standard product review Metaobjects. Server-side rendering, no JavaScript widget, no external dependency, no vendor lock-in.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a href={LISTING_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-inverted opacity-100!">Install on Shopify</a>

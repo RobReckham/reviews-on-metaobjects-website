@@ -42,30 +42,30 @@ const layers = [
 const additions = [
   {
     title: "Styled like the rest of your theme",
-    description: "No iframe, no shadow DOM. Because reviews are metaobjects, you render them with your own markup and classes — matched to your design, not patched around REVIEWS.io's widget.",
+    description: "No iframe, no shadow DOM. Because reviews are metaobjects, you render them with your own markup and classes, matched to your design, not patched around REVIEWS.io's widget.",
   },
   {
     title: "Readable by Google and AI",
-    description: "Google, ChatGPT and Perplexity read HTML, not widgets. With reviews server-rendered, your full review text and AggregateRating are in the page — indexed for rich snippets and citable by AI tools.",
+    description: "Google, ChatGPT and Perplexity read HTML, not widgets. With reviews server-rendered, your full review text and AggregateRating are in the page, indexed for rich snippets and citable by AI tools.",
   },
   {
     title: "Reviews render server-side",
-    description: "REVIEWS.io displays reviews through a client-side widget that fetches content after your page loads — adding round-trips and layout shift. FiveOh renders the same reviews in Liquid, in your HTML from the first byte. Faster pages, cleaner Core Web Vitals.",
+    description: "REVIEWS.io displays reviews through a client-side widget that fetches content after your page loads, adding round-trips and layout shift. FiveOh renders the same reviews in Liquid, in your HTML from the first byte. Faster pages, cleaner Core Web Vitals.",
   },
   {
     title: "Auto-translate on every plan",
-    description: "REVIEWS.io locks auto-translation behind its Plus plan. FiveOh translates review titles and bodies into your store's languages on every paid plan — stored in the metaobjects and shown by shopper locale.",
+    description: "REVIEWS.io locks auto-translation behind its Plus plan. FiveOh translates review titles and bodies into your store's languages on every paid plan. Translations are stored in the metaobjects and shown by shopper locale.",
   },
 ]
 
 const steps = [
   {
     title: "Keep collecting in REVIEWS.io",
-    description: "Nothing changes about how you gather reviews. Invites, post-purchase emails, on-site forms — REVIEWS.io does exactly what it does today.",
+    description: "Nothing changes about how you gather reviews. REVIEWS.io still handles invites, post-purchase emails and on-site forms exactly as it does today.",
   },
   {
     title: "FiveOh syncs them into Shopify",
-    description: "Connect your REVIEWS.io account and your reviews sync into Shopify's native metaobjects — continuously, with no CSV exports and no manual uploads.",
+    description: "Connect your REVIEWS.io account and your reviews sync into Shopify's native metaobjects continuously, with no CSV exports and no manual uploads.",
   },
   {
     title: "Display natively in your theme",
@@ -76,23 +76,23 @@ const steps = [
 const faqs = [
   {
     question: "Do I have to leave REVIEWS.io?",
-    answer: "No — that's the whole point. REVIEWS.io keeps collecting your reviews; FiveOh syncs them into Shopify and takes over the display. Keep REVIEWS.io on the tier that suits you, or move collection to FiveOh later — your choice.",
+    answer: "No. That's the whole point. REVIEWS.io keeps collecting your reviews; FiveOh syncs them into Shopify and takes over the display. Keep REVIEWS.io on the tier that suits you, or move collection to FiveOh later. Your choice.",
   },
   {
     question: "Will I lose my existing REVIEWS.io reviews?",
-    answer: "No. Connect your REVIEWS.io account and your existing reviews — ratings, text and media — sync into Shopify automatically. No exports, no uploads.",
+    answer: "No. Connect your REVIEWS.io account and your existing reviews (ratings, text and media) sync into Shopify automatically. No exports, no uploads.",
   },
   {
     question: "Why render server-side instead of using the REVIEWS.io widget?",
-    answer: "A client-side widget fetches reviews after the page loads, delaying LCP, causing layout shift, and hiding the content from crawlers. Server-side rendering via Shopify metaobjects puts reviews in your HTML from the first byte — faster for shoppers, visible to Google and AI.",
+    answer: "A client-side widget fetches reviews after the page loads, delaying LCP, causing layout shift, and hiding the content from crawlers. Server-side rendering via Shopify metaobjects puts reviews in your HTML from the first byte. Faster for shoppers, visible to Google and AI.",
   },
   {
     question: "Where do the reviews live once synced?",
-    answer: "In Shopify's standard product review metaobjects — a native data type in every Shopify store. They're your data, queryable in Liquid, and they stay in your store even if you uninstall FiveOh.",
+    answer: "In Shopify's standard product review metaobjects, a native data type in every Shopify store. They're your data, queryable in Liquid, and they stay in your store even if you uninstall FiveOh.",
   },
   {
     question: "Do I get auto-translation without REVIEWS.io's Plus plan?",
-    answer: "Yes. FiveOh auto-translates review titles and bodies into your store's published languages on every paid plan — no need to reach REVIEWS.io's top tier for it. Translations are stored in the metaobjects and shown by shopper locale.",
+    answer: "Yes. FiveOh auto-translates review titles and bodies into your store's published languages on every paid plan. No need to reach REVIEWS.io's top tier for it. Translations are stored in the metaobjects and shown by shopper locale.",
   },
   {
     question: "Is it technical to set up?",
@@ -114,7 +114,7 @@ export default function ReviewsIoAlternativePage() {
         </h1>
         <p className="copy mx-auto max-w-2xl">
           REVIEWS.io is a capable, enterprise-grade collector. But its reviews load through a JavaScript widget, from
-          their servers &mdash; slow, invisible to Google and AI, and dependent on their uptime. FiveOh keeps
+          their servers. Slow, invisible to Google and AI, and dependent on their uptime. FiveOh keeps
           REVIEWS.io collecting and takes over the display, syncing your reviews into Shopify&rsquo;s native
           metaobjects so they render server-side, in your theme.
         </p>
@@ -134,7 +134,7 @@ export default function ReviewsIoAlternativePage() {
           <h2 className="h2 mt-5">REVIEWS.io collects. FiveOh displays.</h2>
           <p className="copy mt-4 text-gray-400">
             You don&rsquo;t replace anything. REVIEWS.io keeps collecting reviews exactly as it does today. FiveOh
-            syncs them into your store as native Shopify data and renders them server-side &mdash; in your
+            syncs them into your store as native Shopify data and renders them server-side, in your
             theme&rsquo;s Liquid, in your HTML, readable by Google and AI.
           </p>
         </div>
@@ -164,7 +164,7 @@ export default function ReviewsIoAlternativePage() {
         <Eyebrow>On top of REVIEWS.io</Eyebrow>
         <h2 className="h2 mt-5">What FiveOh adds to your REVIEWS.io reviews.</h2>
         <p className="copy mt-4 max-w-2xl">
-          REVIEWS.io stays your collection tool. FiveOh gives those reviews a native home &mdash; and everything that
+          REVIEWS.io stays your collection tool. FiveOh gives those reviews a native home, and everything that
           comes with it.
         </p>
         <div className="mt-10 grid gap-4 sm:grid-cols-2">

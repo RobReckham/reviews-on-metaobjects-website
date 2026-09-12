@@ -42,30 +42,30 @@ const layers = [
 const additions = [
   {
     title: "Styled like the rest of your theme",
-    description: "No iframe, no rigid TrustBox. Because reviews are metaobjects, you render stars and review text with your own markup and classes — matched to your design, not boxed into Trustpilot's widget.",
+    description: "No iframe, no rigid TrustBox. Because reviews are metaobjects, you render stars and review text with your own markup and classes, matched to your design, not boxed into Trustpilot's widget.",
   },
   {
     title: "Readable by Google and AI",
-    description: "Google, ChatGPT and Perplexity read HTML, not widgets. With reviews server-rendered, your full review text and AggregateRating are in the page — indexed for rich snippets and citable by AI tools.",
+    description: "Google, ChatGPT and Perplexity read HTML, not widgets. With reviews server-rendered, your full review text and AggregateRating are in the page, indexed for rich snippets and citable by AI tools.",
   },
   {
     title: "Reviews render server-side",
-    description: "Trustpilot's TrustBox fetches content with JavaScript after your page loads — adding round-trips and layout shift. FiveOh renders the same reviews in Liquid, in your HTML from the first byte. Faster pages, cleaner Core Web Vitals.",
+    description: "Trustpilot's TrustBox fetches content with JavaScript after your page loads, adding round-trips and layout shift. FiveOh renders the same reviews in Liquid, in your HTML from the first byte. Faster pages, cleaner Core Web Vitals.",
   },
   {
     title: "Under your domain, not theirs",
-    description: "Trustpilot reviews live on trustpilot.com, where the content and its SEO value sit. Rendered through FiveOh, your review text and AggregateRating are in your product pages' HTML — structured data and long-tail content indexed under your store's domain.",
+    description: "Trustpilot reviews live on trustpilot.com, where the content and its SEO value sit. Rendered through FiveOh, your review text and AggregateRating are in your product pages' HTML. Structured data and long-tail content get indexed under your store's domain.",
   },
 ]
 
 const steps = [
   {
     title: "Keep collecting in Trustpilot",
-    description: "Nothing changes about your brand reviews or the Trustpilot badge. Invitations, service reviews, your star rating on Trustpilot — all stay exactly as they are.",
+    description: "Nothing changes about your brand reviews or the Trustpilot badge. Invitations, service reviews and your star rating on Trustpilot all stay exactly as they are.",
   },
   {
     title: "FiveOh brings them into Shopify",
-    description: "Connect Trustpilot or import a CSV export, and your reviews are written into Shopify's native metaobjects — no manual copy-paste.",
+    description: "Connect Trustpilot or import a CSV export, and your reviews are written into Shopify's native metaobjects. No manual copy-paste.",
   },
   {
     title: "Display natively in your theme",
@@ -76,23 +76,23 @@ const steps = [
 const faqs = [
   {
     question: "Do I have to leave Trustpilot?",
-    answer: "No — that's the whole point. Keep Trustpilot for its brand reviews and the recognizable badge; FiveOh syncs your reviews into Shopify and takes over the on-store display.",
+    answer: "No. That's the whole point. Keep Trustpilot for its brand reviews and the recognizable badge; FiveOh syncs your reviews into Shopify and takes over the on-store display.",
   },
   {
     question: "Can I keep the Trustpilot badge?",
-    answer: "Absolutely. Keep the TrustBox badge for third-party brand credibility while your product reviews render natively through FiveOh. The two do different jobs — company trust and on-page product proof.",
+    answer: "Absolutely. Keep the TrustBox badge for third-party brand credibility while your product reviews render natively through FiveOh. The two do different jobs: company trust and on-page product proof.",
   },
   {
-    question: "Trustpilot reviews live on trustpilot.com — how does this help my SEO?",
-    answer: "On Trustpilot, the content and its ranking value sit on their domain. Rendered through FiveOh, your review text and AggregateRating are in your product pages' HTML — so the structured data, star ratings and long-tail content are indexed under your store's domain.",
+    question: "Trustpilot reviews live on trustpilot.com. How does this help my SEO?",
+    answer: "On Trustpilot, the content and its ranking value sit on their domain. Rendered through FiveOh, your review text and AggregateRating are in your product pages' HTML, so the structured data, star ratings and long-tail content are indexed under your store's domain.",
   },
   {
     question: "Will my Trustpilot reviews come across?",
-    answer: "Yes. Connect Trustpilot or import a CSV export and your reviews — ratings and text — are written into Shopify's native metaobjects. No manual copy-paste.",
+    answer: "Yes. Connect Trustpilot or import a CSV export and your reviews (ratings and text) are written into Shopify's native metaobjects. No manual copy-paste.",
   },
   {
     question: "Why render server-side instead of using the TrustBox widget?",
-    answer: "A client-side widget fetches reviews after the page loads, delaying LCP, causing layout shift, and hiding the content from crawlers. Server-side rendering via Shopify metaobjects puts reviews in your HTML from the first byte — faster for shoppers, visible to Google and AI.",
+    answer: "A client-side widget fetches reviews after the page loads, delaying LCP, causing layout shift, and hiding the content from crawlers. Server-side rendering via Shopify metaobjects puts reviews in your HTML from the first byte. Faster for shoppers, visible to Google and AI.",
   },
   {
     question: "Is it technical to set up?",
@@ -114,7 +114,7 @@ export default function TrustpilotAlternativePage() {
         </h1>
         <p className="copy mx-auto max-w-2xl">
           Trustpilot gives your brand recognizable, third-party credibility. But its TrustBox widgets load through
-          JavaScript, and the reviews live on Trustpilot&rsquo;s domain &mdash; slow on your pages, and working for
+          JavaScript, and the reviews live on Trustpilot&rsquo;s domain. Slow on your pages, and working for
           their SEO more than yours. FiveOh keeps Trustpilot for the badge and syncs your reviews into
           Shopify&rsquo;s native metaobjects, so they render server-side on your product pages, in your theme.
         </p>
@@ -135,7 +135,7 @@ export default function TrustpilotAlternativePage() {
           <p className="copy mt-4 text-gray-400">
             You don&rsquo;t replace anything. Trustpilot keeps collecting your brand reviews and its badge stays right
             where it is. FiveOh syncs your reviews into your store as native Shopify data and renders them
-            server-side &mdash; on your product pages, in your HTML, readable by Google and AI.
+            server-side on your product pages, in your HTML, readable by Google and AI.
           </p>
         </div>
 
@@ -164,7 +164,7 @@ export default function TrustpilotAlternativePage() {
         <Eyebrow>On top of Trustpilot</Eyebrow>
         <h2 className="h2 mt-5">What FiveOh adds to your Trustpilot reviews.</h2>
         <p className="copy mt-4 max-w-2xl">
-          Trustpilot stays your brand-trust platform. FiveOh gives those reviews a native home on your store &mdash;
+          Trustpilot stays your brand-trust platform. FiveOh gives those reviews a native home on your store,
           and everything that comes with it.
         </p>
         <div className="mt-10 grid gap-4 sm:grid-cols-2">

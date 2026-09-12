@@ -39,7 +39,7 @@ export default function Architecture() {
         <h2 className="h2 mt-5">Three layers. You own all three.</h2>
         <p className="copy mt-4 text-gray-400">
           Collect anywhere. FiveOh syncs it into your Shopify store as native data. Display it any way
-          you like &mdash; our blocks, or your own Liquid.
+          you like: our blocks, or your own Liquid.
         </p>
       </div>
 

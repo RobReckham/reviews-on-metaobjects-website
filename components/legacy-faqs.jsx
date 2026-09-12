@@ -24,13 +24,13 @@ const faqs = [
     question: 'Why does it matter that my reviews are stored in Shopify instead of a third-party database?',
     answer: <>
       <p>When reviews are stored on a third-party server, your browser has to fetch them via JavaScript after your page loads. This delays rendering, increases your Largest Contentful Paint (LCP), and prevents search engines from indexing your review content and structured data.</p>
-      <p>Metaobjects are queried server-side during Liquid rendering - just like product titles or prices. The reviews are part of your HTML from the first byte. No extra round-trip, no layout shift, no dependency on an external service staying online.</p>
+      <p>Metaobjects are queried server-side during Liquid rendering, just like product titles or prices. The reviews are part of your HTML from the first byte. No extra round-trip, no layout shift, no dependency on an external service staying online.</p>
     </>,
   },
   {
     question: 'How do I get started?',
     answer: <>
-      <p>Install the app from the Shopify App Store. The free tier activates immediately (up to 100 reviews). Connect your review source, import by uploading a CSV file or start collecting via forms and emails. Add some ready-made app blocks to your store - no coding required for basic setup.</p>
+      <p>Install the app from the Shopify App Store. The free tier activates immediately (up to 100 reviews). Connect your review source, import by uploading a CSV file or start collecting via forms and emails. Add some ready-made app blocks to your store. No coding required for basic setup.</p>
     </>,
   },
   {
@@ -60,7 +60,7 @@ const faqs = [
   {
     question: 'Does the app require JavaScript Snippets to display reviews?',
     answer: <>
-      <p>No. Reviews render natively with Liquid in your theme - fully server-side. This eliminates JavaScript widgets, improves page speed, Core Web Vitals, and supports better SEO through native structured data.</p>
+      <p>No. Reviews render natively with Liquid in your theme, fully server-side. This eliminates JavaScript widgets, improves page speed, Core Web Vitals, and supports better SEO through native structured data.</p>
     </>,
   },
   {
@@ -97,7 +97,7 @@ const faqs = [
   {
     question: 'Are my full review texts visible to Google, ChatGPT, and Perplexity?',
     answer: <>
-      <p>Other apps load reviews via a JavaScript widget after the page loads. Google, ChatGPT, and Perplexity all read page HTML - none of them execute that widget. They see your product page, but the review texts are simply not there.</p>
+      <p>Other apps load reviews via a JavaScript widget after the page loads. Google, ChatGPT, and Perplexity all read page HTML. None of them execute that widget. They see your product page, but the review texts are simply not there.</p>
       <p>With us, the full review content is in your HTML from the first byte. That means your reviews get indexed, rank for the long-tail searches your customers are actually typing, and give AI tools the content they need to answer specific questions about your products.</p>
     </>,
   },
@@ -136,7 +136,7 @@ const faqs = [
   {
     question: 'Is there a free trial for paid plans?',
     answer: <>
-      <p>Yes - all paid plans include a 14-day free trial. The free plan also stays available with up to 100 reviews for as long as you need it.</p>
+      <p>Yes. All paid plans include a 14-day free trial. The free plan also stays available with up to 100 reviews for as long as you need it.</p>
     </>,
   },
   {

@@ -3,7 +3,7 @@ import { Section, ExternalLink, InternalLink, CodeBlock, Callout, H2, H3, P, Ul,
 export const metadata = {
   title: "JSON-LD Structured Data in Shopify Liquid (With Code Examples)",
   shortTitle: "Add JSON-LD structured data in Shopify Liquid",
-  description: "Copy-paste Liquid code for Product schema, AggregateRating, Review markup, and BreadcrumbList - all server-side so Google reads it on the first crawl.",
+  description: "Copy-paste Liquid code for Product schema, AggregateRating, Review markup, and BreadcrumbList. All of it is server-side so Google reads it on the first crawl.",
   alternates: { canonical: "/blog/shopify-liquid-json-ld-structured-data" },
   openGraph: { type: "article", publishedTime: "2026-04-24", images: ["https://assets.reviewsonmetaobjects.com/the-shopify-reviews-blog.jpg"] },
   slug: "shopify-liquid-json-ld-structured-data",
@@ -23,11 +23,11 @@ const tocItems = [
 const faqs = [
   {
     question: "Where does JSON-LD go in a Shopify Liquid theme?",
-    answer: "JSON-LD should be placed in the head of your page or at the end of the body. In Shopify Liquid, the cleanest approach is to add it to your theme.liquid layout file or to the specific section or template file for the page type it applies to - for example, product.liquid for Product schema.",
+    answer: "JSON-LD should be placed in the head of your page or at the end of the body. In Shopify Liquid, the cleanest approach is to add it to your theme.liquid layout file or to the specific section or template file for the page type it applies to (for example, product.liquid for Product schema).",
   },
   {
     question: "Does Shopify automatically add JSON-LD structured data?",
-    answer: "Some Shopify themes include basic JSON-LD for Product and BreadcrumbList. However, AggregateRating markup for reviews - which enables star ratings in Google - is rarely included by default and must be added manually or via a compliant review app that outputs it server-side.",
+    answer: "Some Shopify themes include basic JSON-LD for Product and BreadcrumbList. However, AggregateRating markup for reviews (which enables star ratings in Google) is rarely included by default and must be added manually or via a compliant review app that outputs it server-side.",
   },
   {
     question: "What is the difference between JSON-LD and microdata for Shopify structured data?",
@@ -35,7 +35,7 @@ const faqs = [
   },
   {
     question: "Why is my JSON-LD structured data valid but not showing rich results in Google?",
-    answer: "Valid structured data is necessary but not sufficient for rich results. Google also requires the page to meet eligibility guidelines, the structured data to match the visible page content, and - crucially - the markup to be present in the raw HTML at crawl time, not injected by JavaScript after the page loads.",
+    answer: "Valid structured data is necessary but not sufficient for rich results. Google also requires the page to meet eligibility guidelines, the structured data to match the visible page content, and, crucially, the markup to be present in the raw HTML at crawl time, not injected by JavaScript after the page loads.",
   },
   {
     question: "How do I validate my JSON-LD structured data in Shopify?",
@@ -43,7 +43,7 @@ const faqs = [
   },
   {
     question: "Can I have multiple JSON-LD script blocks on one Shopify page?",
-    answer: "Yes. Google supports multiple JSON-LD blocks on a single page and will read all of them. A common pattern is a Product block in the main product template, an AggregateRating block added by a review section, and a BreadcrumbList block in the layout file - all independently valid and parsed together.",
+    answer: "Yes. Google supports multiple JSON-LD blocks on a single page and will read all of them. A common pattern is a Product block in the main product template, an AggregateRating block added by a review section, and a BreadcrumbList block in the layout file, all independently valid and parsed together.",
   },
   {
     question: "Which structured data types does Google support for Shopify product pages?",
@@ -51,7 +51,7 @@ const faqs = [
   },
   {
     question: "Does JSON-LD structured data help with Google AI Overviews and AI search engines?",
-    answer: "Yes, and this is becoming increasingly important. AI search engines like Google AI Overviews, Perplexity, and ChatGPT Browse read structured data to understand your pages accurately. JSON-LD in your HTML tells these systems precisely what your product is, its price, its rating, and who reviewed it - in a machine-readable format they can cite with confidence. Server-side JSON-LD is far more reliably processed by AI crawlers than JavaScript-injected markup.",
+    answer: "Yes, and this is becoming increasingly important. AI search engines like Google AI Overviews, Perplexity, and ChatGPT Browse read structured data to understand your pages accurately. JSON-LD in your HTML tells these systems precisely what your product is, its price, its rating, and who reviewed it, in a machine-readable format they can cite with confidence. Server-side JSON-LD is far more reliably processed by AI crawlers than JavaScript-injected markup.",
   },
 ]
 
@@ -68,7 +68,7 @@ export default function ShopifyLiquidJsonLdStructuredDataPage() {
             How to add JSON-LD structured data in Shopify Liquid: products, reviews, and breadcrumbs
           </h1>
           <P>
-            Structured data tells Google exactly what your page contains - product name, price, availability, star
+            Structured data tells Google exactly what your page contains: product name, price, availability, star
             ratings, breadcrumb trail. When implemented correctly in Liquid, it is part of your HTML on the first byte,
             Googlebot reads it on the first crawl, and you become eligible for rich snippets in search results. This
             guide covers the three most impactful schemas for Shopify stores, with copy-paste Liquid code for each.
@@ -97,10 +97,10 @@ export default function ShopifyLiquidJsonLdStructuredDataPage() {
           JSON-LD is a <code className="bg-gray-200 px-1 rounded text-sm">&lt;script type="application/ld+json"&gt;</code> block containing a
           JSON object that follows{" "}
           <ExternalLink href="https://schema.org">schema.org</ExternalLink> vocabulary. Unlike Microdata, it does not
-          require you to annotate individual HTML elements - it lives separately from your visible markup.
+          require you to annotate individual HTML elements. It lives separately from your visible markup.
         </P>
         <P>
-          Google accepts JSON-LD anywhere in the page - <code className="bg-gray-200 px-1 rounded text-sm">&lt;head&gt;</code> or{" "}
+          Google accepts JSON-LD anywhere in the page: <code className="bg-gray-200 px-1 rounded text-sm">&lt;head&gt;</code> or{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">&lt;body&gt;</code>. This means there is no reason to centralise all structured
           data in <code className="bg-gray-200 px-1 rounded text-sm">layout/theme.liquid</code> with conditional template checks. The cleaner
           approach is to put each schema where it contextually belongs: product markup inside the product template or
@@ -157,7 +157,7 @@ export default function ShopifyLiquidJsonLdStructuredDataPage() {
 </script>
         `}</CodeBlock>
         <P>
-          Note the <code className="bg-gray-200 px-1 rounded text-sm">divided_by: 100.0</code> on the price - Shopify stores prices in
+          Note the <code className="bg-gray-200 px-1 rounded text-sm">divided_by: 100.0</code> on the price: Shopify stores prices in
           cents as integers, so <code className="bg-gray-200 px-1 rounded text-sm">1999</code> represents $19.99. Dividing by{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">100.0</code> (not <code className="bg-gray-200 px-1 rounded text-sm">100</code>) forces
           a decimal result.
@@ -206,16 +206,16 @@ export default function ShopifyLiquidJsonLdStructuredDataPage() {
         <P>
           The <code className="bg-gray-200 px-1 rounded text-sm">if rating != blank</code> guard ensures the{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">aggregateRating</code> property is only output when review data actually
-          exists - a product with no reviews outputs valid Product schema without any rating properties, which is
+          exists. A product with no reviews outputs valid Product schema without any rating properties, which is
           correct per Google's spec.
         </P>
         <Callout>
           <strong>This only works when your review app stores data in Shopify's standard Metaobjects.</strong> If your
           review app stores data on its own server, <code className="bg-gray-200 px-1 rounded text-sm">product.metafields.reviews.rating</code>{" "}
           will be blank in Liquid. The aggregate rating only exists on an external API, meaning structured data must
-          be generated by JavaScript - with the crawlability problems that entails.
+          be generated by JavaScript, with the crawlability problems that entails.
         </Callout>
-        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} stores ratings in Shopify's standard Metaobjects - so your aggregateRating JSON-LD is rendered in Liquid, readable by Googlebot on first crawl.`} />
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} stores ratings in Shopify's standard Metaobjects, so your aggregateRating JSON-LD is rendered in Liquid, readable by Googlebot on first crawl.`} />
       </Section>
 
       <Section className="bg-gray-50" id="individual-reviews">
@@ -254,8 +254,7 @@ export default function ShopifyLiquidJsonLdStructuredDataPage() {
         `}</CodeBlock>
         <P>
           Include this inside the Product JSON-LD object, after the <code className="bg-gray-200 px-1 rounded text-sm">aggregateRating</code>{" "}
-          block. The <code className="bg-gray-200 px-1 rounded text-sm">limit: 5</code> keeps the JSON-LD block to a reasonable size -
-          Google does not require all reviews to be in the structured data, and a smaller block reduces page weight.
+          block. The <code className="bg-gray-200 px-1 rounded text-sm">limit: 5</code> keeps the JSON-LD block to a reasonable size. Google does not require all reviews to be in the structured data, and a smaller block reduces page weight.
         </P>
       </Section>
 
@@ -265,7 +264,7 @@ export default function ShopifyLiquidJsonLdStructuredDataPage() {
           <ExternalLink href="https://developers.google.com/search/docs/appearance/structured-data/breadcrumb">
             BreadcrumbList
           </ExternalLink>{" "}
-          structured data enables the breadcrumb trail to appear in your Google Search listing - replacing or
+          structured data enables the breadcrumb trail to appear in your Google Search listing, replacing or
           supplementing the URL display. It is especially valuable for product pages reached via a collection.
         </P>
         <CodeBlock>{`
@@ -317,7 +316,7 @@ export default function ShopifyLiquidJsonLdStructuredDataPage() {
           <code className="bg-gray-200 px-1 rounded text-sm">/collections/my-collection/products/my-product</code> URL). It will be
           blank when the product is accessed directly via <code className="bg-gray-200 px-1 rounded text-sm">/products/my-product</code>.
         </P>
-        <InlineCta message={`This breadcrumb markup, like all structured data in ${process.env.NEXT_PUBLIC_APP_NAME}, is output server-side - Googlebot picks it up immediately without needing to execute JavaScript.`} />
+        <InlineCta message={`This breadcrumb markup, like all structured data in ${process.env.NEXT_PUBLIC_APP_NAME}, is output server-side. Googlebot picks it up immediately without needing to execute JavaScript.`} />
       </Section>
 
       <Section className="bg-gray-50" id="validation">
@@ -333,11 +332,11 @@ export default function ShopifyLiquidJsonLdStructuredDataPage() {
           </li>
           <li>
             <strong><ExternalLink href="https://validator.schema.org">Schema.org Validator</ExternalLink>:</strong>{" "}
-            Paste your raw JSON-LD to check against the schema.org spec directly - useful for catching type
-            mismatches before deploying.
+            Paste your raw JSON-LD to check against the schema.org spec directly (useful for catching type
+            mismatches before deploying).
           </li>
           <li>
-            <strong>Google Search Console - Rich results status:</strong>{" "}
+            <strong>Google Search Console (Rich results status):</strong>{" "}
             After Google re-crawls your pages, the "Rich results" report in Search Console shows which URLs have
             valid structured data and which have errors.
           </li>
@@ -371,7 +370,7 @@ export default function ShopifyLiquidJsonLdStructuredDataPage() {
           </li>
           <li>
             <strong>Generating structured data in JavaScript.</strong> If the JSON-LD block is injected by a
-            client-side script, Googlebot reads it in its second-pass rendering queue - potentially delayed by days.
+            client-side script, Googlebot reads it in its second-pass rendering queue, potentially delayed by days.
             Always output structured data in Liquid, not JavaScript.
           </li>
           <li>
@@ -398,7 +397,7 @@ export default function ShopifyLiquidJsonLdStructuredDataPage() {
             <div><InternalLink href="/blog/how-shopify-product-reviews-work">How Shopify Metaobject reviews work →</InternalLink></div>
             <div><InternalLink href="/blog/shopify-social-proof-best-practices">Shopify social proof best practices →</InternalLink></div>
             <div><InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink></div>
-            <div><ExternalLink href="https://demo.reviewsonmetaobjects.com/products/chambray-work-shirt">Demo store - inspect the structured data live (password: demo) →</ExternalLink></div>
+            <div><ExternalLink href="https://demo.reviewsonmetaobjects.com/products/chambray-work-shirt">Demo store: inspect the structured data live (password: demo) →</ExternalLink></div>
           </div>
           <BlogNav className="mt-6" />
         </div>

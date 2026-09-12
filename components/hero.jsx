@@ -16,7 +16,7 @@ export default function Hero() {
       </h1>
 
       <p className="copy mt-6 max-w-xl">
-        The Shopify-native display layer for your reviews. Keep the app you already have &mdash; FiveOh
+        The Shopify-native display layer for your reviews. Keep the app you already have. FiveOh
         syncs it into native Shopify data and renders it server-side: styled to the pixel, and readable
         by AI and Google.
       </p>

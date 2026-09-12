@@ -13,7 +13,7 @@ const feature1 = {
     },
     {
       title: "Post-purchase emails",
-      description: "Automatically request reviews after purchase. Reward reviewers with a discount code - percentage or fixed - sent automatically once the review is submitted.",
+      description: "Automatically request reviews after purchase. Reward reviewers with a discount code (percentage or fixed) sent automatically once the review is submitted.",
     },
     {
       title: "Import & sync",

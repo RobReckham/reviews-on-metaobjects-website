@@ -19,7 +19,7 @@ export default function Blocks() {
       <Eyebrow>The block library</Eyebrow>
       <h2 className="h2 mt-5">Every section your app said no to.</h2>
       <p className="copy mt-4 max-w-2xl">
-        The most capable review list on Shopify &mdash; plus live purchase signals from
+        The most capable review list on Shopify, plus live purchase signals from
         <b> real-time store data</b>. Every block your store needs, ready-made or built yourself in your theme&rsquo;s Liquid.
       </p>
 
@@ -40,7 +40,7 @@ export default function Blocks() {
             </div>
 
             <p className="mt-4 rounded-xl border border-gray-200 bg-gray-50 p-4 text-sm text-gray-700">
-              Buyers love the true-to-size fit and soft merino &mdash; warm without bulk and great for
+              Buyers love the true-to-size fit and soft merino, warm without bulk and great for
               layering. Most praise the color accuracy and how well it holds up after washing. A few note
               the sleeves run long.
               <span className="ml-2 inline-flex items-center gap-1 align-middle text-[11px] font-bold uppercase tracking-wide text-gray-400">

@@ -10,12 +10,12 @@ Reviews.io imports on demand from the app dashboard, with optional webhooks for 
 ## Setup
 
 1. Open <a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}`} target="_blank" rel="noopener">the app dashboard</a> and add Reviews.io as a source.
-2. Enter your **Store ID** - this is the domain you registered with Reviews.io (e.g. `www.yourstore.com`).
-3. Select your **Product identifier** - this controls how the import matches review records to Shopify products:
-   - **SKU** (default) - matches by product variant SKU
-   - **Barcode** - matches by variant barcode
-   - **Shopify GID** - matches by Shopify global ID
-   - **Numeric ID** - matches by Shopify numeric product ID
+2. Enter your **Store ID.** This is the domain you registered with Reviews.io (e.g. `www.yourstore.com`).
+3. Select your **Product identifier.** This controls how the import matches review records to Shopify products:
+   - **SKU** (default): matches by product variant SKU
+   - **Barcode:** matches by variant barcode
+   - **Shopify GID:** matches by Shopify global ID
+   - **Numeric ID:** matches by Shopify numeric product ID
 4. Start an initial sync from the dashboard.
 
 Choose the identifier type that matches how your Reviews.io reviews were originally collected.
@@ -31,11 +31,11 @@ For live updates without manual syncs, click **Register webhooks** on the Review
 
 ## Notes
 
-- Keep your product identifier strategy consistent - mixing types in the same source causes unlinked reviews.
+- Keep your product identifier strategy consistent. Mixing types in the same source causes unlinked reviews.
 - If results are unexpected, validate your Store ID and that the selected identifier type matches your source data.
 
 ## Troubleshooting
 
-- If sync fails, re-check your Store ID - it must match exactly what Reviews.io has on file.
+- If sync fails, re-check your Store ID. It must match exactly what Reviews.io has on file.
 - If reviews import without product links, try a different product identifier type and re-sync.
 - If counts seem low, run another full sync after confirming the data exists on the Reviews.io side.

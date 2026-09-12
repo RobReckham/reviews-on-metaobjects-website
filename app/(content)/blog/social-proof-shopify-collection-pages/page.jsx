@@ -24,7 +24,7 @@ const tocItems = [
 const faqs = [
   {
     question: "Should I show star ratings on Shopify collection pages?",
-    answer: "Yes - star ratings on product cards in collection grids consistently increase click-through rates to product pages. Even a small star rating next to the product name helps shoppers shortlist products before committing to view one in detail.",
+    answer: "Yes. Star ratings on product cards in collection grids consistently increase click-through rates to product pages. Even a small star rating next to the product name helps shoppers shortlist products before committing to view one in detail.",
   },
   {
     question: "How do I add star ratings to product cards in a Shopify theme?",
@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     question: "Do star ratings on collection pages affect SEO?",
-    answer: "Not directly - collection pages rarely qualify for AggregateRating rich results in Google since they show multiple products. The SEO benefit comes indirectly: higher click-through to product pages increases engagement, and products with more reviews signal trust to both users and crawlers.",
+    answer: "Not directly. Collection pages rarely qualify for AggregateRating rich results in Google since they show multiple products. The SEO benefit comes indirectly: higher click-through to product pages increases engagement, and products with more reviews signal trust to both users and crawlers.",
   },
   {
     question: "What is the best way to show ratings across product variants on collection pages?",
@@ -44,11 +44,11 @@ const faqs = [
   },
   {
     question: "Can shoppers filter or sort Shopify collection pages by star rating?",
-    answer: "Yes, if your theme supports it. Shopify's native filter system can include rating as a filter option when using the standard reviews.rating Metafield. This allows shoppers to filter to products with ratings above a threshold. Implementing this requires adding reviews.rating to your search and filter configuration in the Shopify admin - no custom code needed for Online Store 2.0 themes.",
+    answer: "Yes, if your theme supports it. Shopify's native filter system can include rating as a filter option when using the standard reviews.rating Metafield. This allows shoppers to filter to products with ratings above a threshold. Implementing this requires adding reviews.rating to your search and filter configuration in the Shopify admin. No custom code is needed for Online Store 2.0 themes.",
   },
   {
     question: "Can AI shopping assistants read star ratings from Shopify collection pages?",
-    answer: "AI shopping assistants like ChatGPT Browse and Perplexity read the HTML of your collection pages. Star ratings rendered server-side in Liquid are visible to these crawlers - they can identify which products in your collection have high ratings and cite that in recommendations. If ratings are loaded by a JavaScript widget, AI assistants cannot see them at all, putting you at a disadvantage when users ask AI tools to recommend products in your category.",
+    answer: "AI shopping assistants like ChatGPT Browse and Perplexity read the HTML of your collection pages. Star ratings rendered server-side in Liquid are visible to these crawlers. They can identify which products in your collection have high ratings and cite that in recommendations. If ratings are loaded by a JavaScript widget, AI assistants cannot see them at all, putting you at a disadvantage when users ask AI tools to recommend products in your category.",
   },
 ]
 
@@ -66,7 +66,7 @@ export default function SocialProofShopifyCollectionPagesPage() {
           </h1>
           <P>
             Collection pages are where shoppers browse and compare. Star ratings and review counts on product
-            cards increase click-through to the product page - and for products with strong scores, they are
+            cards increase click-through to the product page. For products with strong scores, they are
             the decisive signal that makes a shopper click yours over a competitor's. This guide covers what
             to show, where to place it, and how to implement it without damaging page performance.
           </P>
@@ -82,13 +82,13 @@ export default function SocialProofShopifyCollectionPagesPage() {
         <P>
           Collection pages sit between discovery and decision. A shopper browsing "men's running shoes" is
           comparing 20–40 products simultaneously, making rapid parallel judgements about which ones deserve
-          a closer look. Social proof here does not close sales - it influences <em>clicks</em>. The
+          a closer look. Social proof here does not close sales. It influences <em>clicks</em>. The
           conversion you are optimising for is the click-through to the product page, where the full review
           content does the rest.
         </P>
         <P>
           This means collection page social proof must be compact, immediately scannable, and zero friction.
-          A rating and count - "★★★★☆ 4.6 (312)" - tells the shopper everything they need at this stage.
+          A rating and count ("★★★★☆ 4.6 (312)") tells the shopper everything they need at this stage.
           Anything that requires them to stop and read is friction, not trust.
         </P>
       </Section>
@@ -102,18 +102,18 @@ export default function SocialProofShopifyCollectionPagesPage() {
         <Ul>
           <li><strong>Position below the product title, above the price.</strong> This is the natural scanning sequence and ensures the rating is seen before the price anchor.</li>
           <li><strong>Show filled/empty stars visually</strong> alongside the numeric value (e.g. "4.8"). The visual pattern is processed faster than reading; the number lets shoppers distinguish between 4.6 and 4.9.</li>
-          <li><strong>Suppress the widget when there are no reviews.</strong> An empty rating or "0 reviews" actively undermines trust. Most review apps let you set a minimum review count before the widget appears - use it.</li>
+          <li><strong>Suppress the widget when there are no reviews.</strong> An empty rating or "0 reviews" actively undermines trust. Most review apps let you set a minimum review count before the widget appears. Use it.</li>
           <li><strong>Consider a minimum count threshold.</strong> A 5-star average from a single review looks suspicious. In our tests, hiding the widget below 5-10 reviews outperformed showing a thin count.</li>
         </Ul>
-        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} keeps product ratings in sync as new reviews arrive - your collection page star ratings stay accurate without manual updates.`} />
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} keeps product ratings in sync as new reviews arrive. Your collection page star ratings stay accurate without manual updates.`} />
       </Section>
 
       <Section id="review-count-on-cards">
         <H2 id="review-count-on-cards">3. Review count on product cards</H2>
         <P>
           The count matters as much as the rating. A product with 4.7 stars and 1 review is far less
-          convincing than one with 4.4 stars and 380 reviews. Display it in parentheses after the rating -
-          "4.6 (312)" - the pattern shoppers recognise from Amazon and Google Shopping. For counts above
+          convincing than one with 4.4 stars and 380 reviews. Display it in parentheses after the rating
+          ("4.6 (312)"), the pattern shoppers recognise from Amazon and Google Shopping. For counts above
           999, abbreviate ("1.2k"); below that, the exact number adds credibility.
         </P>
       </Section>
@@ -126,7 +126,7 @@ export default function SocialProofShopifyCollectionPagesPage() {
         </P>
         <Ul>
           <li><strong>Aggregate review count:</strong> "4,200+ verified reviews across our running shoes range." Your review app may expose a store-level total; otherwise update this manually when you hit milestones.</li>
-          <li><strong>Average collection rating:</strong> "Rated 4.6 / 5 by our customers." Same approach - pull from your review app or keep a current static value.</li>
+          <li><strong>Average collection rating:</strong> "Rated 4.6 / 5 by our customers." Same approach: pull from your review app or keep a current static value.</li>
           <li><strong>Featured testimonial:</strong> a single strong quote from a best-selling product in the collection, with the product name and rating. Sets a positive tone without adding visual weight to every card.</li>
         </Ul>
         <P>
@@ -162,12 +162,12 @@ export default function SocialProofShopifyCollectionPagesPage() {
           from the initial HTML.
         </P>
         <P>
-          Avoid review apps that inject a separate JavaScript widget on every product card - each card
+          Avoid review apps that inject a separate JavaScript widget on every product card. Each card
           triggers its own external request, and on a 24-product collection that is 24 round-trips before
           ratings appear. Only an app that stores reviews as Metaobjects and syncs the aggregate back
           to product Metafields can render ratings in the initial HTML load with the rest of the page.
         </P>
-        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} stores reviews as Shopify Metaobjects and syncs the aggregate back to reviews.rating and reviews.rating_count on every product - collection page ratings load in the initial HTML, no widget needed.`} />
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} stores reviews as Shopify Metaobjects and syncs the aggregate back to reviews.rating and reviews.rating_count on every product. Collection page ratings load in the initial HTML, no widget needed.`} />
       </Section>
 
       <Section id="performance-considerations">
@@ -177,7 +177,7 @@ export default function SocialProofShopifyCollectionPagesPage() {
           page for paid campaigns. The specific risk is <strong>per-card JavaScript widgets</strong>: some
           review apps render a separate widget per product card, each triggering its own external API
           request. On a 24-product collection, that is up to 24 separate round-trips to the review app's
-          servers before the page is fully rendered - a direct hit to LCP, INP, and ad spend efficiency.
+          servers before the page is fully rendered: a direct hit to LCP, INP, and ad spend efficiency.
         </P>
         <P>
           The Metafield-based Liquid approach in section 6 eliminates this entirely: one server-side pass,
@@ -190,7 +190,7 @@ export default function SocialProofShopifyCollectionPagesPage() {
       <Section className="bg-gray-50" id="filtering-by-rating">
         <H2 id="filtering-by-rating">8. Filtering and sorting by rating</H2>
         <P>
-          Filtering by minimum star rating is a high-intent behaviour - a shopper who selects "4 stars and above"
+          Filtering by minimum star rating is a high-intent behaviour. A shopper who selects "4 stars and above"
           is ready to buy and narrowing their options. In stores where we added a star rating filter, add-to-cart
           rate on filtered sessions consistently beat the collection average.
         </P>
@@ -201,7 +201,7 @@ export default function SocialProofShopifyCollectionPagesPage() {
           </ExternalLink>
           ) supports filtering by Metafield values. This only works if the{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">reviews.rating</code> Metafield actually
-          exists on each product - which requires an app that stores reviews as{" "}
+          exists on each product, which requires an app that stores reviews as{" "}
           <code className="bg-gray-200 px-1 rounded text-sm">product_review</code> Metaobjects and syncs
           the aggregate back to the product. Most review apps do neither, so the Metafield is never
           populated and native filtering is not possible.
@@ -224,7 +224,7 @@ export default function SocialProofShopifyCollectionPagesPage() {
           <div className="space-y-1.5 text-sm">
             <div><ExternalLink href="https://shopify.dev/docs/storefronts/themes/navigation-search/filtering/storefront-filtering">Shopify storefront filtering documentation</ExternalLink></div>
             <div><ExternalLink href="https://shopify.dev/docs/apps/build/metaobjects/standard-review-metaobject">Shopify standard product review Metaobject</ExternalLink></div>
-            <div><ExternalLink href="https://web.dev/articles/vitals">Core Web Vitals - web.dev</ExternalLink></div>
+            <div><ExternalLink href="https://web.dev/articles/vitals">Core Web Vitals: web.dev</ExternalLink></div>
           </div>
           <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3 mt-5">Related articles</p>
           <div className="space-y-1.5 text-sm">

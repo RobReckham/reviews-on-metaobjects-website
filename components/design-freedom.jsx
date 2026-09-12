@@ -276,8 +276,8 @@ export default function DesignFreedom() {
         <Eyebrow>Design freedom</Eyebrow>
         <h2 className="h2 mt-5">If you can design it, we render it.</h2>
         <p className="copy mt-4 max-w-xl">
-          Use our app blocks, or build your own. Every block &mdash; from a single review to the full
-          list &mdash; lives in <b>your theme&rsquo;s Liquid</b>, yours to structure, class and style.
+          Use our app blocks, or build your own. Every block, from a single review to the full
+          list, lives in <b>your theme&rsquo;s Liquid</b>, yours to structure, class and style.
           Designers and developers both get exactly what they want.
         </p>
 

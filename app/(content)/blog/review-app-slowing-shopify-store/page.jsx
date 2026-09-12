@@ -22,11 +22,11 @@ const tocItems = [
 const faqs = [
   {
     question: "How do I check if my review app is slowing down my Shopify store?",
-    answer: "Run a Google Lighthouse audit in Chrome DevTools on your product page with the app installed and compare it to a page without the app, or use PageSpeed Insights at pagespeed.web.dev. Look specifically at Total Blocking Time, Largest Contentful Paint, and the list of render-blocking resources - your review app scripts will appear there.",
+    answer: "Run a Google Lighthouse audit in Chrome DevTools on your product page with the app installed and compare it to a page without the app, or use PageSpeed Insights at pagespeed.web.dev. Look specifically at Total Blocking Time, Largest Contentful Paint, and the list of render-blocking resources. Your review app scripts will appear there.",
   },
   {
     question: "Which Shopify review apps have the least impact on page speed?",
-    answer: "Apps that render reviews server-side using Shopify Metaobjects and Liquid have effectively zero impact on page load time - the content is part of your HTML from the first byte. Apps that inject JavaScript widgets have the most impact. Server-side apps include those built on Shopify's standard product review Metaobject format.",
+    answer: "Apps that render reviews server-side using Shopify Metaobjects and Liquid have effectively zero impact on page load time: the content is part of your HTML from the first byte. Apps that inject JavaScript widgets have the most impact. Server-side apps include those built on Shopify's standard product review Metaobject format.",
   },
   {
     question: "How much do review app scripts typically affect Lighthouse scores?",
@@ -38,15 +38,15 @@ const faqs = [
   },
   {
     question: "Does render-blocking JavaScript affect page speed differently than async JavaScript?",
-    answer: "Yes. Render-blocking scripts pause HTML parsing entirely until they have downloaded and executed - nothing below them in the DOM is built yet. Async and deferred scripts allow parsing to continue and execute later. Many review widgets load async, which avoids blocking initial render but still delays review content from appearing and can cause Cumulative Layout Shift when they inject review cards into the DOM.",
+    answer: "Yes. Render-blocking scripts pause HTML parsing entirely until they have downloaded and executed. Nothing below them in the DOM is built yet. Async and deferred scripts allow parsing to continue and execute later. Many review widgets load async, which avoids blocking initial render but still delays review content from appearing and can cause Cumulative Layout Shift when they inject review cards into the DOM.",
   },
   {
     question: "How does Shopify store page speed affect SEO rankings?",
-    answer: "Google uses Core Web Vitals - Largest Contentful Paint, Cumulative Layout Shift, and Interaction to Next Paint - as ranking signals. Review apps that delay LCP (by loading review content after the main page) or cause CLS (by injecting widgets into the DOM) directly reduce your scores on these metrics. Stores with better Core Web Vitals scores have an advantage in organic rankings, all else being equal.",
+    answer: "Google uses Core Web Vitals (Largest Contentful Paint, Cumulative Layout Shift, and Interaction to Next Paint) as ranking signals. Review apps that delay LCP (by loading review content after the main page) or cause CLS (by injecting widgets into the DOM) directly reduce your scores on these metrics. Stores with better Core Web Vitals scores have an advantage in organic rankings, all else being equal.",
   },
   {
     question: "Does a slow review widget affect how AI search engines crawl and index my store?",
-    answer: "Yes. AI search crawlers like those used by Perplexity, Google AI Overviews, and ChatGPT Browse typically execute limited JavaScript. A review widget that requires JavaScript to load its content is invisible to these crawlers - both the review text and any structured data the widget generates. This means slow or JS-dependent review apps reduce your store's visibility in AI-driven search, not just in traditional Google rankings.",
+    answer: "Yes. AI search crawlers like those used by Perplexity, Google AI Overviews, and ChatGPT Browse typically execute limited JavaScript. A review widget that requires JavaScript to load its content is invisible to these crawlers: both the review text and any structured data the widget generates. This means slow or JS-dependent review apps reduce your store's visibility in AI-driven search, not just in traditional Google rankings.",
   },
 ]
 
@@ -65,7 +65,7 @@ export default function ReviewAppSlowingShopifyStorePage() {
           <P>
             Review widgets are some of the heaviest third-party scripts on Shopify stores. They fetch external
             data after page load, block the main thread, and cause layout shifts. This guide shows you exactly how
-            to measure the performance cost with Lighthouse and Chrome DevTools - so you have concrete numbers, not
+            to measure the performance cost with Lighthouse and Chrome DevTools, so you have concrete numbers, not
             suspicions.
           </P>
           <P className="text-gray-500 text-sm sm:text-base">
@@ -110,7 +110,7 @@ export default function ReviewAppSlowingShopifyStorePage() {
           Go to{" "}
           <ExternalLink href="https://pagespeed.web.dev">pagespeed.web.dev</ExternalLink> and enter the URL of a
           product page. This runs a Lighthouse audit against your live site from Google's servers under simulated
-          mobile conditions - the same conditions Google uses when assessing Core Web Vitals for ranking.
+          mobile conditions (the same conditions Google uses when assessing Core Web Vitals for ranking).
         </P>
         <P>
           Run it on a product page that has reviews, not your homepage. That's where the widget loads.
@@ -122,8 +122,8 @@ export default function ReviewAppSlowingShopifyStorePage() {
           the Lighthouse tab. Choose "Mobile" device emulation, check "Performance", and click "Analyze page load".
         </P>
         <P>
-          For the most meaningful results, run the audit in a Chrome incognito window with no extensions active -
-          extensions can interfere with timing measurements.
+          For the most meaningful results, run the audit in a Chrome incognito window with no extensions active.
+          Extensions can interfere with timing measurements.
         </P>
         <Callout>
           Run the audit twice: once on a product page <em>with</em> reviews and once on a product page <em>without</em>{" "}
@@ -135,10 +135,10 @@ export default function ReviewAppSlowingShopifyStorePage() {
           <ExternalLink href="https://demo.reviewsonmetaobjects.com/products/chambray-work-shirt">
             demo store product page
           </ExternalLink>{" "}
-          (password: demo) - reviews are rendered server-side with no external requests, so the result shows what a
+          (password: demo). Reviews are rendered server-side with no external requests, so the result shows what a
           clean Lighthouse score looks like.
         </P>
-        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} has zero JavaScript widget - your reviews are rendered server-side in Liquid with no external network request, no render-blocking scripts.`} />
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} has zero JavaScript widget. Your reviews are rendered server-side in Liquid with no external network request, no render-blocking scripts.`} />
       </Section>
 
       <Section id="reading-lighthouse-results">
@@ -169,10 +169,10 @@ export default function ReviewAppSlowingShopifyStorePage() {
         <H3>Metrics to record</H3>
         <P>Note these numbers before and after any changes:</P>
         <Ul>
-          <li><strong>LCP (Largest Contentful Paint)</strong> - target under 2.5 s</li>
-          <li><strong>CLS (Cumulative Layout Shift)</strong> - target under 0.1</li>
-          <li><strong>TBT (Total Blocking Time)</strong> - proxy for INP; target under 200 ms</li>
-          <li><strong>Performance score</strong> - weighted composite; useful for tracking trend</li>
+          <li><strong>LCP (Largest Contentful Paint)</strong>: target under 2.5 s</li>
+          <li><strong>CLS (Cumulative Layout Shift)</strong>: target under 0.1</li>
+          <li><strong>TBT (Total Blocking Time)</strong>: proxy for INP; target under 200 ms</li>
+          <li><strong>Performance score</strong>: weighted composite; useful for tracking trend</li>
         </Ul>
       </Section>
 
@@ -186,8 +186,8 @@ export default function ReviewAppSlowingShopifyStorePage() {
           settle. Then filter by the review app's domain (type it in the filter box). You will see:
         </P>
         <Ul>
-          <li>The JS bundle request - look at its size and transfer time</li>
-          <li>The API data request - look at its TTFB (time to first byte) and transfer time</li>
+          <li>The JS bundle request: look at its size and transfer time</li>
+          <li>The API data request: look at its TTFB (time to first byte) and transfer time</li>
           <li>Any image CDN requests for review photos</li>
         </Ul>
         <P>
@@ -197,7 +197,7 @@ export default function ReviewAppSlowingShopifyStorePage() {
         </P>
         <Callout>
           Switch the Network tab throttling to "Slow 3G" to simulate a real mobile user on a poor connection. What
-          felt like an acceptable 400 ms delay on fast Wi-Fi often becomes 3+ seconds on Slow 3G - which is the
+          felt like an acceptable 400 ms delay on fast Wi-Fi often becomes 3+ seconds on Slow 3G, which is the
           condition Lighthouse's mobile audit simulates.
         </Callout>
       </Section>
@@ -237,24 +237,24 @@ export default function ReviewAppSlowingShopifyStorePage() {
 
         <P>
           These ranges are wide because they depend on the specific app, your CDN setup, the user's connection speed,
-          and how many reviews are loaded. The point is not the exact number - it is that the server-side number is
+          and how many reviews are loaded. The point is not the exact number. It is that the server-side number is
           always zero, because no external request ever happens.
         </P>
-        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} is the server-side alternative - reviews load with the page HTML, no external API, and your Lighthouse score stays clean.`} />
+        <InlineCta message={`${process.env.NEXT_PUBLIC_APP_NAME} is the server-side alternative: reviews load with the page HTML, no external API, and your Lighthouse score stays clean.`} />
       </Section>
 
       <Section className="bg-gray-50" id="the-architectural-fix">
         <H2 id="the-architectural-fix">6. The architectural fix</H2>
         <P>
           The only way to eliminate the performance cost of a review widget is to stop using one. This means storing
-          review data inside Shopify itself - as Metaobjects - where it is accessible to Liquid during the
+          review data inside Shopify itself (as Metaobjects), where it is accessible to Liquid during the
           server-side render. Reviews then become part of the initial HTML response, at zero extra cost in network
           requests or JS execution.
         </P>
         <P>
           Shopify's <ExternalLink href="https://shopify.dev/docs/apps/build/metaobjects/standard-review-metaobject">standard product review Metaobject definition</ExternalLink> (<code className="bg-gray-200 px-1 rounded text-sm">product_review</code>)
           is the official data structure for this. Review apps that write to this format store data in your Shopify
-          store, not on their own servers - enabling Liquid-based rendering and eliminating the widget dependency
+          store, not on their own servers, enabling Liquid-based rendering and eliminating the widget dependency
           entirely.
         </P>
 
@@ -263,7 +263,7 @@ export default function ReviewAppSlowingShopifyStorePage() {
           <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">Further reading</p>
           <div className="space-y-1.5 text-sm">
             <div><ExternalLink href="https://pagespeed.web.dev">PageSpeed Insights</ExternalLink></div>
-            <div><ExternalLink href="https://web.dev/articles/vitals">Core Web Vitals - web.dev</ExternalLink></div>
+            <div><ExternalLink href="https://web.dev/articles/vitals">Core Web Vitals: web.dev</ExternalLink></div>
             <div><ExternalLink href="https://web.dev/articles/lcp">Largest Contentful Paint</ExternalLink></div>
             <div><ExternalLink href="https://web.dev/articles/cls">Cumulative Layout Shift</ExternalLink></div>
             <div><ExternalLink href="https://developers.google.com/search/docs/appearance/core-web-vitals">CWV and Google ranking</ExternalLink></div>
@@ -275,7 +275,7 @@ export default function ReviewAppSlowingShopifyStorePage() {
             <div><InternalLink href="/blog/shopify-review-stars-not-showing-google">Fix missing review stars in Google →</InternalLink></div>
             <div><InternalLink href="/blog/shopify-social-proof-best-practices">Shopify social proof best practices →</InternalLink></div>
             <div><InternalLink href="/">About {process.env.NEXT_PUBLIC_APP_NAME} →</InternalLink></div>
-            <div><ExternalLink href="https://demo.reviewsonmetaobjects.com/products/chambray-work-shirt">Demo store - see it live (password: demo) →</ExternalLink></div>
+            <div><ExternalLink href="https://demo.reviewsonmetaobjects.com/products/chambray-work-shirt">Demo store: see it live (password: demo) →</ExternalLink></div>
           </div>
           <BlogNav className="mt-6" />
         </div>

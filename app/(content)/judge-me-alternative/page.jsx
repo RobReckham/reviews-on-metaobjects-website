@@ -9,7 +9,7 @@ const FIVEOH_LOGO = "https://assets.reviewsonmetaobjects.com/logo-300.jpg"
 
 export const metadata = {
   title: "Judge.me Alternative for Shopify: Keep Judge.me, Own the Display",
-  description: `You don't have to leave Judge.me. ${process.env.NEXT_PUBLIC_APP_NAME} syncs your Judge.me reviews into Shopify's native metaobjects and renders them server-side in Liquid - pixel-perfect, faster pages, and readable by Google and AI. Keep collecting in Judge.me; own the display.`,
+  description: `You don't have to leave Judge.me. ${process.env.NEXT_PUBLIC_APP_NAME} syncs your Judge.me reviews into Shopify's native metaobjects and renders them server-side in Liquid: pixel-perfect, faster pages, and readable by Google and AI. Keep collecting in Judge.me; own the display.`,
   alternates: {
     canonical: "/judge-me-alternative",
   },
@@ -42,30 +42,30 @@ const layers = [
 const additions = [
   {
     title: "Styled like the rest of your theme",
-    description: "No iframe, no shadow DOM. Because reviews are metaobjects, you render them with your own markup and classes — matched to your design, not patched around someone else's widget.",
+    description: "No iframe, no shadow DOM. Because reviews are metaobjects, you render them with your own markup and classes, matched to your design, not patched around someone else's widget.",
   },
   {
     title: "Readable by Google and AI",
-    description: "Google, ChatGPT and Perplexity read HTML, not widgets. With reviews server-rendered, your full review text and AggregateRating are in the page — indexed for rich snippets and citable by AI tools.",
+    description: "Google, ChatGPT and Perplexity read HTML, not widgets. With reviews server-rendered, your full review text and AggregateRating are in the page, indexed for rich snippets and citable by AI tools.",
   },
   {
     title: "Reviews render server-side",
-    description: "Judge.me's widget fetches reviews with JavaScript after your page loads — adding round-trips and layout shift. FiveOh renders the same reviews in Liquid, in your HTML from the first byte. Faster pages, cleaner Core Web Vitals.",
+    description: "Judge.me's widget fetches reviews with JavaScript after your page loads, adding round-trips and layout shift. FiveOh renders the same reviews in Liquid, in your HTML from the first byte. Faster pages, cleaner Core Web Vitals.",
   },
   {
     title: "The data lives in your store",
-    description: "Synced reviews are written to Shopify's standard product review metaobjects — your data, in your Shopify. Query them in Liquid, syndicate to the Shop app and Google Shopping, keep them for good.",
+    description: "Synced reviews are written to Shopify's standard product review metaobjects. Your data, in your Shopify. Query them in Liquid, syndicate to the Shop app and Google Shopping, keep them for good.",
   },
 ]
 
 const steps = [
   {
     title: "Keep collecting in Judge.me",
-    description: "Nothing changes about how you gather reviews. Post-purchase emails, forms, photos — Judge.me does exactly what it does today.",
+    description: "Nothing changes about how you gather reviews. Judge.me still handles post-purchase emails, forms and photos exactly as it does today.",
   },
   {
     title: "FiveOh syncs them into Shopify",
-    description: "Connect your Judge.me account and your reviews sync into Shopify's native metaobjects — continuously, with no CSV exports and no manual uploads.",
+    description: "Connect your Judge.me account and your reviews sync into Shopify's native metaobjects continuously, with no CSV exports and no manual uploads.",
   },
   {
     title: "Display natively in your theme",
@@ -76,23 +76,23 @@ const steps = [
 const faqs = [
   {
     question: "Do I have to leave Judge.me?",
-    answer: "No — that's the whole point. Judge.me keeps collecting your reviews; FiveOh syncs them into Shopify and takes over the display. Many stores keep Judge.me on its free tier just for collection and the trust badge.",
+    answer: "No. That's the whole point. Judge.me keeps collecting your reviews; FiveOh syncs them into Shopify and takes over the display. Many stores keep Judge.me on its free tier just for collection and the trust badge.",
   },
   {
     question: "Will I lose my existing Judge.me reviews?",
-    answer: "No. Connect your Judge.me account and your existing reviews — ratings, text and media — sync into Shopify automatically. No exports, no uploads.",
+    answer: "No. Connect your Judge.me account and your existing reviews (ratings, text and media) sync into Shopify automatically. No exports, no uploads.",
   },
   {
     question: "Why render server-side instead of using Judge.me's widget?",
-    answer: "A client-side widget fetches reviews after the page loads, delaying LCP, causing layout shift, and hiding the content from crawlers. Server-side rendering via Shopify metaobjects puts reviews in your HTML from the first byte — faster for shoppers, visible to Google and AI.",
+    answer: "A client-side widget fetches reviews after the page loads, delaying LCP, causing layout shift, and hiding the content from crawlers. Server-side rendering via Shopify metaobjects puts reviews in your HTML from the first byte. Faster for shoppers, visible to Google and AI.",
   },
   {
     question: "Where do the reviews live once synced?",
-    answer: "In Shopify's standard product review metaobjects — a native data type in every Shopify store. They're your data, queryable in Liquid, and they stay in your store even if you uninstall FiveOh.",
+    answer: "In Shopify's standard product review metaobjects, a native data type in every Shopify store. They're your data, queryable in Liquid, and they stay in your store even if you uninstall FiveOh.",
   },
   {
     question: "Can I eventually collect with FiveOh too?",
-    answer: "Yes. FiveOh collects reviews natively through post-purchase emails and on-store forms, writing straight into your metaobjects. Keep Judge.me, run both, or move collection over entirely — your choice.",
+    answer: "Yes. FiveOh collects reviews natively through post-purchase emails and on-store forms, writing straight into your metaobjects. Keep Judge.me, run both, or move collection over entirely. Your choice.",
   },
   {
     question: "Is it technical to set up?",
@@ -113,7 +113,7 @@ export default function JudgeMeAlternativePage() {
           Keep Judge.me. Render its reviews <span className="mark-hl">natively</span>.
         </h1>
         <p className="copy mx-auto max-w-2xl">
-          Judge.me is a brilliant, affordable way to collect reviews. Its one limit is the display &mdash; reviews
+          Judge.me is a brilliant, affordable way to collect reviews. Its one limit is the display: reviews
           live on Judge.me&rsquo;s servers and load through a JavaScript widget. FiveOh keeps Judge.me exactly where
           it is and takes over the display, syncing your reviews into Shopify&rsquo;s native metaobjects so they
           render server-side, in your theme.
@@ -134,7 +134,7 @@ export default function JudgeMeAlternativePage() {
           <h2 className="h2 mt-5">Judge.me collects. FiveOh displays.</h2>
           <p className="copy mt-4 text-gray-400">
             You don&rsquo;t replace anything. Judge.me keeps collecting reviews exactly as it does today. FiveOh
-            syncs them into your store as native Shopify data and renders them server-side &mdash; in your
+            syncs them into your store as native Shopify data and renders them server-side, in your
             theme&rsquo;s Liquid, in your HTML, readable by Google and AI.
           </p>
         </div>
@@ -164,7 +164,7 @@ export default function JudgeMeAlternativePage() {
         <Eyebrow>On top of Judge.me</Eyebrow>
         <h2 className="h2 mt-5">What FiveOh adds to your Judge.me reviews.</h2>
         <p className="copy mt-4 max-w-2xl">
-          Judge.me stays your collection tool. FiveOh gives those reviews a native home &mdash; and everything that
+          Judge.me stays your collection tool. FiveOh gives those reviews a native home, and everything that
           comes with it.
         </p>
         <div className="mt-10 grid gap-4 sm:grid-cols-2">
