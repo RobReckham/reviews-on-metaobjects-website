@@ -20,17 +20,17 @@ export default [
       {
         id: "continuous_sync",
         name: "Continuous sync",
-        value: false,
+        value: true,
       },
       {
         id: "white_labeling",
         name: "White-labeling (remove \u201cPowered by\u201d badge)",
-        value: false,
+        value: true,
       },
       {
         id: "liquid_code",
         name: "Liquid code for custom sections",
-        value: false,
+        value: true,
       },
     ],
   },

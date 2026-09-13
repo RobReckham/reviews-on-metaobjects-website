@@ -9,7 +9,7 @@ export default function PricingSection() {
       <Eyebrow>Pricing</Eyebrow>
       <h2 className="h2 mt-5">Flat pricing that doesn&rsquo;t punish growth.</h2>
       <p className="copy mx-auto mt-4 max-w-2xl">
-        Priced by reviews stored, never by orders or invites. Every paid plan gets every
+        Priced by reviews stored, never by orders or invites. Every plan gets every
         feature; you only pay for scale.
       </p>
 

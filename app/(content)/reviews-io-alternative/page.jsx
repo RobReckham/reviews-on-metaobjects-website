@@ -54,7 +54,7 @@ const additions = [
   },
   {
     title: "Auto-translate on every plan",
-    description: "REVIEWS.io locks auto-translation behind its Plus plan. FiveOh translates review titles and bodies into your store's languages on every paid plan. Translations are stored in the metaobjects and shown by shopper locale.",
+    description: "REVIEWS.io locks auto-translation behind its Plus plan. FiveOh translates review titles and bodies into your store's languages on every plan, including Free. Translations are stored in the metaobjects and shown by shopper locale.",
   },
 ]
 
@@ -92,7 +92,7 @@ const faqs = [
   },
   {
     question: "Do I get auto-translation without REVIEWS.io's Plus plan?",
-    answer: "Yes. FiveOh auto-translates review titles and bodies into your store's published languages on every paid plan. No need to reach REVIEWS.io's top tier for it. Translations are stored in the metaobjects and shown by shopper locale.",
+    answer: "Yes. FiveOh auto-translates review titles and bodies into your store's published languages on every plan, including Free. No need to reach REVIEWS.io's top tier for it. Translations are stored in the metaobjects and shown by shopper locale.",
   },
   {
     question: "Is it technical to set up?",
