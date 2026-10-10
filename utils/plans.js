@@ -1,3 +1,15 @@
+export const includedFeatures = [
+  { id: "liquid_code", name: "Make reviews match your brand", value: true },
+  { id: "ai_readability", name: "Reviews AI and search can read", value: true },
+  { id: "review_collection", name: "Collect reviews with automatic emails", value: true },
+  { id: "continuous_sync", name: "Keep your current review app in sync", value: true },
+  { id: "auto_translate", name: "Translate reviews for global shoppers", value: true },
+  { id: "purchase_signals", name: "Build trust with real purchase signals", value: true },
+  { id: "data_ownership", name: "Keep your review data in Shopify", value: true },
+  { id: "white_labeling", name: "Remove FiveOh branding", value: true },
+  { id: "email_support", name: "Email support on every plan", value: true },
+]
+
 export default [
   {
     name: "Free",
@@ -12,26 +24,7 @@ export default [
         name: "Max reviews",
         value: 100,
       },
-      {
-        id: "auto_translate",
-        name: "Auto-translate",
-        value: true,
-      },
-      {
-        id: "continuous_sync",
-        name: "Continuous sync",
-        value: true,
-      },
-      {
-        id: "white_labeling",
-        name: "White-labeling (remove \u201cPowered by\u201d badge)",
-        value: true,
-      },
-      {
-        id: "liquid_code",
-        name: "Liquid code for custom sections",
-        value: true,
-      },
+      ...includedFeatures,
     ],
   },
   {
@@ -48,26 +41,7 @@ export default [
         name: "Max reviews",
         value: 1000,
       },
-      {
-        id: "auto_translate",
-        name: "Auto-translate",
-        value: true,
-      },
-      {
-        id: "continuous_sync",
-        name: "Continuous sync",
-        value: true,
-      },
-      {
-        id: "white_labeling",
-        name: "White-labeling (remove \u201cPowered by\u201d badge)",
-        value: true,
-      },
-      {
-        id: "liquid_code",
-        name: "Liquid code for custom sections",
-        value: true,
-      },
+      ...includedFeatures,
     ],
   },
   {
@@ -84,26 +58,7 @@ export default [
         name: "Max reviews",
         value: 10000,
       },
-      {
-        id: "auto_translate",
-        name: "Auto-translate",
-        value: true,
-      },
-      {
-        id: "continuous_sync",
-        name: "Continuous sync",
-        value: true,
-      },
-      {
-        id: "white_labeling",
-        name: "White-labeling (remove \u201cPowered by\u201d badge)",
-        value: true,
-      },
-      {
-        id: "liquid_code",
-        name: "Liquid code for custom sections",
-        value: true,
-      },
+      ...includedFeatures,
     ],
   },
   {
@@ -120,26 +75,7 @@ export default [
         name: "Max reviews",
         value: 50000,
       },
-      {
-        id: "auto_translate",
-        name: "Auto-translate",
-        value: true,
-      },
-      {
-        id: "continuous_sync",
-        name: "Continuous sync",
-        value: true,
-      },
-      {
-        id: "white_labeling",
-        name: "White-labeling (remove \u201cPowered by\u201d badge)",
-        value: true,
-      },
-      {
-        id: "liquid_code",
-        name: "Liquid code for custom sections",
-        value: true,
-      },
+      ...includedFeatures,
     ],
   },
   {
@@ -156,26 +92,7 @@ export default [
         name: "Max reviews",
         value: Infinity,
       },
-      {
-        id: "auto_translate",
-        name: "Auto-translate",
-        value: true,
-      },
-      {
-        id: "continuous_sync",
-        name: "Continuous sync",
-        value: true,
-      },
-      {
-        id: "white_labeling",
-        name: "White-labeling (remove \u201cPowered by\u201d badge)",
-        value: true,
-      },
-      {
-        id: "liquid_code",
-        name: "Liquid code for custom sections",
-        value: true,
-      },
+      ...includedFeatures,
     ],
   },
 ]
