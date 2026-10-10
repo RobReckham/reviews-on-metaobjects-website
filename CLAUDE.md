@@ -2,11 +2,6 @@
 
 Marketing/content website for the Reviews on Metaobjects Shopify app.
 
-## Business context
-
-You fill find all context in the symlinked context folder:
-@.context/*
-
 ## Stack
 
 - Next.js (App Router) + Nextra docs theme
