@@ -32,8 +32,8 @@ export default function PricingSection() {
       </div>
 
       <p className="footnote mx-auto mt-8 max-w-2xl">
-        Every plan includes auto-translate, continuous sync, white-labeling and full Liquid access.
-        14-day free trial on paid plans.
+        Every plan, including Free, includes auto-translate, continuous sync, white-labeling,
+        full Liquid access and email support. 14-day free trial on paid plans.
       </p>
 
       <a href={LISTING_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary mt-8 inline-block">
