@@ -129,8 +129,7 @@ const faqs = [
   {
     question: 'What kind of support do you offer?',
     answer: <>
-      <p>Free tier: community support.</p>
-      <p>Paid plans: email support with response times under 24 hours.</p>
+      <p>Email support on every plan, including Free. We typically respond within 24 hours.</p>
     </>,
   },
   {

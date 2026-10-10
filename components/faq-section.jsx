@@ -63,7 +63,7 @@ const faqs = [
   },
   {
     question: "What support do you get?",
-    answer: "Free plan: community support. Paid plans: email support, typically answered within 24 hours.",
+    answer: "Email support on every plan, including Free. We typically respond within 24 hours.",
   },
   {
     question: "Can I see it on a live store?",
