@@ -83,6 +83,9 @@ export default function AboutPage() {
             <p>
               The result: faster product pages, better Core Web Vitals, star ratings in Google, and reviews your client owns permanently, regardless of which app they're using to manage them.
             </p>
+            <p>
+              Today I work as a <a href="https://marius.korbmacher.me/en" className="underline">Shopify social proof specialist for €1M+ brands</a> and write about social proof on Shopify on <a href="https://www.linkedin.com/in/mariuskorbmacher" target="_blank" rel="noopener noreferrer" className="underline">LinkedIn</a>.
+            </p>
           </div>
         </div>
       </section>
