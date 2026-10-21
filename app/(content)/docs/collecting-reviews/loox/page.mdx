@@ -1,24 +1,23 @@
 ---
 title: Loox
-description: Automatic Loox review tracking.
+description: Loox reviews show in FiveOh automatically. There is nothing to connect.
 ---
 
 # Loox
 
-Loox is treated as an automatic sync source.
+Loox stores its reviews in Shopify's standard product review metaobjects. FiveOh reads them from there, so you can keep collecting with Loox and display the reviews with FiveOh.
 
-## Behavior
+## Setup
 
-- Reviews are pulled into the app through the sync flow.
-- Manual import is typically not required.
-- Synced reviews become available in dashboard and storefront app blocks.
+There is nothing to set up. As soon as Loox has stored a review in Shopify, FiveOh notices it, adds it to your reviews and recalculates the product's rating. A **Loox** card appears on the <a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}`} target="_blank" rel="noopener">app dashboard</a> once the first review arrives.
 
-## Important
+New, changed and deleted reviews follow on their own: Shopify tells FiveOh about every change.
 
-If review data looks incomplete, confirm the source is connected and sync has finished.
+## Checking that it works
+
+Open the reviews table on the dashboard. The Loox reviews are listed there, with Loox as their source. Then open a product with Loox reviews on your storefront: the FiveOh blocks show them.
 
 ## Troubleshooting
 
-- If reviews stop updating, verify source connection status and recent sync runs.
-- If totals differ from source, confirm product mapping and filtering assumptions.
-- If storefront stays stale, refresh cache and confirm app blocks read latest imported data.
+1. **No reviews arrive:** in your Shopify admin, open **Content → Metaobjects → Product reviews**. If the Loox reviews are not listed there, Loox has not stored them in Shopify yet. Check Loox's settings for syncing reviews to Shopify.
+2. **A review shows without a product:** Loox stored it without a product link. It counts as a store review.

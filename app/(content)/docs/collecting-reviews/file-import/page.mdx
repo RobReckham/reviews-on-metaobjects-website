@@ -46,18 +46,18 @@ You can include these for richer review records:
 In the import modal, choose how your IDs are represented.  
 Your CSV values must match the selected type:
 
-- Product identifier: `sku`, `barcode`, `gid`, or numeric ID
+- Product identifier: `sku`, `barcode`, `gid`, or numeric ID. `product_variant` uses the same type: the variant's SKU or barcode, its `gid://shopify/ProductVariant/…`, or its numeric ID
 - Order identifier: order number, `gid`, or numeric ID
-- Author identifier: email, `gid`, or numeric ID
+- Author identifier: email, `gid`, or numeric ID. `author` links the review to a customer in your store; the name shown with the review is `author_display_name`. Leave `author_display_name` empty for an anonymous review
 
-If IDs do not match the selected format, rows can fail or remain unlinked.
+If IDs do not match the selected format, rows can fail or remain unlinked. A row with an empty `product` becomes a [store review](/docs/how-it-works#product-reviews-and-store-reviews): a review about your shop, not a product.
 
 ## Date and format rules
 
 - Use ISO-style timestamps when possible (example: `2024-02-01T10:15:00Z`).
 - `submitted_at` should be a valid date.
-- `media_urls` should contain public `http(s)` URLs, comma-separated.
-- If `status` is blank, normal default publish behavior applies.
+- `media_urls` holds public `http(s)` URLs of photos and videos, separated by commas. Because the file itself uses commas too, put the value in quotes when it has more than one URL: `"https://cdn.example.com/1.jpg,https://cdn.example.com/2.jpg"`.
+- If `status` is blank, the review is published (`active`).
 
 ## Deduplication behavior
 
@@ -77,8 +77,8 @@ If IDs do not match the selected format, rows can fail or remain unlinked.
 
 ```csv
 rating,submitted_at,title,body,author_display_name,product,product_variant,order,author,status,media_urls,unique_id
-5,2024-11-02T09:15:00Z,Great quality,Really happy with this product,Alex,SKU-123,VAR-123,1001,alex@example.com,active,https://cdn.example.com/review1.jpg,rev-1001
-4,2024-11-05T13:40:00Z,Good overall,Fast shipping and as described,Sam,SKU-456,VAR-456,1002,sam@example.com,draft,,rev-1002
+5,2024-11-02T09:15:00Z,Great quality,Really happy with this product,Alex,SKU-123,SKU-123-M,1001,alex@example.com,active,"https://cdn.example.com/review1.jpg,https://cdn.example.com/review2.jpg",rev-1001
+4,2024-11-05T13:40:00Z,Good overall,Fast shipping and as described,Sam,SKU-456,SKU-456-L,1002,sam@example.com,draft,,rev-1002
 ```
 
 ## Notes

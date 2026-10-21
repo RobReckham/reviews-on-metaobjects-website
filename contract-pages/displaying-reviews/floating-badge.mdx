@@ -1,0 +1,91 @@
+---
+title: Floating Badge
+description: A compact rating badge, inline or pinned to a corner of the screen.
+---
+
+# Floating Badge
+
+The **FiveOh Floating Badge** is a small card with stars, the rating and the review count, like `★★★★★ 4.8 out of 5 · 2,341 reviews`, with an optional image. Place it inline, or pin it to a corner of the screen, where it stays visible while shoppers scroll.
+
+## Where to place it
+
+1. Fixed to a corner of the screen
+2. Inline in any section
+
+## Adding it to your theme
+
+1. In the Theme Editor, open the template, or the footer if it should appear on every page.
+2. Click **Add block** and choose **FiveOh Floating Badge** from the **Apps** tab.
+3. Choose a **Position**: **Inline**, or fixed to a corner.
+
+## Settings
+
+| Setting | What it does |
+|---|---|
+| **Background color**, **Text color** | The colors of the badge. |
+| **Star color**, **Star size**, star icons | The look of the stars. |
+| **Image** | An optional image, for example a review seal. |
+| **Position** | **Inline**, or fixed to the bottom right, bottom left, top right or top left. |
+| **Link**, **Open link in new tab** | Where a click goes, for example a page with all your reviews. |
+| **Review scope**, **Fallback behavior**, **Minimum reviews to show** | Which reviews the rating is based on, and when the badge hides. **store** by default. |
+| **Anchor ID** | An ID for the badge. |
+
+## Texts
+
+| Key | Default | Values |
+|---|---|---|
+| `rating` | `<b>{a}</b> out of 5` | `{a}` rating |
+| `review_count` | `<b>1</b> review\|<b>{a}</b> reviews` | `{a}` review count |
+| `stars_label` | `{a} out of 5 stars` | `{a}` rating |
+
+## Data
+
+The block reads these metafields. Your theme code can read the same ones; their full structure is in the [reference](/docs/developers/metaobjects-and-metafields). Which ones depends on the **Review scope**: **product** reads the product's `rating`, **mixed** the shop's `rating`, and **store**, the default, the shop's `store_reviews_rating`.
+
+1. [`rating`](/docs/developers/metaobjects-and-metafields#rating) and [`rating_count`](/docs/developers/metaobjects-and-metafields#rating_count): on a product the product's own, on the shop those of all reviews.
+2. [`rating_count_compact`](/docs/developers/metaobjects-and-metafields#rating_count_compact): the count shortened for tight spaces, like `2.3k`.
+3. [`store_reviews_rating`](/docs/developers/metaobjects-and-metafields#store_reviews_rating) and its count, on the shop: store reviews only, about the shop rather than a product.
+4. [`product_reviews_rating`](/docs/developers/metaobjects-and-metafields#product_reviews_rating) and its count, on the shop: product reviews only.
+
+## Examples
+
+A fixed badge keeps `1rem` away from the screen edges. Change the distance with `--fo-floating-badge-bleed: 1.5rem;` in the block's **Custom CSS**.
+
+The example below builds the badge into your own theme code. Each example brings the CSS for exactly the look of its preview, scoped to its own classes so it does not touch the rest of your theme. Only the font and the text color come from your theme. The stars (`fo-stars`) need FiveOh's star styles on the page, which every FiveOh block and the [Product Card Ratings](/docs/displaying-reviews/product-card-ratings) app embed load.
+
+### A badge in your theme
+
+The same badge as a link in your own footer or header, from the shop's metafields:
+
+<Example>
+<a href="#" className="reviews-badge"><span className="fo-stars" style={{ "--fo-rating": 4.8 }}></span><span><strong>4.8</strong> out of 5 · 2.3k reviews</span></a>
+
+```liquid
+{%- assign fiveoh = shop.metafields['app--324569563137'] -%}
+<a href="/pages/reviews" class="reviews-badge">
+  <span class="fo-stars" style="--fo-rating: {{ fiveoh.rating.value.rating }}"></span>
+  <span><strong>{{ fiveoh.rating.value.rating }}</strong> out of 5 · {{ fiveoh.rating_count_compact.value }} reviews</span>
+</a>
+```
+
+```css
+.reviews-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  color: inherit;
+  text-decoration: none;
+}
+```
+
+</Example>
+
+## Troubleshooting
+
+1. **The badge covers content or the chat button:** pick another corner, or move it with `--fo-floating-badge-bleed`.
+2. **No rating shows:** check that there are reviews for the chosen **Review scope**. Store scope only counts reviews about your shop.

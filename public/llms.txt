@@ -5,32 +5,46 @@
 FiveOh is for merchants, developers and agencies who want control over how reviews and purchase signals appear in a Shopify store.
 
 1. **Rendering and performance:** Initial review content is rendered server-side in Liquid and included in the page HTML. Displaying it does not require the browser to fetch reviews from the source provider. This removes that loading dependency; the actual effect on loading times and layout stability depends on the theme and implementation.
-2. **Design and placement:** App blocks include product ratings, product-card ratings, review lists, review sliders and rating bars. Developers can customise markup with structure templates and placeholder tokens, apply scoped CSS, or build Liquid sections around the stored review data.
+2. **Design and placement:** App blocks include product ratings, product-card ratings, review lists, review sliders and rating bars. Each block's markup is an editable Liquid structure with a translatable texts setting and scoped CSS. Developers can also build their own Liquid components or headless storefronts on the documented metafields and metaobjects, which only ever get additions (storefront contract).
 3. **Import and sync:** Documented sources include Judge.me, Loox, REVIEWS.io, Trustpilot, Shop app reviews and CSV files. Setup and update methods vary by source. Trustpilot supports service and product reviews, product matching and full or incremental syncs. Existing Shop app reviews stored as standard review metaobjects are read and kept in sync; this is distinct from publishing reviews to other channels.
 4. **Native collection:** FiveOh supports post-purchase review-request emails and storefront review forms. For logged-in customers, storefront forms attach the customer account and prefill the author name. Clearing the name keeps the displayed author anonymous. A customer account alone does not verify a purchase. Email templates and timing are configurable, and post-purchase review submissions can trigger Shopify discount rewards.
 5. **Purchase signals:** Blocks can show units sold over a selected period, the latest purchase time, bestseller rank and returning-customer figures. Thresholds control when signals appear. Returning-customer figures describe customers returning to the store, not repeat purchases of the same product.
-6. **Translations:** Review titles and bodies are automatically translated into the store's published languages. Translations use Shopify's native translation system and render for the shopper's locale. Older reviews may need reprocessing when a language is added.
+6. **Translations:** Review titles and bodies are automatically translated into the store's published languages. Translations use Shopify's native translation system and render for the shopper's locale. Reviews that existed before a language was added are not translated into it automatically.
 7. **Search and AI readability:** Server-rendered review text and review structured data are available in the HTML for crawlers to read. This does not guarantee indexing, search-result stars, rankings or citations by AI tools.
 8. **Data ownership:** Product reviews remain in Shopify's standard review metaobjects after uninstall. The stored data can be used by custom Liquid code or compatible tools; keeping the data is separate from keeping the app's storefront blocks.
 9. **Fair pricing**: Free plan for up to 100 reviews with all features included. Paid plans scale affordably because Shopify handles the infrastructure, not us.
+
+Every docs page is also available as Markdown: append `.md` to its URL, e.g. https://reviewsonmetaobjects.com/docs/installation.md.
 
 ## Product and setup
 
 1. [Home](https://reviewsonmetaobjects.com/): App overview, features and setup options.
 2. [Pricing](https://reviewsonmetaobjects.com/#pricing): Current plans and review limits.
-3. [Getting started](https://reviewsonmetaobjects.com/docs): Installation and initial configuration.
-4. [Collecting reviews](https://reviewsonmetaobjects.com/docs/collecting-reviews): Supported sources and collection workflows.
-5. [Trustpilot integration](https://reviewsonmetaobjects.com/docs/collecting-reviews/trustpilot): Credentials, service and product reviews, matching and sync setup.
-6. [Shop app reviews](https://reviewsonmetaobjects.com/docs/collecting-reviews/shop-app): Reading existing standard review metaobjects and receiving updates.
-7. [Post-purchase emails](https://reviewsonmetaobjects.com/docs/collecting-reviews/post-purchase-email): Email timing, templates and discount rewards.
-8. [Storefront collection](https://reviewsonmetaobjects.com/docs/collecting-reviews/storefront): Collecting reviews from the store.
+3. [Introduction](https://reviewsonmetaobjects.com/docs.md): What FiveOh is and the two ways to use it.
+4. [Installation](https://reviewsonmetaobjects.com/docs/installation.md): From installing the app to reviews on the storefront.
+5. [How FiveOh works](https://reviewsonmetaobjects.com/docs/how-it-works.md): Where the data lives, how ratings and lists are kept ready, rendering and the script.
+6. [Collecting reviews](https://reviewsonmetaobjects.com/docs/collecting-reviews): Supported sources and collection workflows.
+7. [Trustpilot integration](https://reviewsonmetaobjects.com/docs/collecting-reviews/trustpilot): Credentials, service and product reviews, matching and sync setup.
+8. [Shop app reviews](https://reviewsonmetaobjects.com/docs/collecting-reviews/shop-app): Reading existing standard review metaobjects and receiving updates.
+9. [Post-purchase emails](https://reviewsonmetaobjects.com/docs/collecting-reviews/post-purchase-email): Email timing, templates and discount rewards.
+10. [Storefront collection](https://reviewsonmetaobjects.com/docs/collecting-reviews/storefront): Collecting reviews from the store.
 
 ## Display and customisation
 
-1. [App blocks](https://reviewsonmetaobjects.com/docs/displaying-reviews): Review displays, forms and purchase-signal blocks.
-2. [Customising app blocks](https://reviewsonmetaobjects.com/docs/displaying-reviews/customising-app-blocks): Structure templates, placeholder tokens and custom CSS.
-3. [Translations](https://reviewsonmetaobjects.com/docs/managing-reviews/translations): Published languages, locale-aware rendering and reprocessing.
-4. [Troubleshooting](https://reviewsonmetaobjects.com/docs/troubleshooting): Diagnosing collection, sync and display problems.
+1. [App blocks](https://reviewsonmetaobjects.com/docs/displaying-reviews.md): Review displays, forms and trust-signal blocks.
+2. [Customising blocks](https://reviewsonmetaobjects.com/docs/displaying-reviews/customising-blocks.md): Settings, translatable texts, scoped CSS and the Liquid structure.
+3. [Trust signals](https://reviewsonmetaobjects.com/docs/displaying-reviews/trust-signals.md): Bestseller rank, units sold, last purchase, returning customers and rating share.
+4. [Checkout blocks](https://reviewsonmetaobjects.com/docs/displaying-reviews/checkout-blocks.md): Ratings, rating shares and units sold in the Shopify Plus checkout.
+5. [Rating filters](https://reviewsonmetaobjects.com/docs/displaying-reviews/rating-filters.md): A rating filter for collections and search with Search & Discovery.
+6. [Translations](https://reviewsonmetaobjects.com/docs/managing-reviews/translations.md): Automatic review translation, storefront language and search per language.
+7. [Troubleshooting](https://reviewsonmetaobjects.com/docs/troubleshooting.md): Diagnosing collection, sync and display problems.
+
+## Developers
+
+1. [Developers](https://reviewsonmetaobjects.com/docs/developers.md): Reading FiveOh data in Liquid, the Storefront API and customer accounts, and the rules for what stays stable.
+2. [Metaobjects & metafields](https://reviewsonmetaobjects.com/docs/developers/metaobjects-and-metafields.md): Every metafield and review field, where it lives, what it holds and the full structure of its values.
+3. [HTML & JS](https://reviewsonmetaobjects.com/docs/developers/html-and-js.md): Elements, actions, slots, states and CSS custom properties.
+4. [Languages](https://reviewsonmetaobjects.com/docs/developers/languages.md): Translating texts in theme files and block structures; review content arrives translated. Copy-paste examples with previews are on each block page under Examples.
 
 ## Optional
 

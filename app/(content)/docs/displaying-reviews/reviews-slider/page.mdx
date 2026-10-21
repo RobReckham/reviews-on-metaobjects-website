@@ -1,64 +1,148 @@
 ---
 title: Reviews Slider
-description: Horizontal reviews slider with a summary tile for homepage, collections, and product pages.
+description: A horizontal carousel of reviews with a summary tile, for the homepage, landing pages and product pages.
 ---
+
+{/* Generated from app/CONTRACT.md by pnpm docs:sync-contract. Edit contract-pages/displaying-reviews/reviews-slider.mdx or the contract, not this file. */}
 
 # Reviews Slider
 
-Displays a horizontal scrolling reviews carousel with an optional summary tile (rating, count, logo).
+The **FiveOh Reviews Slider** shows reviews as a row of cards that shoppers swipe or scroll through, led by a summary tile with your rating, the review count and an optional logo.
 
-## When to use
+Unlike the [Review List](/docs/displaying-reviews/review-list), the slider has no search, filters or load more. It shows a fixed number of reviews, featured ones first if you like, then the newest.
 
-Use this when you want compact social proof that works beyond the product page: homepage, landing pages, collection pages, or as a secondary highlight on product pages.
+## Where to place it
 
-Unlike Review List, this is a carousel of recent reviews, not a full browsable list.
+1. Homepage
+2. Landing pages
+3. Product page, in the main content
 
-## Review scope
+## Adding it to your theme
 
-Choose what reviews feed the slider:
+1. In the Theme Editor, open the template, for example the homepage.
+2. Click **Add block** in a section and choose **FiveOh Reviews Slider** from the **Apps** tab.
+3. Choose the **Review scope**: **mixed** for all reviews (the default), **store** for reviews about your shop, or **product** on product pages.
 
-- **Product reviews:** current product (and its variants). On non-product pages this falls back to all reviews.
-- **Store reviews:** store-level reviews only.
-- **All reviews:** mixed shop-wide reviews (default).
+The previous and next buttons need the [FiveOh Core](/docs/displaying-reviews/core) app embed. Without it, the slider still scrolls by swiping.
 
-## How it renders
+## Settings
 
-- Shows newest reviews first, up to the max you set (2–48).
-- Includes a summary tile with heading, stars, review count, and optional logo.
-- Works as a regular section app block in Theme Editor.
+| Setting | What it does |
+|---|---|
+| **Max reviews to show** | How many reviews the slider holds. |
+| **Show first N featured reviews** | How many [featured reviews](/docs/managing-reviews/featured-reviews) come first. `0` shows only the newest. |
+| Star icons | Your own star images. The stars take the text color of the section. |
+| **Hide review information link** | Hides the "About these reviews" link. |
+| **Summary logo** | An image in the summary tile, for example your brand or a review seal. |
+| **Minimum reviews to show**, **Fallback behavior**, **Review scope** | Which reviews the slider shows, and when it hides. See [Customising blocks](/docs/displaying-reviews/customising-blocks#settings). |
+| **Heading tag** | The HTML tag of the heading. |
+| **Anchor ID** | An ID other elements can link to. |
 
-## What you can customize
+## Texts
 
-- Max reviews to show
-- Heading and summary heading
-- Summary logo
-- Empty state text and hide-if-empty behavior
-- Review scope (product / store / all)
-- Heading tag for SEO
-- Anchor ID (for click-to-scroll from Product Rating)
-- Structure, review item structure, and custom CSS (advanced)
+| Key | Default | Values |
+|---|---|---|
+| `heading` | `Customer Reviews` | |
+| `summary_heading` | `Excellent` | The word in the summary tile. |
+| `review_count` | `1 review\|{a} reviews` | `{a}` review count |
+| `no_reviews_message` | `No reviews yet` | |
+| `anonymous` | `Anonymous` | |
+| `previous_label`, `next_label` | `Previous`, `Next` | Screen reader labels of the buttons. |
+| `stars_label` | `{a} out of 5 stars` | `{a}` rating |
+| `featured_badge` | `Featured` | |
+| `status_unverified`, `status_verified_buyer`, `status_verified_reviewer` | `Unverified`, `Verified Buyer`, `Verified Reviewer` | |
+| `review_info_link` | `About these reviews` | |
 
-## Typical usage
+## Data
 
-1. Enable [FiveOh Core](/docs/displaying-reviews/core) if it is not already on.
-2. In Theme Editor, add **FiveOh Reviews Slider** to the template you want.
-3. Set review scope: **All reviews** for homepage/landing, **Product reviews** on PDPs.
-4. Optionally set an Anchor ID and link Product Rating click-to-scroll to it.
+The block reads these metafields. Your theme code can read the same ones; their full structure is in the [reference](/docs/developers/metaobjects-and-metafields). On product pages they are the product's, elsewhere the shop's.
 
-## Notes
+1. [`newest_reviews`](/docs/developers/metaobjects-and-metafields#newest_reviews) and `newest_reviews_meta`: the newest reviews and their translations.
+2. [`featured_reviews`](/docs/developers/metaobjects-and-metafields#featured_reviews) and `featured_reviews_meta`: the featured reviews, shown first.
+3. [`rating`](/docs/developers/metaobjects-and-metafields#rating) and [`rating_count`](/docs/developers/metaobjects-and-metafields#rating_count): the summary tile.
 
-- Pair with [Product Rating](/docs/displaying-reviews/product-rating) when you want summary stars above the fold and a slider further down.
-- For a full review feed on the product page, use [Review List](/docs/displaying-reviews/review-list) instead (or as well).
-- Structure and CSS follow the same pattern as other blocks. See [Customising app blocks](/docs/displaying-reviews/customising-app-blocks).
+Each review in the lists is a [`product_review`](/docs/developers/metaobjects-and-metafields#product_review) with its [`review_meta`](/docs/developers/metaobjects-and-metafields#review_meta).
 
-## Quick links
+## Examples
 
-<a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}/app-blocks`} target="_blank" rel="noopener">Open app blocks page in app</a>  
-<a href="https://demo.reviewsonmetaobjects.com/products/chambray-work-shirt" target="_blank" rel="noopener">Demo store</a> (password: demo)
+The slider reads the `newest_reviews` and `featured_reviews` lists of the product or the shop. Its stars follow the text color; to give them their own color, set `--fo-star-color: #e7a427;` in the block's **Custom CSS**.
+
+The example below builds a slider in your own theme code. Each example brings the CSS for exactly the look of its preview, scoped to its own classes so it does not touch the rest of your theme. Only the font and the text color come from your theme. The stars (`fo-stars`) need FiveOh's star styles on the page, which every FiveOh block and the [Product Card Ratings](/docs/displaying-reviews/product-card-ratings) app embed load.
+
+### A slider of featured reviews
+
+`<fo-slider>` adds previous and next buttons to any scroll container marked with `data-fo-track`. The buttons are disabled at the start and the end. The cards are yours to design. The track scrolls without JavaScript; the buttons need the script, which the [FiveOh Core](/docs/displaying-reviews/core) app embed loads.
+
+<Example>
+<fo-slider><button aria-label="Previous" disabled>‹</button><div data-fo-track="">{["Exactly as the size guide promised. Third pair already.", "No breaking in needed, I wear them all day.", "Warm, soft and still breathable after a long hike."].map((text) => <article key={text}><span className="fo-stars" style={{ "--fo-rating": 5 }}></span><p>{text}</p></article>)}</div><button aria-label="Next">›</button></fo-slider>
+
+```liquid
+{%- assign fiveoh = product.metafields['app--324569563137'] -%}
+<fo-slider>
+  <button data-fo-action="slide-prev" aria-label="Previous">‹</button>
+  <div data-fo-track>
+    {%- assign metas = fiveoh.featured_reviews_meta.value | compact -%}
+    {%- for review in fiveoh.featured_reviews.value limit: 12 -%}
+      <article data-fo-review-handle="{{ review.system.handle }}">
+        <span class="fo-stars" style="--fo-rating: {{ review.rating.value.rating }}"></span>
+        <p>{{ metas[forloop.index0].body.value | truncate: 160 }}</p>
+      </article>
+    {%- endfor -%}
+  </div>
+  <button data-fo-action="slide-next" aria-label="Next">›</button>
+</fo-slider>
+```
+
+```css
+fo-slider {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+fo-slider [data-fo-track] {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+fo-slider article {
+  flex: 0 0 12rem;
+  padding: 0.75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  scroll-snap-align: start;
+}
+
+fo-slider article p {
+  margin: 0.5rem 0 0;
+}
+
+fo-slider button {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid #d1d5db;
+  border-radius: 999px;
+  background: #ffffff;
+  color: inherit;
+  cursor: pointer;
+}
+
+fo-slider button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+```
+
+</Example>
+
+To show the newest reviews instead, read `newest_reviews` and `newest_reviews_meta`. For store-wide sliders, read the same lists from `shop.metafields`.
 
 ## Troubleshooting
 
-- If the slider is empty, verify reviews exist for the selected scope and are published.
-- If Product reviews shows shop-wide content, you are likely not on a product template (fallback to all reviews).
-- If layout looks broken after edits, reset structure/CSS under advanced settings and re-apply changes incrementally.
-- If click-to-scroll from Product Rating fails, confirm the Anchor ID matches the rating block target.
+1. **The slider is empty:** check that there are published reviews for the chosen **Review scope**.
+2. **It shows store-wide reviews on a product page:** the scope is **mixed** or **store**. Set it to **product**.
+3. **The buttons do nothing:** turn on the FiveOh Core app embed.

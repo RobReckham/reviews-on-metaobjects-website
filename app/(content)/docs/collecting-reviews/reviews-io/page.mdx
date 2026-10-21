@@ -1,16 +1,16 @@
 ---
-title: Reviews.io
-description: Manual Reviews.io import and sync.
+title: REVIEWS.io
+description: Manual REVIEWS.io import and sync.
 ---
 
-# Reviews.io
+# REVIEWS.io
 
-Reviews.io imports on demand from the app dashboard, with optional webhooks for real-time updates.
+REVIEWS.io imports on demand from the app dashboard, with optional webhooks for real-time updates.
 
 ## Setup
 
-1. Open <a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}`} target="_blank" rel="noopener">the app dashboard</a> and add Reviews.io as a source.
-2. Enter your **Store ID.** This is the domain you registered with Reviews.io (e.g. `www.yourstore.com`).
+1. Open <a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}`} target="_blank" rel="noopener">the app dashboard</a> and add REVIEWS.io as a source.
+2. Enter your **Store ID.** This is the domain you registered with REVIEWS.io (e.g. `www.yourstore.com`).
 3. Select your **Product identifier.** This controls how the import matches review records to Shopify products:
    - **SKU** (default): matches by product variant SKU
    - **Barcode:** matches by variant barcode
@@ -18,16 +18,16 @@ Reviews.io imports on demand from the app dashboard, with optional webhooks for 
    - **Numeric ID:** matches by Shopify numeric product ID
 4. Start an initial sync from the dashboard.
 
-Choose the identifier type that matches how your Reviews.io reviews were originally collected.
+Choose the identifier that your product catalogue in REVIEWS.io uses. If REVIEWS.io lists your products by SKU, choose **SKU**; if it lists them by Shopify product ID, choose **Numeric ID**.
 
 ## Sync
 
-- Run a **Full sync** or **Incremental sync** on the Reviews.io platform card to pull reviews.
+- Run a **Full sync** or **Incremental sync** on the REVIEWS.io platform card to pull reviews. A full sync fetches all reviews again; an incremental sync only fetches reviews that are new or changed since the last sync. Use a full sync the first time.
 - Check the sync status and history in the app dashboard after each run.
 
 ## Real-time updates (webhooks)
 
-For live updates without manual syncs, click **Register webhooks** on the Reviews.io platform card. New and updated reviews then push into your store automatically. Use **Deregister webhooks** to turn it off.
+For live updates without manual syncs, click **Register webhooks** on the REVIEWS.io platform card. New and updated reviews then push into your store automatically. Use **Deregister webhooks** to turn it off.
 
 ## Notes
 
@@ -36,6 +36,6 @@ For live updates without manual syncs, click **Register webhooks** on the Review
 
 ## Troubleshooting
 
-- If sync fails, re-check your Store ID. It must match exactly what Reviews.io has on file.
+- If sync fails, re-check your Store ID. It must match exactly what REVIEWS.io has on file.
 - If reviews import without product links, try a different product identifier type and re-sync.
-- If counts seem low, run another full sync after confirming the data exists on the Reviews.io side.
+- If counts seem low, run another full sync after confirming the data exists on the REVIEWS.io side.

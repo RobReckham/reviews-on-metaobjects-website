@@ -22,7 +22,7 @@ Find your API credentials and Business Unit ID in your Trustpilot Business accou
 
 ## Sync
 
-- Run a **Full sync** or **Incremental sync** from the Trustpilot platform card to pull reviews.
+- Run a **Full sync** or **Incremental sync** from the Trustpilot platform card to pull reviews. A full sync fetches all reviews again; an incremental sync only fetches reviews that are new or changed since the last sync. Use a full sync the first time.
 - Check sync status and history in the dashboard after each run.
 
 ## Real-time updates (webhooks)
@@ -36,7 +36,7 @@ New, updated and deleted reviews then flow in automatically.
 
 ## Notes
 
-- Service reviews carry no product link; they are stored as store-level reviews.
+- Service reviews are about your business, not a product, so they are stored as [store reviews](/docs/how-it-works#product-reviews-and-store-reviews). Blocks with the **Review scope** set to **store** or **mixed** show them.
 - Keep your product identifier consistent. Mixing types in one source leaves reviews unlinked.
 
 ## Troubleshooting

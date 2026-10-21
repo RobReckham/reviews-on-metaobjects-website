@@ -1,0 +1,141 @@
+---
+title: Review Form
+description: Let shoppers write a review on the product page, inline or in a modal, with photos and videos.
+---
+
+# Review Form
+
+The **FiveOh Review Form** lets shoppers write a review right on the product page: a star rating, a title, the review text, photos and videos, and the name shown with the review. It sits on the page as a form, or behind a "Write a review" button that opens it in a dialog.
+
+Customers who are logged in get their first name filled in; clearing it posts the review anonymously. Customers who already reviewed the product see the date of their review instead of the form.
+
+The form needs the [FiveOh Core](/docs/displaying-reviews/core) app embed to submit.
+
+## Where to place it
+
+1. Product page, in the main content
+
+## Adding it to your theme
+
+1. In the Theme Editor, open a product template.
+2. Click **Add block** below the [Review List](/docs/displaying-reviews/review-list) and choose **FiveOh Review Form** from the **Apps** tab.
+3. Choose the **Display mode**: **Inline** shows the form on the page, **Modal** shows a "Write a review" button that opens it. In modal mode, [any button in your theme](#a-write-a-review-button) can open it too.
+4. Choose **Who can review**.
+
+## Settings
+
+| Setting | What it does |
+|---|---|
+| **Display mode** | **Inline** or **Modal**. |
+| **Who can review** | **Everyone**; **authenticated** customers who are logged in; or **buyers**, logged-in customers who bought this product. For everyone else the block renders nothing. |
+| **Star color**, **Star size**, star icons | The look of the rating stars. |
+| **Heading tag** | The HTML tag of the heading. |
+| **Anchor ID** | `review-form` by default. In modal mode, it is also the dialog's ID for `aria-controls`. |
+
+Whether new reviews are published at once or wait for your approval is set in the app, see [Managing reviews](/docs/managing-reviews#moderation).
+
+## Texts
+
+| Key | Default | Values |
+|---|---|---|
+| `heading` | `Write a review` | |
+| `open_button` | `Write a review` | The button that opens the modal. |
+| `close_label` | `Close` | Screen reader label of the modal's close button. |
+| `rating_label`, `title_label`, `body_label`, `author_label` | empty | Visible labels above the fields. Empty shows none. |
+| `stars_label` | `Rating` | Screen reader label of the star input. |
+| `star_input_label` | `Rate with 1 star\|Rate with {a} stars` | `{a}` stars, per star button |
+| `title_placeholder`, `body_placeholder`, `author_placeholder` | `Title`, `Review`, `Public author name` | Placeholders inside the fields. |
+| `upload_label` | `Upload media` | |
+| `submit_button`, `submitting`, `submitted` | `Submit`, `Submitting...`, `Submitted` | The button in its three states. |
+| `success_message` | `Thanks for your review!` | |
+| `error_message` | `Something went wrong` | |
+| `missing_rating_message` | `Please click a star to provide a rating.` | |
+| `upload_failed_message` | `Upload failed. Please try again.` | |
+| `already_reviewed_message` | `You submitted a review for this product on {a}.` | `{a}` date of the review |
+
+## Data
+
+The form reads one metafield, on the logged-in customer: [`review_handles`](/docs/developers/metaobjects-and-metafields#review_handles). It lists every product and variant the customer reviewed, so the form can show "You reviewed this product on …" instead of asking again.
+
+## Examples
+
+To restyle the block itself, see [Customising blocks](/docs/displaying-reviews/customising-blocks). The examples below build a form in your own theme code. Each example brings the CSS for exactly the look of its preview, scoped to its own classes so it does not touch the rest of your theme. Only the font and the text color come from your theme. The stars (`fo-stars`) need FiveOh's star styles on the page, which every FiveOh block and the [Product Card Ratings](/docs/displaying-reviews/product-card-ratings) app embed load.
+
+### A review form of your own
+
+`<fo-review-form>` submits any form marked with `data-fo-form`, as long as its fields keep their names: `rating`, `title`, `body`, `author` and `media`. Layout and markup are free. `data-fo-show` shows the success and error messages in the right state. Customers who already reviewed the product see a note instead, read from their `review_handles`. This needs the [FiveOh Core](/docs/displaying-reviews/core) app embed.
+
+<Example>
+<fo-review-form><form>{[1, 2, 3, 4, 5].map((i) => <label key={i}><input type="radio" name="preview-rating" value={i} /> {i}</label>)}<input name="title" /><textarea name="body"></textarea><input name="author" defaultValue="Mara" /><input type="file" name="media" multiple /><button type="submit" disabled>Submit review</button></form></fo-review-form>
+
+{/* contract-body: Examples > Review form */}
+
+```css
+fo-review-form form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  max-width: 28rem;
+}
+
+fo-review-form input:not([type="radio"]),
+fo-review-form textarea {
+  flex-basis: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  color: inherit;
+  font: inherit;
+}
+
+fo-review-form textarea {
+  min-height: 6rem;
+}
+
+fo-review-form button[type="submit"] {
+  padding: 0.5rem 1.25rem;
+  border: 0;
+  border-radius: 0.375rem;
+  background: #111827;
+  color: #ffffff;
+  font: inherit;
+  cursor: pointer;
+}
+```
+
+</Example>
+
+The full list of form attributes and states is in [HTML & JS](/docs/developers/html-and-js#form-fields).
+
+### A "Write a review" button
+
+With the block in **Modal** mode, any element in your theme can open it, for example a button next to the product rating. `aria-controls` must match the block's **Anchor ID**:
+
+<Example>
+<button type="button" className="reviews-write-button">Write a review</button>
+
+```liquid
+<button type="button" class="reviews-write-button" data-fo-action="open-modal" aria-controls="review-form">
+  Write a review
+</button>
+```
+
+```css
+.reviews-write-button {
+  padding: 0.5rem 1.25rem;
+  border: 1px solid currentColor;
+  border-radius: 0.375rem;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+```
+
+</Example>
+
+## Troubleshooting
+
+1. **Submitting does nothing:** turn on the FiveOh Core app embed.
+2. **A review was sent but does not appear:** it may be waiting for approval in the app.
+3. **The form does not show:** check **Who can review**. With **authenticated** or **buyers**, visitors must be logged in, and buyers must have bought the product.

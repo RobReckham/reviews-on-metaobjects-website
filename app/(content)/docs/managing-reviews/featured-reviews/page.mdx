@@ -1,22 +1,58 @@
 ---
 title: Featured reviews
-description: Pin your best reviews to the top of the list and slider.
+description: Pin your best reviews above the rest in the review list and the slider.
 ---
 
 # Featured reviews
 
-Feature (pin) a review to surface it above the rest.
+Featuring a review pins it above the others. Use it for reviews that answer the questions shoppers ask most, like sizing or durability, or simply for your best ones.
 
-## How it works
+## Featuring a review
 
-- Mark a review as featured from the app dashboard.
-- Featured reviews populate the `{featured_reviews}` region on the [Review List](/docs/displaying-reviews/review-list) and [Reviews Slider](/docs/displaying-reviews/reviews-slider).
-- Each featured review can also show a `{featured_badge}` on the item itself.
+Mark a review as featured in the reviews table on the app dashboard. All featured reviews get the same priority, so they show newest first. FiveOh then adds it to the product's `featured_reviews` list, and to the shop's list for store-wide blocks.
 
-## Displaying it
+Featured reviews show:
 
-Keep `{featured_reviews}` in the block structure to render the pinned region, and `{featured_badge}` in the review-item structure for the badge. See [Customising app blocks](/docs/displaying-reviews/customising-app-blocks).
+1. **In the [Review List](/docs/displaying-reviews/review-list),** pinned above the other reviews with a "Featured" badge. **Show first N featured reviews** sets how many, `3` by default.
+2. **In the [Reviews Slider](/docs/displaying-reviews/reviews-slider),** first in the row. **Show first N featured reviews** is `0` by default, so turn it on there.
+
+The badge's text is the `featured_badge` line in the block's **Texts** setting. Leave it empty to hide the badge.
+
+## In your own theme code
+
+`featured_reviews` and `featured_reviews_meta` hold the featured reviews of a product, its variants or the shop, ordered by `featured_priority`, then newest first. Each example brings the CSS for exactly the look of its preview, scoped to its own classes so it does not touch the rest of your theme. Only the font and the text color come from your theme. The stars (`fo-stars`) need FiveOh's star styles on the page, which every FiveOh block and the [Product Card Ratings](/docs/displaying-reviews/product-card-ratings) app embed load.
+
+<Example>
+<div className="reviews-featured"><blockquote>Exactly as the size guide promised. Third pair already.</blockquote><blockquote>Warm, soft and still breathable after a long hike.</blockquote></div>
+
+```liquid
+{%- assign fiveoh = product.metafields['app--324569563137'] -%}
+{%- assign metas = fiveoh.featured_reviews_meta.value | compact -%}
+<div class="reviews-featured">
+  {%- for review in fiveoh.featured_reviews.value limit: 3 -%}
+    <blockquote>{{ metas[forloop.index0].body.value }}</blockquote>
+  {%- endfor -%}
+</div>
+```
+
+```css
+.reviews-featured {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.reviews-featured blockquote {
+  margin: 0;
+  padding-left: 0.75rem;
+  border-left: 2px solid currentColor;
+}
+```
+
+</Example>
+
+See [Review lists](/docs/developers/metaobjects-and-metafields#newest_reviews) in the reference.
 
 ## Troubleshooting
 
-- If featured reviews do not appear, confirm at least one review is marked featured and `{featured_reviews}` is in the structure.
+1. **Featured reviews do not show in the slider:** set **Show first N featured reviews** above `0`.
+2. **A featured review does not show at all:** check that it is published and belongs to the product, or to the scope of the block.

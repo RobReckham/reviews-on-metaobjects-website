@@ -1,0 +1,113 @@
+---
+title: Checkout blocks
+description: Ratings, rating shares and units sold in Shopify's checkout, next to each product and as blocks.
+---
+
+# Checkout blocks
+
+Doubts come back at checkout: is this the right product, is the shop trustworthy? FiveOh's checkout blocks repeat your social proof right there, next to each product in the order summary or as a block anywhere in the checkout.
+
+Checkout blocks are Shopify checkout extensions, which only run on **Shopify Plus**.
+
+| Block | Where | Shows |
+|---|---|---|
+| [Line Item Rating](#line-item-rating) | Under each product | The product's rating, like `★ 4.8/5 (126)` |
+| [Line Item Share](#line-item-share) | Under each product | The share of good reviews, like `92% 4+ stars` |
+| [Line Item Sold Count](#line-item-sold-count) | Under each product | Units sold, like `120+ sold in the last 7 days` |
+| [Store Rating](#store-rating) | Anywhere in the checkout | Your overall rating, like `★★★★★ Rated 4.8/5 from 2341 reviews` |
+| [Rating Share](#rating-share) | Anywhere in the checkout | The share of good reviews across your store |
+
+## Where to place it
+
+1. Checkout, in the order summary under each product: Line Item Rating, Line Item Share, Line Item Sold Count
+2. Checkout, anywhere: Store Rating, Rating Share
+
+## Adding a checkout block
+
+1. In your Shopify admin, open **Settings → Checkout** and click **Customize**.
+2. For a line item block, click **Add app block** in the order summary. For Store Rating and Rating Share, choose a spot anywhere in the checkout.
+3. Choose the FiveOh block, set it up in the sidebar and save.
+
+## Texts and structure
+
+Checkout extensions cannot run Liquid or custom CSS, so checkout blocks have a simpler **Structure** setting: plain text with values in braces, like `{rating}/{max} ({count})`.
+
+1. **Bold:** `<b>` and `<strong>` make a part bold. These are the only tags the checkout supports.
+2. **Other tags** like `<div>` are replaced by a space. In the default structures they only separate the stars from the text.
+3. **Translated words:** `{pluralised_reviews}`, `{pluralised_stars}` and `{pluralised_ratings}` become "review" or "reviews", "star" or "stars", "rating" or "ratings", in the checkout's language and matching the count. Everything else in the Structure is shown as you write it.
+
+The rating values:
+
+| Value | Shows |
+|---|---|
+| `{stars}` | Five stars, filled to the rating |
+| `{star}` | One filled star |
+| `{rating}` | The rating, without `.0` for whole numbers: `4.8`, `5` |
+| `{rating_decimal}` | The rating, always with one decimal: `4.8`, `5.0` |
+| `{max}` | `5` |
+| `{count}` | The number of reviews |
+
+Checkout cannot use your own colors. **Star tone** picks one of the checkout's color tones for the stars: `info` (the default), `warning` (closest to gold), `neutral`, `success` or `critical`. **Star size** is `small-200`, `small`, `base` (the default) or `large`. For your own star images, paste their URLs from Shopify Files into the star icon settings.
+
+## Line Item Rating
+
+Shows the rating of each product in the cart.
+
+| Setting | What it does |
+|---|---|
+| **Review scope** | **product**: the product's rating, including all variants (default). **variant**: only the variant in the cart. |
+| **Star tone**, **Star size**, star icon URLs | The look of the stars. |
+| **Minimum reviews to show** | Hides the rating below this number of reviews. |
+| **Structure** | Default: `{star}<div>{rating}/{max} ({count})</div>`. Values: `{stars}` (five stars), `{star}` (one star), `{rating}`, `{rating_decimal}`, `{max}`, `{count}`, `{pluralised_reviews}`, `{pluralised_stars}`, `{pluralised_ratings}`. |
+
+## Line Item Share
+
+Shows the share of reviews at a star level for each product.
+
+| Setting | What it does |
+|---|---|
+| **Review scope** | **product** (default) or **variant**. |
+| **Share type** | 5 stars, 4 stars and more (default), 2 stars and less, or 1 star. |
+| **Minimum percent to show**, **Minimum count to show** | Hide the share below these. `0` ignores them. |
+| **Maximum percent to show**, **Maximum count to show** | For the negative share types: hide the share above these. |
+| **Structure** | Default: `{share_percent}% 4+ stars`. Values: `{share_percent}`, `{share_count}`, and for every type `{five_star_percent}`, `{four_plus_percent}`, `{two_minus_percent}`, `{one_star_percent}` with their `_count`. |
+
+## Line Item Sold Count
+
+Shows how many units of each product were sold in a period.
+
+| Setting | What it does |
+|---|---|
+| **Review scope** | **product** (default) or **variant**. |
+| **Period** | Last 24 hours, 7 days (default), 30 days or all time. |
+| **Minimum count to show** | Hides the line below this number, `1` by default. |
+| **Structure** | Default: `{sold_count}+ sold in the last 7 days`. Values: `{sold_count}`, `{sold_count_compact}`, and `{sold_count_last_24_hours}`, `{sold_count_last_7_days}`, `{sold_count_last_30_days}`, `{sold_count_all_time}`, each also with `_compact`. |
+
+Update the text when you change the period.
+
+## Store Rating
+
+Shows your rating across all reviews as a block in the checkout.
+
+| Setting | What it does |
+|---|---|
+| **Review scope** | **store**: reviews about your shop. **product**: all product reviews. **mixed**: both (default). |
+| **Star tone**, **Star size**, star icon URLs | The look of the stars. |
+| **Minimum reviews to show** | Hides the block below this number of reviews. |
+| **Structure** | Default: `{stars}<div>Rated <b>{rating}/{max} from {count}</b> {pluralised_reviews}</div>`. Same values as Line Item Rating. |
+
+## Rating Share
+
+Shows the share of reviews at a star level across your store, as a block in the checkout.
+
+| Setting | What it does |
+|---|---|
+| **Review scope** | **store**, **product** or **mixed** (default). |
+| **Share type**, minimums and maximums | As for [Line Item Share](#line-item-share). |
+| **Structure** | Default: `{share_percent}% 4+ stars`. Same values as Line Item Share. |
+
+## Troubleshooting
+
+1. **The blocks are not offered in the checkout editor:** checkout extensions need Shopify Plus.
+2. **A line shows nothing:** the product has fewer reviews or sales than the minimum, or none in the chosen period.
+3. **The text is in English on another language:** only the words for "reviews", "stars" and "ratings" are translated. Keep the rest of the Structure short, or use values only.

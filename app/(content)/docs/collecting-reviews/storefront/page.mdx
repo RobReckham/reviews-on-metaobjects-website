@@ -1,33 +1,23 @@
 ---
-title: Storefront review form
-description: Native storefront review submission flow.
+title: Review form
+description: Let shoppers write reviews on your product pages with the FiveOh Review Form block.
 ---
 
-# Storefront review form
+# Review form
 
-Storefront reviews are submitted directly by your own review forms and app blocks.
+Shoppers can write a review right on a product page, with stars, text, photos and videos. You add this with the **FiveOh Review Form** block; its settings and texts are described on the [Review Form](/docs/displaying-reviews/review-form) block page.
 
-## Behavior
+## Setting it up
 
-- New submissions appear in your app review data.
-- Submission quality and moderation follow your app settings.
-- Reviews can be published immediately or reviewed first, depending on your preferences.
+1. Place the [Review Form](/docs/displaying-reviews/review-form) block on your product template.
+2. Choose **Who can review**: everyone, only logged-in customers, or only customers who bought the product.
+3. Decide in the app's **Settings** whether new reviews are published at once or wait for your approval. See [Moderation](/docs/managing-reviews#moderation).
 
-## Verification and context
+## What happens to a review
 
-- Request-based flows can carry extra context to improve trust signals.
-- Direct storefront submissions still work without external source sync.
-
-## Publish status
-
-Use <a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}/settings`} target="_blank" rel="noopener">app settings</a> to decide whether submissions are auto-published or moderated before display.
-
-## Quick links
-
-<a href="https://demo.reviewsonmetaobjects.com/products/chambray-work-shirt" target="_blank" rel="noopener">Demo store product page</a> (password: demo)
+A review sent from the form is stored like every other review and shows in the reviews table on the dashboard. Reviews from logged-in customers are marked **Verified Reviewer**, reviews from visitors who are not logged in **Unverified**. To get **Verified Buyer** reviews, which are linked to an order, use the [post-purchase email](/docs/collecting-reviews/post-purchase-email).
 
 ## Troubleshooting
 
-- If submissions are accepted but not visible, check moderation/publish settings first.
-- If forms submit inconsistently, ensure the app block is mounted once per page.
-- If trust context is missing, verify request-based flows are using valid request links.
+1. **A review was sent but does not show:** it may be waiting for approval in the reviews table, because of a moderation rule.
+2. **The form does not show:** check **Who can review**. Visitors who may not review do not see the form.

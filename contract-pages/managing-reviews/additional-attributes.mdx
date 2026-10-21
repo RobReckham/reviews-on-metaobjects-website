@@ -1,0 +1,121 @@
+---
+title: Additional attributes
+description: Show extra slider ratings like fit, quality or comfort, imported with your reviews, with every product.
+---
+
+# Additional attributes
+
+Some review apps ask reviewers to rate specific qualities on a slider, besides the stars: "How does it fit?", "How is the quality?". FiveOh calls each question an **attribute**. It imports the answers with the reviews and shows them: every answer with its review, and the average per product, so a shopper sees at a glance that a shoe runs small.
+
+Today the answers come from [REVIEWS.io](/docs/collecting-reviews/reviews-io) imports. FiveOh's own review forms do not ask attribute questions.
+
+## The attributes in the app
+
+FiveOh creates an attribute for every slider question it finds in your REVIEWS.io reviews, on the first import. You see and edit them on the **Additional attributes** page in the app. Each one is a slider with:
+
+1. **Question:** what the reviewer answers, like "How does it fit?".
+2. **Label:** a short name shown with the results, like "Fit".
+3. **Left, center and right labels:** the meaning of the slider's ends and middle, like "Runs small", "True to size" and "Runs large".
+4. **Scale minimum and maximum:** the range of the slider.
+
+Edit the labels to change how the results read on your storefront. Each attribute has an ID, shown on the attributes page, which you need to choose attributes in the review list.
+
+The structure of the data also has room for other types, like star ratings or multiple choice, for imports that bring them.
+
+## Showing the results
+
+The [Review List](/docs/displaying-reviews/review-list) shows the average of each attribute in its summary, and each review's answers with the review. To show only some attributes, or change their order, enter their IDs in the list's **Attribute ids to display** setting, comma-separated.
+
+## Data
+
+Attributes are stored in three places. Their full structure is in the [reference](/docs/developers/metaobjects-and-metafields):
+
+1. [`review_attribute_definitions`](/docs/developers/metaobjects-and-metafields#review_attribute_definitions) on the shop: the questions, labels and options, in every shop language.
+2. [`additional_attributes`](/docs/developers/metaobjects-and-metafields#additional_attributes) on products, variants, the shop, customers and orders: the averages of the answers.
+3. `additional_attributes` on each review's [`review_meta`](/docs/developers/metaobjects-and-metafields#review_meta): the reviewer's own answers.
+
+## Examples
+
+### Fit slider
+
+Each product has the averages in `additional_attributes`, and the shop has the questions and labels in `review_attribute_definitions`, in every shop language. This draws one marker per slider attribute. Each example brings the CSS for exactly the look of its preview, scoped to its own classes so it does not touch the rest of your theme. Only the font and the text color come from your theme. The stars (`fo-stars`) need FiveOh's star styles on the page, which every FiveOh block and the [Product Card Ratings](/docs/displaying-reviews/product-card-ratings) app embed load.
+
+<Example>
+<div className="reviews-fit"><p className="reviews-fit__label">Fit</p><div className="reviews-fit__track"><span className="reviews-fit__marker" style={{ left: "70%" }}></span></div><div className="reviews-fit__scale"><span>Runs small</span><span>Runs large</span></div><small>48 reviews</small></div>
+
+```liquid
+{%- assign fiveoh = product.metafields['app--324569563137'] -%}
+{%- assign defs = shop.metafields['app--324569563137'].review_attribute_definitions.value -%}
+{%- assign lang = request.locale.iso_code -%}
+
+{%- for item in fiveoh.additional_attributes.value.items -%}
+  {%- if item.type == 'slider_rating' -%}
+    {%- for d in defs.items -%}
+      {%- if d.attribute_id == item.attribute_id -%}{%- assign def = d -%}{%- endif -%}
+    {%- endfor -%}
+    {%- assign range = def.scale_max | minus: def.scale_min -%}
+    {%- assign percent = item.value | minus: def.scale_min | times: 100.0 | divided_by: range | round -%}
+
+    <div class="reviews-fit">
+      <p class="reviews-fit__label">{{ def.label[lang] | default: def.label[defs.primary_locale] }}</p>
+      <div class="reviews-fit__track"><span class="reviews-fit__marker" style="left: {{ percent }}%"></span></div>
+      <div class="reviews-fit__scale">
+        <span>{{ def.scale_labels.left[lang] | default: def.scale_labels.left[defs.primary_locale] }}</span>
+        <span>{{ def.scale_labels.right[lang] | default: def.scale_labels.right[defs.primary_locale] }}</span>
+      </div>
+      <small>{{ item.count }} reviews</small>
+    </div>
+  {%- endif -%}
+{%- endfor -%}
+```
+
+```css
+.reviews-fit {
+  max-width: 18rem;
+}
+
+.reviews-fit__label {
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+}
+
+.reviews-fit__track {
+  position: relative;
+  height: 0.25rem;
+  border-radius: 999px;
+  background: #e5e7eb;
+}
+
+.reviews-fit__marker {
+  position: absolute;
+  top: 50%;
+  width: 0.25rem;
+  height: 0.75rem;
+  border-radius: 999px;
+  background: #111827;
+  transform: translate(-50%, -50%);
+}
+
+.reviews-fit__scale {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 0.875em;
+}
+
+.reviews-fit small {
+  opacity: 0.7;
+}
+```
+
+</Example>
+
+Both are described in the [reference](/docs/developers/metaobjects-and-metafields#additional_attributes).
+
+## Troubleshooting
+
+1. **Reviews have no answers:** answers come only from sources that collect them, like REVIEWS.io.
+
+## Quick links
+
+<a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}/additional-attributes`} target="_blank" rel="noopener">Open Additional attributes in the app</a>

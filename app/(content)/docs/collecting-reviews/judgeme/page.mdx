@@ -1,24 +1,23 @@
 ---
 title: Judge.me
-description: Automatic Judge.me review tracking.
+description: Judge.me reviews show in FiveOh automatically. There is nothing to connect.
 ---
 
 # Judge.me
 
-Judge.me is treated as an automatic sync source.
+Judge.me stores its reviews in Shopify's standard product review metaobjects. FiveOh reads them from there, so you can keep collecting with Judge.me and display the reviews with FiveOh.
 
-## Behavior
+## Setup
 
-- Reviews are discovered and tracked through the app's sync flow.
-- Manual import is typically not required.
-- New reviews appear in your dashboard and storefront app blocks after sync.
+There is nothing to set up. As soon as Judge.me has stored a review in Shopify, FiveOh notices it, adds it to your reviews and recalculates the product's rating. A **Judge.me** card appears on the <a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}`} target="_blank" rel="noopener">app dashboard</a> once the first review arrives.
 
-## Important
+New, changed and deleted reviews follow on their own: Shopify tells FiveOh about every change.
 
-If reviews are missing, verify the integration is active and recent sync activity completed successfully.
+## Checking that it works
+
+Open the reviews table on the dashboard. The Judge.me reviews are listed there, with Judge.me as their source. Then open a product with Judge.me reviews on your storefront: the FiveOh blocks show them.
 
 ## Troubleshooting
 
-- If no new reviews arrive, check recent sync/webhook activity in the app.
-- If only some reviews appear, compare source records with imported product links.
-- If updates lag, wait for sync completion before rechecking storefront output.
+1. **No reviews arrive:** in your Shopify admin, open **Content → Metaobjects → Product reviews**. If the Judge.me reviews are not listed there, Judge.me has not stored them in Shopify yet. Check Judge.me's settings for syncing reviews to Shopify.
+2. **A review shows without a product:** Judge.me stored it without a product link. It counts as a store review.

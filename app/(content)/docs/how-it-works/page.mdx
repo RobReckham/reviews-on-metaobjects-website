@@ -1,0 +1,63 @@
+---
+title: How FiveOh works
+description: Where your reviews live, how ratings and lists are kept ready, and how they get onto the page.
+---
+
+# How FiveOh works
+
+Most review apps keep your reviews on their own servers and load them into the page with a widget. FiveOh does the opposite: your reviews live in your Shopify store, and your theme renders them like any other product data. This page explains the three parts behind that: the data, the rendering and the script.
+
+## Reviews are Shopify data
+
+Every review is a `product_review` metaobject, Shopify's standard type for product reviews. It holds the rating, the text, the author, the reviewed product and the order it belongs to. Because it is Shopify's own type, other channels like the Shop app can read it too, and the `product_review` metaobjects stay in your store if you ever uninstall FiveOh. What belongs to the app goes with it: the translations and attribute answers in `review_meta`, and the ratings, lists and summaries FiveOh calculated.
+
+Next to it, FiveOh keeps a `review_meta` metaobject with the same handle. It holds what the standard type has no room for: the translated title and text, answers to [attribute questions](/docs/managing-reviews/additional-attributes) like fit or quality, and whether the review is [featured](/docs/managing-reviews/featured-reviews).
+
+It does not matter where a review comes from. An import from Judge.me, a CSV file, the storefront form and the post-purchase email all end up as the same two metaobjects.
+
+### Product reviews and store reviews
+
+Most reviews are about a product. Some are about your shop itself, like "Fast delivery, friendly support": **store reviews**. They have no product, and they come from sources that collect them, like Trustpilot service reviews or rows without a product in a CSV import.
+
+FiveOh keeps the two apart, so you can show either or both. Many blocks have a **Review scope** setting for that: **product** for the current product's reviews, **store** for store reviews, **mixed** for all reviews together.
+
+## Ratings and lists are kept ready
+
+Liquid cannot count or sort thousands of reviews while a page renders. So whenever a review is added, changed or deleted, FiveOh recalculates everything that depends on it and writes the result as metafields:
+
+1. **On each product and variant:** the average rating, the review count, the distribution per star, the newest and featured reviews, and AI summaries in three lengths.
+2. **On the shop:** the same across all reviews, plus separate figures for product reviews and store reviews.
+3. **On each customer and order:** the reviews they wrote, so customer accounts can show them.
+
+FiveOh also reads your orders and keeps sales figures ready on products and the shop, called **live signals**: units sold, bestseller rank and the share of returning customers, each for the last 24 hours, 7 days, 30 days and all time, plus the time of the last purchase.
+
+The [Trust signals](/docs/displaying-reviews/trust-signals) blocks show them on the storefront, like `120+ sold in the last 7 days`. All of these values are listed in the [reference](/docs/developers/metaobjects-and-metafields).
+
+## Rendering happens on the server
+
+Your theme reads these metafields with Liquid, through FiveOh's app blocks or your own code:
+
+```liquid
+{%- assign fiveoh = product.metafields['app--324569563137'] -%}
+{{ fiveoh.rating.value.rating }} out of 5, from {{ fiveoh.rating_count.value }} reviews
+```
+
+The reviews are part of the HTML that Shopify sends, before any JavaScript runs. Shoppers see them at once, the layout does not jump, and search engines and AI tools can read every word. The [FiveOh Core](/docs/displaying-reviews/core) app embed also adds the rating and the newest reviews to the product's structured data.
+
+A review list metafield holds up to 250 reviews, and Liquid shows the first 50 of them. That covers the page load; more reviews come in through the script.
+
+## The script adds interaction
+
+Everything that needs a click runs through one small script, loaded by FiveOh Core: loading more reviews, sorting, filtering by stars, searching, submitting the review form and moving sliders. For loading, sorting and searching, FiveOh keeps a searchable copy of your reviews. Your store stays the source of truth, and the copy follows every change.
+
+The script reacts only to its own elements and `data-fo-*` attributes, never to CSS classes. So it works the same in our blocks and in your own markup, and it keeps working when the theme loads content later, like predictive search, quick view or a cart drawer.
+
+## Translations follow the storefront language
+
+When a review comes in, FiveOh translates its title, text and your reply into every language you added to your store and stores them on the `review_meta`. Liquid returns the current language automatically, so a French visitor reads French reviews without any extra code. See [Translations](/docs/managing-reviews/translations).
+
+## Blocks and theme code read the same data
+
+FiveOh's app blocks are Liquid too. Each one has a structure you can open and edit, so there is no line between "using the app" and "building your own". You can start with a block, change its texts and CSS, rewrite its Liquid, or replace it with a snippet in your theme. All four read the same metafields.
+
+Everything you may rely on is listed in the [reference](/docs/developers) and only ever grows: nothing in it is renamed or changes meaning. Code you write against it keeps working.

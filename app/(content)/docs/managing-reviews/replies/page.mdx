@@ -1,22 +1,54 @@
 ---
 title: Replies
-description: Publish a merchant response under a review.
+description: Answer a review publicly with a reply that shows under it on your storefront.
 ---
 
 # Replies
 
-Respond to a review publicly with a merchant reply. Use it to thank customers or address a concern.
+A reply lets you answer a review in public: thank a happy customer, or show how you solved a problem. Shoppers often read the answers to critical reviews more closely than the reviews themselves.
 
-## How it works
+## Writing a reply
 
-- Add or edit a reply on a review from the app dashboard.
-- The reply is stored on the review and syncs to its Shopify metaobject.
-- It renders through the `{reply}` placeholder wherever the review appears.
+Open a review in the reviews table on the app dashboard and write your reply. It is saved on the review's metaobject and shows under the review wherever it appears, in the [Review List](/docs/displaying-reviews/review-list) and in reviews loaded later. Like the review itself, your reply is [translated](/docs/managing-reviews/translations) into every language of your store.
 
-## Displaying it
+## In your own theme code
 
-Keep `{reply}` in your review-item structure. When a review has no reply, the token renders nothing. See [Customising app blocks](/docs/displaying-reviews/customising-app-blocks#review-item-each-review-inside-the-list).
+The reply is the `merchant_reply` field. Read the translated version from the review's `review_meta`, and fall back to the original on the `product_review`. The snippet goes inside a loop over a review list, like the one in [Developers](/docs/developers#a-list-of-reviews), where `review` is the `product_review` and `meta` its `review_meta` at the same position. Each example brings the CSS for exactly the look of its preview, scoped to its own classes so it does not touch the rest of your theme. Only the font and the text color come from your theme. The stars (`fo-stars`) need FiveOh's star styles on the page, which every FiveOh block and the [Product Card Ratings](/docs/displaying-reviews/product-card-ratings) app embed load.
+
+<Example>
+<div className="reviews-reply"><p>Reply from the shop</p><p>Thank you, Mara! Enjoy your third pair.</p></div>
+
+```liquid
+{%- assign reply = meta.merchant_reply.value | default: review.merchant_reply.value -%}
+{%- if reply != blank -%}
+  <div class="reviews-reply">
+    <p>Reply from the shop</p>
+    <p>{{ reply }}</p>
+  </div>
+{%- endif -%}
+```
+
+```css
+.reviews-reply {
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background: #f9fafb;
+}
+
+.reviews-reply p {
+  margin: 0;
+}
+
+.reviews-reply p:first-child {
+  font-weight: 600;
+}
+```
+
+</Example>
+
+`merchant_replied_at` holds the date of the reply. See the [reference](/docs/developers/metaobjects-and-metafields).
 
 ## Troubleshooting
 
-- If a reply does not show, confirm it saved and that `{reply}` is present in the review-item structure.
+1. **The reply does not show:** check that it was saved. If you edited the review list's structure, check that it still renders `merchant_reply`.

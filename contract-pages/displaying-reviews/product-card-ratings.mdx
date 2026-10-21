@@ -1,0 +1,118 @@
+---
+title: Product Card Ratings
+description: Stars on product cards in collections, search, recommendations and the cart drawer.
+---
+
+# Product Card Ratings
+
+Product card ratings put stars under every product in your collection grids, search results, recommendations and cart drawer, so shoppers compare products at a glance.
+
+Product cards are part of your theme, not a section an app can add a block to. So card ratings have two parts:
+
+1. **The FiveOh Prod. Card Ratings app embed** loads the star styles on every page and holds the star color and size.
+2. **A small snippet in your product card** renders the rating. You add it once, and it works everywhere the card appears, also in content the theme loads later, like predictive search.
+
+## Where to place it
+
+1. Collection pages
+2. Featured collection sections
+3. Search page
+4. Predictive search
+5. Product recommendations
+6. Cart page
+7. Cart drawer
+
+## Snippet to add in product cards
+
+Open your theme code and find the snippet that renders a product card. In most themes it is `snippets/card-product.liquid` or `snippets/product-card.liquid`. Inside it, the product is usually called `card_product`. Add this where the rating should appear, for example below the title:
+
+<Example>
+<div className="w-44"><div className="aspect-square rounded-lg bg-gray-100"></div><p className="mt-2 font-medium">Merino Sneaker</p><p className="mb-1 text-gray-600">€129.00</p><span className="fo-stars" style={{ "--fo-rating": 4.8 }}></span> 4.8 (126)</div>
+
+{/* contract-body: Examples > Card rating (collection, predictive search, cart drawer) */}
+
+</Example>
+
+This shows five stars filled to the rating, then the rating and the review count, and nothing on products without reviews. The image, title and price in the preview are your theme's card; the snippet adds the line below them. It needs no CSS of its own: the stars are styled by the app embed below.
+
+If your theme uses another variable for the product in its card, replace `card_product` with it. If the theme has more than one card snippet, for example a separate one for search results, add the snippet to each.
+
+## Enabling the app embed
+
+In the Theme Editor, open **App embeds** and turn on **FiveOh Prod. Card Ratings**. Without it, the `fo-stars` span has no styles and shows nothing.
+
+## Settings
+
+| Setting | What it does |
+|---|---|
+| **Star color**, **Star size**, star icons | The look of the stars in every product card. |
+| **Custom CSS** | CSS for the whole storefront, for example to position the rating in your cards. |
+
+## Data
+
+The snippet reads these metafields of the card's product. Their full structure is in the [reference](/docs/developers/metaobjects-and-metafields).
+
+1. [`rating`](/docs/developers/metaobjects-and-metafields#rating): the average rating, including the reviews of the product's variants. Read it with `.value.rating`.
+2. [`rating_count`](/docs/developers/metaobjects-and-metafields#rating_count): the number of reviews behind it.
+3. [`rating_count_compact`](/docs/developers/metaobjects-and-metafields#rating_count_compact): the same number, shortened for tight spaces, like `12.9k`.
+
+## Examples
+
+The snippet is your theme's code, so you can shape it freely. Each example replaces the snippet above. Each example brings the CSS for exactly the look of its preview, scoped to its own classes so it does not touch the rest of your theme. Only the font and the text color come from your theme. The stars (`fo-stars`) need FiveOh's star styles on the page, which every FiveOh block and the [Product Card Ratings](/docs/displaying-reviews/product-card-ratings) app embed load.
+
+### Out of 5, with a minimum
+
+Shows `4.8/5 · 126 reviews`, and only for products with at least five reviews, so a single early review does not decide the first impression:
+
+<Example>
+<div className="w-44"><div className="aspect-square rounded-lg bg-gray-100"></div><p className="mt-2 font-medium">Merino Sneaker</p><p className="text-gray-600">€129.00</p><p className="reviews-card-rating"><span className="fo-stars" style={{ "--fo-rating": 4.8 }}></span><span><strong>4.8</strong>/5 · 126 reviews</span></p></div>
+
+```liquid
+{%- assign fiveoh = card_product.metafields['app--324569563137'] -%}
+{%- if fiveoh.rating_count.value >= 5 -%}
+  <p class="reviews-card-rating">
+    <span class="fo-stars" style="--fo-rating: {{ fiveoh.rating.value.rating }}"></span>
+    <span><strong>{{ fiveoh.rating.value.rating }}</strong>/5 · {{ fiveoh.rating_count.value }} reviews</span>
+  </p>
+{%- endif -%}
+```
+
+```css
+.reviews-card-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin: 0.25rem 0 0;
+  font-size: 0.875em;
+}
+
+.reviews-card-rating .fo-stars {
+  --fo-star-color: #e7a427;
+}
+```
+
+</Example>
+
+### Accessible stars
+
+Screen readers do not see the stars, as they are drawn with CSS. A `role` and a label make them readable. This changes nothing visible, so it needs no CSS:
+
+<Example>
+<div><span className="fo-stars" role="img" aria-label="4.8 out of 5 stars" style={{ "--fo-rating": 4.8 }}></span> 4.8 (126)</div>
+
+```liquid
+{%- assign fiveoh = card_product.metafields['app--324569563137'] -%}
+{%- if fiveoh.rating_count.value > 0 -%}
+  {%- assign rating = fiveoh.rating.value.rating -%}
+  <span class="fo-stars" style="--fo-rating: {{ rating }}" role="img" aria-label="{{ rating }} out of 5 stars"></span>
+  {{ rating }} ({{ fiveoh.rating_count.value }})
+{%- endif -%}
+```
+
+</Example>
+
+## Troubleshooting
+
+1. **No stars on cards:** check that the app embed is on and the snippet is inside the card's loop, using the card's product variable.
+2. **Stars on the product page but not in search:** the theme renders search results with another snippet. Add the snippet there too.
+3. **The stars sit too high or too low:** set `vertical-align` or `display: flex; align-items: center` on the wrapper in the embed's **Custom CSS**.

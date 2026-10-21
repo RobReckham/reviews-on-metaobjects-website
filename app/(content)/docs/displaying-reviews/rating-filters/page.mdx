@@ -1,0 +1,43 @@
+---
+title: Rating filters
+description: Let shoppers filter collections and search results by rating, like "4 stars and up", with Shopify's Search & Discovery app.
+---
+
+# Rating filters
+
+Shoppers who compare many products like to narrow the list down to the well-rated ones. With Shopify's free **Search & Discovery** app, your collections and search results get a rating filter, like "4 stars and up". It works with your theme's existing filters; no code is needed.
+
+## Where to place it
+
+1. Collection pages, in the filters
+2. Search page, in the filters
+
+## How it works
+
+FiveOh writes a metafield called **FiveOh Rating buckets** (`rating_buckets`) on every product and variant with reviews. It lists every rating step the product reaches: a product rated 4.6 has `1+`, `1.5+`, `2+` and so on up to `4.5+`. A product rated 5 also gets `5`.
+
+So a filter on `4+` finds every product rated 4 or higher, whatever its exact rating. The values update whenever a review changes the rating.
+
+## Setting up the filter
+
+1. Install <a href="https://apps.shopify.com/search-and-discovery" target="_blank" rel="noopener">Search & Discovery</a> from the Shopify App Store, if you have not yet.
+2. In the app, open **Filters** and click **Add filter**.
+3. As the source, choose the product metafield **FiveOh Rating buckets**. To filter variants instead, choose the variant metafield of the same name.
+4. Name the filter, for example `Rating`, and save.
+
+The filter now shows in your collection and search pages, next to price, size and the other filters.
+
+## Naming the options
+
+Search & Discovery lists every step as an option, from `1+` to `5`. Rename them in the filter's settings so they read well, for example:
+
+| Value | Shown as |
+|---|---|
+| `4.5+` | 4.5 stars & up |
+| `4+` | 4 stars & up |
+| `3+` | 3 stars & up |
+
+## Troubleshooting
+
+1. **The metafield is not offered as a source:** check that FiveOh is installed and has finished its first calculation. The definition is created on installation.
+2. **Products without reviews are missing from the filtered list:** that is expected. Without reviews, a product has no rating step to match.

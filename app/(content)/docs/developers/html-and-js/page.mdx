@@ -1,0 +1,131 @@
+---
+title: HTML & JS
+description: The elements, actions, slots, states and CSS custom properties the FiveOh script reacts to.
+---
+
+{/* Generated from app/CONTRACT.md by pnpm docs:sync-contract. Edit contract-pages/developers/html-and-js.mdx or the contract, not this file. */}
+
+# HTML & JS
+
+Reviews are rendered with Liquid, so they are readable without JavaScript. The FiveOh script, loaded by the [FiveOh Core](/docs/displaying-reviews/core) app embed, only adds interaction: loading more reviews, sorting, filtering, searching, submitting forms and moving sliders. It reacts to the custom elements and `data-fo-*` attributes below, never to CSS classes, so your markup and classes stay entirely yours.
+
+For complete examples, see the [Review List](/docs/displaying-reviews/review-list#examples), [Review Form](/docs/displaying-reviews/review-form#examples) and [Reviews Slider](/docs/displaying-reviews/reviews-slider#examples).
+
+JS reacts only to the elements and `data-fo-*` attributes below, never to CSS classes.
+
+### Elements
+
+| Element | Purpose |
+|---|---|
+| `<fo-reviews>` | Review list with load more, sort, filter, search |
+| `<fo-review-form>` | Review form: validation, uploads, submit |
+| `<fo-slider>` | Carousel buttons for any scroll-snap track |
+
+### Actions (`data-fo-action`)
+
+| Value | Where | Effect |
+|---|---|---|
+| `load-more` | `<fo-reviews>` | Appends the next page |
+| `sort` | `<fo-reviews>`, on a `<select>` or a button with `value` | Reloads sorted by the value; sets `aria-pressed` on sort buttons |
+| `search` | `<fo-reviews>`, on an `<input>` | Reloads with the search term on Enter or on submit of its form |
+| `filter` | `<fo-reviews>`, with `data-fo-filter` | Toggles the filter; sets `aria-pressed` |
+| `filter` | `<fo-reviews>`, on a `<select>` | Sets the selected filter, replacing the one it set before; empty value clears it |
+| `slide-prev`, `slide-next` | `<fo-slider>` | Scrolls the track |
+| `open-modal` | anywhere | Opens the `<dialog>` named by `aria-controls`; on a media link without it, opens the image or video in a dialog |
+| `close-modal` | anywhere | Closes the `<dialog>` named by `aria-controls`, else the one it is in |
+| `submit-all` | `<fo-review-form>` with items | Submits every item that is `idle` or `error` |
+
+### Slots
+
+| Attribute | Meaning |
+|---|---|
+| `data-fo-items` | Container the review items or form items are rendered into |
+| `data-fo-template="review"` | `<template>` with the markup for loaded reviews |
+| `data-fo-template="item"` | `<template>` inside `<fo-review-form>`: the form loads the review request from the URL's `id` and renders one item per product into `data-fo-items` |
+| `data-fo-item` | Root of one rendered form item; holds its own `<form data-fo-form>` and `data-fo-state` |
+| `data-fo-field="name"` | Sets the element's text; `name:attribute` sets an attribute, `name:--property` a CSS custom property |
+| `data-fo-if="name"` | Removed when the value is empty; outside templates (`has_next_page`, `error_message`) hidden instead |
+| `data-fo-repeat="name"` | Repeats a child `<template>` per entry, e.g. `media` |
+| `data-fo-show="state"` | Shown only in these states, separated by spaces, e.g. `idle error`. Follows the nearest `data-fo-item`, else `<fo-review-form>` |
+| `data-fo-track` | Scroll container of `<fo-slider>` |
+| `data-fo-form` | The `<form>` inside `<fo-review-form>` |
+| `data-fo-review-handle` | Handle of a rendered review |
+| `data-fo-filter` | Filter value: `rating:1` … `rating:5`, `status:verified`, `status:unverified`, `product:<id>` (only reviews of the whole product, not of one of its variants), `variant:<id>` |
+
+Fields of a loaded review, for `data-fo-field`, `data-fo-if` and `data-fo-repeat` in `<template data-fo-template="review">`:
+
+| Field | Holds |
+|---|---|
+| `handle` | The review's handle |
+| `title` | Title, translated |
+| `body` | Review text, translated |
+| `author` | Public author name |
+| `rating` | Star rating, 1 to 5. Draw stars with `<span class="fo-stars" data-fo-field="rating:--fo-rating"></span>` |
+| `date` | When it was written, as a short date in the shopper's language, like `Oct 13, 2026` |
+| `status` | `verified_buyer`, `verified_reviewer` or `unverified` |
+| `status_label` | The status as text, like "Verified Buyer" |
+| `merchant_reply` | Your reply, translated |
+| `reply_date` | When you replied, formatted like `date` |
+| `product`, `variant` | Product and variant title, for reviews of the current page's product |
+| `media` | Photos and videos; each entry has `url`, `image_url` and `video_url` |
+| `additional_attributes` | Attribute answers; each entry has `attribute_id`, `question`, `label`, `left_label`, `right_label` and, for scales, `percent` |
+| `has_next_page` | Whether more reviews can be loaded |
+| `error_message` | The error, when loading failed |
+
+Fields inside `<fo-review-form>`:
+
+| Field | Holds |
+|---|---|
+| `error_message` | The error, when sending failed |
+| `progress` | Upload progress, 0 to 100 |
+| `files` | The picked files, for `data-fo-repeat`; each entry has `name` |
+
+Fields of a form item, inside `<template data-fo-template="item">`:
+
+| Field | Holds |
+|---|---|
+| `product_title`, `variant_title` | Titles of the product to review |
+| `image_url` | The variant's image, else the product's |
+| `url` | The product's page |
+| `review_handle`, `submitted_at` | Set when the item was already reviewed |
+
+### State
+
+| Where | Attribute | Values |
+|---|---|---|
+| `<fo-review-form>`, `[data-fo-item]` | `data-fo-state` | `loading` (items load) \| `idle` \| `submitting` \| `success` \| `error` \| `reviewed` (already reviewed) |
+| `<fo-reviews>` | `aria-busy` | `true` while loading |
+| Filter and sort buttons | `aria-pressed` | `true` \| `false` |
+| Slider buttons | `disabled` | Set at the start and end of the track |
+
+### Config (on the element)
+
+| Attribute | Holds |
+|---|---|
+| `data-fo-product-id` | The product whose reviews to load or review |
+| `data-fo-variant-id` | The variant |
+| `data-fo-page-size` | Reviews per page |
+| `data-fo-total` | Total number of reviews; load more hides once all are shown |
+| `data-fo-sort` | Start order: `submitted_at:desc`, `submitted_at:asc`, `rating:desc` or `rating:asc` |
+| `data-fo-scope` | Which reviews: `product`, `store` or `mixed` |
+| `data-fo-text-*` | Texts only the script shows. English when not set: see the table below |
+
+Texts for `data-fo-text-*`:
+
+| Attribute | Element | Shown when |
+|---|---|---|
+| `data-fo-text-error` | `<fo-reviews>`, `<fo-review-form>` | Loading or sending failed |
+| `data-fo-text-anonymous` | `<fo-reviews>` | A loaded review has no author name |
+| `data-fo-text-missing-rating` | `<fo-review-form>` | The form is sent without a star rating |
+| `data-fo-text-upload-failed` | `<fo-review-form>` | A photo or video could not be uploaded |
+| `data-fo-text-test-mode` | `<fo-review-form>` | A review is sent from the post-purchase form's preview |
+
+### Form fields
+
+`rating`, `title`, `body`, `author`, `media`; `attribute[<attribute_id>]` is reserved. Layout is free. An `author` input outside the item forms applies to all items and is pre-filled with the order's first name.
+
+### CSS custom properties
+
+`--fo-rating` (0–5) and `--fo-percent` (0–100) on any element; the optional base CSS uses them for stars and bars.
+
+`<span class="fo-stars" style="--fo-rating: 4.6"></span>` draws five stars filled to the rating (`fo-base.css`, loaded by our blocks and the card ratings embed). Style with `--fo-star-color` and `--fo-star-size`.

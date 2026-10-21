@@ -1,30 +1,38 @@
 ---
 title: Overview
-description: Moderate, curate and enrich your reviews from the app dashboard.
+description: Moderate, reply to, feature, verify, enrich and translate your reviews from the app dashboard.
 ---
 
 # Managing reviews
 
-Once reviews are in your store, you manage them from the reviews table in the app dashboard. Each row is a review metaobject you can moderate and enrich.
+Once reviews are in your store, you manage them in the reviews table on the app dashboard. Every row is a review metaobject, and every change you make there is written to Shopify and shows on your storefront within moments.
 
-## What you can do
-
-- **[Moderate](#moderation):** approve or hide reviews and control what shows on the storefront.
-- **[Reply](/docs/managing-reviews/replies):** publish a merchant response under a review.
-- **[Feature](/docs/managing-reviews/featured-reviews):** pin your best reviews to the top.
-- **[Verified badge](/docs/managing-reviews/verified-badge):** mark reviews backed by a real order.
-- **[Additional attributes](/docs/managing-reviews/additional-attributes):** collect extra rating dimensions like fit or quality.
-- **[Translations](/docs/managing-reviews/translations):** auto-translate reviews into your store languages.
+1. **[Moderation](#moderation):** decide which reviews are published.
+2. **[Replies](/docs/managing-reviews/replies):** answer a review publicly.
+3. **[Featured reviews](/docs/managing-reviews/featured-reviews):** pin your best reviews to the top.
+4. **[Verified badge](/docs/managing-reviews/verified-badge):** show which reviews come from real buyers.
+5. **[Additional attributes](/docs/managing-reviews/additional-attributes):** show ratings for fit, quality or comfort.
+6. **[Translations](/docs/managing-reviews/translations):** reviews in every language of your store.
+7. **[Admin blocks](/docs/managing-reviews/admin-blocks):** a product's, customer's or order's reviews right on its page in the Shopify admin.
 
 ## Moderation
 
-Each review has a status that controls storefront visibility. Change a review's status from the reviews table to publish or hide it. The status also drives the `{status}` placeholder rendered on each review. See [Customising app blocks](/docs/displaying-reviews/customising-app-blocks).
+Every review is either **active**, which means published, or a **draft**, which is hidden from the storefront. Change a review's status in the reviews table to publish or hide it. Ratings, counts and review lists are recalculated right away, so a hidden review no longer counts anywhere.
+
+Reviews written in your [review form](/docs/displaying-reviews/review-form) or [post-purchase form](/docs/displaying-reviews/post-purchase-form) are published at once, unless they match one of your moderation rules. In the app settings, you can keep reviews as drafts when they:
+
+1. **Have a certain verification status,** for example reviews from visitors who are not verified buyers.
+2. **Contain photos or videos, or a link.** Links are a common sign of spam.
+3. **Have a certain rating,** for example 1 or 2 stars, so you can respond before they go live.
+
+Drafts wait in the reviews table until you publish them.
 
 ## Quick links
 
-<a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}`} target="_blank" rel="noopener">Open app dashboard</a>
+<a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}`} target="_blank" rel="noopener">Open the app dashboard</a>  
+<a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}/settings`} target="_blank" rel="noopener">Open the app settings</a>
 
 ## Troubleshooting
 
-- If a change is not visible on the storefront, wait for sync to complete, then reload the page.
-- If a review will not publish, check its status and that its product link resolved.
+1. **A change does not show on the storefront:** wait a moment and reload. Theme caches can delay it by a minute.
+2. **A new review does not appear:** it may be a draft because of a moderation rule.

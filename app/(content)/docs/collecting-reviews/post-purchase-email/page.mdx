@@ -1,19 +1,19 @@
 ---
-title: Post purchase email
+title: Post-purchase email
 description: Automatically request reviews by email after an order.
 ---
 
-# Post purchase email
+# Post-purchase email
 
-Use post-purchase emails to invite customers to leave a review after they receive their order.
+FiveOh can email your customers a few days after they ordered and ask them to review what they bought. The email links to a page where they rate every product of their order at once. Reviews written there are linked to the order and marked as [Verified Buyer](/docs/managing-reviews/verified-badge) reviews.
 
 ## Typical flow
 
 1. Customer places an order.
-2. The app schedules a review request email based on your delay settings.
+2. FiveOh plans a review request email, to be sent the number of days after the order that you set.
 3. Customer opens the review link in the email.
-4. Customer submits the review on your hosted [Post Purchase Form](/docs/displaying-reviews/post-purchase-form).
-5. Review is stored with request context and can be treated as verified-style feedback.
+4. Customer writes the reviews on the [Post Purchase Form](/docs/displaying-reviews/post-purchase-form) page in your store.
+5. The reviews are stored with the order and marked as Verified Buyer reviews.
 
 ## Why use it
 
@@ -23,8 +23,12 @@ Use post-purchase emails to invite customers to leave a review after they receiv
 
 ## What to configure
 
-- Enable review collection by email in app settings
-- Set the send delay in days after the order was placed (1–30 days)
+Before you turn the email on, place the [Post Purchase Form](/docs/displaying-reviews/post-purchase-form) block: the email links to it, and without it the link opens an empty page.
+
+Then, in the app's **Settings** under **Review Collection by Email**:
+
+- Turn on **Collect reviews by email?**
+- Set **Delay in days after order was placed** (1–30). The delay counts from the order, not from delivery, so choose enough days for the parcel to arrive and be tried out; 10 to 14 days work for most shops.
 - Customize subject and body templates using the placeholders below
 - Optionally enable discount rewards (see section below)
 
@@ -32,10 +36,12 @@ Use post-purchase emails to invite customers to leave a review after they receiv
 
 Use these in the email subject, text, and HTML fields:
 
-- `{first_name}`: customer's first name
-- `{last_name}`: customer's last name
-- `{full_name}`: customer's full name
+- `{first_name}`, `{last_name}`, `{full_name}`: the customer's name. Without a name, `{first_name}` and `{full_name}` read "there".
 - `{review_link}`: the unique link to the [Post Purchase Form](/docs/displaying-reviews/post-purchase-form) page. **Must be present** for the email to work.
+- `{shop_name}`, `{shop_email}`: your store's name and contact email.
+- `{shop_logo}`: your store's logo as an image, for the HTML email. `{shop_logo_url}` is its URL alone.
+- `{order_name}`, `{order_number}`: the order, like `#1001` and `1001`.
+- `{item_count}`, `{order_total}`, `{currency}`: the number of items, the order total and its currency.
 
 ## Discount rewards
 
@@ -49,7 +55,7 @@ Enable **Issue a discount code after post-purchase review submission** in app se
 
 The reward email uses its own separate subject/text/HTML templates with these placeholders:
 
-- `{first_name}`, `{last_name}`, `{full_name}`: same as above
+- `{first_name}`, `{last_name}`, `{full_name}`, `{shop_name}`, `{shop_email}`, `{shop_logo}`, `{shop_logo_url}`: same as above
 - `{discount_code}`: the generated discount code. **Must be present** for the reward to be delivered.
 
 ## Best practices

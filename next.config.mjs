@@ -1,6 +1,6 @@
 import nextra from "nextra";
 
-const withNextra = nextra({});
+const withNextra = nextra({ defaultShowCopyCode: true });
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -50,8 +50,27 @@ const nextConfig = {
       },
     ];
   },
-  async redirects() {
+  async rewrites() {
+    // Every docs page as Markdown for AI tools: append .md to its URL.
     return [
+      { source: "/docs.md", destination: "/api/docs-md" },
+      { source: "/docs/:path(.+)\\.md", destination: "/api/docs-md/:path" },
+    ]
+  },
+  async redirects() {
+    // The five signal blocks share one page; the app links to their old pages.
+    const signals = ["bestseller", "sold-count", "last-purchased", "returning-customers", "rating-share"]
+    return [
+      ...signals.map((signal) => ({
+        source: `/docs/:folder(app-blocks|displaying-reviews)/${signal}`,
+        destination: `/docs/displaying-reviews/trust-signals#${signal}`,
+        permanent: true,
+      })),
+      {
+        source: "/docs/:folder(app-blocks|displaying-reviews)/customising-app-blocks",
+        destination: "/docs/displaying-reviews/customising-blocks",
+        permanent: true,
+      },
       {
         source: "/docs/app-blocks/:path*",
         destination: "/docs/displaying-reviews/:path*",

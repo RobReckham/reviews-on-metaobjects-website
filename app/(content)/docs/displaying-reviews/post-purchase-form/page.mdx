@@ -1,58 +1,70 @@
 ---
 title: Post Purchase Form
-description: Add the post-purchase review form block to the Post-purchase review request metaobject template.
+description: The page customers open from the review request email, with one review form per ordered product.
 ---
 
 # Post Purchase Form
 
-The post-purchase review form is served as a single native Shopify metaobject page. Email links add `?id=` so the form can load that order's items.
+The **FiveOh Post Purchase Form** is the page customers land on when they click the link in a [review request email](/docs/collecting-reviews/post-purchase-email). It shows one review form per product of their order, with the product's image and name, so customers review everything they bought in one go. Reviews sent from it are marked as [verified buyer](/docs/managing-reviews/verified-badge) reviews.
+
+## Where to place it
+
+1. Post-purchase review request page
 
 ## How it works
 
-When the app sends a review request email, the link points to:
+Every review request email links to the same page with the order's request ID added:
 
+```text
+https://your-store.com/pages/post-purchase-review-request/submit?id=…
 ```
-https://{your-store}/pages/post-purchase-review-request/submit?id={handle}
-```
 
-Every customer lands on the same page. The `id` query param identifies the order. Shopify renders that URL with your theme's **Post-purchase review request** metaobject template, where the **FiveOh Post Purchase Form** block must be present.
+Shopify renders that URL with your theme's **Post-purchase review request** metaobject template, where the **FiveOh Post Purchase Form** block must be placed. Liquid cannot read the `id` from the URL, so the form loads the customer's first name and the ordered products through the FiveOh script, and sends the same `id` back with every review. That is how FiveOh knows which order a review belongs to.
 
-The form then loads customer name and ordered items through the app (Liquid cannot read query params). On submission the same `id` is sent back so the app can resolve the original request and mark the review as verified.
+The page needs the [FiveOh Core](/docs/displaying-reviews/core) app embed, which also keeps it out of search engines.
 
-Per-order review-request data is stored separately and is not a public storefront page.
+## Adding it to your theme
 
-## Setup
+1. On the **App Blocks** page in the app, click **Open in Theme Editor** next to Post Purchase Form. This opens the **Post-purchase review request** metaobject template and adds the block.
+2. Click **Save**.
 
-1. Open the Theme Editor from **App blocks** in the app (**Open in Theme Editor** on Post Purchase Form).
-2. Confirm you are on the **Post-purchase review request** metaobject template.
-3. Add the **FiveOh Post Purchase Form** section block to that template.
-4. Save.
+From then on, every review link FiveOh sends opens your themed form. To see it, open `https://your-store.com/pages/post-purchase-review-request/submit` without an `id`: it then shows preview products.
 
-Once the block is on the template, any `{review_link}` the app sends will render your themed form.
+## Settings
 
-## What you can customize
+| Setting | What it does |
+|---|---|
+| **Star color**, **Star size**, star icons | The look of the rating stars. |
+| **Heading tag** | The HTML tag of the heading. |
+| **Anchor ID** | An ID for the block. |
 
-All content and layout is controlled through the block settings in the Theme Editor:
+When the emails are sent, and what they say, is set in the app, see [Post-purchase email](/docs/collecting-reviews/post-purchase-email).
 
-- Heading text
-- Star color and size
-- Labels and placeholders for rating, title, body, media upload, and author fields
-- Submit button text, submitting/submitted states, success and error messages
-- Form structure (`structure`, `form_item_structure`) and custom CSS
+## Texts
 
-## Notes
+| Key | Default | Values |
+|---|---|---|
+| `heading` | `How was your experience?` | |
+| `loading_message` | `Loading your order data...` | Shown while the products load. |
+| `rating_label`, `title_label`, `body_label`, `author_label` | empty | Visible labels above the fields. Empty shows none. |
+| `stars_label` | `Rating` | Screen reader label of the star input. |
+| `star_input_label` | `Rate with 1 star\|Rate with {a} stars` | `{a}` stars, per star button |
+| `title_placeholder`, `body_placeholder`, `author_placeholder` | `Title`, `Review`, `Public author name` | |
+| `upload_label` | `Upload media` | |
+| `submit_button`, `submitting`, `submitted` | `Submit`, `Submitting...`, `Submitted` | The button of each product. |
+| `submit_all_button` | `Submit all` | Sends every product's review at once. |
+| `success_message`, `error_message` | `Thanks for your review!`, `Something went wrong` | |
+| `missing_rating_message` | `Please click a star to provide a rating.` | |
+| `upload_failed_message` | `Upload failed. Please try again.` | |
+| `already_reviewed_message` | `You submitted a review for this product on {a}.` | `{a}` date |
+| `test_mode_message` | `You are in test mode: …` | Shown when you submit on the preview page. |
 
-- Place this block only on the **Post-purchase review request** metaobject template.
-- The FiveOh Core app embed's **noindex** setting also applies to this page, keeping it out of search results.
-- Review link generation is handled automatically by the post-purchase email feature. No manual URL construction needed.
+## Customising
 
-## Quick links
-
-<a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}/app-blocks`} target="_blank" rel="noopener">Open app blocks page in app</a>  
-<a href="https://demo.reviewsonmetaobjects.com/pages/post-purchase-review-request/submit" target="_blank" rel="noopener">Demo store</a> (password: demo)
+The structure has one `<template data-fo-template="item">` that the script repeats for every product of the order. Change it to change how each product's form looks. The name field sits outside the products and applies to all of them, filled in with the customer's first name.
 
 ## Troubleshooting
 
-- If the page is blank, confirm the block is added to the **Post-purchase review request** template and saved.
-- If the form renders but context is missing (no product names/images), the `id` query param is missing or invalid, or no review request was created for that order.
-- If customers report broken links, check that the review request email feature is enabled, `{review_link}` is in the template, and a review request was created for the relevant order.
+1. **The page is blank:** the block is missing from the **Post-purchase review request** template, or the theme was not saved.
+2. **The form shows no products:** the link has no valid `id`, or no review request was created for the order. Test with the link from a new order.
+3. **Customers report broken links:** check that the review request email is turned on and its text contains `{review_link}`.

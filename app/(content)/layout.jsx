@@ -2,10 +2,11 @@ import { getPageMap } from "nextra/page-map";
 import Layout from "../../components/layout";
 
 const ORDER = {
-  "/docs": ["index", "collecting-reviews", "managing-reviews", "displaying-reviews", "troubleshooting"],
-  "/docs/collecting-reviews": ["index", "post-purchase-email", "storefront", "file-import", "judgeme", "loox", "reviews-io", "trustpilot", "shop-app"],
-  "/docs/managing-reviews": ["index", "replies", "featured-reviews", "verified-badge", "additional-attributes", "translations"],
-  "/docs/displaying-reviews": ["index", "customising-app-blocks", "core", "product-rating", "product-card-ratings", "rating-bar", "review-list", "reviews-slider", "review-form", "post-purchase-form", "bestseller", "sold-count", "last-purchased", "returning-customers", "rating-share", "floating-badge"],
+  "/docs": ["index", "installation", "how-it-works", "collecting-reviews", "displaying-reviews", "managing-reviews", "developers", "troubleshooting"],
+  "/docs/collecting-reviews": ["index", "judgeme", "loox", "shop-app", "reviews-io", "trustpilot", "file-import", "post-purchase-email", "storefront"],
+  "/docs/managing-reviews": ["index", "replies", "featured-reviews", "verified-badge", "translations", "admin-blocks", "additional-attributes"],
+  "/docs/displaying-reviews": ["index", "customising-blocks", "core", "rating-bar", "floating-badge", "reviews-slider", "product-card-ratings", "rating-filters", "product-rating", "trust-signals", "review-list", "review-form", "checkout-blocks", "post-purchase-form"],
+  "/docs/developers": ["index", "metaobjects-and-metafields", "html-and-js", "languages"],
 };
 
 const reorderPageMap = (nodes, route = "/docs") => {

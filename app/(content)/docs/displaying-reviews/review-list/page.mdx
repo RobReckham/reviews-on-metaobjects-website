@@ -1,40 +1,281 @@
 ---
 title: Review List
-description: Render review list and summary on product pages.
+description: The full review list with rating summary, AI summary, search, sort, star filters and load more.
 ---
+
+{/* Generated from app/CONTRACT.md by pnpm docs:sync-contract. Edit contract-pages/displaying-reviews/review-list.mdx or the contract, not this file. */}
 
 # Review List
 
-Displays a detailed list of reviews on product pages.
+The **FiveOh Review List** is the main review area of a product page. It shows:
 
-## When to use
+1. **A summary:** the rating, the review count and the distribution per star. Each star row is also a filter.
+2. **The AI summary** of what reviewers say, once the product has at least 5 reviews; change the number in the app's **Settings** under **AI review summaries**.
+3. **Attribute results,** like the average fit, when you collect [additional attributes](/docs/managing-reviews/additional-attributes).
+4. **Search, star filters, a verified filter and sorting.**
+5. **Featured reviews** pinned above the rest.
+6. **The reviews,** with stars, author, verification status, date, photos and videos, attribute answers and your reply.
+7. **A Load more button** for the next page of reviews.
 
-Use this as your main social proof area where visitors can read real customer feedback.
+The first reviews are rendered on the server, so shoppers, search engines and AI tools see them without waiting for JavaScript. How many is set by two settings, **Reviews per page** and **Preloaded reviews**, see below. Load more, search, filters and sorting need the [FiveOh Core](/docs/displaying-reviews/core) app embed.
 
-## How it renders
+## Where to place it
 
-- Shows reviews associated with the product.
-- Prioritizes readable, chronological review browsing.
-- Supports flexible layout and styling controls.
+1. Product page, in the main content
 
-## What you can customize
+## Adding it to your theme
 
-- Number of visible reviews
-- App block heading and empty state text
-- Review card layout and visual style
-- Show/hide behavior when no reviews are available
+1. In the Theme Editor, open a product template.
+2. Click **Add section** below the product details and choose **FiveOh Review List** from the **Apps** tab. In themes that allow app blocks inside a section, you can also click **Add block** in an existing section.
+3. Optionally, add the [Review Form](/docs/displaying-reviews/review-form) in modal mode right below it for a "Write a review" button.
 
-## Notes
+On other pages, like the homepage or a "Reviews" page, the list shows the reviews of the whole store.
 
-- Keep this app block close to product details to reduce friction.
-- Pair with Product Rating for summary + deep dive flow.
+## Settings
 
-## Quick links
+| Setting | What it does |
+|---|---|
+| **Reviews per page** | How many reviews are visible at first, and how many each **Load more** adds. |
+| **Show first N featured reviews** | How many [featured reviews](/docs/managing-reviews/featured-reviews) are pinned above the list. `0` hides them. |
+| **Star color**, star icons | The look of the stars. |
+| **Hide review information link** | Hides the "About these reviews" link, which explains how reviews are collected and checked. |
+| **Minimum reviews to show**, **Fallback behavior** | When to hide the list or show store reviews instead. |
+| **Review scope** | The current **product**'s reviews, **store** reviews, or **mixed** for all. |
+| **Attribute ids to display** | Which [attributes](/docs/managing-reviews/additional-attributes) to show, comma-separated, in that order. Empty shows all that have answers. |
+| **Heading tag** | The HTML tag of the list's heading. |
+| **Preloaded reviews** | How many reviews are in the page's HTML on load, for search engines and AI (at most 50). Rounded down to a multiple of **Reviews per page**. |
+| **Anchor ID** | `product-reviews` by default. Link to it from the [Product Rating](/docs/displaying-reviews/product-rating) with `#product-reviews`. |
 
-<a href="https://demo.reviewsonmetaobjects.com/products/chambray-work-shirt" target="_blank" rel="noopener">Demo store</a> (password: demo)
+### How Reviews per page and Preloaded reviews work together
+
+With **Reviews per page** at 6 and **Preloaded reviews** at 30, the page's HTML holds 30 reviews, but only the first 6 are visible. **Load more** first reveals the next 6 of those, without waiting for the server. Once all 30 are shown, it loads further reviews from the server. Search engines and AI tools read all 30.
+
+## Texts
+
+| Key | Default | Values |
+|---|---|---|
+| `heading` | `Customer Reviews` | |
+| `review_count` | `1 review\|{a} reviews` | `{a}` review count |
+| `no_reviews_message` | `No reviews yet` | |
+| `anonymous` | `Anonymous` | Shown for reviews without an author name. |
+| `search_placeholder` | `Search reviews` | |
+| `load_more` | `Load more` | |
+| `status_unverified` | `Unverified` | |
+| `status_verified_buyer` | `Verified Buyer` | |
+| `status_verified_reviewer` | `Verified Reviewer` | |
+| `media_label` | `Image/Video` | Alternative text of review photos. |
+| `filter_verified_label` | `Filter by verified reviews` | Screen reader label. |
+| `sort_newest_label`, `sort_oldest_label`, `sort_highest_rating_label`, `sort_lowest_rating_label` | `Sort by newest reviews`, … | Screen reader labels of the sort buttons. |
+| `stars_label` | `{a} out of 5 stars` | `{a}` rating |
+| `filter_rating_label` | `Filter by 1 star\|Filter by {a} stars` | `{a}` stars |
+| `star_count` | `1 star\|{a} stars` | `{a}` stars, in the distribution |
+| `featured_badge` | `Featured` | |
+| `review_info_link` | `About these reviews` | |
+
+The [verification statuses](/docs/managing-reviews/verified-badge) are explained under Managing reviews. Leave a status text empty to hide it, for example `status_unverified:`.
+
+## Data
+
+The block reads these metafields. Your theme code can read the same ones; their full structure is in the [reference](/docs/developers/metaobjects-and-metafields). With the **Review scope** set to **product** they are the product's, with **mixed** the shop's. With **store**, the list reads the shop's `newest_store_reviews` and `featured_store_reviews` and the store review rating instead.
+
+1. [`newest_reviews`](/docs/developers/metaobjects-and-metafields#newest_reviews) and `newest_reviews_meta`: the newest reviews and their translations, in pairs at the same positions.
+2. [`featured_reviews`](/docs/developers/metaobjects-and-metafields#featured_reviews) and `featured_reviews_meta`: the featured reviews, pinned above the list.
+3. [`rating`](/docs/developers/metaobjects-and-metafields#rating), [`rating_count`](/docs/developers/metaobjects-and-metafields#rating_count) and [`rating_distribution`](/docs/developers/metaobjects-and-metafields#rating_distribution): the summary at the top.
+4. [`review_summary`](/docs/developers/metaobjects-and-metafields#review_summary): the AI summary.
+5. [`additional_attributes`](/docs/developers/metaobjects-and-metafields#additional_attributes): the averages of the [attribute](/docs/managing-reviews/additional-attributes) answers.
+
+Each review in the lists is a [`product_review`](/docs/developers/metaobjects-and-metafields#product_review) with its [`review_meta`](/docs/developers/metaobjects-and-metafields#review_meta).
+
+## Examples
+
+These examples build review components in your own theme code, with the same data the block uses. To restyle the block itself, see [Customising blocks](/docs/displaying-reviews/customising-blocks). If you edit the block's **Structure**, note that it renders the reviews twice: in Liquid for the first page, and in a `<template data-fo-template="review">` that the script fills for every review it loads later. Change both.
+
+Each example brings the CSS for exactly the look of its preview, scoped to its own classes so it does not touch the rest of your theme. Only the font and the text color come from your theme. The stars (`fo-stars`) need FiveOh's star styles on the page, which every FiveOh block and the [Product Card Ratings](/docs/displaying-reviews/product-card-ratings) app embed load.
+
+### A list with sorting, search, filters and load more
+
+The first reviews are rendered in Liquid. `<fo-reviews>` adds the rest: it loads more reviews into `data-fo-items` with the `<template>`, and reloads the list when a shopper sorts, searches or filters. This needs the [FiveOh Core](/docs/displaying-reviews/core) app embed.
+
+<Example>
+<fo-reviews><select><option>Newest</option><option>Highest rating</option></select><input type="search" placeholder="Search reviews" /><button>5 stars</button><div data-fo-items=""><article className="my-review"><h3>Perfect fit</h3><p>Exactly as the size guide promised. Third pair already.</p><span>Mara K.</span></article><article className="my-review"><h3>Comfortable from day one</h3><p>No breaking in needed, I wear them all day.</p><span>Jonas R.</span></article></div><button>Load more reviews</button></fo-reviews>
+
+```liquid
+{%- assign fiveoh = product.metafields['app--324569563137'] -%}
+<fo-reviews data-fo-product-id="{{ product.id }}" data-fo-page-size="10" data-fo-sort="submitted_at:desc" data-fo-text-error="Reviews could not be loaded.">
+  <select data-fo-action="sort">
+    <option value="submitted_at:desc">Newest</option>
+    <option value="rating:desc">Highest rating</option>
+  </select>
+  <input type="search" data-fo-action="search" placeholder="Search reviews">
+  <button data-fo-action="filter" data-fo-filter="rating:5">5 stars</button>
+
+  <div data-fo-items>
+    {%- assign metas = fiveoh.newest_reviews_meta.value | compact -%}
+    {%- for review in fiveoh.newest_reviews.value limit: 10 -%}
+      {%- assign meta = metas[forloop.index0] -%}
+      <article class="my-review" data-fo-review-handle="{{ review.system.handle }}">
+        <h3>{{ meta.title.value }}</h3>
+        <p>{{ meta.body.value }}</p>
+        <span>{{ review.author_display_name.value }}</span>
+      </article>
+    {%- endfor -%}
+  </div>
+
+  <template data-fo-template="review">
+    <article class="my-review" data-fo-field="handle:data-fo-review-handle">
+      <h3 data-fo-field="title"></h3>
+      <p data-fo-field="body"></p>
+      <span data-fo-field="author"></span>
+      <p data-fo-field="merchant_reply" data-fo-if="merchant_reply"></p>
+    </article>
+  </template>
+
+  <button data-fo-action="load-more" data-fo-if="has_next_page">Load more reviews</button>
+</fo-reviews>
+```
+
+```css
+fo-reviews {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+fo-reviews select,
+fo-reviews input,
+fo-reviews button {
+  padding: 0.375rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  background: #ffffff;
+  color: inherit;
+  font: inherit;
+}
+
+fo-reviews button {
+  cursor: pointer;
+}
+
+fo-reviews [data-fo-items] {
+  display: grid;
+  flex-basis: 100%;
+  gap: 1rem;
+  margin: 0.5rem 0;
+}
+
+.my-review h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.my-review p {
+  margin: 0.25rem 0;
+}
+
+.my-review span {
+  opacity: 0.7;
+}
+```
+
+</Example>
+
+The script counts the reviews already in `data-fo-items` and loads the next ones after them, so the `limit` in the loop and `data-fo-page-size` should be the same number. `data-fo-total` holds the total number of reviews: once that many are shown, the script hides the button marked `data-fo-if="has_next_page"`. Until the script has run, the button stays visible.
+
+### AI summary
+
+FiveOh writes AI summaries in three lengths once a product has at least 5 reviews; change the number in the app's **Settings** under **AI review summaries**. Below that the summaries are empty, so check before rendering:
+
+<Example>
+<p className="reviews-ai-summary">Customers love the fit and the soft merino. Many wear them all day; a few mention that they run slightly large.</p>
+
+```liquid
+{%- assign summary = product.metafields['app--324569563137'].review_summary.value -%}
+{%- if summary != blank -%}
+  <p class="reviews-ai-summary">{{ summary | newline_to_br }}</p>
+{%- endif -%}
+```
+
+```css
+.reviews-ai-summary {
+  margin: 0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: #f9fafb;
+}
+```
+
+</Example>
+
+Use `review_summary_short` for one line, for example on product cards, and `review_summary_long` for a full paragraph.
+
+### Rating summary
+
+The average, the count and one bar per star from `rating_distribution`. Its keys are strings, so the loop turns the star number into one. Each row passes its percentage to the CSS as `--fo-percent`:
+
+<Example>
+<div className="reviews-distribution"><div className="reviews-distribution__total"><strong>4.8</strong><span className="fo-stars" style={{ "--fo-rating": 4.8 }}></span><span>126 reviews</span></div>{[[5, 87], [4, 9], [3, 3], [2, 1], [1, 0]].map(([star, percent]) => <p key={star} className="reviews-distribution__row" style={{ "--fo-percent": percent }}><span>{star}</span><span className="reviews-distribution__bar"></span><span>{percent}%</span></p>)}</div>
+
+```liquid
+{%- assign fiveoh = product.metafields['app--324569563137'] -%}
+<div class="reviews-distribution">
+  <div class="reviews-distribution__total">
+    <strong>{{ fiveoh.rating.value.rating }}</strong>
+    <span class="fo-stars" style="--fo-rating: {{ fiveoh.rating.value.rating }}"></span>
+    <span>{{ fiveoh.rating_count.value }} reviews</span>
+  </div>
+  {%- for star in (1..5) reversed -%}
+    {%- assign key = star | append: '' -%}
+    {%- assign row = fiveoh.rating_distribution.value[key] -%}
+    <p class="reviews-distribution__row" style="--fo-percent: {{ row.percent }}">
+      <span>{{ star }}</span>
+      <span class="reviews-distribution__bar"></span>
+      <span>{{ row.percent | round }}%</span>
+    </p>
+  {%- endfor -%}
+</div>
+```
+
+```css
+.reviews-distribution {
+  display: grid;
+  gap: 0.25rem;
+  max-width: 20rem;
+}
+
+.reviews-distribution__total {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.reviews-distribution__total strong {
+  font-size: 1.5rem;
+}
+
+.reviews-distribution__row {
+  display: grid;
+  grid-template-columns: 1rem 1fr 2.5rem;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.reviews-distribution__bar {
+  height: 0.5rem;
+  border-radius: 999px;
+  background: linear-gradient(to right, #111827 calc(var(--fo-percent) * 1%), #e5e7eb 0);
+}
+
+.reviews-distribution__row span:last-child {
+  text-align: right;
+}
+```
+
+</Example>
 
 ## Troubleshooting
 
-- If the list is empty, verify reviews are synced/imported and linked to products.
-- If outdated data appears, run a fresh sync and refresh storefront cache.
-- If review cards render poorly, simplify custom structure/CSS and test incrementally.
+1. **The list is empty:** check that the product's reviews are published and linked to the product, and that **Review scope** is **product**.
+2. **Load more, search or filters do nothing:** turn on the [FiveOh Core](/docs/displaying-reviews/core) app embed.
+3. **Reviews loaded later look different from the first ones:** you edited only the Liquid part of the structure. Change the `<template data-fo-template="review">` the same way.

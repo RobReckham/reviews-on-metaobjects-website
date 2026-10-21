@@ -1,0 +1,165 @@
+---
+title: Trust signals
+description: Five one-line blocks for bestseller rank, units sold, last purchase, returning customers and the share of 5-star reviews.
+---
+
+# Trust signals
+
+Trust signals are five small blocks that each show one line of proof, like `120+ sold in the last 7 days` or `95% 5-star reviews`.
+
+| Block | Shows | Example |
+|---|---|---|
+| [Bestseller](#bestseller) | The product's sales rank | `#2 best-selling in the last 30 days` |
+| [Sold Count](#sold-count) | Units sold | `120+ sold in the last 7 days` |
+| [Last Purchased](#last-purchased) | Time since the last purchase | `Last purchased 6 hours ago` |
+| [Returning Customers](#returning-customers) | Share of buyers who came back | `38% are returning customers` |
+| [Rating Share](#rating-share) | Share of reviews at a star level | `95% 5-star reviews` |
+
+The first four read the **live signals** FiveOh calculates from your orders, for the last 24 hours, 7 days, 30 days and all time. Rating Share reads the review distribution. On product pages, every signal uses the product's figures; elsewhere, the store's, except Bestseller, which only works on product pages.
+
+## Where to place it
+
+1. Product page, around the add-to-cart button
+
+## Adding a signal
+
+1. In the Theme Editor, open a product template.
+2. In the section with the add-to-cart button, click **Add block** and choose the signal from the **Apps** tab, for example **FiveOh Sold Count**.
+3. Set its period and threshold, then **update its text to match**: the text is not changed for you when you pick another period.
+
+Each signal hides itself when there is no data, or when the figure is outside the thresholds you set. So you can place a signal on every product and it only shows where it is worth showing.
+
+Each block has one text in its **Texts** setting, with the values listed below. Change, extend and translate it like any block text, see [Customising blocks](/docs/displaying-reviews/customising-blocks#texts).
+
+## Bestseller
+
+Shows the product's rank among all products by units sold in a period. Only on product pages.
+
+| Setting | What it does |
+|---|---|
+| **Period** | Last 24 hours, 7 days, 30 days (default) or all time. |
+| **Maximum rank to show** | Shows the block only for the top products, `10` by default. |
+
+| Key | Default | Values |
+|---|---|---|
+| `bestseller` | `#{a} best-selling in the last 30 days` | `{a}` rank |
+
+Ranks change with sales, so a text like `Top {a} this month` or simply `Bestseller` works too.
+
+## Sold Count
+
+Shows how many units were sold in a period.
+
+| Setting | What it does |
+|---|---|
+| **Period** | Last 24 hours, 7 days (default), 30 days or all time. |
+| **Minimum count to show** | Hides the block below this number, `1` by default. |
+
+| Key | Default | Values |
+|---|---|---|
+| `sold_count` | `{a}+ sold in the last 7 days` | `{a}` units sold, `{b}` the same, short (`12.9k`) |
+
+## Last Purchased
+
+Shows how long ago something was last bought, like `4 days ago`, in the shopper's language. On product pages it is the product or the selected variant; elsewhere the store's last purchase. The relative time is calculated in the browser, so it needs the [FiveOh Core](/docs/displaying-reviews/core) app embed.
+
+| Setting | What it does |
+|---|---|
+| **Maximum age to show** | Hides the block when the purchase is older: 1 hour, 24 hours, 3 days, 7 days (default) or 30 days, or always show. |
+
+| Key | Default | Values |
+|---|---|---|
+| `last_purchased` | `Last purchased {a}` | `{a}` relative time, `{b}` relative time for the selected variant, `{c}` date, `{d}` date for the selected variant |
+
+## Returning Customers
+
+Shows the share of buyers in a period who had ordered from your store before. On product pages, the buyers of that product.
+
+This measures customers returning to your **store**, not customers buying the same product again. Word the text accordingly.
+
+| Setting | What it does |
+|---|---|
+| **Period** | Last 24 hours, 7 days (default), 30 days or all time. |
+| **Minimum percent to show**, **Minimum count to show** | Hide the block below these. `0` ignores them. |
+
+| Key | Default | Values |
+|---|---|---|
+| `returning_customers` | `{a}% are returning customers` | `{a}` percent, `{b}` number of returning customers |
+
+## Rating Share
+
+Shows the share of reviews at a star level, from the product's reviews on product pages and from all reviews elsewhere.
+
+| Setting | What it does |
+|---|---|
+| **Share type** | 5 stars (default), 4 stars and more, 2 stars and less, or 1 star. |
+| **Minimum percent to show**, **Minimum count to show** | Hide the block below these. `0` ignores them. |
+| **Maximum percent to show**, **Maximum count to show** | Hide the block above these. `100` and `0` ignore them. |
+
+| Key | Default | Values |
+|---|---|---|
+| `rating_share` | `{a}% 5-star reviews` | `{a}` percent, `{b}` number of reviews |
+
+The maximums are for the negative share types: with **1 star** and a **Maximum percent to show** of `5`, a text like `Only {a}% 1-star reviews` shows only while it is true.
+
+## Data
+
+The block reads these metafields. Your theme code can read the same ones; their full structure is in the [reference](/docs/developers/metaobjects-and-metafields). On product pages they are the product's, elsewhere the shop's.
+
+1. [`live_signals`](/docs/developers/metaobjects-and-metafields#live_signals): units sold, sales rank and returning customers for four periods, and the time of the last purchase. Bestseller, Sold Count, Last Purchased and Returning Customers read it.
+2. [`rating_distribution`](/docs/developers/metaobjects-and-metafields#rating_distribution): the number and share of reviews per star. Rating Share reads it.
+
+## Examples
+
+Every value these blocks use is in the `live_signals` and `rating_distribution` metafields of the product and the shop, so you can show signals anywhere in your theme. Their structure is in the [Data](#data) section above.
+
+The examples are one line of text each, so they need no CSS: they take the font and color of the spot in your theme where you put them.
+
+### Units sold in the last 24 hours
+
+Shown only from five units, a higher minimum than the block's default of 1:
+
+<Example>
+<p>12 sold in the last 24 hours</p>
+
+{/* contract-body: Examples > Live signals */}
+
+</Example>
+
+### Bestseller rank
+
+`sold_rank` is the product's place among all products by units sold, here in the last 30 days, shown for the top 10:
+
+<Example>
+<p><strong>#2</strong> best-selling in the last 30 days</p>
+
+```liquid
+{%- assign month = product.metafields['app--324569563137'].live_signals.value.periods.last_30_days -%}
+{%- if month.sold_rank and month.sold_rank <= 10 -%}
+  <p><strong>#{{ month.sold_rank }}</strong> best-selling in the last 30 days</p>
+{%- endif -%}
+```
+
+</Example>
+
+### Share of 5-star reviews
+
+`rating_distribution` holds the count and percent per star. Its keys are strings, so `'5'` is quoted:
+
+<Example>
+<p>87% of reviews give 5 stars</p>
+
+```liquid
+{%- assign five = product.metafields['app--324569563137'].rating_distribution.value['5'] -%}
+{%- if five.percent >= 80 -%}
+  <p>{{ five.percent | round }}% of reviews give 5 stars</p>
+{%- endif -%}
+```
+
+</Example>
+
+## Troubleshooting
+
+1. **A signal does not show:** the figure is outside its thresholds, or there were no orders in the period. Try a longer period or a lower minimum.
+2. **The text names the wrong period:** the text does not follow the **Period** setting. Update it by hand.
+3. **Last Purchased shows a date in the wrong language, or nothing:** turn on the FiveOh Core app embed.

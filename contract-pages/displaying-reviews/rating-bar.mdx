@@ -1,0 +1,125 @@
+---
+title: Rating Bar
+description: A full-width strip with stars, rating, review count and an optional logo.
+---
+
+# Rating Bar
+
+The **FiveOh Rating Bar** is a horizontal strip with stars, the rating and the review count, like `★★★★★ 4.8 based on 2,341 reviews`, and an optional logo.
+
+## Where to place it
+
+1. Homepage
+2. Landing pages
+3. Header
+4. Footer
+
+## Adding it to your theme
+
+1. In the Theme Editor, open the template, for example the homepage.
+2. Click **Add block** in a section and choose **FiveOh Rating Bar** from the **Apps** tab.
+3. Pick the **Review scope**: **mixed** for all your reviews, **store** for reviews about your shop, or **product** on product pages.
+
+## Settings
+
+| Setting | What it does |
+|---|---|
+| **Full-width background** | Extends the background to the edges of the screen. |
+| **Background color**, **Text color** | The colors of the bar. |
+| **Star color**, **Star size**, star icons | The look of the stars. |
+| **Logo**, **Logo max width** | An image next to the rating, for example your brand or a review seal. |
+| **Link** | Where a click goes, for example `#product-reviews`. |
+| **Review scope**, **Fallback behavior** | Which reviews the rating is based on. See [Customising blocks](/docs/displaying-reviews/customising-blocks#settings). |
+| **Minimum reviews to show** | Hides the bar until there are this many reviews. |
+
+## Texts
+
+| Key | Default | Values |
+|---|---|---|
+| `rating` | `<b>{a}</b> based on <b>1</b> review\|<b>{a}</b> based on <b>{b}</b> reviews` | `{a}` rating, `{b}` review count |
+| `stars_label` | `{a} out of 5 stars` | `{a}` rating. Read by screen readers. |
+
+## Data
+
+The block reads these metafields. Your theme code can read the same ones; their full structure is in the [reference](/docs/developers/metaobjects-and-metafields). Which ones depends on the **Review scope**: **product** reads the product's `rating`, **mixed** the shop's `rating`, and **store** the shop's `store_reviews_rating`.
+
+1. [`rating`](/docs/developers/metaobjects-and-metafields#rating) and [`rating_count`](/docs/developers/metaobjects-and-metafields#rating_count): on a product the product's own, on the shop those of all reviews.
+2. [`rating_count_compact`](/docs/developers/metaobjects-and-metafields#rating_count_compact): the count shortened for tight spaces, like `2.3k`.
+3. [`store_reviews_rating`](/docs/developers/metaobjects-and-metafields#store_reviews_rating) and its count, on the shop: store reviews only, about the shop rather than a product.
+4. [`product_reviews_rating`](/docs/developers/metaobjects-and-metafields#product_reviews_rating) and its count, on the shop: product reviews only.
+
+## Examples
+
+The block reads `rating` and `rating_count` from the product or the shop, depending on the scope; store scope reads `store_reviews_rating`. To restyle the block itself, its colors are also CSS custom properties: `--fo-rating-bar-bg` and `--fo-rating-bar-color` in its **Custom CSS** override the color settings.
+
+The examples below build the rating into your own theme code. Each example brings the CSS for exactly the look of its preview, scoped to its own classes so it does not touch the rest of your theme. Only the font and the text color come from your theme. The stars (`fo-stars`) need FiveOh's star styles on the page, which every FiveOh block and the [Product Card Ratings](/docs/displaying-reviews/product-card-ratings) app embed load.
+
+### Rating in the announcement bar
+
+The shop's own metafields hold the rating across all reviews. `rating_count_compact` gives a short number for tight spaces, like `2.3k`:
+
+<Example>
+<a href="#" className="reviews-announcement"><span className="fo-stars" style={{ "--fo-rating": 4.8 }}></span>Rated 4.8 from 2.3k+ reviews</a>
+
+```liquid
+{%- assign fiveoh = shop.metafields['app--324569563137'] -%}
+{%- if fiveoh.rating_count.value > 0 -%}
+  <a href="/pages/reviews" class="reviews-announcement">
+    <span class="fo-stars" style="--fo-rating: {{ fiveoh.rating.value.rating }}"></span>
+    Rated {{ fiveoh.rating.value.rating }} from {{ fiveoh.rating_count_compact.value }}+ reviews
+  </a>
+{%- endif -%}
+```
+
+```css
+.reviews-announcement {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #111827;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.reviews-announcement .fo-stars {
+  --fo-star-color: #fde047;
+}
+```
+
+</Example>
+
+### Product reviews only
+
+The shop's `rating` counts every review. To count only product reviews, read `product_reviews_rating` and `product_reviews_rating_count`; for reviews about your shop, `store_reviews_rating` and `store_reviews_rating_count`:
+
+<Example>
+<p className="reviews-rating-line"><span className="fo-stars" style={{ "--fo-rating": 4.7 }}></span><span><strong>4.7</strong> based on <strong>1984</strong> product reviews</span></p>
+
+```liquid
+{%- assign fiveoh = shop.metafields['app--324569563137'] -%}
+<p class="reviews-rating-line">
+  <span class="fo-stars" style="--fo-rating: {{ fiveoh.product_reviews_rating.value.rating }}"></span>
+  <span>
+    <strong>{{ fiveoh.product_reviews_rating.value.rating }}</strong> based on
+    <strong>{{ fiveoh.product_reviews_rating_count.value }}</strong> product reviews
+  </span>
+</p>
+```
+
+```css
+.reviews-rating-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+}
+```
+
+</Example>
+
+## Troubleshooting
+
+1. **No rating shows:** check that there are reviews for the chosen **Review scope**. Store scope only counts reviews about your shop.
+2. **The background does not reach the edges:** turn on **Full-width background**.

@@ -1,16 +1,37 @@
 ---
 title: FiveOh Core
-description: Enable the FiveOh Core app embed before placing any app blocks.
+description: The app embed every store needs. It loads the FiveOh script and adds your reviews to the product's structured data.
 ---
 
 # FiveOh Core
 
-Before placing any section blocks, enable the **FiveOh Core** app embed in the Theme Editor.
+**FiveOh Core** is an app embed, not a block: you turn it on once and it runs on every page. Enable it before placing any block, under **Theme Editor → App embeds**.
 
-It is highly recommended, because it enables a setting to prevent post-purchase review request pages from being indexed by search engines (`Stop review requests from being indexed`, on by default). It is light-weight and will not affect your store's performance.
+It does three things:
 
-Enable it under **Theme Editor → App embeds**.
+1. **Loads the FiveOh script,** which makes the interactive parts work: load more, sort, filter and search in the review list, the review forms, and the slider buttons. The script is small and loads deferred, after the page content.
+2. **Adds your reviews to the structured data** of each product page, so search engines can show stars in their results and AI tools can read the rating.
+3. **Keeps review request pages out of search engines.** The pages customers open from review request emails are personal and should not be indexed.
+
+Everything that is pure Liquid, like ratings and the reviews shown on page load, renders without FiveOh Core. Interaction does not.
+
+## Settings
+
+| Setting | What it does |
+|---|---|
+| **Stop review requests from being indexed by search engines** | Adds `noindex` to the [post-purchase form](/docs/displaying-reviews/post-purchase-form) page. Keep it on. |
+| **Show product rating and reviews in search results** | Adds the rating and the newest reviews to the product's structured data. Only use it when the rating is visible on the product page, as Google requires. |
+| **Structured data product ID** | The `@id` of your theme's product markup, so Google merges price, rating and reviews into one product. The default, `{product_url}#product`, matches Shopify's own markup. Placeholders: `{product_url}`, `{shop_url}`, `{handle}`, `{product_id}`, `{variant_id}`, `{sku}`. |
+| **Structured data product type** | `Product` or `ProductGroup`. **Auto** uses `ProductGroup` for products with variants, like Shopify does. |
+| **Reviews in structured data** | How many of the newest reviews go into the structured data. Keep it at or below the [Review List](/docs/displaying-reviews/review-list)'s **Preloaded reviews**, so every review in the structured data is also on the page. |
+| **Custom CSS** | CSS for the whole storefront, not scoped to a block. |
+
+## Structured data
+
+FiveOh's structured data is the only review markup your product page needs. If your theme or another app also outputs a rating for the product, turn one of them off, otherwise Google sees two ratings for the same product.
+
+To check the result, open a product in Google's <a href="https://search.google.com/test/rich-results" target="_blank" rel="noopener">Rich Results Test</a>. It should show one product with its rating and reviews.
 
 ## Quick links
 
-<a href="https://www.shopify.com/admin/themes/current/editor?context=apps" target="_blank" rel="noopener">Open theme editor app embeds</a>
+<a href="https://www.shopify.com/admin/themes/current/editor?context=apps" target="_blank" rel="noopener">Open the app embeds in the Theme Editor</a>

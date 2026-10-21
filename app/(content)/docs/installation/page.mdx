@@ -1,0 +1,82 @@
+---
+title: Installation
+description: Install FiveOh, add your reviews and place the first blocks, from zero to reviews on your storefront.
+---
+
+# Installation
+
+This page takes you from installing the app to reviews on your storefront. It takes about ten minutes, most of it spent waiting for an import.
+
+## Install the app
+
+Install **FiveOh Reviews on Metaobjects** from the <a href="https://apps.shopify.com/reviews-on-metaobjects" target="_blank" rel="noopener">Shopify App Store</a>. During the installation, FiveOh creates its metaobject and metafield definitions in your store. You do not need to set anything up in Shopify yourself.
+
+## A tour of the app
+
+You find FiveOh in your Shopify admin under **Apps**. Its menu has five pages:
+
+| Page | What you do there |
+|---|---|
+| **Reviews** | The dashboard. At the top, a card for every review source, with **Add platform** to connect a new one and buttons to sync it. Below, the reviews table, where you publish, hide, reply to and feature reviews. |
+| **App Blocks** | Every storefront block, each with **Open in Theme Editor** to place it in your theme. |
+| **Additional attributes** | Rating questions like fit or quality, shown with the reviews. |
+| **Settings** | Moderation rules, the review request email, reward discount codes and AI summaries. |
+| **Subscription** | Your plan. |
+
+## Add your reviews
+
+Next, bring in the reviews you already have. How depends on where they are today:
+
+1. **Judge.me, Loox or the Shop app:** nothing to do. These apps store their reviews in Shopify already, and FiveOh picks them up on its own; a card for the source appears on the dashboard.
+2. **REVIEWS.io or Trustpilot:** click **Add platform** on the dashboard, choose the source and enter its API credentials. Then run a sync.
+3. **A CSV file** from any other app: on the dashboard's **File Import** card, click **Import file!** and upload it. The card also offers an example CSV.
+
+The [Collecting reviews](/docs/collecting-reviews) overview compares the sources. Every imported review becomes a `product_review` metaobject in your store.
+
+Once the import has finished, FiveOh calculates the ratings, review lists and summaries for every product. On large catalogues this runs in the background for a few minutes.
+
+Starting from scratch? Skip the import and collect your own reviews: turn on the [post-purchase email](/docs/collecting-reviews/post-purchase-email), place the [Post Purchase Form](/docs/displaying-reviews/post-purchase-form) block that the email links to, and add the [Review Form](/docs/displaying-reviews/review-form) to your product pages.
+
+## Enable FiveOh Core
+
+App embeds are switches in the Theme Editor that load an app's code on every page of your store, without a visible block. FiveOh Core is one: it loads the small script behind load more, sorting, filtering and the review forms, and adds your reviews to the product's structured data for search engines.
+
+On the **App Blocks** page, click **Open in Theme Editor** next to FiveOh Core. The Theme Editor opens with the embed turned on; click **Save**. See [FiveOh Core](/docs/displaying-reviews/core).
+
+## Place your first blocks
+
+On the **App Blocks** page, **Open in Theme Editor** opens the right template and adds the block for you. Move it where you want it and click **Save**. A good first setup:
+
+1. **[Product Rating](/docs/displaying-reviews/product-rating)** near the product title.
+2. **[Review List](/docs/displaying-reviews/review-list)** further down the product page.
+3. **[Product Card Ratings](/docs/displaying-reviews/product-card-ratings)** for stars in collection grids. Turn on its app embed, then add a small snippet to your theme's product card. That step needs a few lines of theme code, so you may want your developer for it.
+
+Every block works with its defaults, so you can adjust colors and texts later.
+
+## Check your storefront
+
+Open a product that has reviews. You should see the rating and the review list. To confirm the reviews are rendered on the server, open the page source and search for a sentence from one of the reviews: it is already in the HTML.
+
+If something is missing, see [Troubleshooting](/docs/troubleshooting).
+
+## Next steps
+
+Before going further, we recommend reading [How FiveOh works](/docs/how-it-works). It explains where the data lives, which makes every other page easier to follow.
+
+How you continue depends on how you want to use FiveOh.
+
+### Using the app blocks
+
+You design your storefront in the Theme Editor and want reviews to fit in without code. Continue with:
+
+1. [Displaying reviews](/docs/displaying-reviews): every block and where it fits.
+2. [Customising blocks](/docs/displaying-reviews/customising-blocks): colors, texts in every language, and custom CSS.
+3. [Managing reviews](/docs/managing-reviews): replies, featured reviews and translations.
+
+### Building in your theme or headless
+
+You are a developer or an agency and want reviews inside your own sections, snippets or a headless storefront. Continue with:
+
+1. [Developers](/docs/developers): reading FiveOh data in Liquid, through the Storefront API and in customer accounts.
+2. The **Examples** on every [block page](/docs/displaying-reviews): copy-paste starting points with a preview.
+3. [Reference](/docs/developers): every metafield, JSON value and HTML attribute you can rely on.

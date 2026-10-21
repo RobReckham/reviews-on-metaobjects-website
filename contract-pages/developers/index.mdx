@@ -1,0 +1,123 @@
+---
+title: Overview
+description: Build on FiveOh's data in your own Liquid, a headless storefront or customer accounts, and what you can rely on.
+---
+
+# Developers
+
+FiveOh's data is plain Shopify data, so you are not limited to our blocks. Build review components into your own sections and snippets, show ratings in places no app block can reach, or read everything through the Storefront API in a headless store.
+
+This page explains how to read the data. Copy-paste starting points, each with a preview, are on the page of the matching block:
+
+1. **Ratings:** [Product Rating](/docs/displaying-reviews/product-rating#examples), [Product Card Ratings](/docs/displaying-reviews/product-card-ratings), [Rating Bar](/docs/displaying-reviews/rating-bar#examples), [Floating Badge](/docs/displaying-reviews/floating-badge#examples).
+2. **Reviews:** [Review List](/docs/displaying-reviews/review-list#examples) with sorting, filters and load more, AI summary and rating summary; [Reviews Slider](/docs/displaying-reviews/reviews-slider#examples); [featured reviews](/docs/managing-reviews/featured-reviews), [replies](/docs/managing-reviews/replies), the [verified badge](/docs/managing-reviews/verified-badge).
+3. **Forms:** [Review Form](/docs/displaying-reviews/review-form#examples) and a "Write a review" button.
+4. **Signals:** [units sold, bestseller rank and 5-star share](/docs/displaying-reviews/trust-signals#examples), the [fit slider](/docs/managing-reviews/additional-attributes#examples).
+
+The examples write their texts in English; [Languages](/docs/developers/languages) shows how to translate them. Every metafield and field is listed in the [reference](/docs/developers).
+
+## Reading the data in Liquid
+
+FiveOh's metafields are in the namespace `app--324569563137`. Assign it once and read from it:
+
+```liquid
+{%- assign fiveoh = product.metafields['app--324569563137'] -%}
+{{ fiveoh.rating.value.rating }} ({{ fiveoh.rating_count.value }} reviews)
+```
+
+The same works on `variant`, `shop`, `customer` and `order`, each with the values that make sense there. Inside our own blocks the namespace is written `$app` instead; both point to the same data.
+
+A few things to know:
+
+1. **`.value` turns a metafield into data.** A rating becomes an object with `.rating`, a JSON metafield an object or list you walk with dots, and a list of reviews a list of metaobjects.
+2. **Reviews come in pairs.** A review list like `newest_reviews` holds the `product_review` metaobjects, and `newest_reviews_meta` the matching `review_meta` with the translated text. Entry `i` of one belongs to entry `i` of the other.
+3. **Liquid shows up to 50 entries of a list.** The lists hold up to 250 reviews and `.size` counts them all; to show more than 50, load them with `<fo-reviews>`, see below.
+4. **Liquid output is cached.** Shopify caches rendered pages, so anything relative to the current time, like "2 days ago", must be computed in the browser with your own JavaScript. Render the date in Liquid, for example in a `datetime` attribute, and turn it into a relative time there.
+
+### A list of reviews
+
+This shows the five newest reviews of a product, each with its stars, translated text and author:
+
+```liquid
+{%- assign fiveoh = product.metafields['app--324569563137'] -%}
+{%- assign metas = fiveoh.newest_reviews_meta.value | compact -%}
+
+{%- for review in fiveoh.newest_reviews.value limit: 5 -%}
+  {%- assign meta = metas[forloop.index0] -%}
+  <article>
+    <span class="fo-stars" style="--fo-rating: {{ review.rating.value.rating }}"></span>
+    <h3>{{ meta.title.value }}</h3>
+    <p>{{ meta.body.value }}</p>
+    <p>{{ review.author_display_name.value | default: 'Anonymous' }}</p>
+  </article>
+{%- endfor -%}
+```
+
+The `| compact` turns the meta list into an array, which Liquid needs to look up an entry by its position. The `fo-stars` span draws five stars filled to the rating; its styles come with our blocks and the Product Card Ratings embed.
+
+## Making it interactive
+
+Rendered this way, the reviews are complete without JavaScript. To add load more, sorting, filters, search or a review form, wrap your markup in FiveOh's custom elements and mark the controls with `data-fo-*` attributes:
+
+```liquid
+<fo-reviews data-fo-product-id="{{ product.id }}" data-fo-page-size="5">
+  <div data-fo-items>
+    {%- comment -%} the reviews from above {%- endcomment -%}
+  </div>
+  <template data-fo-template="review">
+    <article>
+      <h3 data-fo-field="title"></h3>
+      <p data-fo-field="body"></p>
+    </article>
+  </template>
+  <button data-fo-action="load-more" data-fo-if="has_next_page">Load more</button>
+</fo-reviews>
+```
+
+The script loads further reviews into `data-fo-items`, filling the `<template>` for each one. It reacts only to the elements and attributes, never to your classes, so the markup and styling stay entirely yours. This needs the [FiveOh Core](/docs/displaying-reviews/core) app embed. Every element, action and attribute is in [HTML & JS](/docs/developers/html-and-js).
+
+## Headless storefronts
+
+The metafields and metaobjects are readable through the Storefront API. Use the full namespace:
+
+```graphql
+query ProductReviews($handle: String!) {
+  product(handle: $handle) {
+    rating: metafield(namespace: "app--324569563137", key: "rating") { value }
+    count: metafield(namespace: "app--324569563137", key: "rating_count") { value }
+    reviews: metafield(namespace: "app--324569563137", key: "newest_reviews") {
+      references(first: 10) {
+        nodes {
+          ... on Metaobject {
+            handle
+            rating: field(key: "rating") { value }
+            author: field(key: "author_display_name") { value }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+For the translated text, query the matching `newest_reviews_meta` list with the `@inContext(language: …)` directive. JSON values arrive as strings: parse them, then use the structures in the [reference](/docs/developers/metaobjects-and-metafields).
+
+## Customer accounts
+
+Customer account UI extensions can read the metafields on the customer, the order and the shop:
+
+1. **`review_handles` on the customer** maps every product and variant the customer reviewed to the review's handle, so you can show "You reviewed this" or link to the review.
+2. **`review_request_url` on the order** links to the post-purchase form for that order, for a "Write a review" button in the order details.
+3. **`rating`, `newest_reviews` and the other rating values** on the customer and the order show the reviews they wrote.
+
+Declare the metafields your extension reads in its `shopify.extension.toml`.
+
+## What you can rely on
+
+Everything listed on [Metaobjects & metafields](/docs/developers/metaobjects-and-metafields) and [HTML & JS](/docs/developers/html-and-js) only grows: nothing there is ever renamed, removed or given a new meaning. Code you write against it keeps working through every update. These are the rules behind that promise:
+
+{/* contract-body: Rules */}
+
+### Reserved names
+
+{/* contract-body: Reserved */}

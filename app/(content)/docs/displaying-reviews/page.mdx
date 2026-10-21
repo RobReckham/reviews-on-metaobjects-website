@@ -1,54 +1,67 @@
 ---
 title: Overview
-description: Place and customise the storefront app blocks that render your reviews.
+description: The FiveOh app blocks, where each one fits, and how to place them.
 ---
 
 # Displaying reviews
 
-App blocks control how reviews appear across your storefront. Every block renders server-side in Liquid, with no JavaScript widget, and reads from your review metaobjects.
+FiveOh's app blocks put your reviews and ratings on the storefront without code. You place them in the Theme Editor like any other block, and they render with Liquid on the server, so reviews are in the page from the first byte.
 
-## Placement from the app
+Every block works with its defaults. When you want it to look different, you can change its settings, its texts in every language, its CSS, and finally its Liquid. See [Customising blocks](/docs/displaying-reviews/customising-blocks).
 
-In Shopify admin, open **App blocks** in the app and use **Open in Theme Editor** for the block you want to place.
+## Placing a block
 
-## Recommended setup order
+The **App blocks** page in the app lists every block with an **Open in Theme Editor** button that opens the right template. You can also add them yourself: in the Theme Editor, click **Add block** in a section and choose a block from the **Apps** tab. Save the theme when you are done.
 
-1. Enable the [FiveOh Core](/docs/displaying-reviews/core) app embed.
-2. Add [Product Rating](/docs/displaying-reviews/product-rating) and [Review List](/docs/displaying-reviews/review-list) on product pages.
-3. Add [Review Form](/docs/displaying-reviews/review-form) where customers can submit feedback.
-4. Enable [Product Card Ratings](/docs/displaying-reviews/product-card-ratings) for rating hints on listing pages.
-5. Add a [Rating Bar](/docs/displaying-reviews/rating-bar) or [Reviews Slider](/docs/displaying-reviews/reviews-slider) for homepage and landing-page trust.
+Before placing any block, turn on the [FiveOh Core](/docs/displaying-reviews/core) app embed. It loads the script behind load more, filters and the forms, and adds your reviews to the structured data for search engines.
 
 ## The blocks
 
-**Ratings & summary**
-- [Product Rating](/docs/displaying-reviews/product-rating): average stars and count for a product
-- [Product Card Ratings](/docs/displaying-reviews/product-card-ratings): compact stars for collection/listing cards
-- [Rating Bar](/docs/displaying-reviews/rating-bar): store- or product-level rating bar with logo
+The blocks follow a shopper's way through your store, from the first impression to the review after the purchase.
 
-**Review display**
-- [Review List](/docs/displaying-reviews/review-list): the full list with search, sort, filters and pagination
-- [Reviews Slider](/docs/displaying-reviews/reviews-slider): featured reviews in a carousel
+### First impression: homepage and every page
 
-**Collection forms** *(placed as blocks; see [Collecting reviews](/docs/collecting-reviews))*
-- [Review Form](/docs/displaying-reviews/review-form): on-store submission form
-- [Post Purchase Form](/docs/displaying-reviews/post-purchase-form): hosted form for email/link submissions
+1. **[Rating Bar](/docs/displaying-reviews/rating-bar):** a full-width strip with your store's rating and an optional logo.
+2. **[Floating Badge](/docs/displaying-reviews/floating-badge):** a compact rating badge, inline or pinned to a corner of the screen.
+3. **[Reviews Slider](/docs/displaying-reviews/reviews-slider):** a carousel of reviews with a summary tile.
 
-**Purchase signals**
-- [Bestseller](/docs/displaying-reviews/bestseller) · [Sold Count](/docs/displaying-reviews/sold-count) · [Last Purchased](/docs/displaying-reviews/last-purchased) · [Returning Customers](/docs/displaying-reviews/returning-customers) · [Rating Share](/docs/displaying-reviews/rating-share) · [Floating Badge](/docs/displaying-reviews/floating-badge)
+### Browsing: collections and search
 
-## Customising output
+1. **[Product Card Ratings](/docs/displaying-reviews/product-card-ratings):** stars on product cards in collections, search and the cart drawer.
+2. **[Rating filters](/docs/displaying-reviews/rating-filters):** a "4 stars and up" filter, with Shopify's Search & Discovery app.
 
-Every block builds its markup from a **structure** template with `{placeholder}` tokens, plus scoped `custom_css`. See [Customising app blocks](/docs/displaying-reviews/customising-app-blocks) for the complete token reference.
+### Deciding: the product page
+
+1. **[Product Rating](/docs/displaying-reviews/product-rating):** stars and review count next to the product title.
+2. **[Trust signals](/docs/displaying-reviews/trust-signals):** one line of proof close to the add-to-cart button, like units sold or the bestseller rank.
+3. **[Review List](/docs/displaying-reviews/review-list):** the full list with rating summary, search, sort, star filters and load more.
+4. **[Review Form](/docs/displaying-reviews/review-form):** lets shoppers write a review, inline or in a modal.
+
+### Buying: the checkout
+
+1. **[Checkout blocks](/docs/displaying-reviews/checkout-blocks):** ratings, rating shares and units sold in the checkout, on Shopify Plus.
+
+### After the purchase
+
+1. **[Post Purchase Form](/docs/displaying-reviews/post-purchase-form):** the page customers open from the review request email to review their order.
+
+## A good first setup
+
+1. **Product page:** Product Rating around the product title, the Review List and the Review Form in the main content, and a trust signal around the add-to-cart button.
+2. **Collection pages and search:** Product Card Ratings.
+3. **Homepage:** a Reviews Slider or a Rating Bar.
+
+## Works everywhere
+
+Themes load a lot of content after the page itself: predictive search, quick view, the cart drawer, infinite scroll on collections, and the Theme Editor's live preview. FiveOh keeps working in all of them:
+
+1. **Ratings and reviews rendered in Liquid** are part of the content the theme loads, so they come along without any extra step. This includes the [product card ratings](/docs/displaying-reviews/product-card-ratings) snippet, as long as the theme uses the same card snippet in those places.
+2. **Interactive parts,** like load more, filters and the review form, start working as soon as they appear on the page, also when the theme inserts them later. They need the [FiveOh Core](/docs/displaying-reviews/core) app embed.
+
+If ratings are missing in one of these places, the theme usually renders it with another snippet. See [Troubleshooting](/docs/troubleshooting#a-block-is-blank-or-missing).
 
 ## Quick links
 
-<a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}/app-blocks`} target="_blank" rel="noopener">Open app blocks page in app</a>  
-<a href="https://www.shopify.com/admin/themes/current/editor?context=apps" target="_blank" rel="noopener">Open theme editor app embeds</a>  
+<a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}/app-blocks`} target="_blank" rel="noopener">Open the App blocks page in the app</a>  
+<a href="https://www.shopify.com/admin/themes/current/editor?context=apps" target="_blank" rel="noopener">Open the app embeds in the Theme Editor</a>  
 <a href="https://demo.reviewsonmetaobjects.com/products/chambray-work-shirt" target="_blank" rel="noopener">Demo store product page</a> (password: demo)
-
-## Troubleshooting
-
-- If a block does not render, confirm it is enabled and saved in Theme Editor.
-- If layout looks wrong, verify placement in the correct template and section.
-- For card, form and purchase-signal blocks, check their dedicated pages for required data or integration steps.

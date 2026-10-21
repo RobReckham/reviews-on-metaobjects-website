@@ -1,0 +1,123 @@
+---
+title: Customising blocks
+description: Change a block's settings, its texts in every language, its CSS and its Liquid structure.
+---
+
+# Customising blocks
+
+Every FiveOh block can be changed on four levels. Start at the top and stop as soon as the block does what you want:
+
+1. **[Settings](#settings):** colors, star size, how many reviews, when to hide. No code.
+2. **[Texts](#texts):** every word the block shows, in every language of your store.
+3. **[Custom CSS](#custom-css):** spacing, fonts and layout, scoped to the block.
+4. **[Liquid structure](#liquid-structure):** the block's complete markup, for when you want a different layout.
+
+When even that is not enough, you can leave the block behind and build the component in your own theme code. See [Developers](/docs/developers).
+
+## Settings
+
+Each block's settings are in the Theme Editor's sidebar when you select the block. The settings every block shares are described here; the ones unique to a block are on its own page.
+
+| Setting | What it does |
+|---|---|
+| **Star color**, **Star size** | Color of the stars, and their size relative to the text (`1` = the text size). |
+| **Full star icon**, **Empty star icon** | Your own star images. SVG icons take the star color, other images are shown as they are. |
+| **Minimum reviews to show** | Hides the block until a product has this many reviews. `0` always shows it. |
+| **Review scope** | Which reviews count: the current **product**'s reviews, **store** reviews (about your shop, not a product), or **mixed** for all reviews. Off product pages, product scope falls back to **mixed**: the shop's rating of all reviews. |
+| **Fallback behavior** | What a product-scoped block does when the product has fewer reviews than the minimum: **hide**, or show your store reviews instead. |
+| **Heading tag** | The HTML tag of the block's heading, for a correct heading order on the page. |
+| **Anchor ID** | An ID other elements can link or scroll to, like `#product-reviews`. |
+| **Show advanced settings** | Reveals the **Structure** and **Custom CSS** fields. |
+
+## Texts
+
+Every word a block shows lives in its **Texts** setting: headings, button labels, messages, and even the labels screen readers announce. One text per line, as `key: text`:
+
+```text
+heading: Customer Reviews
+review_count: 1 review|{a} reviews
+no_reviews_message: No reviews yet
+```
+
+1. **Change only the part after the colon.** The key before it is how the block finds the text.
+2. **Values in braces are filled in.** `{a}`, `{b}` and so on stand for numbers or dates, like the review count. Each block's page lists what they mean.
+3. **Two forms for singular and plural.** A text with a `|` uses its first form for exactly 1 and the second for everything else.
+4. **HTML is allowed,** for example `<b>{a}</b> reviews` to make the number bold.
+5. **An empty text shows nothing.** Leave a label empty to hide it.
+
+### Texts in other languages
+
+The Texts setting is translatable like every other theme setting. Open the **Translate & Adapt** app, choose your theme, and find the block's **Texts** under the template it is placed on. Translate the whole field line by line and keep the keys before the colons unchanged.
+
+## Custom CSS
+
+**Custom CSS** applies only to this block, so you cannot break the rest of your theme. FiveOh wraps what you write in a selector for this one block, so you can write declarations for the block itself directly, or nest rules for its parts:
+
+```css
+gap: 1rem;
+--fo-star-color: #e7a427;
+--fo-star-size: 1.25em;
+
+.fo-product-rating {
+  font-weight: 600;
+}
+```
+
+The **FiveOh Core** and **Product Card Ratings** embeds are the exception: their custom CSS applies to the whole storefront.
+
+### CSS custom properties
+
+These four properties are listed in the [reference](/docs/developers/html-and-js#css-custom-properties), so they keep working in every update:
+
+| Property | What it does |
+|---|---|
+| `--fo-star-color` | Star color. Overrides the **Star color** setting. |
+| `--fo-star-size` | Star size, like `1.2em`. Overrides the **Star size** setting. |
+| `--fo-rating` | Fills `.fo-stars` to a rating from 0 to 5. |
+| `--fo-percent` | A percentage from 0 to 100, used for bars like the rating distribution. |
+
+The star icon settings can also be overridden, with `--fo-star-full-image` and `--fo-star-empty-image` for images, or `--fo-star-full-mask` and `--fo-star-empty-mask` for SVG icons that take the star color. These, and the color properties some blocks offer, belong to the blocks rather than the reference, so a future update may change them.
+
+### Classes
+
+Style the classes you see in the block's structure. Once you edit a structure, its markup is saved with your theme and does not change in app updates. Blocks with an unedited structure follow the app's default, which may get new classes over time.
+
+## Liquid structure
+
+Turn on **Show advanced settings** to see a block's **Structure**: the complete Liquid and HTML the block renders. Change it like any theme file: move elements, add your own classes, wrap parts in your markup, or remove what you do not need.
+
+This is the Product Rating's structure:
+
+```liquid
+{%- liquid
+  assign rating = product.metafields['$app'].rating.value.rating | default: 0
+  assign count = product.metafields['$app'].rating_count.value | default: 0
+-%}
+{%- if count >= block.settings.minimum_reviews_to_show -%}
+  {%- capture fo_rating -%}
+    {%- capture stars_label -%}{%- render 'fo-text', key: 'stars_label', a: rating -%}{%- endcapture -%}
+    <span class="fo-stars" style="--fo-rating: {{ rating }}" role="img" aria-label="{{ stars_label | strip_html | strip | escape }}"></span>
+    {%- assign rating_value = rating | replace: '.0', '' -%}
+    <span>{%- render 'fo-text', key: 'rating', a: rating_value, b: count, plural_by: count -%}</span>
+  {%- endcapture -%}
+  {%- if block.settings.link != blank -%}
+    <a class="fo-product-rating" href="{{ block.settings.link }}">{{ fo_rating }}</a>
+  {%- else -%}
+    <div class="fo-product-rating">{{ fo_rating }}</div>
+  {%- endif -%}
+{%- endif -%}
+```
+
+A few things to know when you edit it:
+
+1. **Data comes from metafields.** In a block, the namespace is `$app`: `product.metafields['$app'].rating`. Every metafield is listed in the [reference](/docs/developers/metaobjects-and-metafields).
+2. **Settings are in `block.settings`,** like `block.settings.minimum_reviews_to_show`. Block settings are not part of the reference. A future update could rename one; the default structure would follow, but an edited structure in your theme keeps the old name.
+3. **Texts come from `fo-text`.** `{% render 'fo-text', key: 'rating', a: rating_value, b: count, plural_by: count %}` prints the `rating` line of the Texts setting with `{a}` and `{b}` filled in. `plural_by` picks the singular or plural form. To use a text inside an HTML attribute, capture it first and clean it with `| strip_html | strip | escape`, as the `aria-label` above does.
+4. **Your own texts.** Add a new line to the Texts setting, like `badge: Top rated`, and render it with `{% render 'fo-text', key: 'badge' %}`. It is translatable like the others.
+5. **Interactive parts use `data-fo-*` attributes.** Load more, sort, filter, search, forms and sliders react to attributes like `data-fo-action="load-more"`, not to classes. Keep them on the elements when you restyle. They are listed in [HTML & JS](/docs/developers/html-and-js).
+
+The Structure field itself is not translatable, which is why visible words belong in the Texts setting and not in the Liquid.
+
+### Going back to the default
+
+To start over, remove the block and add it again. It comes back with the default structure, texts and settings.

@@ -1,27 +1,35 @@
 ---
 title: Overview
-description: Review data sources and import/sync behavior.
+description: Where your reviews can come from, and how each source gets them into your store.
 ---
 
 # Collecting reviews
 
-This page explains the different ways to collect reviews and bring them into your store as native Shopify metaobjects.
+Every review FiveOh shows is a Shopify metaobject in your store. You can bring existing reviews in from another app, collect your own with FiveOh, or both at once: all reviews end up in the same place and show in the same blocks.
 
-**Import from another app**
-- [Judge.me](/docs/collecting-reviews/judgeme) · [Loox](/docs/collecting-reviews/loox) · [Reviews.io](/docs/collecting-reviews/reviews-io) · [Trustpilot](/docs/collecting-reviews/trustpilot) · [Shop app](/docs/collecting-reviews/shop-app) · [File import (CSV)](/docs/collecting-reviews/file-import)
+## Sources at a glance
 
-**Collect natively with FiveOh**
-- [Post-purchase email](/docs/collecting-reviews/post-purchase-email) · [Storefront form](/docs/collecting-reviews/storefront)
+| Source | How reviews arrive | What you need |
+|---|---|---|
+| [Judge.me](/docs/collecting-reviews/judgeme) | Automatically, as Judge.me writes them | Nothing to set up |
+| [Loox](/docs/collecting-reviews/loox) | Automatically, as Loox writes them | Nothing to set up |
+| [Shop app](/docs/collecting-reviews/shop-app) | Automatically | Nothing to set up |
+| [REVIEWS.io](/docs/collecting-reviews/reviews-io) | When you run a sync; with webhooks also automatically | Your REVIEWS.io Store ID |
+| [Trustpilot](/docs/collecting-reviews/trustpilot) | When you run a sync; with webhooks also automatically. Product and service reviews | API key, API secret and Business Unit ID |
+| [File import](/docs/collecting-reviews/file-import) | When you upload a CSV file | A CSV export from your old app |
+| [Post-purchase email](/docs/collecting-reviews/post-purchase-email) | Customers review their order from an email FiveOh sends | The email turned on, and the Post Purchase Form block placed |
+| [Review form](/docs/collecting-reviews/storefront) | Shoppers write a review on the product page | The Review Form block placed |
 
-You can keep collecting in another app and let FiveOh handle sync and display, collect natively with FiveOh, or run both.
+Judge.me, Loox and the Shop app write their reviews into Shopify's own review metaobjects themselves, so FiveOh only has to read them. REVIEWS.io and Trustpilot keep reviews on their own servers, so FiveOh fetches them through their API.
+
+Trustpilot service reviews, and rows without a product in a CSV import, become [store reviews](/docs/how-it-works#product-reviews-and-store-reviews): reviews about your shop rather than a product.
 
 ## Quick links
 
-<a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}`} target="_blank" rel="noopener">Open app dashboard</a>  
-<a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}/settings`} target="_blank" rel="noopener">Open app settings</a>
+<a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}`} target="_blank" rel="noopener">Open the app dashboard</a>  
+<a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}/settings`} target="_blank" rel="noopener">Open the app settings</a>
 
 ## Troubleshooting
 
-- If data is missing, run a fresh sync/import first.
-- If one source fails while others work, troubleshoot that source page directly.
-- If data appears in admin but not storefront, verify app block placement and publish settings.
+1. **Reviews are missing:** open the source's card on the dashboard and check its last sync. For REVIEWS.io and Trustpilot, run an **Incremental sync**.
+2. **Reviews are in the app but not on the storefront:** check that they are published, and that a block like the [Review List](/docs/displaying-reviews/review-list) is placed.

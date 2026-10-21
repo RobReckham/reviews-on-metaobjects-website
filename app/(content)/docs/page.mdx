@@ -1,28 +1,33 @@
 ---
 title: Introduction
-description: Collect reviews from anywhere, manage them in Shopify, and display them natively in your theme.
+description: FiveOh stores your reviews as native Shopify data and renders them in your theme. Use the app blocks or build on the data yourself.
 ---
 
 # Introduction
 
-FiveOh Reviews on Metaobjects is the display layer for your product reviews. Collect reviews with FiveOh or keep the app you already use. Either way, FiveOh stores them as native Shopify metaobjects and renders them server-side in your theme.
+FiveOh Reviews on Metaobjects is the display layer for your product reviews. Collect reviews with FiveOh or keep the review app you already use. Either way, every review becomes a native Shopify metaobject, and FiveOh keeps ratings, review lists, AI summaries and sales figures ready as metafields on your products and your shop.
 
-These docs follow the three things you do with reviews:
+Because the data lives in Shopify, your theme renders it with Liquid, on the server, like any other product data. Reviews are in the page from the first byte: no widget, no layout shift, and readable for search engines and AI.
 
-1. **[Collecting reviews](/docs/collecting-reviews):** import from Judge.me, Loox, Reviews.io, Trustpilot or the Shop app, or collect natively with storefront forms and post-purchase email.
-2. **[Managing reviews](/docs/managing-reviews):** moderate, reply, feature, verify, add rating attributes, and auto-translate.
-3. **[Displaying reviews](/docs/displaying-reviews):** place and customise the storefront app blocks, down to the individual placeholder.
+## Two ways to use FiveOh
 
-## Start here
+FiveOh grows with you. Most stores start with the first way and add the second where they need it.
 
-1. Open the app in Shopify admin.
-2. Connect at least one review source.
-3. Enable and place your app blocks in the Theme Editor.
-4. Confirm reviews are visible on storefront pages.
+1. **Use the app blocks.** Place blocks like Product Rating or Review List in the Theme Editor, then adjust colors, texts and layout in their settings. No code needed. See [Displaying reviews](/docs/displaying-reviews).
+2. **Build on the data.** Developers and agencies read the same metafields in their own sections and snippets, or through the Storefront API in a headless store. See [Developers](/docs/developers).
+
+Both work together: a block and your own snippet can sit on the same page, reading the same reviews.
+
+## How these docs are organised
+
+1. **Getting started:** [Installation](/docs/installation) takes you to reviews on your storefront. [How FiveOh works](/docs/how-it-works) explains where the data lives and how it gets to the page.
+2. **[Collecting reviews](/docs/collecting-reviews):** import from Judge.me, Loox, REVIEWS.io, Trustpilot or the Shop app, or collect your own with storefront forms and post-purchase emails.
+3. **[Managing reviews](/docs/managing-reviews):** moderate, reply, feature, verify, add rating attributes and translate.
+4. **[Displaying reviews](/docs/displaying-reviews):** every app block, its settings, and how to customise it down to the Liquid.
+5. **[Developers](/docs/developers):** build your own review components on FiveOh's data, with every metafield, metaobject and HTML attribute you can rely on. Every block page also has examples with a preview and the code.
 
 ## Quick links
 
-<a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}`} target="_blank" rel="noopener">Open app in Shopify admin</a>  
-<a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}/app-blocks`} target="_blank" rel="noopener">Open app blocks page in app</a>  
+<a href={`${process.env.NEXT_PUBLIC_APP_ADMIN_URL}`} target="_blank" rel="noopener">Open the app in Shopify admin</a>  
+<a href="https://demo.reviewsonmetaobjects.com/products/chambray-work-shirt" target="_blank" rel="noopener">Demo store product page</a> (password: demo)  
 <a href="https://demo.reviewsonmetaobjects.com/collections/all" target="_blank" rel="noopener">Demo store collection page</a> (password: demo)
-<a href="https://demo.reviewsonmetaobjects.com/products/chambray-work-shirt" target="_blank" rel="noopener">Demo store product page</a> (password: demo)

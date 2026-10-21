@@ -1,0 +1,135 @@
+---
+title: Product Rating
+description: Stars, rating and review count for the current product, next to the title.
+---
+
+# Product Rating
+
+The **FiveOh Product Rating** block shows the current product's stars, rating and review count, like `★★★★★ 4.8/5 (126 reviews)`. Linked to your review list, a click takes them straight to the reviews.
+
+The rating includes the reviews of all the product's variants.
+
+## Where to place it
+
+1. Product page, around the product title
+
+## Adding it to your theme
+
+1. In the Theme Editor, open a product template.
+2. In the section with the product title, click **Add block** and choose **FiveOh Product Rating** from the **Apps** tab.
+3. Drag it below the title.
+4. To link it to your reviews, set **Link** to `#product-reviews`, the Anchor ID of the [Review List](/docs/displaying-reviews/review-list).
+
+## Settings
+
+| Setting | What it does |
+|---|---|
+| **Star color**, **Star size**, star icons | The look of the stars. |
+| **Minimum reviews to show** | Hides the block on products with fewer reviews. `0` shows it always, also as `0/5 (0 reviews)`. |
+| **Link** | Where a click goes, for example `#product-reviews` to scroll to the review list. Empty: not clickable. |
+| **Anchor ID** | An ID for this block, so other elements can link to it. |
+
+The shared settings are described in [Customising blocks](/docs/displaying-reviews/customising-blocks#settings).
+
+## Texts
+
+| Key | Default | Values |
+|---|---|---|
+| `rating` | `{a}/5 (1 review)\|{a}/5 ({b} reviews)` | `{a}` rating, `{b}` review count |
+| `stars_label` | `{a} out of 5 stars` | `{a}` rating. Read by screen readers. |
+
+For example, `{a} out of 5 · {b} reviews` turns the line into `4.8 out of 5 · 126 reviews`.
+
+## Data
+
+The block reads these metafields. Your theme code can read the same ones; their full structure is in the [reference](/docs/developers/metaobjects-and-metafields).
+
+1. [`rating`](/docs/developers/metaobjects-and-metafields#rating) on the product: the average rating, including the reviews of its variants.
+2. [`rating_count`](/docs/developers/metaobjects-and-metafields#rating_count) on the product: the number of reviews behind it.
+
+`rating` is not a plain number: read it with `.value.rating`, like `product.metafields['app--324569563137'].rating.value.rating`.
+
+## Examples
+
+To restyle the block itself, see [Customising blocks](/docs/displaying-reviews/customising-blocks). These examples put the rating into your own product template instead. Each example brings the CSS for exactly the look of its preview, scoped to its own classes so it does not touch the rest of your theme. Only the font and the text color come from your theme. The stars (`fo-stars`) need FiveOh's star styles on the page, which every FiveOh block and the [Product Card Ratings](/docs/displaying-reviews/product-card-ratings) app embed load.
+
+### Rating next to the title
+
+Stars, rating and count, linked to the review list:
+
+<Example>
+<a href="#product-reviews" className="reviews-rating"><span className="fo-stars" style={{ "--fo-rating": 4.8 }}></span>4.8/5 (126 reviews)</a>
+
+```liquid
+{%- assign fiveoh = product.metafields['app--324569563137'] -%}
+{%- if fiveoh.rating_count.value > 0 -%}
+  <a href="#product-reviews" class="reviews-rating">
+    <span class="fo-stars" style="--fo-rating: {{ fiveoh.rating.value.rating }}"></span>
+    {{ fiveoh.rating.value.rating }}/5 ({{ fiveoh.rating_count.value }} reviews)
+  </a>
+{%- endif -%}
+```
+
+```css
+.reviews-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.reviews-rating:hover {
+  text-decoration: underline;
+}
+```
+
+</Example>
+
+### Big number
+
+The rating as a large number, for a review summary above the list:
+
+<Example>
+<div className="reviews-score"><strong className="reviews-score__value">4.8</strong><div><span className="fo-stars" style={{ "--fo-rating": 4.8 }}></span><p>Based on 126 reviews</p></div></div>
+
+```liquid
+{%- assign fiveoh = product.metafields['app--324569563137'] -%}
+<div class="reviews-score">
+  <strong class="reviews-score__value">{{ fiveoh.rating.value.rating }}</strong>
+  <div>
+    <span class="fo-stars" style="--fo-rating: {{ fiveoh.rating.value.rating }}"></span>
+    <p>Based on {{ fiveoh.rating_count.value }} reviews</p>
+  </div>
+</div>
+```
+
+```css
+.reviews-score {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.reviews-score__value {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.reviews-score .fo-stars {
+  --fo-star-color: #e7a427;
+  --fo-star-size: 1.25em;
+}
+
+.reviews-score p {
+  margin: 0.25rem 0 0;
+  opacity: 0.7;
+}
+```
+
+</Example>
+
+## Troubleshooting
+
+1. **No rating shows:** check that the product has reviews, or set **Minimum reviews to show** to `0`.
+2. **The click does not scroll:** the **Link** must match the **Anchor ID** of the review list, with a `#` in front.

@@ -5,14 +5,14 @@ import Eyebrow from "./eyebrow"
 import CodeSnippet from "./code-snippet"
 
 const agg = { rating: "4.9", ratingDecimal: "4.9", max: "5", count: "233" }
-const single = { rating: "5", max: "5", body: "Arrived in two days, fits like the photos.", author: "Jonas R.", date: "2 days ago" }
+const single = { rating: "5", max: "5", body: "Arrived in two days, fits like the photos.", author: "Jonas R.", date: "Oct 18" }
 const reviews = [
   { body: "Exactly the fit the size guide promised. Third order, won’t be the last.", author: "Mara K." },
   { body: "Arrived in two days, fits like the photos.", author: "Jonas R." },
 ]
 const breakdown = [["5", 92], ["4", 5], ["3", 2], ["2", 1], ["1", 0]]
 
-/* --- highlighter: app {tokens} + the merchant's own HTML, matching site snippet colors --- */
+/* --- highlighter: Liquid tags and text values + the merchant's own HTML, matching site snippet colors --- */
 
 const COLOR = {
   yellow: "text-[#fde047]",
@@ -38,7 +38,7 @@ function tokenizeHtml(text) {
 
 function highlight(code) {
   const segs = []
-  const re = /\{[a-z_]+\}/g // app structure tokens, e.g. {stars} {rating_decimal} {reviews}
+  const re = /\{\{[\s\S]*?\}\}|\{%[\s\S]*?%\}|\{[a-j]\}/g // Liquid tags, and the {a} values of block texts
   let last = 0, m
   while ((m = re.exec(code)) !== null) {
     if (m.index > last) segs.push(...tokenizeHtml(code.slice(last, m.index)))
@@ -97,18 +97,27 @@ function shell(skin, children) {
   }}>{children}</div>
 }
 
-/* --- blocks: real app blocks, each with its actual token Structure + a matching render --- */
+/* --- blocks: real app blocks, each with Liquid that works in its Structure (or the block's Texts) + a matching render --- */
 
 const blocks = [
   {
     name: "Review List",
     file: "Review List · Structure",
-    code: `<div class="fo-review-list__header">
-  <div class="fo-product-rating">{rating_decimal} {stars}</div>
-  <span>{count} {pluralised_reviews}</span>
-  <a href="#write-review">Write a review</a>
-</div>
-{reviews}`,
+    code: `{%- assign fiveoh = product.metafields['$app'] -%}
+<header>
+  {{ fiveoh.rating.value.rating }}
+  <span class="fo-stars" style="--fo-rating: {{ fiveoh.rating.value.rating }}"></span>
+  {{ fiveoh.rating_count.value }} reviews
+  <button data-fo-action="open-modal" aria-controls="review-form">Write a review</button>
+</header>
+{%- assign metas = fiveoh.newest_reviews_meta.value | compact -%}
+{%- for review in fiveoh.newest_reviews.value limit: 2 -%}
+  <article>
+    <span class="fo-stars" style="--fo-rating: {{ review.rating.value.rating }}"></span>
+    {{ review.author_display_name.value }}
+    <p>{{ metas[forloop.index0].body.value }}</p>
+  </article>
+{%- endfor -%}`,
     render: (skin) => shell(skin, <div>
       <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", marginBottom: 12 }}>
         <span style={{ fontSize: 22, fontWeight: skin.weight }}>{agg.ratingDecimal}</span>
@@ -129,13 +138,14 @@ const blocks = [
   },
   {
     name: "Review Item",
-    file: "Review Item · Structure",
-    code: `<div class="fo-review-item__header">
-  <div class="fo-product-rating">{stars} {rating}/{max}</div>
-  {status}
-</div>
-{body}
-<div class="fo-review-item__meta">{author} · {date}</div>`,
+    file: "Review List · Structure (one review)",
+    code: `<article>
+  <span class="fo-stars" style="--fo-rating: {{ review.rating.value.rating }}"></span>
+  {{ review.rating.value.rating }}/5
+  {%- if review.app_verification_status.value == 'verified_buyer' %} ✓ Verified{% endif %}
+  <p>{{ meta.body.value }}</p>
+  {{ review.author_display_name.value }} · {{ review.submitted_at.value | date: '%b %-d' }}
+</article>`,
     render: (skin) => shell(skin, <>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
@@ -151,10 +161,10 @@ const blocks = [
   {
     name: "Rating Bar",
     file: "Rating Bar · Structure",
-    code: `<div class="fo-rating-bar__inner">
-  <div class="fo-rating-bar__stars">{stars}</div>
-  <div class="fo-rating-bar__text"><strong>{rating}</strong> based on <strong>{count}</strong> {pluralised_reviews}</div>
-</div>`,
+    code: `{%- assign fiveoh = shop.metafields['$app'] -%}
+<span class="fo-stars" style="--fo-rating: {{ fiveoh.rating.value.rating }}"></span>
+<strong>{{ fiveoh.rating.value.rating }}</strong> based on
+<strong>{{ fiveoh.rating_count.value }}</strong> reviews`,
     render: (skin) => shell(skin, <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
       <Stars skin={skin} size={20} />
       <div style={{ fontSize: 15 }}>
@@ -165,11 +175,10 @@ const blocks = [
   {
     name: "Floating Badge",
     file: "Floating Badge · Structure",
-    code: `<div class="fo-floating-badge__body">
-  <div class="fo-floating-badge__stars">{stars}</div>
-  <div class="fo-floating-badge__rating"><strong>{rating_decimal}</strong> out of {max}</div>
-  <div class="fo-floating-badge__count"><strong>{count}</strong> {pluralised_reviews}</div>
-</div>`,
+    code: `{%- assign fiveoh = shop.metafields['$app'] -%}
+<span class="fo-stars" style="--fo-rating: {{ fiveoh.rating.value.rating }}"></span>
+<p><strong>{{ fiveoh.rating.value.rating }}</strong> out of 5</p>
+<p><strong>{{ fiveoh.rating_count.value }}</strong> reviews</p>`,
     render: (skin) => shell(skin, <div style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", gap: 4, textAlign: "center" }}>
       <Stars skin={skin} size={20} />
       <div style={{ fontSize: 15 }}><strong style={{ fontWeight: skin.weight }}>{agg.ratingDecimal}</strong> out of {agg.max}</div>
@@ -179,10 +188,9 @@ const blocks = [
   {
     name: "Product Rating",
     file: "Product Rating · Structure",
-    code: `<div class="fo-product-rating">
-  <div>{stars}</div>
-  <div>{rating}/{max} ({count} {pluralised_reviews})</div>
-</div>`,
+    code: `{%- assign fiveoh = product.metafields['$app'] -%}
+<span class="fo-stars" style="--fo-rating: {{ fiveoh.rating.value.rating }}"></span>
+{{ fiveoh.rating.value.rating }}/5 ({{ fiveoh.rating_count.value }} reviews)`,
     render: (skin) => shell(skin, <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
       <Stars skin={skin} size={20} />
       <span style={{ fontWeight: skin.weight }}>{agg.rating}/{agg.max}</span>
@@ -191,25 +199,30 @@ const blocks = [
   },
   {
     name: "Product Card Ratings",
-    file: "Product Card Ratings · Structure",
-    code: `<div class="fo-product-rating">
-  <div>{star}</div>
-  <div>{rating}/{max} ({count})</div>
-</div>`,
+    file: "snippets/card-product.liquid",
+    code: `{%- assign fiveoh = card_product.metafields['app--324569563137'] -%}
+{%- if fiveoh.rating_count.value > 0 -%}
+  <span class="fo-stars" style="--fo-rating: {{ fiveoh.rating.value.rating }}"></span>
+  {{ fiveoh.rating.value.rating }} ({{ fiveoh.rating_count.value }})
+{%- endif -%}`,
     render: (skin) => shell(skin, <div style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 14 }}>
-      <Stars skin={skin} size={16} count={1} />
-      <span style={{ fontWeight: skin.weight }}>{agg.rating}/{agg.max}</span>
+      <Stars skin={skin} size={16} />
+      <span style={{ fontWeight: skin.weight }}>{agg.rating}</span>
       <span style={{ color: skin.muted }}>({agg.count})</span>
     </div>),
   },
   {
     name: "Rating Summary",
     file: "Review List · Structure",
-    code: `<div class="fo-review-list__header">
-  <div class="fo-product-rating">{rating_decimal} {stars}</div>
-  <span>{count} {pluralised_reviews}</span>
-</div>
-{distribution}`,
+    code: `{%- assign fiveoh = product.metafields['$app'] -%}
+{{ fiveoh.rating.value.rating }}
+<span class="fo-stars" style="--fo-rating: {{ fiveoh.rating.value.rating }}"></span>
+{{ fiveoh.rating_count.value }} reviews
+{%- for star in (1..5) reversed -%}
+  {%- assign key = star | append: '' -%}
+  {%- assign row = fiveoh.rating_distribution.value[key] -%}
+  <p>{{ star }} <meter value="{{ row.percent }}" max="100"></meter> {{ row.percent }}%</p>
+{%- endfor -%}`,
     render: (skin) => shell(skin, <div>
       <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
         <span style={{ fontSize: 22, fontWeight: skin.weight }}>{agg.ratingDecimal}</span>
@@ -229,26 +242,26 @@ const blocks = [
   },
   {
     name: "Sold Count",
-    file: "Sold Count · Text",
-    code: `{sold_count}+ sold in the last 7 days`,
+    file: "Sold Count · Texts",
+    code: `sold_count: {a}+ sold in the last 7 days`,
     render: (skin) => <Signal skin={skin}><strong style={{ fontWeight: skin.weight }}>1,204+</strong> sold in the last 7 days</Signal>,
   },
   {
     name: "Bestseller",
-    file: "Bestseller · Text",
-    code: `#{sold_rank} best-selling in the last 30 days`,
+    file: "Bestseller · Texts",
+    code: `bestseller: #{a} best-selling in the last 30 days`,
     render: (skin) => <Signal skin={skin}><strong style={{ fontWeight: skin.weight }}>#2</strong> best-selling in the last 30 days</Signal>,
   },
   {
     name: "Last Purchased",
-    file: "Last Purchased · Text",
-    code: `Last purchased {last_purchased_at_relative}`,
+    file: "Last Purchased · Texts",
+    code: `last_purchased: Last purchased {a}`,
     render: (skin) => <Signal skin={skin}>Last purchased <strong style={{ fontWeight: skin.weight }}>6 hours ago</strong></Signal>,
   },
   {
-    name: "Return Customers",
-    file: "Return Customers · Text",
-    code: `{return_rate}% are returning customers`,
+    name: "Returning Customers",
+    file: "Returning Customers · Texts",
+    code: `returning_customers: {a}% are returning customers`,
     render: (skin) => <Signal skin={skin}><strong style={{ fontWeight: skin.weight }}>38%</strong> are returning customers</Signal>,
   },
 ]

@@ -367,3 +367,8 @@ article a {
 body.modal-open header {
   z-index: 0 !important;
 }
+
+/* Docs code blocks: smaller than Nextra's default, so examples fit without scrolling. */
+.nextra-code pre {
+  font-size: 0.8rem;
+}

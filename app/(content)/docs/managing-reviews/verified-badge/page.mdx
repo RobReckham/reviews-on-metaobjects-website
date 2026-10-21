@@ -1,22 +1,48 @@
 ---
 title: Verified badge
-description: Mark reviews backed by a real order as verified.
+description: How FiveOh marks reviews from real buyers and how the status shows on your storefront.
 ---
 
 # Verified badge
 
-A verified badge signals that a review comes from a genuine purchase.
+Every review has a verification status. It tells shoppers how much they can trust a review, and it is shown next to the author in the review list and the slider.
 
-## How it works
+| Status | Default text | When |
+|---|---|---|
+| `verified_buyer` | Verified Buyer | The review belongs to an order, for example through the [post-purchase form](/docs/displaying-reviews/post-purchase-form). |
+| `verified_reviewer` | Verified Reviewer | The author was a logged-in customer, without an order behind the review. All reviews from the [Review Form](/docs/displaying-reviews/review-form) by logged-in customers get this status, also with **Who can review** set to **buyers**: the form on the product page is not linked to an order. |
+| `unverified` | Unverified | Neither: for example a review from a visitor who was not logged in. |
 
-- Each review carries a verification status.
-- Reviews collected through the post-purchase flow are verified. A review submitted through a public form is not.
-- The badge renders as part of the `{status}` placeholder on each review item.
+Imported reviews keep the verification of their source where it provides one. For example, a REVIEWS.io review with an order becomes `verified_buyer`.
 
-## Displaying it
+## Showing and hiding the badge
 
-Keep `{status}` in your review-item structure to render the verification badge. See [Customising app blocks](/docs/displaying-reviews/customising-app-blocks#review-item-each-review-inside-the-list).
+The texts are the `status_verified_buyer`, `status_verified_reviewer` and `status_unverified` lines in the [Review List](/docs/displaying-reviews/review-list)'s and [Reviews Slider](/docs/displaying-reviews/reviews-slider)'s **Texts** setting. Leave a line empty to show nothing for that status, for example `status_unverified:` to show badges only for verified reviews.
+
+Shoppers can also filter the review list to verified reviews only.
+
+## In your own theme code
+
+The status is the `app_verification_status` field of the `product_review`. The snippet goes inside a loop over a review list, like the one in [Developers](/docs/developers#a-list-of-reviews), where `review` is the `product_review` and `meta` its `review_meta` at the same position. Each example brings the CSS for exactly the look of its preview, scoped to its own classes so it does not touch the rest of your theme. Only the font and the text color come from your theme. The stars (`fo-stars`) need FiveOh's star styles on the page, which every FiveOh block and the [Product Card Ratings](/docs/displaying-reviews/product-card-ratings) app embed load.
+
+<Example>
+<span className="reviews-verified">✓ Verified Buyer</span>
+
+```liquid
+{%- if review.app_verification_status.value == 'verified_buyer' -%}
+  <span class="reviews-verified">✓ Verified Buyer</span>
+{%- endif -%}
+```
+
+```css
+.reviews-verified {
+  color: #15803d;
+  font-weight: 600;
+}
+```
+
+</Example>
 
 ## Troubleshooting
 
-- If a review is unexpectedly unverified, check how it was collected. Only order-backed submissions are marked verified.
+1. **A review is unexpectedly unverified:** check how it was collected. Only reviews linked to an order are verified buyers.

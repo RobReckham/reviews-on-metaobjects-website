@@ -1,0 +1,85 @@
+---
+title: Languages
+description: How reviews, labels and your own texts follow the storefront language, in theme files and in a block's structure.
+---
+
+# Languages
+
+The examples in these docs write their texts in English, like `126 reviews` or `Load more reviews`, to keep the code short. In a store with more than one language, those texts need translating. How depends on where the code lives. The reviews themselves need no work: they arrive translated.
+
+## Review content
+
+Review titles, texts and your replies are [translated automatically](/docs/managing-reviews/translations) and stored on the review's `review_meta`. Liquid returns the shopper's language on its own, so read the text from the meta, not from the `product_review`, which holds the original:
+
+```liquid
+{%- assign fiveoh = product.metafields['app--324569563137'] -%}
+{%- assign metas = fiveoh.newest_reviews_meta.value | compact -%}
+{%- for review in fiveoh.newest_reviews.value -%}
+  {{ metas[forloop.index0].body.value }}
+{%- endfor -%}
+```
+
+In the Storefront API, ask for the language with the `@inContext(language: FR)` directive.
+
+## Texts in theme files
+
+In your theme's own sections and snippets, texts belong in the theme's locale files, like `locales/en.default.json`, and are read with the `| t` filter. Shopify picks the shopper's language and the right plural form:
+
+```json
+{
+  "reviews": {
+    "count": {
+      "one": "{{ count }} review",
+      "other": "{{ count }} reviews"
+    },
+    "load_more": "Load more reviews"
+  }
+}
+```
+
+```liquid
+{%- assign fiveoh = product.metafields['app--324569563137'] -%}
+{{ 'reviews.count' | t: count: fiveoh.rating_count.value }}
+<button data-fo-action="load-more">{{ 'reviews.load_more' | t }}</button>
+```
+
+Translate the keys in the other locale files, like `locales/de.json`, or in the **Translate & Adapt** app under your theme's content.
+
+## Texts in a block's structure
+
+When you paste an example into a FiveOh block's **Structure** field, `| t` does not work: app blocks cannot read your theme's locale files. Use the block's **Texts** setting instead, which is translatable in Translate & Adapt:
+
+1. Add a line to the block's **Texts** setting, for example `review_count: 1 review|{a} reviews`.
+2. Replace the English text in the structure with the `fo-text` snippet:
+
+```liquid
+{%- assign count = product.metafields['$app'].rating_count.value -%}
+{% render 'fo-text', key: 'review_count', a: count, plural_by: count %}
+```
+
+`{a}` is replaced by the value you pass, and `plural_by` picks the first form for exactly 1. Inside an HTML attribute, like an `aria-label`, capture the text first and clean it:
+
+```liquid
+{%- assign rating = product.metafields['$app'].rating.value.rating -%}
+{%- capture label -%}{% render 'fo-text', key: 'stars_label', a: rating %}{%- endcapture -%}
+<span class="fo-stars" style="--fo-rating: {{ rating }}" role="img" aria-label="{{ label | strip_html | strip | escape }}"></span>
+```
+
+See [Texts](/docs/displaying-reviews/customising-blocks#texts) for the format of the setting.
+
+## Attribute labels
+
+The questions and labels of [additional attributes](/docs/managing-reviews/additional-attributes) are stored in every shop language inside `review_attribute_definitions`. Pick the shopper's language and fall back to the shop's main language:
+
+```liquid
+{%- assign definitions = shop.metafields['app--324569563137'].review_attribute_definitions.value -%}
+{%- for definition in definitions.items -%}
+  {{ definition.label[request.locale.iso_code] | default: definition.label[definitions.primary_locale] }}
+{%- endfor -%}
+```
+
+## Dates and numbers
+
+1. **Dates:** `| date: format: 'abbreviated_date'` formats a date in the shopper's language, using the formats of your theme's locale files.
+2. **Short counts:** `rating_count_compact` and `sold_count_compact` hold short numbers like `12.9k` for tight spaces.
+3. **Ratings:** ratings like `4.8` are written with a decimal point. If your language uses a comma, replace it: `{{ rating | replace: '.', ',' }}`.

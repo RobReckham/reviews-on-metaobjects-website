@@ -1,0 +1,689 @@
+---
+title: Metaobjects & metafields
+description: Every metafield and metaobject FiveOh writes, where it lives, what it holds and the full structure of its values.
+---
+
+{/* Generated from app/CONTRACT.md by pnpm docs:sync-contract. Edit contract-pages/developers/metaobjects-and-metafields.mdx or the contract, not this file. */}
+
+# Metaobjects & metafields
+
+FiveOh stores everything in your Shopify store, as two kinds of Shopify data:
+
+1. **Metafields** are extra fields on Shopify's own objects. FiveOh adds ratings, review lists, AI summaries and sales figures to your products, variants, shop, customers and orders.
+2. **Metaobjects** are records of their own. Every review is one: Shopify's standard `product_review`, plus FiveOh's `review_meta` with the translations.
+
+Your theme reads both with Liquid, like any product data. This page lists all of them. If you are new to building on FiveOh, start with [Developers](/docs/developers).
+
+## Metafields
+
+FiveOh keeps ratings, review lists, AI summaries and sales figures as metafields on products, variants, the shop, customers and orders, and updates them whenever a review or an order changes. Liquid reads them like any other metafield:
+
+```liquid
+{%- assign fiveoh = product.metafields['app--324569563137'] -%}
+{{ fiveoh.rating.value.rating }} out of 5, from {{ fiveoh.rating_count.value }} reviews
+```
+
+The tables below list them by where they live. Each name links to its details further down: type, an example, how to read it, and for JSON values the full structure.
+
+They are readable in the storefront and through the Storefront API, except where noted. Customer account extensions can read the ones on customers, orders and the shop.
+
+### On products
+
+| Metafield | Type | Holds |
+|---|---|---|
+| [`rating`](#rating) | Rating | Average rating of the product's reviews, including its variants' reviews |
+| [`rating_count`](#rating_count) | Integer | Number of reviews behind `rating` |
+| [`rating_count_compact`](#rating_count_compact) | Text | `rating_count` shortened for texts, like `12.9k` |
+| [`rating_distribution`](#rating_distribution) | JSON | Number and share of reviews per star |
+| [`rating_buckets`](#rating_buckets) | List of texts | Rating steps the product reaches, for rating filters |
+| [`newest_reviews`](#newest_reviews) | List of `product_review` | The product's reviews, including its variants', newest first |
+| [`newest_reviews_meta`](#newest_reviews) | List of `review_meta` | Translations and extras of `newest_reviews`, at the same positions |
+| [`featured_reviews`](#featured_reviews) | List of `product_review` | Featured reviews |
+| [`featured_reviews_meta`](#featured_reviews) | List of `review_meta` | Translations and extras of `featured_reviews`, at the same positions |
+| [`review_summary_short`](#review_summary) | Multi-line text | AI summary of the reviews in one line |
+| [`review_summary`](#review_summary) | Multi-line text | AI summary of the reviews in a few sentences |
+| [`review_summary_long`](#review_summary) | Multi-line text | AI summary of the reviews in a paragraph |
+| [`live_signals`](#live_signals) | JSON | Units sold, sales rank and returning customers per period, last purchase |
+| [`additional_attributes`](#additional_attributes) | JSON | Averages of the attribute answers, like fit |
+| [`rating_history`](#rating_history) | JSON | Reserved: not written yet |
+| `most_helpful_reviews` | List of `product_review` | Reserved: not written yet |
+| `best_converting_reviews` | List of `product_review` | Reserved: not written yet |
+| `newest_reviews_with_media` | List of `product_review` | Reserved: not written yet |
+
+### On variants
+
+| Metafield | Type | Holds |
+|---|---|---|
+| [`rating`](#rating) | Rating | Average rating of the variant's reviews |
+| [`rating_count`](#rating_count) | Integer | Number of reviews behind `rating` |
+| [`rating_count_compact`](#rating_count_compact) | Text | `rating_count` shortened for texts, like `12.9k` |
+| [`rating_distribution`](#rating_distribution) | JSON | Number and share of reviews per star |
+| [`rating_buckets`](#rating_buckets) | List of texts | Rating steps the variant reaches, for rating filters |
+| [`newest_reviews`](#newest_reviews) | List of `product_review` | The variant's reviews, newest first |
+| [`newest_reviews_meta`](#newest_reviews) | List of `review_meta` | Translations and extras of `newest_reviews`, at the same positions |
+| [`featured_reviews`](#featured_reviews) | List of `product_review` | Featured reviews of the variant |
+| [`featured_reviews_meta`](#featured_reviews) | List of `review_meta` | Translations and extras of `featured_reviews`, at the same positions |
+| [`review_summary_short`](#review_summary) | Multi-line text | AI summary in one line |
+| [`review_summary`](#review_summary) | Multi-line text | AI summary in a few sentences |
+| [`review_summary_long`](#review_summary) | Multi-line text | AI summary in a paragraph |
+| [`live_signals`](#live_signals) | JSON | Units sold, sales rank and returning customers per period, last purchase |
+| [`additional_attributes`](#additional_attributes) | JSON | Averages of the attribute answers |
+
+### On the shop
+
+| Metafield | Type | Holds |
+|---|---|---|
+| [`rating`](#rating) | Rating | Average rating of all reviews |
+| [`rating_count`](#rating_count) | Integer | Number of all reviews |
+| [`rating_count_compact`](#rating_count_compact) | Text | `rating_count` shortened for texts, like `12.9k` |
+| [`rating_distribution`](#rating_distribution) | JSON | Number and share of all reviews per star |
+| [`product_reviews_rating`](#product_reviews_rating) | Rating | Average rating of product reviews only |
+| [`product_reviews_rating_count`](#product_reviews_rating) | Integer | Number of product reviews |
+| [`product_reviews_rating_distribution`](#product_reviews_rating) | JSON | Product reviews per star |
+| [`store_reviews_rating`](#store_reviews_rating) | Rating | Average rating of store reviews only: reviews about the shop itself, not a product, like Trustpilot service reviews |
+| [`store_reviews_rating_count`](#store_reviews_rating) | Integer | Number of store reviews |
+| [`store_reviews_rating_distribution`](#store_reviews_rating) | JSON | Store reviews per star |
+| [`newest_reviews`](#newest_reviews) | List of `product_review` | All reviews of the shop, newest first |
+| [`newest_reviews_meta`](#newest_reviews) | List of `review_meta` | Translations and extras of `newest_reviews`, at the same positions |
+| [`featured_reviews`](#featured_reviews) | List of `product_review` | Featured reviews of the whole shop |
+| [`featured_reviews_meta`](#featured_reviews) | List of `review_meta` | Translations and extras of `featured_reviews`, at the same positions |
+| [`newest_store_reviews`](#newest_store_reviews) | List of `product_review` | Store reviews, newest first |
+| [`newest_store_reviews_meta`](#newest_store_reviews) | List of `review_meta` | Translations and extras of `newest_store_reviews` |
+| [`featured_store_reviews`](#featured_store_reviews) | List of `product_review` | Featured store reviews |
+| [`featured_store_reviews_meta`](#featured_store_reviews) | List of `review_meta` | Translations and extras of `featured_store_reviews` |
+| [`review_summary_short`](#review_summary) | Multi-line text | AI summary of all reviews in one line |
+| [`review_summary`](#review_summary) | Multi-line text | AI summary of all reviews in a few sentences |
+| [`review_summary_long`](#review_summary) | Multi-line text | AI summary of all reviews in a paragraph |
+| [`live_signals`](#live_signals) | JSON | Units sold and returning customers of the whole shop per period, last purchase |
+| [`additional_attributes`](#additional_attributes) | JSON | Averages of the attribute answers across the shop |
+| [`review_attribute_definitions`](#review_attribute_definitions) | JSON | The attribute questions, labels and options, in every shop language |
+| [`rating_history`](#rating_history) | JSON | Reserved: not written yet |
+
+### On customers
+
+| Metafield | Type | Holds |
+|---|---|---|
+| [`rating`](#rating) | Rating | Average rating of the reviews the customer wrote |
+| [`rating_count`](#rating_count) | Integer | Number of reviews the customer wrote |
+| [`rating_count_compact`](#rating_count_compact) | Text | `rating_count` shortened for texts |
+| [`rating_distribution`](#rating_distribution) | JSON | The customer's reviews per star |
+| [`newest_reviews`](#newest_reviews) | List of `product_review` | The reviews the customer wrote, newest first |
+| [`newest_reviews_meta`](#newest_reviews) | List of `review_meta` | Translations and extras of `newest_reviews`, at the same positions |
+| [`additional_attributes`](#additional_attributes) | JSON | Averages of the customer's attribute answers |
+| [`review_handles`](#review_handles) | JSON | Every product and variant the customer reviewed, with the review's handle |
+
+### On orders
+
+| Metafield | Type | Holds |
+|---|---|---|
+| [`rating`](#rating) | Rating | Average rating of the reviews written for the order |
+| [`rating_count`](#rating_count) | Integer | Number of reviews written for the order |
+| [`rating_count_compact`](#rating_count_compact) | Text | `rating_count` shortened for texts |
+| [`rating_distribution`](#rating_distribution) | JSON | The order's reviews per star |
+| [`newest_reviews`](#newest_reviews) | List of `product_review` | The reviews written for the order, newest first |
+| [`newest_reviews_meta`](#newest_reviews) | List of `review_meta` | Translations and extras of `newest_reviews`, at the same positions |
+| [`additional_attributes`](#additional_attributes) | JSON | Averages of the attribute answers in the order's reviews |
+| [`review_request`](#review_request) | Reference to a `review_request` | The order's review request. Not readable in the storefront |
+| [`review_request_url`](#review_request_url) | URL | Link to the post-purchase review form for the order. Not readable in the storefront |
+
+### JSON values
+
+All JSON values follow the same conventions:
+
+1. Keys are in snake_case, like `sold_count`.
+2. A fixed set of keys is an object. A list that can grow is wrapped as `{ "items": [ … ] }`.
+3. Values ending in `_rate` go from 0 to 1, values called `percent` from 0 to 100.
+4. Answers and aggregates store IDs and option keys, never labels. The labels are in [`review_attribute_definitions`](#review_attribute_definitions).
+
+## Metafield details
+
+### `rating`
+
+The average star rating, from 1 to 5, of the reviews that belong to the product, variant, shop, customer or order.
+
+- **Type:** Shopify's `rating` type
+- **On:** products (including their variants' reviews), variants, the shop (all reviews), customers (the reviews they wrote), orders (the reviews written for the order)
+- **Example:** `4.8`
+- **Liquid:** `{{ product.metafields['app--324569563137'].rating.value.rating }}`
+
+`rating` is not a plain number. In Liquid, `.value` is a rating object:
+
+| Liquid | Returns |
+|---|---|
+| `….rating.value.rating` | `4.8` |
+| `….rating.value.scale_min` | `1.0` |
+| `….rating.value.scale_max` | `5.0` |
+
+Read the number with `.value.rating`; `.value` alone prints the whole object. Whole numbers come with one decimal, like `5.0`; `| replace: '.0', ''` removes it. Through the Storefront API, the value is a JSON string with `value`, `scale_min` and `scale_max`.
+
+Shopify's own `reviews.rating` and `reviews.rating_count` metafields are written too, but any review app may overwrite them. Read FiveOh's.
+
+### `rating_count`
+
+The number of reviews behind `rating`.
+
+- **Type:** integer
+- **On:** products, variants, the shop, customers, orders
+- **Example:** `126`
+- **Liquid:** `{{ product.metafields['app--324569563137'].rating_count.value }}`
+
+### `rating_count_compact`
+
+`rating_count` shortened for texts and tight spaces.
+
+- **Type:** single line text
+- **On:** products, variants, the shop, customers, orders
+- **Examples:** `950`, `12.9k`, `1.2m`
+- **Liquid:** `{{ shop.metafields['app--324569563137'].rating_count_compact.value }}`
+
+### `rating_distribution`
+
+How many reviews give each star, and their share of all reviews.
+
+- **Type:** JSON
+- **On:** products, variants, the shop, customers, orders
+- **Liquid:** `{{ product.metafields['app--324569563137'].rating_distribution.value['5'].percent }}`
+
+The keys are the stars as text, `"1"` to `"5"`, so quote them in Liquid: `['5']`. `percent` goes from 0 to 100.
+
+```json
+{
+  "1": {
+    "count": 0,
+    "percent": 0
+  },
+  "2": {
+    "count": 1,
+    "percent": 0.8
+  },
+  "3": {
+    "count": 4,
+    "percent": 3.2
+  },
+  "4": {
+    "count": 11,
+    "percent": 8.7
+  },
+  "5": {
+    "count": 110,
+    "percent": 87.3
+  }
+}
+```
+
+### `rating_buckets`
+
+Every rating step the average reaches, for rating filters in Shopify's Search & Discovery app. A product rated 4.6 reaches every step from `1+` to `4.5+`, so a filter on `4+` finds it. `5` is added only for a rating of exactly 5.
+
+- **Type:** list of single line texts
+- **On:** products, variants
+- **Example:** `["1+", "1.5+", "2+", "2.5+", "3+", "3.5+", "4+", "4.5+"]`
+
+### `product_reviews_rating`
+
+The shop's rating from product reviews only, without store reviews. It comes with two companions:
+
+- **`product_reviews_rating`:** Shopify's `rating` type, like [`rating`](#rating), example `4.7`
+- **`product_reviews_rating_count`:** integer, like [`rating_count`](#rating_count), example `1984`
+- **`product_reviews_rating_distribution`:** JSON, shaped like [`rating_distribution`](#rating_distribution)
+- **On:** the shop
+
+### `store_reviews_rating`
+
+The shop's rating from store reviews only: reviews about the shop itself, not about a product. It comes with two companions:
+
+- **`store_reviews_rating`:** Shopify's `rating` type, like [`rating`](#rating), example `4.9`
+- **`store_reviews_rating_count`:** integer, like [`rating_count`](#rating_count), example `357`
+- **`store_reviews_rating_distribution`:** JSON, shaped like [`rating_distribution`](#rating_distribution)
+- **On:** the shop
+
+### `newest_reviews`
+
+The newest reviews, newest first. It always comes as a pair: `newest_reviews` holds the `product_review` metaobjects, `newest_reviews_meta` the matching `review_meta` with the translated text and extras.
+
+- **Type:** list of metaobject references
+- **On:** products (including their variants' reviews), variants, the shop, customers (the reviews they wrote), orders (the reviews written for the order)
+- **Holds:** up to 250 reviews
+
+The review at position 1 of `newest_reviews` belongs to the meta at position 1 of `newest_reviews_meta`, and so on. To read them together, turn the meta list into an array with `| compact`, then use the loop's position:
+
+```liquid
+{%- assign fiveoh = product.metafields['app--324569563137'] -%}
+{%- assign metas = fiveoh.newest_reviews_meta.value | compact -%}
+
+{%- for review in fiveoh.newest_reviews.value limit: 10 -%}
+  {%- assign meta = metas[forloop.index0] -%}
+  <h3>{{ meta.title.value }}</h3>
+  <p>{{ meta.body.value }}</p>
+  <p>{{ review.rating.value.rating }} by {{ review.author_display_name.value }}</p>
+{%- endfor -%}
+```
+
+A Liquid loop over the list stops after 50 reviews; `.size` still counts all of them. Load the rest with [`<fo-reviews>`](/docs/developers/html-and-js#elements). The fields of each review are listed under [Metaobjects](#metaobjects).
+
+### `featured_reviews`
+
+The reviews you featured in the app, with `featured_reviews_meta` as its pair, like [`newest_reviews`](#newest_reviews).
+
+- **Type:** list of metaobject references
+- **On:** products, variants, the shop
+- **Order:** highest `featured_priority` first, then newest
+
+### `newest_store_reviews`
+
+The newest store reviews, about the shop rather than a product, with `newest_store_reviews_meta` as its pair.
+
+- **Type:** list of metaobject references
+- **On:** the shop
+
+### `featured_store_reviews`
+
+The featured store reviews, with `featured_store_reviews_meta` as its pair.
+
+- **Type:** list of metaobject references
+- **On:** the shop
+
+### `review_summary`
+
+An AI summary of what the reviews say, in three lengths. They are empty until there are enough reviews (5 by default).
+
+- **`review_summary_short`:** one line, for product cards
+- **`review_summary`:** a few sentences
+- **`review_summary_long`:** a full paragraph
+- **Type:** multi-line text
+- **On:** products, variants, the shop
+- **Liquid:** `{{ product.metafields['app--324569563137'].review_summary.value | newline_to_br }}`
+
+### `live_signals`
+
+Sales figures from the shop's orders, recalculated regularly: units sold, sales rank and returning customers for four periods, and the time of the last purchase.
+
+- **Type:** JSON
+- **On:** products, variants, the shop
+- **Liquid:** `{{ product.metafields['app--324569563137'].live_signals.value.periods.last_7_days.sold_count }}`
+
+The periods are `last_24_hours`, `last_7_days`, `last_30_days` and `all_time`. Each one holds:
+
+| Field | Holds |
+|---|---|
+| `sold_count` | Units sold in the period |
+| `sold_count_compact` | `sold_count` shortened for texts, like `12.9k` |
+| `sold_rank` | Place among all products by units sold, 1 is the bestseller. Only on products and variants |
+| `returning_customer_rate` | Share of buyers who had ordered from the shop before, from 0 to 1 |
+| `returning_customer_count` | Number of those returning buyers |
+
+```json
+{
+  "last_purchased_at": "2026-10-13T08:12:00Z",
+  "periods": {
+    "last_24_hours": {
+      "sold_count": 4,
+      "sold_count_compact": "4",
+      "sold_rank": 12,
+      "returning_customer_rate": 0.25,
+      "returning_customer_count": 1
+    },
+    "last_7_days": {
+      "sold_count": 128,
+      "sold_count_compact": "128",
+      "sold_rank": 3,
+      "returning_customer_rate": 0.41,
+      "returning_customer_count": 37
+    },
+    "last_30_days": {
+      "sold_count": 512,
+      "sold_count_compact": "512",
+      "sold_rank": 2,
+      "returning_customer_rate": 0.39,
+      "returning_customer_count": 148
+    },
+    "all_time": {
+      "sold_count": 12873,
+      "sold_count_compact": "12.9k",
+      "sold_rank": 1,
+      "returning_customer_rate": 0.34,
+      "returning_customer_count": 2950
+    }
+  }
+}
+```
+
+### `additional_attributes`
+
+The aggregated answers to the [attribute questions](#review_attribute_definitions), like the average fit.
+
+- **Type:** JSON
+- **On:** products, variants, the shop, customers, orders
+
+Every entry in `items` names its `attribute_id` and `type`. What else it holds depends on the type:
+
+| Type | Fields |
+|---|---|
+| `star_rating`, `slider_rating` | `value` (the average), `count`, `distribution` (like [`rating_distribution`](#rating_distribution)) |
+| `choice`, `yes_no` | `count`, `options` with `count` and `percent` per option key |
+| `multiple_choice` | Like `choice`. The percentages refer to the reviewers who answered, so together they can exceed 100 |
+| `text` | `count` |
+
+```json
+{
+  "items": [
+    {
+      "attribute_id": "fit",
+      "type": "slider_rating",
+      "value": 3.4,
+      "count": 12,
+      "distribution": {
+        "1": {
+          "count": 0,
+          "percent": 0
+        },
+        "2": {
+          "count": 1,
+          "percent": 8.3
+        },
+        "3": {
+          "count": 6,
+          "percent": 50
+        },
+        "4": {
+          "count": 4,
+          "percent": 33.3
+        },
+        "5": {
+          "count": 1,
+          "percent": 8.3
+        }
+      }
+    },
+    {
+      "attribute_id": "color_accuracy",
+      "type": "choice",
+      "count": 9,
+      "options": {
+        "yes": {
+          "count": 7,
+          "percent": 77.8
+        },
+        "no": {
+          "count": 2,
+          "percent": 22.2
+        }
+      }
+    }
+  ]
+}
+```
+
+### `review_attribute_definitions`
+
+The attribute questions: their type, question, label and options, each in every shop language.
+
+- **Type:** JSON
+- **On:** the shop
+
+| Field | Holds |
+|---|---|
+| `primary_locale` | The shop's main language |
+| `attribute_id` | The ID used in all answers and aggregates |
+| `type` | `star_rating`, `slider_rating`, `choice`, `multiple_choice`, `yes_no` or `text` |
+| `label`, `question` | Short name and full question, per language |
+| `scale_min`, `scale_max` | Range of `star_rating` and `slider_rating` |
+| `scale_labels` | Optional texts for the `left`, `center` and `right` of a scale, per language |
+| `options` | Answer options of `choice` and `multiple_choice`: a `key` and a `label` per language |
+| `filterable` | Whether shoppers can filter reviews by it |
+| `sort_order` | Display order |
+
+```json
+{
+  "primary_locale": "de",
+  "items": [
+    {
+      "attribute_id": "fit",
+      "type": "slider_rating",
+      "label": {
+        "de": "Passform",
+        "en": "Fit"
+      },
+      "question": {
+        "de": "Wie ist die Passform?",
+        "en": "How does it fit?"
+      },
+      "scale_min": 1,
+      "scale_max": 5,
+      "scale_labels": {
+        "left": {
+          "de": "Fällt klein aus",
+          "en": "Runs small"
+        },
+        "center": {
+          "de": "Passt genau",
+          "en": "True to size"
+        },
+        "right": {
+          "de": "Fällt groß aus",
+          "en": "Runs large"
+        }
+      },
+      "filterable": true,
+      "sort_order": 1
+    },
+    {
+      "attribute_id": "color_accuracy",
+      "type": "choice",
+      "label": {
+        "de": "Farbtreue",
+        "en": "Colour accuracy"
+      },
+      "question": {
+        "de": "Entspricht die Farbe den Fotos?",
+        "en": "Does the colour match the photos?"
+      },
+      "options": [
+        {
+          "key": "yes",
+          "label": {
+            "de": "Ja",
+            "en": "Yes"
+          }
+        },
+        {
+          "key": "no",
+          "label": {
+            "de": "Nein",
+            "en": "No"
+          }
+        }
+      ],
+      "filterable": true,
+      "sort_order": 2
+    }
+  ]
+}
+```
+
+Pick the shopper's language and fall back to the main language:
+
+```liquid
+{{ definition.label[request.locale.iso_code] | default: definition.label[definitions.primary_locale] }}
+```
+
+### `review_handles`
+
+Every product and variant the customer reviewed, with the handle of their review. A review of a variant is listed under the variant's ID, a review of the product itself under the product's ID.
+
+- **Type:** JSON
+- **On:** customers
+
+```json
+{
+  "gid://shopify/Product/8123": "rom_form_abc123",
+  "gid://shopify/ProductVariant/45437314170903": "rom_form_def456"
+}
+```
+
+### `review_request`
+
+The order's `review_request` metaobject, see [Metaobjects](#metaobjects).
+
+- **Type:** metaobject reference
+- **On:** orders
+- **Access:** customer accounts only; not readable in the storefront
+
+### `review_request_url`
+
+The link to the post-purchase review form for the order, as sent in the review request email.
+
+- **Type:** URL
+- **On:** orders
+- **Access:** customer accounts only; not readable in the storefront
+
+### `rating_history`
+
+Reserved, not written yet. A monthly history of the rating, each month on its own, not cumulative.
+
+- **Type:** JSON
+- **On:** products, the shop
+
+```json
+{
+  "items": [
+    {
+      "month": "2026-09",
+      "rating_count": 12,
+      "rating_sum": 55.5,
+      "rating": 4.6
+    },
+    {
+      "month": "2026-10",
+      "rating_count": 15,
+      "rating_sum": 64.5,
+      "rating": 4.3
+    }
+  ]
+}
+```
+
+## Metaobjects
+
+Every review is stored as two metaobjects with the same handle: Shopify's standard `product_review`, and FiveOh's `review_meta` with everything the standard type has no field for. Read a field with `.value`, like `review.title.value`.
+
+### `product_review`
+
+Shopify's standard metaobject type for product reviews. FiveOh writes these fields:
+
+| Field | Type | Holds |
+|---|---|---|
+| `rating` | Rating | The star rating, from 1 to 5 |
+| `title` | Text | Title, in the language it was written in |
+| `body` | Text | Review text, in the language it was written in |
+| `merchant_reply` | Text | Your reply, in the language you wrote it in |
+| `author_display_name` | Text | Public author name. Empty for anonymous reviews |
+| `author` | Customer reference | The customer who wrote the review |
+| `order` | Order reference | The order the review belongs to |
+| `product` | Product reference | The reviewed product |
+| `product_variant` | Variant reference | The reviewed variant. Empty for reviews of the whole product |
+| `submitted_at` | Date and time | When the review was written |
+| `published_at` | Date and time | When it was published |
+| `edited_at` | Date and time | When it was last edited |
+| `merchant_replied_at` | Date and time | When you replied |
+| `source` | Text | Where it comes from, as `{platform}_{id}`, like `reviewsio_123` |
+| `language` | Text | Language of the original text, like `de` |
+| `app_verification_status` | Text | `verified_buyer`, `verified_reviewer` or `unverified` |
+| `media_urls` | JSON | List of image and video URLs |
+
+For the text in the shopper's language, read `title`, `body` and `merchant_reply` from the `review_meta` instead.
+
+### `review_meta`
+
+One per review, with the same handle as its `product_review`. It is translatable: Liquid returns the text in the shopper's language. Customers can read their own in customer accounts.
+
+Its type is `app--324569563137--review_meta` in theme code and `$app:review_meta` inside FiveOh's blocks. To look up a review by its handle, for example one from [`review_handles`](#review_handles), read both metaobjects:
+
+```liquid
+{%- assign review = metaobjects.product_review[handle] -%}
+{%- assign meta = metaobjects['app--324569563137--review_meta'][handle] -%}
+{{ meta.title.value }}
+```
+
+| Field | Type | Holds |
+|---|---|---|
+| `title` | Text | Title, translated |
+| `body` | Text | Review text, translated |
+| `merchant_reply` | Text | Your reply, translated |
+| `additional_attributes` | JSON | The reviewer's answers to the attribute questions |
+| `featured_priority` | Integer | 0 when not featured. Higher values show first |
+| `upvote_count` | Integer | Reserved: not written yet |
+| `downvote_count` | Integer | Reserved: not written yet |
+
+`additional_attributes` holds one entry per answered question. A `multiple_choice` answer is a list of option keys:
+
+```json
+{
+  "items": [
+    {
+      "attribute_id": "fit",
+      "value": 4
+    },
+    {
+      "attribute_id": "color_accuracy",
+      "value": "yes"
+    },
+    {
+      "attribute_id": "colors",
+      "value": [
+        "black",
+        "navy"
+      ]
+    }
+  ]
+}
+```
+
+### `review_request`
+
+One per order, created when FiveOh plans a review request email. Its type is `$app:review_request`. Customers can read their own order's in customer accounts.
+
+| Field | Type | Holds |
+|---|---|---|
+| `order` | Order reference | The order |
+| `items` | JSON | The products to review |
+| `email_status` | Text | `pending`, `sent` or `skipped` |
+| `email_count` | Integer | Number of review request emails sent |
+| `last_email_sent_at` | Date and time | When the last email was sent |
+| `reward_discount_code` | Text | The discount code sent as a thank-you for the review |
+| `reward_email_sent_at` | Date and time | When the reward email was sent |
+
+`items` holds one entry per product of the order:
+
+```json
+{
+  "items": [
+    {
+      "product": "gid://shopify/Product/8123",
+      "product_variant": "gid://shopify/ProductVariant/45437314170903",
+      "product_handle": "merino-sneaker",
+      "product_title": "Merino Sneaker",
+      "variant_title": "42 / Grey",
+      "url": "https://example.com/products/merino-sneaker",
+      "product_image_url": "https://cdn.shopify.com/s/files/merino-sneaker.jpg",
+      "variant_image_url": null,
+      "excluded": false,
+      "review_handle": "rom_form_abc123",
+      "submitted_at": "2026-10-13T08:12:00Z"
+    }
+  ]
+}
+```
+
+| Field | Holds |
+|---|---|
+| `product`, `product_variant` | The product and variant, as Shopify IDs |
+| `product_handle`, `product_title`, `variant_title` | For showing the item |
+| `url` | The product's page in the online store |
+| `product_image_url`, `variant_image_url` | Images; `variant_image_url` is `null` when the variant has none |
+| `excluded` | `true` when a review request rule excludes the item |
+| `review_handle`, `submitted_at` | Set once the item was reviewed through the post-purchase form |
+
+### `post_purchase_review_request`
+
+The page the review request email links to. Its type is `$app:post_purchase_review_request`, and its only field is `title`.
