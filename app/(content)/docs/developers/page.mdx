@@ -119,7 +119,7 @@ Declare the metafields your extension reads in its `shopify.extension.toml`.
 Everything listed on [Metaobjects & metafields](/docs/developers/metaobjects-and-metafields) and [HTML & JS](/docs/developers/html-and-js) only grows: nothing there is ever renamed, removed or given a new meaning. Code you write against it keeps working through every update. These are the rules behind that promise:
 
 1. **Add only.** Nothing listed here is ever renamed, removed, or given a new meaning or scale. New metafields, fields, elements and attributes may be added at any time.
-2. **Everything else is internal** and may change without notice: CSS classes (except `fo-stars`), the endpoint the script loads reviews from, the app's settings, the data in FiveOh's own database, and the settings of the app blocks.
+2. **Everything else is internal** and may change without notice: CSS classes (except `fo-stars`), the endpoint the script loads reviews from, the app's settings, and the data in FiveOh's own database.
 3. **Server-rendered first.** Reviews and ratings are rendered with Liquid on the server. JavaScript only adds interaction, so without it everything stays readable.
 4. **Works with content loaded later.** Everything keeps working when the theme inserts it after the page loaded: predictive search, quick view, infinite scroll, the cart drawer and the Theme Editor.
 5. **Namespace.** In theme code, FiveOh's metafields are in the namespace `app--324569563137`. Inside FiveOh's own blocks the same namespace is written `$app`.

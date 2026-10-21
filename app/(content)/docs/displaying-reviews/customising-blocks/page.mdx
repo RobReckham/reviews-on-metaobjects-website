@@ -111,7 +111,7 @@ This is the Product Rating's structure:
 A few things to know when you edit it:
 
 1. **Data comes from metafields.** In a block, the namespace is `$app`: `product.metafields['$app'].rating`. Every metafield is listed in the [reference](/docs/developers/metaobjects-and-metafields).
-2. **Settings are in `block.settings`,** like `block.settings.minimum_reviews_to_show`. Block settings are not part of the reference. A future update could rename one; the default structure would follow, but an edited structure in your theme keeps the old name.
+2. **Settings are in `block.settings`,** like `block.settings.minimum_reviews_to_show`.
 3. **Texts come from `fo-text`.** `{% render 'fo-text', key: 'rating', a: rating_value, b: count, plural_by: count %}` prints the `rating` line of the Texts setting with `{a}` and `{b}` filled in. `plural_by` picks the singular or plural form. To use a text inside an HTML attribute, capture it first and clean it with `| strip_html | strip | escape`, as the `aria-label` above does.
 4. **Your own texts.** Add a new line to the Texts setting, like `badge: Top rated`, and render it with `{% render 'fo-text', key: 'badge' %}`. It is translatable like the others.
 5. **Interactive parts use `data-fo-*` attributes.** Load more, sort, filter, search, forms and sliders react to attributes like `data-fo-action="load-more"`, not to classes. Keep them on the elements when you restyle. They are listed in [HTML & JS](/docs/developers/html-and-js).
