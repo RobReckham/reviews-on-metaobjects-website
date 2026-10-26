@@ -33,18 +33,19 @@ Each block has one text in its **Texts** setting, with the values listed below. 
 
 ## Bestseller
 
-Shows the product's rank among all products by units sold in a period. Only on product pages.
+Shows the product's rank by units sold in a period, among all products or within collections you pick. Only on product pages.
 
 | Setting | What it does |
 |---|---|
 | **Period** | Last 24 hours, 7 days, 30 days (default) or all time. |
-| **Maximum rank to show** | Shows the block only for the top products, `10` by default. |
+| **Rank within collections** | Up to 50 collections, in order. Shows the rank within the first of them the product is in, like `Women` before `Men`. Empty by default: the rank among all products. |
+| **Maximum rank to show** | Shows the block only for the top products, `10` by default. Ranks within collections go up to 50. |
 
 | Key | Default | Values |
 |---|---|---|
-| `bestseller` | `#{a} best-selling in the last 30 days` | `{a}` rank |
+| `bestseller` | `#{a} best-selling in the last 30 days` | `{a}` rank, `{b}` title of the collection the rank is in (empty without collections) |
 
-Ranks change with sales, so a text like `Top {a} this month` or simply `Bestseller` works too.
+Ranks change with sales, so a text like `Top {a} this month` or simply `Bestseller` works too. With collections, name the collection: `#{a} in {b}`.
 
 ## Sold Count
 
@@ -106,12 +107,12 @@ The maximums are for the negative share types: with **1 star** and a **Maximum p
 
 The block reads these metafields. Your theme code can read the same ones; their full structure is in the [reference](/docs/developers/metaobjects-and-metafields). On product pages they are the product's, elsewhere the shop's.
 
-1. [`live_signals`](/docs/developers/metaobjects-and-metafields#live_signals): units sold, sales rank and returning customers for four periods, and the time of the last purchase. Bestseller, Sold Count, Last Purchased and Returning Customers read it.
+1. [`live_signals`](/docs/developers/metaobjects-and-metafields#live_signals): units sold, sales rank and returning customers for four periods, and the time of the last purchase. Bestseller, Sold Count, Last Purchased and Returning Customers read it. Bestseller with collections reads the collections' `live_signals` instead, which hold the rank within each collection.
 2. [`rating_distribution`](/docs/developers/metaobjects-and-metafields#rating_distribution): the number and share of reviews per star. Rating Share reads it.
 
 ## Examples
 
-Every value these blocks use is in the `live_signals` and `rating_distribution` metafields of the product and the shop, so you can show signals anywhere in your theme. Their structure is in the [Data](#data) section above.
+Every value these blocks use is in the `live_signals` and `rating_distribution` metafields of the product, the shop and your collections, so you can show signals anywhere in your theme. Their structure is in the [Data](#data) section above.
 
 The examples are one line of text each, so they need no CSS: they take the font and color of the spot in your theme where you put them.
 
@@ -137,6 +138,24 @@ Shown only from five units, a higher minimum than the block's default of 1:
 {%- assign month = product.metafields['app--324569563137'].live_signals.value.periods.last_30_days -%}
 {%- if month.sold_rank and month.sold_rank <= 10 -%}
   <p><strong>#{{ month.sold_rank }}</strong> best-selling in the last 30 days</p>
+{%- endif -%}
+```
+
+</Example>
+
+### Bestseller rank within a collection
+
+`sold_ranks` on a collection holds each product's place within that collection. Its keys are product IDs as text, so `product.id` gets `append: ''`. Here the place in the Shirts collection in the last 30 days, shown for the top 10:
+
+<Example>
+<p><strong>#1</strong> best-selling in Shirts</p>
+
+```liquid
+{%- assign shirts = collections['shirts'] -%}
+{%- assign product_key = product.id | append: '' -%}
+{%- assign place = shirts.metafields['app--324569563137'].live_signals.value.periods.last_30_days.sold_ranks[product_key] -%}
+{%- if place and place <= 10 -%}
+  <p><strong>#{{ place }}</strong> best-selling in {{ shirts.title }}</p>
 {%- endif -%}
 ```
 

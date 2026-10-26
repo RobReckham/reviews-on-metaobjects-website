@@ -16,7 +16,7 @@ Your theme reads both with Liquid, like any product data. This page lists all of
 
 ## Metafields
 
-FiveOh keeps ratings, review lists, AI summaries and sales figures as metafields on products, variants, the shop, customers and orders, and updates them whenever a review or an order changes. Liquid reads them like any other metafield:
+FiveOh keeps ratings, review lists, AI summaries and sales figures as metafields on products, variants, the shop, customers, orders and collections, and updates them whenever a review or an order changes. Liquid reads them like any other metafield:
 
 ```liquid
 {%- assign fiveoh = product.metafields['app--324569563137'] -%}
@@ -126,6 +126,12 @@ They are readable in the storefront and through the Storefront API, except where
 | [`review_request`](#review_request) | Reference to a `review_request` | The order's review request. Not readable in the storefront |
 | [`review_request_url`](#review_request_url) | URL | Link to the post-purchase review form for the order. Not readable in the storefront |
 
+### On collections
+
+| Metafield | Type | Holds |
+|---|---|---|
+| [`live_signals`](#live_signals) | JSON | Sales rank of the collection's 50 bestsellers per period |
+
 ### JSON values
 
 All JSON values follow the same conventions:
@@ -134,6 +140,7 @@ All JSON values follow the same conventions:
 2. A fixed set of keys is an object. A list that can grow is wrapped as `{ "items": [ … ] }`.
 3. Values ending in `_rate` go from 0 to 1, values called `percent` from 0 to 100.
 4. Answers and aggregates store IDs and option keys, never labels. The labels are in [`review_attribute_definitions`](#review_attribute_definitions).
+5. A lookup by product is an object keyed by the numeric product ID, the `product.id` of Liquid as text, like `sold_ranks`.
 
 ## Metafield details
 
@@ -299,7 +306,7 @@ An AI summary of what the reviews say, in three lengths. They are empty until th
 Sales figures from the shop's orders, recalculated regularly: units sold, sales rank and returning customers for four periods, and the time of the last purchase.
 
 - **Type:** JSON
-- **On:** products, variants, the shop
+- **On:** products, variants, the shop, collections
 - **Liquid:** `{{ product.metafields['app--324569563137'].live_signals.value.periods.last_7_days.sold_count }}`
 
 The periods are `last_24_hours`, `last_7_days`, `last_30_days` and `all_time`. Each one holds:
@@ -346,6 +353,29 @@ The periods are `last_24_hours`, `last_7_days`, `last_30_days` and `all_time`. E
     }
   }
 }
+```
+
+On collections, each period holds only `sold_ranks`: the collection's 50 bestsellers of the period, by numeric product ID, with their place within the collection. 1 is the collection's bestseller. A product that sold nothing in the period, or is not among the 50, is missing.
+
+```json
+{
+  "periods": {
+    "last_24_hours": { "sold_ranks": { "15508132626781": 1 } },
+    "last_7_days": { "sold_ranks": { "15508132626781": 2, "15508132659549": 1 } },
+    "last_30_days": { "sold_ranks": { "15508132626781": 1, "15508132659549": 3 } },
+    "all_time": { "sold_ranks": { "15508132626781": 4, "15508132659549": 2 } }
+  }
+}
+```
+
+In Liquid, `collection` is the collection being browsed: set on collection pages and on product pages opened from a collection (`/collections/shirts/products/...`). Anywhere else, pick a collection by its handle, like `collections['shirts']`.
+
+```liquid
+{%- assign product_key = product.id | append: '' -%}
+{%- assign place = collection.metafields['app--324569563137'].live_signals.value.periods.last_7_days.sold_ranks[product_key] -%}
+{%- if place -%}
+  <p>#{{ place }} in {{ collection.title }} this week</p>
+{%- endif -%}
 ```
 
 ### `additional_attributes`
